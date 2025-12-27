@@ -195,11 +195,13 @@
 
 @media (max-width: 768px) {
   .hero {
+    position: relative; /* Disable sticky/parallax on mobile */
     padding: 6px;
+    min-height: auto;
   }
 
   .heroCard {
-    height: calc(100vh - 12px - 40px);
+    height: calc(100svh - 12px); /* Use svh for mobile viewport */
     border-radius: 20px;
   }
 
@@ -256,11 +258,12 @@
 
 @media (max-width: 480px) {
   .hero {
+    position: relative; /* Disable sticky/parallax on mobile */
     padding: 4px;
   }
 
   .heroCard {
-    height: calc(100vh - 8px - 30px);
+    height: calc(100svh - 8px); /* Use svh for mobile viewport */
     border-radius: 16px;
   }
 

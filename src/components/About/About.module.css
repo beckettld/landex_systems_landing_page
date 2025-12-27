@@ -179,14 +179,13 @@
 
 @media (max-width: 768px) {
   .about {
-    margin-top: -50px;
+    margin-top: 0; /* No overlap needed without parallax */
     padding: var(--spacing-xl) 0;
-    padding-top: calc(var(--spacing-xl) + 20px);
+    padding-top: var(--spacing-xl);
   }
 
   .bellCurveWrapper {
-    width: 120px;
-    height: 20px;
+    display: none; /* Hide bump on mobile */
   }
 
   .container {
@@ -239,14 +238,8 @@
 
 @media (max-width: 480px) {
   .about {
-    margin-top: -40px;
+    margin-top: 0;
     padding: var(--spacing-lg) 0;
-    padding-top: calc(var(--spacing-lg) + 15px);
-  }
-
-  .bellCurveWrapper {
-    width: 100px;
-    height: 15px;
   }
 
   .container {
