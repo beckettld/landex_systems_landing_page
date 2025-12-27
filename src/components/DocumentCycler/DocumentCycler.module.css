@@ -1,0 +1,46 @@
+.cycler {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.document {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  animation: cycleDocument 12s ease-in-out infinite;
+}
+
+@keyframes cycleDocument {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+

@@ -1,0 +1,195 @@
+.about {
+  position: relative;
+  margin-top: -67px;
+  padding: var(--spacing-2xl) 0;
+  padding-top: calc(var(--spacing-2xl) + 30px);
+  background: #ffffff;
+  z-index: 2;
+}
+
+/* Bell curve bump at top - extends up to overlap hero card */
+.bellCurveWrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  width: 180px;
+  height: 30px;
+  z-index: 3;
+}
+
+.bellCurveSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scrollIndicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-dark);
+  opacity: 0.4;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+/* Mission section */
+.missionGrid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--spacing-2xl);
+  align-items: start;
+  padding-top: var(--spacing-xl);
+  min-height: 50vh;
+}
+
+.missionLabel {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  font-weight: 400;
+  padding-top: 0.5rem;
+}
+
+.missionContent {
+  max-width: 900px;
+}
+
+.missionHeading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: var(--color-dark);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.brandName {
+  color: #9CA3AF;
+  font-weight: 600;
+}
+
+/* Numbers section with image */
+.numbersSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  align-items: start;
+  padding-top: var(--spacing-lg);
+  justify-items: center;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 400px;
+  justify-self: end;
+  margin-top: 60px;
+}
+
+.numbersContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.numbersLabel {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+.statsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statNumber {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statSuffix {
+  font-size: 0.4em;
+  font-weight: 500;
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+.featureHighlight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: rgba(45, 74, 62, 0.08);
+  border-radius: 12px;
+  margin-top: var(--spacing-sm);
+}
+
+.featureIcon {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.featureText {
+  font-size: 1.1rem;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .missionGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .numbersSection {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .imageWrapper {
+    max-width: 100%;
+  }
+}
+

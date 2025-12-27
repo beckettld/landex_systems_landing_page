@@ -1,0 +1,105 @@
+.contact {
+  position: relative;
+  padding: 80px 16px;
+  background: #ffffff;
+  z-index: 2;
+}
+
+.backgroundWrapper {
+  position: absolute;
+  inset: 16px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--color-primary);
+}
+
+.container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  text-align: center;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  max-width: 700px;
+}
+
+.highlight {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #ffffff;
+  max-width: 550px;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-normal);
+  margin-top: var(--spacing-sm);
+}
+
+.ctaButton:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.contactInfo {
+  margin-top: var(--spacing-md);
+}
+
+.contactText {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.link {
+  color: #ffffff;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+
+  .ctaButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}

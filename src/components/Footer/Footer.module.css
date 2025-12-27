@@ -1,0 +1,24 @@
+.footer {
+  position: relative;
+  padding: var(--spacing-xl);
+  background: var(--color-dark);
+  z-index: 2;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.logo {
+  height: 36px;
+  opacity: 0.9;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
