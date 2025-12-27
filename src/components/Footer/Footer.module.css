@@ -20,5 +20,34 @@
 .copyright {
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--spacing-lg);
+  }
+
+  .logo {
+    height: 30px;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: var(--spacing-md);
+  }
+
+  .logo {
+    height: 24px;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+  }
 }
 

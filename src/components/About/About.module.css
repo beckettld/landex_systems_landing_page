@@ -178,18 +178,91 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    margin-top: -50px;
+    padding: var(--spacing-xl) 0;
+    padding-top: calc(var(--spacing-xl) + 20px);
+  }
+
+  .bellCurveWrapper {
+    width: 120px;
+    height: 20px;
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
   .missionGrid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    min-height: auto;
+  }
+
+  .missionLabel {
+    font-size: 0.8rem;
+  }
+
+  .missionHeading {
+    font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
   .numbersSection {
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
   }
 
   .imageWrapper {
-    max-width: 100%;
+    max-width: 280px;
+    margin-top: 0;
+    justify-self: center;
+    order: -1;
+  }
+
+  .statNumber {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .statsList {
+    gap: var(--spacing-lg);
+  }
+
+  .featureHighlight {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .featureText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    margin-top: -40px;
+    padding: var(--spacing-lg) 0;
+    padding-top: calc(var(--spacing-lg) + 15px);
+  }
+
+  .bellCurveWrapper {
+    width: 100px;
+    height: 15px;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .missionHeading {
+    font-size: 1.25rem;
+  }
+
+  .statNumber {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .imageWrapper {
+    max-width: 220px;
   }
 }
 
