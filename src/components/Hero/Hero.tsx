@@ -46,6 +46,12 @@ function Hero() {
             </button>
             <button 
               className={styles.navPill}
+              onClick={() => scrollToSection('video')}
+            >
+              Video
+            </button>
+            <button 
+              className={styles.navPill}
               onClick={() => scrollToSection('contact')}
             >
               Contact

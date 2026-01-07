@@ -1,5 +1,6 @@
 import Hero from './components/Hero/Hero'
 import About from './components/About/About'
+import Video from './components/Video/Video'
 import Features from './components/Features/Features'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
@@ -11,6 +12,7 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Video />
         <Features />
         <Contact />
         <Footer />
