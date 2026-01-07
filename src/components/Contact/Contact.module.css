@@ -94,12 +94,57 @@
 }
 
 @media (max-width: 768px) {
+  .contact {
+    padding: 60px 8px;
+  }
+
+  .backgroundWrapper {
+    inset: 8px;
+    border-radius: 20px;
+  }
+
   .container {
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 
   .ctaButton {
     padding: 1rem 2rem;
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 40px 6px;
+  }
+
+  .backgroundWrapper {
+    inset: 6px;
+    border-radius: 16px;
+  }
+
+  .container {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .ctaButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 }

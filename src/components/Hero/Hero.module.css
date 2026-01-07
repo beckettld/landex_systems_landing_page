@@ -195,63 +195,20 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: var(--spacing-sm);
+    position: relative; /* Disable sticky/parallax on mobile */
+    padding: 6px;
+    min-height: auto;
   }
 
   .heroCard {
-    border-radius: 24px;
+    height: calc(100svh - 12px); /* Use svh for mobile viewport */
+    border-radius: 20px;
   }
 
   .navbar {
-    padding: var(--spacing-sm);
+    padding: 12px;
   }
 
-  .navLeft {
-    gap: 0.25rem;
-  }
-
-  .navPill {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-
-  .logo {
-    height: 32px;
-  }
-
-  .ctaButton {
-    padding: 0.625rem 1.25rem;
-    font-size: 0.8rem;
-  }
-
-  .content {
-    padding: var(--spacing-lg);
-    padding-top: calc(70px + var(--spacing-lg));
-    align-items: center;
-    text-align: center;
-  }
-
-  .tagline {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
-  }
-
-  .marqueeWrapper {
-    bottom: 80px;
-  }
-
-  .marqueeText {
-    font-size: clamp(2.5rem, 10vw, 5rem);
-  }
-
-  .playButton {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-
-@media (max-width: 480px) {
   .navLeft {
     display: none;
   }
@@ -259,6 +216,80 @@
   .logoWrapper {
     position: static;
     transform: none;
+  }
+
+  .logo {
+    height: 28px;
+  }
+
+  .ctaButton {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .content {
+    padding: var(--spacing-md);
+    padding-top: calc(60px + var(--spacing-md));
+    align-items: center;
+    text-align: center;
+  }
+
+  .tagline {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .marqueeWrapper {
+    bottom: 40px;
+  }
+
+  .marqueeText {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+
+  .marqueeLogo {
+    height: clamp(30px, 6vw, 50px);
+  }
+
+  .marqueeItem {
+    gap: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    position: relative; /* Disable sticky/parallax on mobile */
+    padding: 4px;
+  }
+
+  .heroCard {
+    height: calc(100svh - 8px); /* Use svh for mobile viewport */
+    border-radius: 16px;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .logo {
+    height: 24px;
+  }
+
+  .ctaButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .marqueeWrapper {
+    bottom: 30px;
+  }
+
+  .marqueeText {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .marqueeLogo {
+    height: 25px;
   }
 }
 

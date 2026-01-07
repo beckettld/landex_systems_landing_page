@@ -7,3 +7,5 @@ export default defineConfig({
   assetsInclude: ['**/*.png', '**/*.svg'],
 })
 
+
+

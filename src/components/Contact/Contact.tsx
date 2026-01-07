@@ -4,7 +4,7 @@ function Contact() {
   const openCalendly = () => {
     if (window.Calendly) {
       window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/jackson-landexsystems/30min'
+        url: 'https://calendly.com/d/cxmx-c75-jgv/landex-systems-demo'
       });
     }
   };

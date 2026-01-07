@@ -178,18 +178,84 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    margin-top: 0; /* No overlap needed without parallax */
+    padding: var(--spacing-xl) 0;
+    padding-top: var(--spacing-xl);
+  }
+
+  .bellCurveWrapper {
+    display: none; /* Hide bump on mobile */
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
   .missionGrid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    min-height: auto;
+  }
+
+  .missionLabel {
+    font-size: 0.8rem;
+  }
+
+  .missionHeading {
+    font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
   .numbersSection {
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
   }
 
   .imageWrapper {
-    max-width: 100%;
+    max-width: 280px;
+    margin-top: 0;
+    justify-self: center;
+    order: -1;
+  }
+
+  .statNumber {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .statsList {
+    gap: var(--spacing-lg);
+  }
+
+  .featureHighlight {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .featureText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    margin-top: 0;
+    padding: var(--spacing-lg) 0;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .missionHeading {
+    font-size: 1.25rem;
+  }
+
+  .statNumber {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .imageWrapper {
+    max-width: 220px;
   }
 }
 
