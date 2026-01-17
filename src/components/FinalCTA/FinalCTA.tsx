@@ -21,7 +21,7 @@ function Contact() {
             <div className={styles.container}>
                 <div className={styles.content}>
                     <div className={styles.badge}>
-                        <span className={styles.badgeText}>Risk-Free Trial • Full Refund if Not Satisfied</span>
+                        <span className={styles.badgeText}>Risk-Free • Full Refund if Not Satisfied</span>
                     </div>
 
                     <h2 className={styles.headline}>
@@ -29,13 +29,13 @@ function Contact() {
                     </h2>
 
                     <p className={styles.subheadline}>
-                        Join surveyors and title professionals who are saving hours on every project. 
-                        Try Landex risk-free with our one-month refundable trial.
+                        Join surveyors and title professionals who are saving hours on every project.
+                        Try Landex risk-free with our one-month refundable guarantee.
                     </p>
 
                     <div className={styles.ctaGroup}>
                         <button className={styles.primaryCta} onClick={openCalendly}>
-                            Start Your Free Trial
+                            Schedule a Demo
                             <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
