@@ -1,9 +1,11 @@
 import Hero from './components/Hero/Hero'
-import About from './components/About/About'
+import Problem from './components/Problem/Problem'
+import Solution from './components/Solution/Solution'
+import Features from './components/Features/Features'
+import Technology from './components/Technology/Technology'
 import Partners from './components/Partners/Partners'
 import Video from './components/Video/Video'
-import Features from './components/Features/Features'
-import Contact from './components/Contact/Contact'
+import Contact from './components/FinalCTA/FinalCTA'
 import Footer from './components/Footer/Footer'
 import styles from './App.module.css'
 
@@ -12,10 +14,12 @@ function App() {
     <div className={styles.app}>
       <main>
         <Hero />
-        <About />
-        <Partners />
+        <Problem />
+        <Solution />
         <Video />
         <Features />
+        <Technology />
+        <Partners />
         <Contact />
         <Footer />
       </main>
@@ -24,4 +28,3 @@ function App() {
 }
 
 export default App
-

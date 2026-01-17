@@ -19,12 +19,12 @@ function About() {
         {/* Mission section */}
         <div className={styles.missionGrid}>
           <div className={styles.missionLabel}>
-            <span>Mission and Vision</span>
+            <span>Our Mission</span>
           </div>
           
           <div className={styles.missionContent}>
             <h2 className={styles.missionHeading}>
-              <span className={styles.brandName}>Landex Systems</span> delivers instant, comprehensive boundary research that would normally take days to compile.
+              <span className={styles.brandName}>Landex Systems</span> accelerates your land records research—delivering comprehensive results in minutes so you can focus on what matters: applying your expertise.
             </h2>
           </div>
         </div>
@@ -37,13 +37,13 @@ function About() {
           
           <div className={styles.numbersContent}>
             <div className={styles.numbersLabel}>
-              <span>Numbers</span>
+              <span>By the Numbers</span>
             </div>
             
             <div className={styles.statsList}>
               <div className={styles.stat}>
                 <span className={styles.statNumber}>99.7<span className={styles.statSuffix}>%</span></span>
-                <span className={styles.statLabel}>Deed retrieval</span>
+                <span className={styles.statLabel}>Deed retrieval accuracy</span>
               </div>
               <div className={styles.stat}>
                 <span className={styles.statNumber}>95<span className={styles.statSuffix}>%</span></span>
@@ -54,8 +54,8 @@ function About() {
                 <span className={styles.statLabel}>Years of ownership history</span>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>4<span className={styles.statSuffix}>min</span></span>
-                <span className={styles.statLabel}>To complete research</span>
+                <span className={styles.statNumber}>5<span className={styles.statSuffix}>min</span></span>
+                <span className={styles.statLabel}>Average research time</span>
               </div>
               <div className={styles.featureHighlight}>
                 <span className={styles.featureIcon}>✓</span>
@@ -70,4 +70,3 @@ function About() {
 }
 
 export default About
-

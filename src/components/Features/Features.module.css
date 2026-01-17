@@ -1,25 +1,46 @@
 .section {
   position: relative;
-  padding: 80px 0;
+  margin-top: -67px;
+  padding: 100px 0;
+  padding-top: calc(100px + 30px);
   background: #ffffff;
   z-index: 2;
 }
 
+/* Bell curve bump at top - extends up to overlap hero card */
+.bellCurveWrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  width: 180px;
+  height: 30px;
+  z-index: 3;
+}
+
+.bellCurveSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-xl);
 }
 
 .header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .label {
   font-size: 0.85rem;
   color: #9CA3AF;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   display: block;
@@ -28,31 +49,82 @@
 
 .title {
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-dark);
   letter-spacing: -0.02em;
   max-width: 700px;
+  margin: 0 auto var(--spacing-md);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 550px;
   margin: 0 auto;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
 }
 
 .card {
   padding: var(--spacing-xl);
-  background: #fafafa;
-  border-radius: 16px;
-  transition: all 0.3s ease;
+  background: #f8f9fa;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  border: 1px solid transparent;
 }
 
 .card:hover {
-  background: #f0f0f0;
+  background: #ffffff;
+  border-color: #e5e7eb;
   transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
 
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+}
+
+.cardIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.cardIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cardStat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
 
 .cardTitle {
   font-size: 1.15rem;
@@ -63,8 +135,32 @@
 
 .cardDescription {
   font-size: 0.95rem;
-  color: #666;
+  color: #6b7280;
   line-height: 1.6;
+}
+
+.trustIndicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid #e5e7eb;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.trustIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
 }
 
 @media (max-width: 1024px) {
@@ -75,7 +171,13 @@
 
 @media (max-width: 768px) {
   .section {
+    margin-top: 0;
     padding: 60px 0;
+    padding-top: 60px;
+  }
+
+  .bellCurveWrapper {
+    display: none;
   }
 
   .container {
@@ -88,6 +190,10 @@
 
   .title {
     font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 
   .grid {
@@ -106,10 +212,21 @@
   .cardDescription {
     font-size: 0.9rem;
   }
+
+  .statValue {
+    font-size: 1.25rem;
+  }
+
+  .trustIndicators {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
 }
 
 @media (max-width: 480px) {
   .section {
+    margin-top: 0;
     padding: 40px 0;
   }
 
@@ -125,4 +242,3 @@
     padding: var(--spacing-md);
   }
 }
-

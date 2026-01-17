@@ -1,0 +1,301 @@
+.section {
+  position: relative;
+  padding: 100px 0;
+  background: #f8f9fa;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: var(--spacing-md);
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  letter-spacing: -0.02em;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--spacing-xl);
+  align-items: stretch;
+}
+
+.beforeCard,
+.afterCard {
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.beforeCard {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.afterCard {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1px solid #86efac;
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.cardBadge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  padding: 0.5rem 1rem;
+  background: #f3f4f6;
+  border-radius: var(--radius-pill);
+}
+
+.cardBadgeSuccess {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #166534;
+  padding: 0.5rem 1rem;
+  background: rgba(34, 197, 94, 0.2);
+  border-radius: var(--radius-pill);
+}
+
+.timeIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.timeIndicatorSuccess {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.clockIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.painPoints {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.painPoint {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.painIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #dc2626;
+}
+
+.painIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.painText {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.checkIcon {
+  width: 20px;
+  height: 20px;
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefit span {
+  font-size: 0.95rem;
+  color: #166534;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.frustrationVisual {
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid #e5e7eb;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tab {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #9ca3af;
+  padding: 0.4rem 0.75rem;
+  background: #f3f4f6;
+  border-radius: var(--radius-sm);
+  border: 1px dashed #d1d5db;
+}
+
+.successVisual {
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.singleInterface {
+  padding: 1rem 1.5rem;
+  background: rgba(34, 197, 94, 0.15);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  text-align: center;
+}
+
+.interfaceLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #166534;
+}
+
+.arrowWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  color: var(--color-primary);
+  animation: pulseArrow 2s ease-in-out infinite;
+}
+
+@keyframes pulseArrow {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(4px);
+    opacity: 0.7;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .comparison {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .arrowWrapper {
+    transform: rotate(90deg);
+    padding: var(--spacing-sm) 0;
+  }
+
+  .arrow {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .beforeCard,
+  .afterCard {
+    padding: var(--spacing-lg);
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .beforeCard,
+  .afterCard {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+
+  .painText,
+  .benefit span {
+    font-size: 0.9rem;
+  }
+}

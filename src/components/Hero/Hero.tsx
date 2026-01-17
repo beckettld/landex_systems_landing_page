@@ -1,8 +1,6 @@
 import styles from './Hero.module.css'
 
 function Hero() {
-  const marqueeText = "Automated Boundary Research";
-
   const openCalendly = () => {
     if (window.Calendly) {
       window.Calendly.initPopupWidget({
@@ -22,35 +20,36 @@ function Hero() {
     <section id="hero" className={styles.hero}>
       <div className={styles.heroCard}>
         <div className={styles.backgroundWrapper}>
-          <img 
-            src="/assets/background.png" 
-            alt="Aerial view of agricultural fields" 
+          <img
+            src="/assets/background.png"
+            alt="Aerial view of agricultural fields"
             className={styles.backgroundImage}
           />
+          <div className={styles.backgroundOverlay}></div>
         </div>
 
         {/* Navbar inside hero card */}
         <nav className={styles.navbar}>
           <div className={styles.navLeft}>
-            <button 
+            <button
               className={styles.navPill}
               onClick={() => scrollToSection('hero')}
             >
               Home
             </button>
-            <button 
+            <button
               className={styles.navPill}
-              onClick={() => scrollToSection('about')}
+              onClick={() => scrollToSection('features')}
             >
-              About
+              Features
             </button>
-            <button 
+            <button
               className={styles.navPill}
               onClick={() => scrollToSection('video')}
             >
               Video
             </button>
-            <button 
+            <button
               className={styles.navPill}
               onClick={() => scrollToSection('contact')}
             >
@@ -59,15 +58,15 @@ function Hero() {
           </div>
 
           <div className={styles.logoWrapper}>
-            <img 
-              src="/assets/logo.svg" 
-              alt="Landex Systems" 
+            <img
+              src="/assets/logo.svg"
+              alt="Landex Systems"
               className={styles.logo}
             />
           </div>
 
           <div className={styles.navRight}>
-            <button 
+            <button
               className={styles.ctaButton}
               onClick={openCalendly}
             >
@@ -76,36 +75,39 @@ function Hero() {
           </div>
         </nav>
 
+        {/* Main Hero Content */}
         <div className={styles.content}>
-          {/* Content area - tagline removed */}
-        </div>
+          <div className={styles.heroContent}>
+            {/* Main Headline */}
+            <h1 className={styles.headline}>
+              Turn Hours of Land Records Research Into Minutes
+            </h1>
 
-        {/* Marquee overlay at bottom of hero */}
-        <div className={styles.marqueeWrapper}>
-          <div className={styles.marqueeTrack}>
-            <div className={styles.marqueeItem}>
-              <span className={styles.marqueeText}>{marqueeText}</span>
-              <img src="/assets/logo.svg" alt="" className={styles.marqueeLogo} />
+            {/* Subheadline */}
+            <p className={styles.subheadline}>
+              Stop spending hours in registries. Get complete deed chains, plans, and ownership history compiled in minutes—ready for your expert review.
+            </p>
+
+            {/* Trust Statement */}
+            <div className={styles.trustStatement}>
+              <svg className={styles.trustIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+              <span>Your starting point, not your replacement</span>
             </div>
-            <div className={styles.marqueeItem}>
-              <span className={styles.marqueeText}>{marqueeText}</span>
-              <img src="/assets/logo.svg" alt="" className={styles.marqueeLogo} />
-            </div>
-            <div className={styles.marqueeItem}>
-              <span className={styles.marqueeText}>{marqueeText}</span>
-              <img src="/assets/logo.svg" alt="" className={styles.marqueeLogo} />
-            </div>
-            <div className={styles.marqueeItem} aria-hidden="true">
-              <span className={styles.marqueeText}>{marqueeText}</span>
-              <img src="/assets/logo.svg" alt="" className={styles.marqueeLogo} />
-            </div>
-            <div className={styles.marqueeItem} aria-hidden="true">
-              <span className={styles.marqueeText}>{marqueeText}</span>
-              <img src="/assets/logo.svg" alt="" className={styles.marqueeLogo} />
-            </div>
-            <div className={styles.marqueeItem} aria-hidden="true">
-              <span className={styles.marqueeText}>{marqueeText}</span>
-              <img src="/assets/logo.svg" alt="" className={styles.marqueeLogo} />
+
+            {/* CTA Buttons */}
+            <div className={styles.ctaGroup}>
+              <button className={styles.primaryCta} onClick={openCalendly}>
+                Schedule a Demo
+                <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+              <button className={styles.secondaryCta} onClick={() => scrollToSection('video')}>
+                See How It Works
+              </button>
             </div>
           </div>
         </div>
@@ -116,4 +118,3 @@ function Hero() {
 }
 
 export default Hero
-
