@@ -14,11 +14,17 @@
 .navLeft {
   display: flex;
   align-items: center;
+  gap: 2rem;
 }
 
 .logo {
   height: 36px;
   width: auto;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1rem;
 }
 
 .navCenter {
@@ -68,7 +74,7 @@
     padding: 0.5rem 1.5rem;
   }
 
-  .navCenter {
+  .navLinks {
     display: none;
   }
 

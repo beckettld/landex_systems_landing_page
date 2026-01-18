@@ -10,6 +10,10 @@ function Navbar() {
   };
 
   const scrollToSection = (id: string) => {
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -24,39 +28,38 @@ function Navbar() {
           alt="Landex Systems"
           className={styles.logo}
         />
-      </div>
-
-      <div className={styles.navCenter}>
-        <button
-          className={styles.navLink}
-          onClick={() => scrollToSection('hero')}
-        >
-          Home
-        </button>
-        <button
-          className={styles.navLink}
-          onClick={() => scrollToSection('problem')}
-        >
-          Problem
-        </button>
-        <button
-          className={styles.navLink}
-          onClick={() => scrollToSection('solution')}
-        >
-          Solution
-        </button>
-        <button
-          className={styles.navLink}
-          onClick={() => scrollToSection('video')}
-        >
-          Video
-        </button>
-        <button
-          className={styles.navLink}
-          onClick={() => scrollToSection('contact')}
-        >
-          Contact
-        </button>
+        <div className={styles.navLinks}>
+          <button
+            className={styles.navLink}
+            onClick={() => scrollToSection('hero')}
+          >
+            Home
+          </button>
+          <button
+            className={styles.navLink}
+            onClick={() => scrollToSection('problem')}
+          >
+            Problem
+          </button>
+          <button
+            className={styles.navLink}
+            onClick={() => scrollToSection('solution')}
+          >
+            Solution
+          </button>
+          <button
+            className={styles.navLink}
+            onClick={() => scrollToSection('video')}
+          >
+            Video
+          </button>
+          <button
+            className={styles.navLink}
+            onClick={() => scrollToSection('contact')}
+          >
+            Contact
+          </button>
+        </div>
       </div>
 
       <div className={styles.navRight}>
