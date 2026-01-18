@@ -9,13 +9,6 @@ function Contact() {
         }
     };
 
-    const scrollToSection = (id: string) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
     return (
         <section id="contact" className={styles.section}>
             <div className={styles.container}>
@@ -29,7 +22,7 @@ function Contact() {
                     </h2>
 
                     <p className={styles.subheadline}>
-                        Join surveyors and title professionals who are saving hours on every project.
+                        Join professionals who are saving hours on every project.
                         Try Landex risk-free with our one-month refundable guarantee.
                     </p>
 
@@ -39,9 +32,6 @@ function Contact() {
                             <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </button>
-                        <button className={styles.secondaryCta} onClick={() => scrollToSection('video')}>
-                            Watch a Quick Demo
                         </button>
                     </div>
 
@@ -54,32 +44,6 @@ function Contact() {
                             <a href="mailto:allen@landexsystems.com" className={styles.emailLink}>
                                 allen@landexsystems.com
                             </a>
-                        </div>
-                    </div>
-
-                    <div className={styles.trustIndicators}>
-                        <div className={styles.trustItem}>
-                            <svg className={styles.trustIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                <path d="M9 12l2 2 4-4" />
-                            </svg>
-                            <span>Your starting point, not replacement</span>
-                        </div>
-                        <div className={styles.trustItem}>
-                            <svg className={styles.trustIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12,6 12,12 16,14" />
-                            </svg>
-                            <span>Fast results</span>
-                        </div>
-                        <div className={styles.trustItem}>
-                            <svg className={styles.trustIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                            </svg>
-                            <span>Trusted by professionals</span>
                         </div>
                     </div>
                 </div>

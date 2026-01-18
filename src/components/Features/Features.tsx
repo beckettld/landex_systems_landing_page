@@ -79,12 +79,6 @@ const features = [
 function Features() {
   return (
     <section id="features" className={styles.section}>
-      {/* Bell curve bump - part of Features section, extends up into hero */}
-      <div className={styles.bellCurveWrapper}>
-        <svg viewBox="0 0 400 100" preserveAspectRatio="none" className={styles.bellCurveSvg}>
-          <path d="M0,100 C60,100 120,0 200,0 C280,0 340,100 400,100 Z" fill="white" />
-        </svg>
-      </div>
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.label}>Features</span>
@@ -108,32 +102,6 @@ function Features() {
               <p className={styles.cardDescription}>{feature.description}</p>
             </div>
           ))}
-        </div>
-
-        <div className={styles.trustIndicators}>
-          <div className={styles.trustItem}>
-            <svg className={styles.trustIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <path d="M9 12l2 2 4-4"/>
-            </svg>
-            <span>Your starting point, not replacement</span>
-          </div>
-          <div className={styles.trustItem}>
-            <svg className={styles.trustIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12,6 12,12 16,14"/>
-            </svg>
-            <span>Fast results</span>
-          </div>
-          <div className={styles.trustItem}>
-            <svg className={styles.trustIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-            <span>Trusted by professionals</span>
-          </div>
         </div>
       </div>
     </section>

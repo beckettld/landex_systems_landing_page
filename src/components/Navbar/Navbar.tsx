@@ -4,7 +4,7 @@ function Navbar() {
   const openCalendly = () => {
     if (window.Calendly) {
       window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/your-link'
+        url: 'https://calendly.com/d/cxmx-c75-jgv/landex-systems-demo'
       });
     }
   };
@@ -19,36 +19,48 @@ function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navLeft}>
-        <button 
-          className={styles.navPill}
+        <img
+          src="/assets/logo.svg"
+          alt="Landex Systems"
+          className={styles.logo}
+        />
+      </div>
+
+      <div className={styles.navCenter}>
+        <button
+          className={styles.navLink}
           onClick={() => scrollToSection('hero')}
         >
           Home
         </button>
-        <button 
-          className={styles.navPill}
-          onClick={() => scrollToSection('about')}
+        <button
+          className={styles.navLink}
+          onClick={() => scrollToSection('problem')}
         >
-          About
+          Problem
         </button>
-        <button 
-          className={styles.navPill}
+        <button
+          className={styles.navLink}
+          onClick={() => scrollToSection('solution')}
+        >
+          Solution
+        </button>
+        <button
+          className={styles.navLink}
+          onClick={() => scrollToSection('video')}
+        >
+          Video
+        </button>
+        <button
+          className={styles.navLink}
           onClick={() => scrollToSection('contact')}
         >
           Contact
         </button>
       </div>
 
-      <div className={styles.logoWrapper}>
-        <img 
-          src="/assets/logo.svg" 
-          alt="Landex Systems" 
-          className={styles.logo}
-        />
-      </div>
-
       <div className={styles.navRight}>
-        <button 
+        <button
           className={styles.ctaButton}
           onClick={openCalendly}
         >

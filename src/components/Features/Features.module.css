@@ -1,29 +1,8 @@
 .section {
   position: relative;
-  margin-top: -67px;
   padding: 100px 0;
-  padding-top: calc(100px + 30px);
   background: #ffffff;
   z-index: 2;
-}
-
-/* Bell curve bump at top - extends up to overlap hero card */
-.bellCurveWrapper {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(-100%);
-  width: 180px;
-  height: 30px;
-  z-index: 3;
-}
-
-.bellCurveSvg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .container {
@@ -139,30 +118,6 @@
   line-height: 1.6;
 }
 
-.trustIndicators {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-2xl);
-  padding-top: var(--spacing-xl);
-  border-top: 1px solid #e5e7eb;
-}
-
-.trustItem {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-
-.trustIcon {
-  width: 18px;
-  height: 18px;
-  color: var(--color-primary);
-}
-
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -171,13 +126,7 @@
 
 @media (max-width: 768px) {
   .section {
-    margin-top: 0;
     padding: 60px 0;
-    padding-top: 60px;
-  }
-
-  .bellCurveWrapper {
-    display: none;
   }
 
   .container {
@@ -216,17 +165,10 @@
   .statValue {
     font-size: 1.25rem;
   }
-
-  .trustIndicators {
-    flex-direction: column;
-    gap: var(--spacing-md);
-    align-items: center;
-  }
 }
 
 @media (max-width: 480px) {
   .section {
-    margin-top: 0;
     padding: 40px 0;
   }
 

@@ -3,8 +3,8 @@ import styles from './Solution.module.css'
 const steps = [
     {
         number: '01',
-        title: 'Upload or Enter',
-        description: 'Input a parcel ID, address, or deed reference to start your research.',
+        title: 'Select or Enter',
+        description: 'Select parcels on a map or input parcel information to start your research.',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
