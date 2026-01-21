@@ -14,7 +14,7 @@ function Video() {
         <div className={styles.videoWrapper}>
           <div className={styles.videoContainer}>
             <iframe
-              src="https://www.youtube.com/embed/URiJrM2TXEg"
+              src="https://www.youtube.com/embed/jygiht4P_yo"
               title="Landex Systems Demo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
