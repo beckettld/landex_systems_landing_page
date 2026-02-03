@@ -17,16 +17,15 @@ const painPoints = [
         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
       </svg>
     ),
-    text: 'Manually connecting records across multiple sources',
+    text: 'Critical records buried in poorly indexed government databases',
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <line x1="12" y1="1" x2="12" y2="23"/>
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
       </svg>
     ),
-    text: 'Time constraints limiting how many jobs you can take',
+    text: 'Internal files scattered across drives and systems',
   },
   {
     icon: (
@@ -103,19 +102,25 @@ function Problem() {
                 <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M20 6L9 17l-5-5"/>
                 </svg>
+                <span>One simple query</span>
+              </div>
+              <div className={styles.benefit}>
+                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Surfaces hidden and poorly indexed records</span>
+              </div>
+              <div className={styles.benefit}>
+                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Integrates your internal files alongside public records</span>
+              </div>
+              <div className={styles.benefit}>
+                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
                 <span>All documents compiled automatically</span>
-              </div>
-              <div className={styles.benefit}>
-                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Records connected intelligently</span>
-              </div>
-              <div className={styles.benefit}>
-                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>More capacity for more projects</span>
               </div>
               <div className={styles.benefit}>
                 <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -126,7 +131,7 @@ function Problem() {
             </div>
             <div className={styles.successVisual}>
               <div className={styles.singleInterface}>
-                <span className={styles.interfaceLabel}>One Simple Interface</span>
+                <span className={styles.interfaceLabel}>Everything in one place</span>
               </div>
             </div>
           </div>

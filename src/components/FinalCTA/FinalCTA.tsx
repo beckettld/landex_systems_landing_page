@@ -23,7 +23,7 @@ function Contact() {
 
                     <p className={styles.subheadline}>
                         Join professionals who are saving hours on every project.
-                        Try Landex risk-free with our one-month refundable guarantee.
+                        Try Landex Systems risk-free with our one-month refundable guarantee.
                     </p>
 
                     <div className={styles.ctaGroup}>

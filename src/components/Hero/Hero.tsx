@@ -30,11 +30,11 @@ function Hero() {
 
         <div className={styles.content}>
         <h1 className={styles.headline}>
-          Turn Hours of Land Records Research Into Minutes
+          Turn Hours Of Land Records Research Into Minutes
         </h1>
 
         <p className={styles.subheadline}>
-          Stop spending hours in registries. Get complete deed chains, plans, and ownership history compiled in minutes—ready for your expert review.
+          Stop digging through registries, assessor portals, and internal sources. From a single search, Landex assembles the documents you need — from deeds and title records to plans and supporting files — into one complete, organized research packet.
         </p>
 
         <div className={styles.ctaGroup}>

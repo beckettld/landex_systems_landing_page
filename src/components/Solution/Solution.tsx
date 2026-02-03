@@ -3,8 +3,8 @@ import styles from './Solution.module.css'
 const steps = [
     {
         number: '01',
-        title: 'Select or Enter',
-        description: 'Select parcels on a map or input parcel information to start your research.',
+        title: 'Define your query',
+        description: 'Choose which sources to include, such as public registries and internal file systems, and specify what type of information you need.',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -15,8 +15,8 @@ const steps = [
     },
     {
         number: '02',
-        title: 'Automated Research',
-        description: 'We search registries, retrieve deeds and plans, and automatically link ownership chains—all in minutes.',
+        title: 'Automated Indexing And Research',
+        description: 'Landex uses retrieval to gather all documents related to your query and the context they show up in.',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <circle cx="12" cy="12" r="3" />
@@ -26,8 +26,8 @@ const steps = [
     },
     {
         number: '03',
-        title: 'Review & Use',
-        description: 'You review the compiled results and apply your professional expertise. Documents not found? We\'ll notify you and explain why.',
+        title: 'Review And Use',
+        description: 'Review compiled results, see what was found or not found, and download everything in one place.',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M9 11l3 3L22 4" />
@@ -43,10 +43,7 @@ function Solution() {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <span className={styles.label}>The Solution</span>
-                    <h2 className={styles.title}>Research That Works at Your Speed</h2>
-                    <p className={styles.subtitle}>
-                        A simple three-step process that gives you comprehensive results in minutes
-                    </p>
+                    <h2 className={styles.title}>Three Steps To Unified Research</h2>
                 </div>
 
                 {/* Process Steps */}
