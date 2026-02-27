@@ -6,6 +6,7 @@ import Solution from './components/Solution/Solution'
 // import Technology from './components/Technology/Technology'
 import Partners from './components/Partners/Partners'
 import Video from './components/Video/Video'
+import Collections from './components/Collections/Collections'
 import Contact from './components/FinalCTA/FinalCTA'
 import Footer from './components/Footer/Footer'
 import styles from './App.module.css'
@@ -20,6 +21,7 @@ function App() {
         <Problem />
         <Solution />
         <Video />
+        <Collections />
         {/* <Features /> */}
         {/* <Technology /> */}
         <Contact />

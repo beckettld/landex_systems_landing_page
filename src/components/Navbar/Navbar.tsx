@@ -55,6 +55,12 @@ function Navbar() {
           </button>
           <button
             className={styles.navLink}
+            onClick={() => scrollToSection('collections')}
+          >
+            Collections
+          </button>
+          <button
+            className={styles.navLink}
             onClick={() => scrollToSection('contact')}
           >
             Contact
