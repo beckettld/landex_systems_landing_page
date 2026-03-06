@@ -1,42 +1,44 @@
 import styles from './Problem.module.css'
 
-const painPoints = [
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10"/>
-        <polyline points="12,6 12,12 16,14"/>
-      </svg>
-    ),
-    text: 'Spending hours gathering documents for each project',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-      </svg>
-    ),
-    text: 'Critical records buried in poorly indexed government databases',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-      </svg>
-    ),
-    text: 'Internal files scattered across drives and systems',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
-        <path d="M21 3v5h-5"/>
-      </svg>
-    ),
-    text: 'The same repetitive research, project after project',
-  },
+type Coverage = boolean | 'partial'
+
+const rows: { label: string; lexis: Coverage; landex: Coverage }[] = [
+  { label: 'Principals, officers & directors', lexis: false, landex: true },
+  { label: 'Direct emails & phone numbers', lexis: false, landex: true },
+  { label: 'UCC filings, liens & judgments', lexis: 'partial', landex: true },
+  { label: 'Business assets & collateral', lexis: false, landex: true },
+  { label: 'Data updated in real time', lexis: false, landex: true },
+  { label: 'Basic entity & credit profile', lexis: true, landex: true },
 ]
+
+function StatusIcon({ status }: { status: boolean | 'partial' }) {
+  if (status === true) {
+    return (
+      <span className={styles.yes}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <path d="M20 6L9 17l-5-5" />
+        </svg>
+      </span>
+    )
+  }
+  if (status === 'partial') {
+    return (
+      <span className={styles.partial}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </span>
+    )
+  }
+  return (
+    <span className={styles.no}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </span>
+  )
+}
 
 function Problem() {
   return (
@@ -44,96 +46,55 @@ function Problem() {
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.label}>The Problem</span>
-          <h2 className={styles.title}>The Manual Research Bottleneck</h2>
+          <h2 className={styles.title}>Your collectors are working the accounts. The data is what's holding them back.</h2>
+          <p className={styles.subtitle}>
+            Legacy tools pull from the same fixed databases and miss the same things every time. Landex Systems searches live sources in real time to find what those tools can't.
+          </p>
         </div>
 
-        <div className={styles.comparison}>
-          {/* Before State */}
-          <div className={styles.beforeCard}>
-            <div className={styles.cardHeader}>
-              <span className={styles.cardBadge}>Without Landex</span>
-              <span className={styles.timeIndicator}>
-                <svg className={styles.clockIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12,6 12,12 16,14"/>
-                </svg>
-                Hours per project
-              </span>
-            </div>
-            <div className={styles.painPoints}>
-              {painPoints.map((point, index) => (
-                <div key={index} className={styles.painPoint}>
-                  <div className={styles.painIcon}>{point.icon}</div>
-                  <span className={styles.painText}>{point.text}</span>
-                </div>
+        <div className={styles.tableWrapper}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th className={styles.thLabel}>Data Type</th>
+                <th className={styles.thTool}>
+                  <span className={styles.toolName}>Traditional Tools</span>
+                  <span className={styles.toolSub}>Static database</span>
+                </th>
+                <th className={styles.thTool}>
+                  <span className={`${styles.toolName} ${styles.landexName}`}>Landex Systems</span>
+                  <span className={`${styles.toolSub} ${styles.landexSub}`}>Real-time search</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr key={i} className={styles.row}>
+                  <td className={styles.tdLabel}>{row.label}</td>
+                  <td className={styles.tdStatus}>
+                    <StatusIcon status={row.lexis} />
+                  </td>
+                  <td className={styles.tdStatus}>
+                    <StatusIcon status={row.landex} />
+                  </td>
+                </tr>
               ))}
-            </div>
-            <div className={styles.frustrationVisual}>
-              <div className={styles.tabs}>
-                <span className={styles.tab}>Registry</span>
-                <span className={styles.tab}>Assessor</span>
-                <span className={styles.tab}>Plans</span>
-                <span className={styles.tab}>+12 more</span>
-              </div>
-            </div>
-          </div>
+            </tbody>
+          </table>
 
-          {/* Arrow */}
-          <div className={styles.arrowWrapper}>
-            <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-
-          {/* After State */}
-          <div className={styles.afterCard}>
-            <div className={styles.cardHeader}>
-              <span className={styles.cardBadgeSuccess}>With Landex</span>
-              <span className={styles.timeIndicatorSuccess}>
-                <svg className={styles.clockIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12,6 12,12 16,14"/>
-                </svg>
-                Minutes
-              </span>
-            </div>
-            <div className={styles.benefits}>
-              <div className={styles.benefit}>
-                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>One simple query</span>
-              </div>
-              <div className={styles.benefit}>
-                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Surfaces hidden and poorly indexed records</span>
-              </div>
-              <div className={styles.benefit}>
-                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Integrates your internal files alongside public records</span>
-              </div>
-              <div className={styles.benefit}>
-                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>All documents compiled automatically</span>
-              </div>
-              <div className={styles.benefit}>
-                <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Ready for your expert review</span>
-              </div>
-            </div>
-            <div className={styles.successVisual}>
-              <div className={styles.singleInterface}>
-                <span className={styles.interfaceLabel}>Everything in one place</span>
-              </div>
-            </div>
+          <div className={styles.legend}>
+            <span className={styles.legendItem}>
+              <span className={styles.yes}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6L9 17l-5-5" /></svg></span>
+              Covered
+            </span>
+            <span className={styles.legendItem}>
+              <span className={styles.partial}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12" /></svg></span>
+              Limited / inconsistent
+            </span>
+            <span className={styles.legendItem}>
+              <span className={styles.no}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>
+              Not covered
+            </span>
           </div>
         </div>
       </div>

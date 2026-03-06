@@ -19,8 +19,8 @@ function Partners() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <span className={styles.label}>Trusted by Industry Leaders</span>
-        <p className={styles.subtext}>Join the firms saving hours on every project</p>
+        <span className={styles.label}>Trusted by Commercial Collections Teams</span>
+        <p className={styles.subtext}>Join the firms recovering more with less manual work</p>
         <div className={styles.logos}>
           {partners.map((partner) => (
             <div key={partner.name} className={styles.logoWrapper}>

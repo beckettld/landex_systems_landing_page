@@ -173,6 +173,25 @@
   background-clip: text;
 }
 
+/* Eyebrow */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Trust line */
+.trustLine {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: var(--spacing-sm);
+}
+
 /* Headline */
 .headline {
   font-size: clamp(2.5rem, 5.5vw, 4rem);

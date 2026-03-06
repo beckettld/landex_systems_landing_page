@@ -5,9 +5,9 @@ function Video() {
     <section id="video" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.label}>Video</span>
+          <span className={styles.label}>Demo</span>
           <h2 className={styles.title}>
-            See Landex Systems In Action
+            Watch a Live Skip Trace in Action
           </h2>
         </div>
         

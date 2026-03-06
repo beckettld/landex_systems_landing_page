@@ -9,46 +9,40 @@ function Hero() {
     }
   };
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.heroCard}>
         <div className={styles.backgroundWrapper}>
           <img
             src="/assets/background2.jpg"
-            alt="Aerial view of agricultural fields"
+            alt="Commercial collections skip tracing"
             className={styles.backgroundImage}
           />
           <div className={styles.backgroundOverlay}></div>
         </div>
 
         <div className={styles.content}>
-        <h1 className={styles.headline}>
-          Turn Hours Of Land Records Research Into Minutes
-        </h1>
+          <span className={styles.eyebrow}>For Commercial Collections Teams</span>
 
-        <p className={styles.subheadline}>
-          Stop digging through registries, assessor portals, and internal sources. From a single search, Landex assembles the documents you need — from deeds and title records to plans and supporting files — into one complete, organized research packet.
-        </p>
+          <h1 className={styles.headline}>
+            Recover Accounts That Standard Tools Write Off
+          </h1>
 
-        <div className={styles.ctaGroup}>
-          <button className={styles.primaryCta} onClick={openCalendly}>
-            Schedule a Demo
-            <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-          <button className={styles.secondaryCta} onClick={() => scrollToSection('video')}>
-            See How It Works
-          </button>
+          <p className={styles.subheadline}>
+            Static databases leave gaps in commercial debt. Landex Systems searches live sources in real time to find what traditional tools miss, so your collectors have what they need to close.
+          </p>
+
+          <div className={styles.ctaGroup}>
+            <button className={styles.primaryCta} onClick={openCalendly}>
+              Schedule a Demo
+              <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <p className={styles.trustLine}>Validated on 50,000+ commercial accounts</p>
         </div>
-      </div>
       </div>
     </section>
   );

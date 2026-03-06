@@ -39,25 +39,19 @@ function Navbar() {
             className={styles.navLink}
             onClick={() => scrollToSection('problem')}
           >
-            Problem
+            The Problem
           </button>
           <button
             className={styles.navLink}
             onClick={() => scrollToSection('solution')}
           >
-            Solution
-          </button>
-          <button
-            className={styles.navLink}
-            onClick={() => scrollToSection('video')}
-          >
-            Video
+            How It Works
           </button>
           <button
             className={styles.navLink}
             onClick={() => scrollToSection('collections')}
           >
-            Collections
+            What You Get
           </button>
           <button
             className={styles.navLink}

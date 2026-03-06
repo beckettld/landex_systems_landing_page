@@ -17,10 +17,50 @@
   opacity: 0.9;
 }
 
-.copyright {
+.tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-style: italic;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.linkIcon {
+  width: 15px;
+  height: 15px;
+}
+
+.divider {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.25);
+  user-select: none;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
   text-align: center;
+  margin-top: var(--spacing-sm);
 }
 
 @media (max-width: 768px) {

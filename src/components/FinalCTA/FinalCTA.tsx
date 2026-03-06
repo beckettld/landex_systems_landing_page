@@ -14,16 +14,16 @@ function Contact() {
             <div className={styles.container}>
                 <div className={styles.content}>
                     <div className={styles.badge}>
-                        <span className={styles.badgeText}>Risk-Free • Full Refund if Not Satisfied</span>
+                        <span className={styles.badgeText}>Validated on 50,000+ Commercial Accounts • Full Refund if Not Satisfied</span>
                     </div>
 
                     <h2 className={styles.headline}>
-                        See Your First Report in Minutes
+                        Book a Demo. See Results Before You Buy.
                     </h2>
 
                     <p className={styles.subheadline}>
-                        Join professionals who are saving hours on every project.
-                        Try Landex Systems risk-free with our one-month refundable guarantee.
+                        In 30 minutes, we'll run a live skip trace on one of your actual accounts.
+                        You see exactly what Landex Systems delivers before you sign anything.
                     </p>
 
                     <div className={styles.ctaGroup}>
@@ -45,6 +45,9 @@ function Contact() {
                                 allen@landexsystems.com
                             </a>
                         </div>
+                        <p className={styles.complianceNote}>
+                            All searches pull from publicly available records only. Your account data is never stored or shared.
+                        </p>
                     </div>
                 </div>
             </div>
