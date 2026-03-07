@@ -15,12 +15,12 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Problem />
-        <Solution />
-        <Collections />
-        <Contact />
-        <Footer />
+        {/* <Problem /> */}
+        {/* <Solution /> */}
+        {/* <Collections /> */}
+        {/* <Contact /> */}
       </main>
+      <Footer />
     </div>
   )
 }

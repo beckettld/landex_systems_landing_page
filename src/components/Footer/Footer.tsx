@@ -9,7 +9,7 @@ function Footer() {
           alt="Landex Systems"
           className={styles.logo}
         />
-        <p className={styles.tagline}>Commercial skip tracing, built for collectors.</p>
+        {/* <p className={styles.tagline}>Commercial skip tracing, built for collectors.</p> */}
         <div className={styles.links}>
           <a
             href="https://www.linkedin.com/company/landex-systems"

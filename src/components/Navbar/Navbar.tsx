@@ -28,7 +28,7 @@ function Navbar() {
           alt="Landex Systems"
           className={styles.logo}
         />
-        <div className={styles.navLinks}>
+        {/* <div className={styles.navLinks}>
           <button
             className={styles.navLink}
             onClick={() => scrollToSection('hero')}
@@ -59,7 +59,7 @@ function Navbar() {
           >
             Contact
           </button>
-        </div>
+        </div> */}
       </div>
 
       <div className={styles.navRight}>
