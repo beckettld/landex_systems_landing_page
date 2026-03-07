@@ -9,16 +9,16 @@ function Navbar() {
     }
   };
 
-  const scrollToSection = (id: string) => {
-    if (id === 'hero') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // const scrollToSection = (id: string) => {
+  //   if (id === 'hero') {
+  //     window.scrollTo({ top: 0, behavior: 'smooth' });
+  //     return;
+  //   }
+  //   const element = document.getElementById(id);
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // };
 
   return (
     <nav className={styles.navbar}>
