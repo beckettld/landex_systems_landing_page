@@ -7,10 +7,10 @@ import StaggerContainer, { staggerItem } from "./StaggerContainer";
 import CountUp from "./CountUp";
 
 const stats = [
-  { figure: "6%", label: "of PE firms see high AI impact today" },
-  { figure: "70%", label: "expect high impact within 3–5 years" },
-  { figure: "$1T", label: "in uninvested PE capital seeking returns" },
-  { figure: "6–8 wk", label: "to deploy working AI systems" },
+  { figure: "6%", label: "of PE firms currently use AI for operations" },
+  { figure: "70%", label: "expect AI to materially impact returns over the next 3-5 years" },
+  { figure: "Now", label: "The window is closing. First movers will have a portfolio-wide advantage." },
+  { figure: "6–8 wk", label: "That's how long it takes to deploy a working system." },
 ];
 
 export default function Thesis() {
@@ -62,14 +62,13 @@ export default function Thesis() {
                   mb: 5,
                 }}
               >
-                Your portfolio companies
+                Multiples are tight.
                 <br />
-                need AI.{" "}
                 <Box
                   component="span"
                   sx={{ fontStyle: "italic", color: "primary.main" }}
                 >
-                  Who builds it?
+                  AI is the gap.
                 </Box>
               </Typography>
             </AnimateIn>
@@ -80,11 +79,12 @@ export default function Thesis() {
                   variant="body1"
                   sx={{ color: "text.secondary", mb: 4, maxWidth: 580 }}
                 >
-                  Purchase multiples are at historic highs. Financial engineering
-                  alone cannot generate the returns your LPs expect. The
-                  operational improvement that moves the needle is AI — automating
-                  manual workflows, modernizing legacy systems, cutting costs that
-                  flow directly to EBITDA.
+                  Purchase multiples have compressed. Financial engineering
+                  won&apos;t move the needle anymore. What does: operational
+                  improvements that hit the P&L. AI can automate a portfolio
+                  company&apos;s manual workflows, consolidate legacy systems,
+                  and eliminate costs that flow straight to EBITDA. But it has
+                  to work.
                 </Typography>
               </motion.div>
 
@@ -93,10 +93,11 @@ export default function Thesis() {
                   variant="body1"
                   sx={{ color: "text.secondary", mb: 4, maxWidth: 580 }}
                 >
-                  But the traditional consulting firms charge half a million
-                  dollars, staff eight people for three months, and deliver a
-                  binder of recommendations. Your portfolio company gets a
-                  strategy deck. What it needed was a working system.
+                  The problem is clear. Your typical consulting firm charges
+                  $500K-$1M, stations 8 people on-site for 3-6 months, and
+                  delivers a binder of recommendations. Your portfolio company
+                  gets a strategy deck. What it actually needs is a system that
+                  runs.
                 </Typography>
               </motion.div>
 
@@ -105,9 +106,10 @@ export default function Thesis() {
                   variant="body1"
                   sx={{ color: "text.primary", maxWidth: 580, fontWeight: 500 }}
                 >
-                  We are a different kind of firm. We build and deploy the AI
-                  systems — not recommend them. Fixed scope. Weeks, not quarters.
-                  And every dollar of cost reduction flows straight to EBITDA.
+                  We&apos;re different. We build and deploy the AI. You get
+                  infrastructure you can operate, not a consultant-written
+                  playbook. Fixed scope, fixed price, 6-8 weeks in. Every dollar
+                  of savings drops to EBITDA.
                 </Typography>
               </motion.div>
             </StaggerContainer>
@@ -131,7 +133,7 @@ export default function Thesis() {
                     letterSpacing: "0.12em",
                   }}
                 >
-                  The AI Gap in PE
+                  The State of PE & AI
                 </Typography>
 
                 <StaggerContainer stagger={0.1} delay={0.5}>

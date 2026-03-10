@@ -58,7 +58,7 @@ export default function Footer() {
                   mb: 4,
                 }}
               >
-                Let&rsquo;s discuss your
+                Let&rsquo;s talk about your
                 <br />
                 portfolio
               </Typography>
@@ -69,9 +69,10 @@ export default function Footer() {
                 variant="body1"
                 sx={{ color: "text.secondary", mb: 6, maxWidth: 520, mx: "auto" }}
               >
-                We start with a single portfolio company and deliver measurable
-                results in weeks. If the model works, we expand across the fund.
-                The first conversation is the only investment required.
+                Pick one portfolio company with clear operational pain. We&apos;ll
+                embed a small team for 6-8 weeks, build a working AI system, and
+                show you measurable results. If it works, we expand across your
+                fund. No long-term commitment required.
               </Typography>
             </AnimateIn>
 
@@ -92,7 +93,7 @@ export default function Footer() {
                   }
                   sx={{ px: 5, py: 1.75, fontSize: "0.9375rem", cursor: "pointer" }}
                 >
-                  Discuss Portfolio Modernization
+                  Schedule a Conversation
                 </Button>
               </Stack>
             </AnimateIn>
@@ -137,8 +138,7 @@ export default function Footer() {
                 variant="body2"
                 sx={{ color: "text.secondary", maxWidth: 280 }}
               >
-                AI-native consulting and software for private equity value
-                creation.
+                AI infrastructure for private equity value creation.
               </Typography>
             </Grid>
 

@@ -15,7 +15,7 @@ const traditional = {
     { metric: "Timeline", value: "3–6 months" },
     { metric: "Team on-site", value: "5–8 people" },
     { metric: "Your cost", value: "$500K–$1M" },
-    { metric: "What you get", value: "Recommendations" },
+    { metric: "What you get", value: "A binder of recommendations" },
   ],
 };
 
@@ -25,7 +25,7 @@ const landex = {
     { metric: "Timeline", value: "6–8 weeks" },
     { metric: "Team on-site", value: "2–3 engineers" },
     { metric: "Your cost", value: "$100K–$300K" },
-    { metric: "What you get", value: "Working systems" },
+    { metric: "What you get", value: "Production AI running in your company" },
   ],
 };
 
@@ -33,17 +33,17 @@ const advantages = [
   {
     title: "Fixed Scope, Fixed Price",
     description:
-      "Every engagement is scoped to a defined deliverable with a fixed fee before work begins. No ballooning invoices. No open-ended timelines. You know exactly what you are paying and exactly what you are getting.",
+      "Your engagement is scoped and priced upfront. No scope creep, no surprise invoices. You know exactly what we're building and what it costs.",
   },
   {
-    title: "Systems, Not Slide Decks",
+    title: "Production Infrastructure, Not PowerPoint",
     description:
-      "We deliver production AI infrastructure that runs inside the portfolio company — not a binder of recommendations that collects dust. When we leave, the systems keep working.",
+      "We deliver AI systems that operate inside your portfolio company. When we leave, the systems stay and keep running. No recommendations to shelf, no playbook to interpret.",
   },
   {
-    title: "Portfolio-Wide Deployment",
+    title: "Portfolio Leverage",
     description:
-      "After the first engagement proves results, the same capabilities roll out across your portfolio at significantly reduced cost and timeline. What takes weeks for the first company takes days for the tenth.",
+      "Once the first deployment works, the second one costs half as much and moves twice as fast. By your fourth or fifth company, the per-deployment cost is negligible.",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function Economics() {
             Faster. Cheaper.
             <br />
             <Box component="span" sx={{ color: "text.secondary" }}>
-              And it actually works.
+              Actually delivered.
             </Box>
           </Typography>
         </AnimateIn>
@@ -94,10 +94,9 @@ export default function Economics() {
               maxWidth: 560,
             }}
           >
-            Every PE operating partner has a story about a consulting project
-            that ran over timeline, over budget, and delivered recommendations
-            that nobody implemented. We built our entire model to be the
-            opposite of that experience.
+            Every operating partner has a war story. A consulting engagement
+            that ran 3 months over timeline, doubled its budget, and produced a
+            deck that nobody implemented. We built our model to be the opposite.
           </Typography>
         </AnimateIn>
 

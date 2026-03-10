@@ -10,25 +10,25 @@ const steps = [
     number: "/01",
     title: "Identify",
     description:
-      "We work with your operating team to select a portfolio company with clear operational pain — manual workflows, legacy systems, paper-based processes. We scope a defined project with measurable outcomes.",
+      "Work with your operating team to select the portfolio company with the biggest operational drag: manual data entry, paper-based workflows, fragmented legacy systems. We narrow the scope to one specific problem with a measurable outcome.",
   },
   {
     number: "/02",
     title: "Embed & Build",
     description:
-      "A small team of engineers embeds directly with the portfolio company. We assess the operation, design the AI systems, and build working production infrastructure. No slide decks, no recommendations — working systems.",
+      "A small team of engineers operates from inside the portfolio company. We map the workflow, design the AI system, and build production infrastructure. No consultants, no decks. Just working code that runs.",
   },
   {
     number: "/03",
     title: "Deploy & Measure",
     description:
-      "Systems go live within six to eight weeks. We measure the impact — cost reduction, time saved, error rates eliminated — in terms that flow directly to EBITDA. You see results before the engagement ends.",
+      "Go live in 6-8 weeks. Measure the output: headcount freed up, cost per transaction cut in half, days of manual work eliminated. Show the impact in terms that matter to your LPs.",
   },
   {
     number: "/04",
     title: "Expand Across the Portfolio",
     description:
-      "Once proven, we roll the same capabilities across additional portfolio companies. Each subsequent deployment is faster and cheaper because the systems are already built. One engagement becomes a portfolio-wide advantage.",
+      "Once you have proof of concept, we deploy the same AI system to your next portfolio company. Timeline drops to 4-6 weeks. Each subsequent deployment is cheaper. What took 8 weeks for company one takes 3 weeks for company ten.",
   },
 ];
 
@@ -62,10 +62,10 @@ export default function Playbook() {
               maxWidth: 700,
             }}
           >
-            One portfolio company.
+            Start with one company.
             <br />
             <Box component="span" sx={{ color: "text.secondary" }}>
-              Then the entire fund.
+              Then scale the playbook.
             </Box>
           </Typography>
         </AnimateIn>
@@ -79,9 +79,10 @@ export default function Playbook() {
               maxWidth: 560,
             }}
           >
-            We start with a single company in your portfolio — typically one
-            with obvious operational inefficiency. We deliver measurable results
-            in weeks, then use that proof point to expand across the fund.
+            We identify the portfolio company with the clearest operational
+            pain. Deploy a small team of engineers for 6-8 weeks. Build, launch,
+            and measure. Once you see the results, we roll the same system across
+            the rest of your portfolio faster and cheaper.
           </Typography>
         </AnimateIn>
 

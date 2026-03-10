@@ -1,0 +1,174 @@
+================================================================================
+MAIN LANDING PAGE COPY (excluding /skiptracing)
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE METADATA (layout)
+--------------------------------------------------------------------------------
+Title: Landex Systems | AI for PE Portfolio Companies
+Description: Deploy working AI systems in 6-8 weeks. Cut operational costs, automate workflows, and drive EBITDA growth. Faster and cheaper than traditional consulting.
+
+--------------------------------------------------------------------------------
+NAVBAR
+--------------------------------------------------------------------------------
+Brand: Landex Systems
+
+Nav links:
+- The Problem
+- How It Works
+- What We Build
+- Why Us
+
+CTA button: Get in Touch
+
+--------------------------------------------------------------------------------
+HERO
+--------------------------------------------------------------------------------
+Overline: Build Working AI Systems for Your Portfolio
+
+Headline:
+Portfolio companies need
+AI. We build it.
+
+Subhead: Deploy production AI infrastructure in 6-8 weeks. Cut costs that flow straight to EBITDA. Fixed scope. Fixed price. No recommendations, no delays.
+
+Primary CTA: Discuss Your Portfolio
+Secondary CTA: How It Works
+
+--------------------------------------------------------------------------------
+THESIS (The Problem) — #problem
+--------------------------------------------------------------------------------
+Section label: The Problem
+
+Headline:
+Multiples are tight.
+AI is the gap.
+
+Body 1: Purchase multiples have compressed. Financial engineering won't move the needle anymore. What does: operational improvements that hit the P&L. AI can automate a portfolio company's manual workflows, consolidate legacy systems, and eliminate costs that flow straight to EBITDA. But it has to work.
+
+Body 2: The problem is clear. Your typical consulting firm charges $500K-$1M, stations 8 people on-site for 3-6 months, and delivers a binder of recommendations. Your portfolio company gets a strategy deck. What it actually needs is a system that runs.
+
+Body 3 (emphasis): We're different. We build and deploy the AI. You get infrastructure you can operate, not a consultant-written playbook. Fixed scope, fixed price, 6-8 weeks in. Every dollar of savings drops to EBITDA.
+
+Stats box label: The State of PE & AI
+- 6% of PE firms currently use AI for operations
+- 70% expect AI to materially impact returns over the next 3-5 years
+- The window is closing. First movers will have a portfolio-wide advantage.
+- 6-8 weeks. That's how long it takes to deploy a working system.
+
+--------------------------------------------------------------------------------
+PLAYBOOK (How It Works) — #approach
+--------------------------------------------------------------------------------
+Section label: How It Works
+
+Headline:
+Start with one company.
+Then scale the playbook.
+
+Intro: We identify the portfolio company with the clearest operational pain. Deploy a small team of engineers for 6-8 weeks. Build, launch, and measure. Once you see the results, we roll the same system across the rest of your portfolio faster and cheaper.
+
+Step /01 — Identify
+Work with your operating team to select the portfolio company with the biggest operational drag: manual data entry, paper-based workflows, fragmented legacy systems. We narrow the scope to one specific problem with a measurable outcome.
+
+Step /02 — Embed & Build
+A small team of engineers operates from inside the portfolio company. We map the workflow, design the AI system, and build production infrastructure. No consultants, no decks. Just working code that runs.
+
+Step /03 — Deploy & Measure
+Go live in 6-8 weeks. Measure the output: headcount freed up, cost per transaction cut in half, days of manual work eliminated. Show the impact in terms that matter to your LPs.
+
+Step /04 — Expand Across the Portfolio
+Once you have proof of concept, we deploy the same AI system to your next portfolio company. Timeline drops to 4-6 weeks. Each subsequent deployment is cheaper. What took 8 weeks for company one takes 3 weeks for company ten.
+
+--------------------------------------------------------------------------------
+CAPABILITIES (What We Build) — #capabilities
+--------------------------------------------------------------------------------
+Section label: What We Build
+
+Headline:
+AI that hits your P&L
+
+Intro: Every system we deploy targets a specific cost center or operational bottleneck. We measure success in dollars saved and headcount freed. Not in activity or consulting hours.
+
+Workflow Automation
+Replace data entry, spreadsheet management, and repetitive back-office work with AI systems that run 24/7. The tasks your team spends 40 hours a week on get executed in seconds.
+
+Customer Service & Sales
+AI voice and chat agents that handle inbound inquiries, route calls to the right person, pull from your knowledge base, and execute transaction workflows. Cuts support headcount by 30-50% without dropping service quality.
+
+Document Processing
+Invoices, contracts, tax forms, insurance claims. Automatically extracted, classified, and routed. Eliminates weeks of manual data entry and paper shuffling in finance, insurance, and services companies.
+
+Reporting & Analytics
+Monthly financial reporting and operational dashboards built automatically from your existing systems. Operating partners see real-time visibility instead of waiting for month-end close.
+
+Sales & Marketing Automation
+AI-powered prospecting, lead scoring, CRM workflow automation, and outbound sequences. Replace outdated sales processes with systems that scale.
+
+Legacy System Integration
+Connect fragmented ERP, CRM, and custom software through data pipelines. Your systems can finally talk to each other without a full rip-and-replace.
+
+--------------------------------------------------------------------------------
+ECONOMICS (Why Us) — #advantage
+--------------------------------------------------------------------------------
+Section label: Why Us
+
+Headline:
+Faster. Cheaper.
+Actually delivered.
+
+Intro: Every operating partner has a war story. A consulting engagement that ran 3 months over timeline, doubled its budget, and produced a deck that nobody implemented. We built our model to be the opposite.
+
+Comparison — Traditional Consulting
+- Timeline: 3–6 months
+- Team on-site: 5–8 people
+- Your cost: $500K–$1M
+- What you get: A binder of recommendations
+
+Comparison — Landex Systems
+- Timeline: 6–8 weeks
+- Team on-site: 2–3 engineers
+- Your cost: $100K–$300K
+- What you get: Production AI running in your company
+
+Fixed Scope, Fixed Price
+Your engagement is scoped and priced upfront. No scope creep, no surprise invoices. You know exactly what we're building and what it costs.
+
+Production Infrastructure, Not PowerPoint
+We deliver AI systems that operate inside your portfolio company. When we leave, the systems stay and keep running. No recommendations to shelf, no playbook to interpret.
+
+Portfolio Leverage
+Once the first deployment works, the second one costs half as much and moves twice as fast. By your fourth or fifth company, the per-deployment cost is negligible.
+
+--------------------------------------------------------------------------------
+FOOTER (#contact)
+--------------------------------------------------------------------------------
+Section label: Get Started
+
+Headline:
+Let's talk about your
+portfolio
+
+Body: Pick one portfolio company with clear operational pain. We'll embed a small team for 6-8 weeks, build a working AI system, and show you measurable results. If it works, we expand across your fund. No long-term commitment required.
+
+CTA button: Schedule a Conversation
+
+---
+
+Brand: Landex Systems
+Tagline: AI infrastructure for private equity value creation.
+
+Navigate:
+- The Problem
+- How It Works
+- What We Build
+- Why Us
+
+Contact:
+- allen@landexsystems.com
+- Schedule a Call
+
+Legal: © [year] Landex Systems. All rights reserved. Confidential.
+
+================================================================================
+END OF LANDING PAGE COPY
+================================================================================

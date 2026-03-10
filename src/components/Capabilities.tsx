@@ -16,42 +16,42 @@ const capabilities = [
     icon: AutoFixHighOutlinedIcon,
     title: "Workflow Automation",
     description:
-      "Replace manual data entry, spreadsheet-based reporting, and repetitive back-office tasks with AI systems that run autonomously. The work that takes your team hours gets done in seconds.",
+      "Replace data entry, spreadsheet management, and repetitive back-office work with AI systems that run 24/7. The tasks your team spends 40 hours a week on get executed in seconds.",
     span: { xs: 12, md: 6, lg: 4 },
   },
   {
     icon: SupportAgentOutlinedIcon,
     title: "Customer Service & Sales",
     description:
-      "AI voice and chat agents that handle inbound calls, route inquiries, answer questions from your knowledge base, and execute multi-step workflows — reducing headcount needs and response times.",
+      "AI voice and chat agents that handle inbound inquiries, route calls to the right person, pull from your knowledge base, and execute transaction workflows. Cuts support headcount by 30-50% without dropping service quality.",
     span: { xs: 12, md: 6, lg: 4 },
   },
   {
     icon: DescriptionOutlinedIcon,
     title: "Document Processing",
     description:
-      "Invoices, contracts, compliance forms, insurance documents — automatically classified, extracted, and structured. Eliminates paper-based bottlenecks in services, healthcare, and insurance companies.",
+      "Invoices, contracts, tax forms, insurance claims. Automatically extracted, classified, and routed. Eliminates weeks of manual data entry and paper shuffling in finance, insurance, and services companies.",
     span: { xs: 12, md: 6, lg: 4 },
   },
   {
     icon: InsightsOutlinedIcon,
     title: "Reporting & Analytics",
     description:
-      "Automated financial and operational reporting that pulls from your existing systems. Real-time dashboards that give operating partners visibility without waiting for month-end.",
+      "Monthly financial reporting and operational dashboards built automatically from your existing systems. Operating partners see real-time visibility instead of waiting for month-end close.",
     span: { xs: 12, md: 6, lg: 6 },
   },
   {
     icon: StorefrontOutlinedIcon,
-    title: "Sales & Marketing Modernization",
+    title: "Sales & Marketing Automation",
     description:
-      "AI-powered prospecting, lead enrichment, CRM automation, and outbound infrastructure that replaces outdated sales processes with scalable, measurable systems.",
+      "AI-powered prospecting, lead scoring, CRM workflow automation, and outbound sequences. Replace outdated sales processes with systems that scale.",
     span: { xs: 12, md: 6, lg: 3 },
   },
   {
     icon: IntegrationInstructionsOutlinedIcon,
     title: "Legacy System Integration",
     description:
-      "Connect outdated ERP, CRM, and custom software through AI-powered data pipelines. Modernize without ripping and replacing.",
+      "Connect fragmented ERP, CRM, and custom software through data pipelines. Your systems can finally talk to each other without a full rip-and-replace.",
     span: { xs: 12, md: 6, lg: 3 },
   },
 ];
@@ -87,11 +87,7 @@ export default function Capabilities() {
                   mb: 3,
                 }}
               >
-                Working systems
-                <br />
-                <Box component="span" sx={{ color: "text.secondary" }}>
-                  that hit the P&L
-                </Box>
+                AI that hits your P&L
               </Typography>
             </AnimateIn>
           </Grid>
@@ -101,10 +97,9 @@ export default function Capabilities() {
           >
             <AnimateIn delay={0.2} direction="right">
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
-                Every system we deploy targets a specific operational cost or
-                bottleneck inside your portfolio company. We measure impact in
-                dollars saved, hours eliminated, and errors removed — the
-                metrics that flow to EBITDA.
+                Every system we deploy targets a specific cost center or
+                operational bottleneck. We measure success in dollars saved and
+                headcount freed. Not in activity or consulting hours.
               </Typography>
             </AnimateIn>
           </Grid>

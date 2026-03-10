@@ -23,19 +23,19 @@ import Navbar from "@/components/Navbar";
 const tiers = [
   {
     number: "01",
-    label: "Tier 1 — Compliance & Identity",
+    label: "Tier 1 — Identity & Compliance",
     time: "~2 min",
     steps: "30 agent steps",
     fields: [
-      "Full legal name & aliases",
-      "Phone numbers (cell / landline / work)",
+      "Legal name and aliases",
+      "Phone numbers (mobile, landline, work)",
       "Email addresses",
       "Current address",
       "Date of birth",
       "Bankruptcy status",
-      "Deceased status",
+      "Deceased indicator",
     ],
-    use: "Quick background pass before initiating outreach. Confirms identity and surfaces hard stops.",
+    use: "Quick pass before you call. Confirms who they are and surfaces hard stops (bankruptcy, death).",
   },
   {
     number: "02",
@@ -43,29 +43,29 @@ const tiers = [
     time: "~4 min",
     steps: "30 agent steps",
     fields: [
-      "Employer name & job title",
-      "Work phone & employer address",
-      "Previous addresses with date ranges",
-      "Additional aliases / maiden names",
+      "Employer and job title",
+      "Work phone and employer address",
+      "Previous addresses with dates",
+      "Additional aliases and maiden names",
     ],
-    use: "Deal-stage diligence. Maps an operator's career trajectory and current institutional affiliation.",
+    use: "Standard for most deals. Maps career trajectory, current employer, tenure.",
   },
   {
     number: "03",
-    label: "Tier 3 — Full Intelligence",
+    label: "Tier 3 — Full Background",
     time: "~6 min",
     steps: "40 agent steps",
     fields: [
-      "Spouse / domestic partner",
-      "Co-habitants at known address",
-      "Property ownership & equity estimate",
-      "Civil judgments & liens",
+      "Spouse or domestic partner",
+      "Co-habitants at current address",
+      "Real property ownership and estimated equity",
+      "Civil judgments and liens",
       "Voter registration address",
-      "Professional licenses",
-      "Facebook / social profile",
-      "Estimated income range",
+      "Professional licenses and status",
+      "Facebook profile",
+      "Income estimate",
     ],
-    use: "Full due-diligence profile. Network mapping, asset analysis, and litigation exposure for founder or operator targets.",
+    use: "Due diligence on major deals. Network mapping, asset analysis, litigation exposure.",
   },
 ];
 
@@ -73,22 +73,22 @@ const useCases = [
   {
     title: "Deal Sourcing",
     description:
-      "Surface accurate contact information for founders and operators before your team makes the first call. Stop bouncing off stale LinkedIn data.",
+      "Find HVAC founders, regional MSPs, and niche manufacturers before bankers run an auction. Direct dial, email verified, ready to call.",
   },
   {
     title: "Founder Background",
     description:
-      "Confirm identity, current employer, and litigation history on management teams before term sheets are signed.",
+      "Confirm bankruptcy, judgments, and litigation history before signing an LOI. Two minutes instead of two weeks.",
   },
   {
     title: "Operator Vetting",
     description:
-      "Map an operating partner candidate's address history, professional licenses, and financial standing in minutes.",
+      "Verify professional licenses, employment history, and property ownership when you're hiring or adding to the portfolio.",
   },
   {
-    title: "LP & Co-Investor DD",
+    title: "LP Due Diligence",
     description:
-      "Run rapid background intelligence on incoming LP commitments or co-investors to flag conflicts before close.",
+      "Screen beneficial owners for AML compliance, bankruptcy, and liens before closing commitments.",
   },
 ];
 
@@ -97,98 +97,98 @@ const peUseCases = [
     number: "01",
     title: "Proprietary Deal Flow",
     impact: "Higher entry multiples",
-    impactDetail: "Off-market deals transact at 1–3x lower multiples than auctioned assets",
+    impactDetail: "Off-market deals close at 1–3x lower multiples than auction processes",
     tier: "Tier 1",
     description:
-      "Bankers run auctions. The best deals never reach them. Skip tracing gives your team direct dial and email for private business owners — the HVAC rollup target, the regional MSP, the founder-run manufacturer — before anyone else makes the call.",
+      "Bankers run auctions. The best deals never surface. Entity Finder gives you direct dial and email for HVAC founders, regional MSPs, and niche manufacturers in your target verticals. Reach the decision-maker before the process starts.",
     bullets: [
-      "Find the actual decision-maker, not the CFO who screens calls",
-      "Verify current address and phone before sending a letter of interest",
-      "Run 10 targets in parallel in under 20 minutes",
+      "Find founders and operators on your target list (not LinkedIn approximations)",
+      "Skip the CFO gatekeeper. Get the owner's personal number.",
+      "Run 50 target companies in parallel in under an hour.",
     ],
   },
   {
     number: "02",
     title: "Pre-LOI Founder Screening",
-    impact: "Kill bad deals early",
-    impactDetail: "Full DD on a failed deal costs $150K–$400K in fees alone",
+    impact: "Avoid bad deals",
+    impactDetail: "A failed deal with full DD costs $150K-$400K in legal and accounting fees",
     tier: "Tier 1",
     description:
-      "Before your team commits to an LOI and triggers the DD clock, run a Tier 1 trace on every named principal. Bankruptcy filings, active judgments, and litigation history surface in under two minutes — before you spend a dollar on legal or accounting.",
+      "Two minutes of API runtime before you sign an LOI beats two weeks of legal digging. Surface bankruptcy filings, active judgments, and litigation history on every named principal. Kill the deal early if there's a hard stop.",
     bullets: [
-      "Catch active bankruptcies and Chapter 7/11 filings before LOI",
-      "Surface civil judgments and liens that sellers won't disclose",
-      "Confirm the person signing is who they say they are",
+      "Catch bankruptcies and Chapter 7/11 filings in 90 seconds",
+      "Surface liens and judgments sellers won't disclose",
+      "Confirm the principal's identity and current location",
     ],
   },
   {
     number: "03",
     title: "Add-On Acquisition Sourcing",
     impact: "Faster platform build",
-    impactDetail: "Platform + add-on strategies average 2–3x MOIC vs. standalone holds",
+    impactDetail: "Platform + add-on strategies return 2–3x MOIC vs. standalone holds",
     tier: "Tier 1–2",
     description:
-      "Once you own the platform, every add-on target is a sourcing problem. Skip trace the owner-operators of adjacent businesses in your target geography. Get to them before the sector banker does and negotiate directly at lower multiples.",
+      "You own the platform. Now find 50 adjacent businesses in your territory and get them on the phone before the sector banker can. Entity Finder builds your prospect list with verified contact info. Your team does the pitching.",
     bullets: [
-      "Build a direct-contact list for 50 add-on targets in an afternoon",
-      "Verify ownership — make sure you're talking to the decision-maker",
-      "Pull employment history to understand operator tenure and stability",
+      "Generate a sourcing list of 50 targets in an afternoon",
+      "Verify ownership so you know you're calling the decision-maker",
+      "Pull employment tenure data to gauge operator stability",
     ],
   },
   {
     number: "04",
     title: "Distressed & Special Situations",
-    impact: "First-mover advantage",
+    impact: "Speed to offer",
     impactDetail: "Distressed assets trade at 30–60% discounts to intrinsic value",
     tier: "Tier 1–3",
     description:
-      "In loan-to-own and distressed strategies, reaching the debtor or asset owner directly before a formal process begins is everything. Skip trace the principals of defaulting companies to initiate direct negotiations — before the restructuring banker is retained.",
+      "Loan-to-own deals are won on speed. Reach the defaulted company's principals directly before the restructuring banker is retained. Entity Finder surfaces who they are, where they are, and what they own.",
     bullets: [
-      "Locate principals of companies with covenant violations or defaults",
-      "Surface property ownership and equity for secured creditor analysis",
-      "Identify spousal assets and co-owners in complex family business situations",
+      "Find principals of companies with covenant violations fast",
+      "Surface property and equity details for secured creditor analysis",
+      "Map co-owners and spousal assets in family business situations",
     ],
   },
   {
     number: "05",
-    title: "Management Succession & Hiring",
+    title: "Management Screening",
     impact: "Reduce operator risk",
-    impactDetail: "Management failure is the #1 cited cause of underperforming PE investments",
+    impactDetail: "Management failure is the #1 cause of underperforming PE investments",
     tier: "Tier 2–3",
     description:
-      "When a portfolio company needs new leadership, background a shortlist of candidates before you get to reference calls. Verify employment history, professional license status, and financial standing. Catch red flags before an offer is extended.",
+      "Before you offer a candidate the job, verify their licenses are active, confirm their employment history, and check for undisclosed bankruptcies. You get the answer in minutes. Your legal team doesn't need to dig.",
     bullets: [
-      "Verify professional licenses are active (critical for healthcare, finance, legal)",
-      "Confirm employment history matches what's on the resume",
-      "Check for undisclosed bankruptcy or judgments before signing an employment contract",
+      "Verify active professional licenses (healthcare, finance, legal)",
+      "Confirm employment history against the resume",
+      "Flag undisclosed bankruptcies before offer letters",
     ],
   },
   {
     number: "06",
-    title: "LP & Co-Investor KYC",
+    title: "LP & Co-Investor Compliance",
     impact: "Regulatory protection",
-    impactDetail: "AML violations carry penalties up to $10M+ per fund for failing to screen",
+    impactDetail: "AML violations carry penalties up to $10M+ per fund",
     tier: "Tier 1",
     description:
-      "Incoming LP commitments and co-investment partners require AML/KYC screening before close. Run Tier 1 traces on beneficial owners to surface bankruptcy, liens, and litigation — satisfying your compliance obligations without routing every check through outside counsel.",
+      "Incoming LP commitments and co-investment partners need AML/KYC screening before close. Run our API on beneficial owners. Surface bankruptcy, liens, and litigation. You check the box without routing every wire through outside counsel.",
     bullets: [
       "Screen beneficial owners of LP entities for compliance flags",
-      "Verify identity and current address before accepting a wire",
+      "Verify identity and current address before wire transfers",
       "Flag deceased or high-risk individuals before close",
     ],
   },
   {
     number: "07",
-    title: "Post-Close Indemnity & Litigation",
+    title: "Post-Close Recovery",
     impact: "Asset recovery",
-    impactDetail: "Sellers who misrepresent are often judgment-proof if you can't find them",
+    impactDetail: "Judgment-proof sellers often have assets you can't find on your own",
     tier: "Tier 3",
     description:
-      "When a seller misrepresents and you need to pursue the indemnification, you need to know where they are and what they own. Tier 3 surfaces current address, property holdings, estimated equity, and known associates — the inputs your litigation counsel needs to serve process and attach assets.",
+      "A seller misrepresents after close. You need to serve them, attach their assets, and actually collect. Entity Finder surfaces current address, property holdings, estimated equity, and known associates. Everything your litigation counsel needs to move.",
     bullets: [
       "Locate sellers who go dark post-close",
-      "Surface real property and equity for asset attachment",
-      "Identify co-habitants and associated parties for network analysis",
+      "Surface property and equity for asset attachment",
+      "Map associated parties for collection strategy",
     ],
   },
 ];
@@ -213,7 +213,7 @@ const apiSteps = [
 // Hero
 // ─────────────────────────────────────────────────────────────────────────────
 
-function SkipTraceHero() {
+function EntityFinderHero() {
   const vantaRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [vantaEffect, setVantaEffect] = useState<any>(null);
@@ -287,7 +287,7 @@ function SkipTraceHero() {
               variant="overline"
               sx={{ color: "primary.main", mb: 4, display: "block", letterSpacing: "0.15em" }}
             >
-              Landex Systems — Skip Trace API
+              Entity Finder API for Deal Teams
             </Typography>
           </motion.div>
 
@@ -304,16 +304,11 @@ function SkipTraceHero() {
                 mb: 4,
               }}
             >
-              Know your target
+              Direct contact for
               <br />
-              before you make
+              every founder and
               <br />
-              <Box component="span" sx={{ color: "rgba(232,236,244,0.3)" }}>
-                the{" "}
-              </Box>
-              <Box component="span" sx={{ fontStyle: "italic", color: "primary.main" }}>
-                call
-              </Box>
+              operator in your target list
             </Typography>
           </motion.div>
 
@@ -326,10 +321,10 @@ function SkipTraceHero() {
               variant="subtitle1"
               sx={{ color: "text.secondary", maxWidth: 580, mb: 6, fontSize: { xs: "1rem", md: "1.125rem" } }}
             >
-              An AI-powered skip trace API built for private equity deal teams.
-              Submit a name and address. Receive a structured intelligence
-              profile — phones, employment, financials, legal exposure — in
-              minutes.
+              Submit a name and address. Get back verified phone, email, current
+              employer, and legal exposure in under 2 minutes. No stale LinkedIn
+              data. No manual research. Automated intelligence that flows
+              straight into your deal workflow.
             </Typography>
           </motion.div>
 
@@ -342,23 +337,10 @@ function SkipTraceHero() {
               <Button
                 variant="contained"
                 color="primary"
-                href="mailto:allen@landexsystems.com?subject=Skip Trace API Access"
+                href="mailto:allen@landexsystems.com?subject=Entity Finder API Access"
                 sx={{ px: 5, py: 1.75, fontSize: "0.9375rem" }}
               >
                 Request API Access
-              </Button>
-              <Button
-                variant="outlined"
-                href="#api-reference"
-                sx={{
-                  px: 4,
-                  py: 1.75,
-                  borderColor: "rgba(232,236,244,0.15)",
-                  color: "text.primary",
-                  "&:hover": { borderColor: "rgba(232,236,244,0.3)", bgcolor: "rgba(255,255,255,0.03)" },
-                }}
-              >
-                API Reference
               </Button>
               <Button
                 variant="outlined"
@@ -371,7 +353,20 @@ function SkipTraceHero() {
                   "&:hover": { borderColor: "rgba(232,236,244,0.3)", bgcolor: "rgba(255,255,255,0.03)" },
                 }}
               >
-                See How It Works
+                How It Works
+              </Button>
+              <Button
+                variant="outlined"
+                href="#how-it-works"
+                sx={{
+                  px: 4,
+                  py: 1.75,
+                  borderColor: "rgba(232,236,244,0.15)",
+                  color: "text.primary",
+                  "&:hover": { borderColor: "rgba(232,236,244,0.3)", bgcolor: "rgba(255,255,255,0.03)" },
+                }}
+              >
+                See Pricing
               </Button>
             </Stack>
           </motion.div>
@@ -423,21 +418,21 @@ function UseCases() {
                 variant="h2"
                 sx={{ fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" }, color: "text.primary", mb: 5 }}
               >
-                Intelligence for
+                Contact intelligence
                 <br />
-                every stage of{" "}
+                for every stage of{" "}
                 <Box component="span" sx={{ fontStyle: "italic", color: "primary.main" }}>
-                  the deal
+                  deal work
                 </Box>
               </Typography>
             </AnimateIn>
             <AnimateIn delay={0.2}>
               <Typography variant="body1" sx={{ color: "text.secondary", maxWidth: 520 }}>
-                Deal teams waste hours chasing stale contact data, verifying
-                identities, and piecing together founder backgrounds from
-                fragmented sources. Our API runs a multi-tier AI agent pipeline
-                against public records and returns a clean, structured profile
-                — ready to load into your CRM or workflow in seconds.
+                Your team spends hours pulling fragments from LinkedIn,
+                Crunchbase, and scattered public records. By the time you have a
+                phone number, the banker already called. Our API consolidates
+                40+ data sources into structured profiles. One name and address.
+                Structured JSON in 90 seconds. Ready to load into your CRM.
               </Typography>
             </AnimateIn>
           </Grid>
@@ -627,10 +622,10 @@ function PEUseCases() {
           <Grid size={{ xs: 12, md: 5 }}>
             <AnimateIn delay={0.2}>
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
-                From pre-LOI screening to post-close asset recovery, the
-                intelligence gaps that cost PE firms money are almost always
-                problems of locating people and surfacing facts that aren&apos;t
-                in a data room. Every use case maps to a specific fund metric.
+                Off-market deals are worth 1-3x less than auctioned assets. But
+                you only win if you reach the owner first. We handle the
+                research, verification, and compliance piece so your team can
+                focus on dialing. Each use case ties directly to fund economics.
               </Typography>
             </AnimateIn>
           </Grid>
@@ -771,19 +766,18 @@ function TierPipeline() {
             variant="h2"
             sx={{ fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" }, color: "text.primary", mb: 3, maxWidth: 700 }}
           >
-            Run only what
+            Three tiers. Pick
             <br />
             <Box component="span" sx={{ color: "text.secondary" }}>
-              you need.
+              what you need.
             </Box>
           </Typography>
         </AnimateIn>
 
         <AnimateIn delay={0.2}>
           <Typography variant="body1" sx={{ color: "text.secondary", mb: { xs: 8, md: 12 }, maxWidth: 560 }}>
-            Each tier targets a distinct set of fields. If a prior tier already
-            found everything the next tier is looking for, that tier is
-            automatically skipped. Set <Box component="code" sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "0.9em" }}>max_tier</Box> to control cost and depth.
+            Each tier discovers a specific set of fields. If you&apos;ve already
+            found what you need, skip to the next deal. Set <Box component="code" sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "0.9em" }}>max_tier</Box> to 1 for quick checks, or 3 for full background on high-stakes targets.
           </Typography>
         </AnimateIn>
 
@@ -920,10 +914,10 @@ function DataPointsGrid() {
                 variant="h2"
                 sx={{ fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" }, color: "text.primary" }}
               >
-                Every field you need.
+                Structured data.
                 <br />
                 <Box component="span" sx={{ fontStyle: "italic", color: "primary.main" }}>
-                  Nothing you don&apos;t.
+                  No parsing.
                 </Box>
               </Typography>
             </AnimateIn>
@@ -931,11 +925,12 @@ function DataPointsGrid() {
           <Grid size={{ xs: 12, md: 6 }}>
             <AnimateIn delay={0.2}>
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
-                The result is a typed JSON object. Every field is nullable — if
-                the agent couldn&apos;t find it, it comes back as{" "}
+                JSON response. Every field is typed and nullable. Missing data
+                comes back as{" "}
                 <Box component="code" sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "0.9em" }}>null</Box>.
-                Arrays return empty if nothing was found. No parsing required.
-                Plug directly into your stack.
+                Arrays return empty if nothing was found. Load directly into your
+                CRM, Salesforce, or deal tracking system. No transformation
+                layer needed.
               </Typography>
             </AnimateIn>
           </Grid>
@@ -1050,9 +1045,10 @@ function ApiFlow() {
             </AnimateIn>
             <AnimateIn delay={0.2}>
               <Typography variant="body1" sx={{ color: "text.secondary", mb: 4 }}>
-                Asynchronous by design. Submit a trace request and get back a
-                job ID in under 100ms. Poll when ready. Max 10 concurrent jobs.
-                Results are available for 24 hours.
+                Built for async workflows. Submit a request, get a job ID back in
+                100 milliseconds. Poll when you&apos;re ready. No blocking. No
+                waiting. Max 10 concurrent jobs. Results stay available for 24
+                hours.
               </Typography>
             </AnimateIn>
 
@@ -1360,7 +1356,7 @@ function ApiReference() {
             <Chip label="POST" size="small" sx={{ bgcolor: "rgba(79,125,247,0.2)", color: "primary.main", fontWeight: 600, mr: 1, mb: 1 }} />
             <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/trace</Typography>
             <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>
-              Submit a new skip trace job. Queued immediately, executed asynchronously. Deduplication: same name+address returns existing job_id.
+              Submit a new entity find job. Queued immediately, executed asynchronously. Deduplication: same name+address returns existing job_id.
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary", mb: 1, fontSize: "0.8rem" }}>Request body:</Typography>
             <Box sx={codeBlockSx}>
@@ -1384,7 +1380,7 @@ function ApiReference() {
           <Box sx={{ mb: 6 }}>
             <Chip label="GET" size="small" sx={{ bgcolor: "rgba(79,125,247,0.2)", color: "primary.main", fontWeight: 600, mr: 1, mb: 1 }} />
             <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/trace/{`{job_id}`}</Typography>
-            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>Retrieve status and result of a trace job. Poll until status is completed, failed, or cancelled.</Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>Retrieve status and result of an entity find job. Poll until status is completed, failed, or cancelled.</Typography>
             <Box sx={codeBlockSx}>
               <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>200 — completed</Typography>
               <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", fontSize: "0.75rem", whiteSpace: "pre" }}>{`{
@@ -1463,12 +1459,12 @@ function ApiReference() {
               <tr><td>created_at</td><td>datetime (UTC)</td></tr>
               <tr><td>completed_at</td><td>datetime | null</td></tr>
               <tr><td>total_steps</td><td>integer | null</td></tr>
-              <tr><td>result</td><td>SkipTraceResult | null</td></tr>
+              <tr><td>result</td><td>EntityFinderResult | null</td></tr>
               <tr><td>error</td><td>string | null</td></tr>
             </tbody>
           </Box>
 
-          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>SkipTraceResult (result schema)</Typography>
+          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Entity Finder Result (result schema)</Typography>
           <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", mb: 2, "& th, & td": { border: "1px solid rgba(232,236,244,0.1)", p: 1.5, textAlign: "left", fontSize: "0.8125rem" }, "& th": { color: "primary.main", fontWeight: 600 } }}>
             <thead><tr><th>Field</th><th>Type</th></tr></thead>
             <tbody>
@@ -1573,7 +1569,7 @@ function ApiReference() {
 // CTA
 // ─────────────────────────────────────────────────────────────────────────────
 
-function SkipTraceCTA() {
+function EntityFinderCTA() {
   return (
     <Box
       sx={{
@@ -1612,26 +1608,25 @@ function SkipTraceCTA() {
                 mb: 4,
               }}
             >
-              Ready to automate
-              <br />
-              your prospecting{" "}
+              Ready to source{" "}
               <Box component="span" sx={{ fontStyle: "italic", color: "primary.main" }}>
-                intelligence?
+                faster?
               </Box>
             </Typography>
             <Typography
               variant="body1"
               sx={{ color: "text.secondary", mb: 6, maxWidth: 540 }}
             >
-              The Skip Trace API is available to PE deal teams and operators by
-              request. Reach out to discuss access, pricing, and integration
-              with your existing stack.
+              Entity Finder is available to PE deal teams and operators. Standard
+              pricing for sourcing workflows, custom pricing for high-volume
+              compliance screening. Email to discuss your use case and get
+              started.
             </Typography>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
               <Button
                 variant="contained"
                 color="primary"
-                href="mailto:allen@landexsystems.com?subject=Skip Trace API Access"
+                href="mailto:allen@landexsystems.com?subject=Entity Finder API Access"
                 sx={{ px: 5, py: 1.75, fontSize: "0.9375rem" }}
               >
                 Request API Access
@@ -1661,18 +1656,18 @@ function SkipTraceCTA() {
 // Page
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function SkipTracingPage() {
+export default function EntityFinderPage() {
   return (
     <>
       <Navbar />
-      <SkipTraceHero />
+      <EntityFinderHero />
       <UseCases />
       <PEUseCases />
       <TierPipeline />
       <DataPointsGrid />
       <ApiFlow />
       <ApiReference />
-      <SkipTraceCTA />
+      <EntityFinderCTA />
     </>
   );
 }

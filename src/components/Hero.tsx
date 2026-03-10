@@ -106,7 +106,7 @@ export default function Hero() {
                 letterSpacing: "0.15em",
               }}
             >
-              AI for Portfolio Value Creation
+              Build Working AI Systems for Your Portfolio
             </Typography>
           </motion.div>
 
@@ -123,22 +123,9 @@ export default function Hero() {
                 mb: 4,
               }}
             >
-              Modernize your
+              Portfolio companies need
               <br />
-              portfolio companies
-              <br />
-              <Box
-                component="span"
-                sx={{ color: "rgba(232,236,244,0.3)" }}
-              >
-                with{" "}
-              </Box>
-              <Box
-                component="span"
-                sx={{ fontStyle: "italic", color: "primary.main" }}
-              >
-                AI
-              </Box>
+              AI. We build it.
             </Typography>
           </motion.div>
 
@@ -156,9 +143,9 @@ export default function Hero() {
                 fontSize: { xs: "1rem", md: "1.125rem" },
               }}
             >
-              We deploy AI systems inside your portfolio companies that cut
-              costs, automate operations, and drive EBITDA growth. Fixed-scope
-              projects. Working systems in weeks, not quarters.
+              Deploy production AI infrastructure in 6-8 weeks. Cut costs that
+              flow straight to EBITDA. Fixed scope. Fixed price. No
+              recommendations, no delays.
             </Typography>
           </motion.div>
 

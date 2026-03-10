@@ -1,0 +1,450 @@
+================================================================================
+ENTITY FINDER API LANDING PAGE COPY (/skiptracing)
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE METADATA
+--------------------------------------------------------------------------------
+Hero Overline: Entity Finder API for Deal Teams
+
+Hero Headline:
+Direct contact for
+every founder and
+operator in your target list
+
+Hero Subhead: Submit a name and address. Get back verified phone, email, current employer, and legal exposure in under 2 minutes. No stale LinkedIn data. No manual research. Automated intelligence that flows straight into your deal workflow.
+
+Hero Primary CTA: Request API Access
+Hero Secondary CTA: How It Works
+Hero Tertiary CTA: See Pricing
+
+--------------------------------------------------------------------------------
+USE CASES SECTION
+--------------------------------------------------------------------------------
+Section Label: Built for PE
+
+Headline:
+Contact intelligence
+for every stage of deal work
+
+Body: Your team spends hours pulling fragments from LinkedIn, Crunchbase, and scattered public records. By the time you have a phone number, the banker already called. Our API consolidates 40+ data sources into structured profiles. One name and address. Structured JSON in 90 seconds. Ready to load into your CRM.
+
+Quick Use Cases:
+- Deal Sourcing: Find HVAC founders, regional MSPs, and niche manufacturers before bankers run an auction. Direct dial, email verified, ready to call.
+- Founder Background: Confirm bankruptcy, judgments, and litigation history before signing an LOI. Two minutes instead of two weeks.
+- Operator Vetting: Verify professional licenses, employment history, and property ownership when you're hiring or adding to the portfolio.
+- LP Due Diligence: Screen beneficial owners for AML compliance, bankruptcy, and liens before closing commitments.
+
+--------------------------------------------------------------------------------
+PE USE CASES SECTION
+--------------------------------------------------------------------------------
+Section Label: Where This Moves the Needle
+
+Headline:
+Seven ways PE firms
+use this today
+
+Intro: Off-market deals are worth 1-3x less than auctioned assets. But you only win if you reach the owner first. We handle the research, verification, and compliance piece so your team can focus on dialing. Each use case ties directly to fund economics.
+
+[Carousel Format — 7 use cases below]
+
+Use Case 01 — Proprietary Deal Flow
+Impact: Higher entry multiples
+Impact Detail: Off-market deals close at 1–3x lower multiples than auction processes
+Tier: Tier 1
+
+Description: Bankers run auctions. The best deals never surface. Entity Finder gives you direct dial and email for HVAC founders, regional MSPs, and niche manufacturers in your target verticals. Reach the decision-maker before the process starts.
+
+Bullets:
+- Find founders and operators on your target list (not LinkedIn approximations)
+- Skip the CFO gatekeeper. Get the owner's personal number.
+- Run 50 target companies in parallel in under an hour.
+
+---
+
+Use Case 02 — Pre-LOI Founder Screening
+Impact: Avoid bad deals
+Impact Detail: A failed deal with full DD costs $150K-$400K in legal and accounting fees
+Tier: Tier 1
+
+Description: Two minutes of API runtime before you sign an LOI beats two weeks of legal digging. Surface bankruptcy filings, active judgments, and litigation history on every named principal. Kill the deal early if there's a hard stop.
+
+Bullets:
+- Catch bankruptcies and Chapter 7/11 filings in 90 seconds
+- Surface liens and judgments sellers won't disclose
+- Confirm the principal's identity and current location
+
+---
+
+Use Case 03 — Add-On Acquisition Sourcing
+Impact: Faster platform build
+Impact Detail: Platform + add-on strategies return 2–3x MOIC vs. standalone holds
+Tier: Tier 1–2
+
+Description: You own the platform. Now find 50 adjacent businesses in your territory and get them on the phone before the sector banker can. Entity Finder builds your prospect list with verified contact info. Your team does the pitching.
+
+Bullets:
+- Generate a sourcing list of 50 targets in an afternoon
+- Verify ownership so you know you're calling the decision-maker
+- Pull employment tenure data to gauge operator stability
+
+---
+
+Use Case 04 — Distressed & Special Situations
+Impact: Speed to offer
+Impact Detail: Distressed assets trade at 30–60% discounts to intrinsic value
+Tier: Tier 1–3
+
+Description: Loan-to-own deals are won on speed. Reach the defaulted company's principals directly before the restructuring banker is retained. Entity Finder surfaces who they are, where they are, and what they own.
+
+Bullets:
+- Find principals of companies with covenant violations fast
+- Surface property and equity details for secured creditor analysis
+- Map co-owners and spousal assets in family business situations
+
+---
+
+Use Case 05 — Management Screening
+Impact: Reduce operator risk
+Impact Detail: Management failure is the #1 cause of underperforming PE investments
+Tier: Tier 2–3
+
+Description: Before you offer a candidate the job, verify their licenses are active, confirm their employment history, and check for undisclosed bankruptcies. You get the answer in minutes. Your legal team doesn't need to dig.
+
+Bullets:
+- Verify active professional licenses (healthcare, finance, legal)
+- Confirm employment history against the resume
+- Flag undisclosed bankruptcies before offer letters
+
+---
+
+Use Case 06 — LP & Co-Investor Compliance
+Impact: Regulatory protection
+Impact Detail: AML violations carry penalties up to $10M+ per fund
+Tier: Tier 1
+
+Description: Incoming LP commitments and co-investment partners need AML/KYC screening before close. Run our API on beneficial owners. Surface bankruptcy, liens, and litigation. You check the box without routing every wire through outside counsel.
+
+Bullets:
+- Screen beneficial owners of LP entities for compliance flags
+- Verify identity and current address before wire transfers
+- Flag deceased or high-risk individuals before close
+
+---
+
+Use Case 07 — Post-Close Recovery
+Impact: Asset recovery
+Impact Detail: Judgment-proof sellers often have assets you can't find on your own
+Tier: Tier 3
+
+Description: A seller misrepresents after close. You need to serve them, attach their assets, and actually collect. Entity Finder surfaces current address, property holdings, estimated equity, and known associates. Everything your litigation counsel needs to move.
+
+Bullets:
+- Locate sellers who go dark post-close
+- Surface property and equity for asset attachment
+- Map associated parties for collection strategy
+
+--------------------------------------------------------------------------------
+THREE-TIER PIPELINE SECTION
+--------------------------------------------------------------------------------
+Section Label: Three-Tier Pipeline
+
+Headline:
+Three tiers. Pick
+what you need.
+
+Intro: Each tier discovers a specific set of fields. If you've already found what you need, skip to the next deal. Set max_tier to 1 for quick checks, or 3 for full background on high-stakes targets.
+
+Tier 01 — Identity & Compliance
+Time: ~2 min
+Steps: 30 agent steps
+Use: Quick pass before you call. Confirms who they are and surfaces hard stops (bankruptcy, death).
+
+Fields:
+- Legal name and aliases
+- Phone numbers (mobile, landline, work)
+- Email addresses
+- Current address
+- Date of birth
+- Bankruptcy status
+- Deceased indicator
+
+---
+
+Tier 02 — Employment & History
+Time: ~4 min
+Steps: 30 agent steps
+Use: Standard for most deals. Maps career trajectory, current employer, tenure.
+
+Fields:
+- Employer and job title
+- Work phone and employer address
+- Previous addresses with dates
+- Additional aliases and maiden names
+
+---
+
+Tier 03 — Full Background
+Time: ~6 min
+Steps: 40 agent steps
+Use: Due diligence on major deals. Network mapping, asset analysis, litigation exposure.
+
+Fields:
+- Spouse or domestic partner
+- Co-habitants at current address
+- Real property ownership and estimated equity
+- Civil judgments and liens
+- Voter registration address
+- Professional licenses and status
+- Facebook profile
+- Income estimate
+
+--------------------------------------------------------------------------------
+RESULT SCHEMA SECTION
+--------------------------------------------------------------------------------
+Section Label: Result Schema
+
+Headline:
+Structured data.
+No parsing.
+
+Body: JSON response. Every field is typed and nullable. Missing data comes back as null. Arrays return empty if nothing was found. Load directly into your CRM, Salesforce, or deal tracking system. No transformation layer needed.
+
+Data Categories:
+
+Identity
+- Full legal name
+- Aliases & maiden names
+- Date of birth
+- Deceased status
+
+Contact
+- Cell, landline, work phones
+- Carrier & phone type
+- Email addresses
+- Facebook URL
+
+Location
+- Current address
+- Address history with date ranges
+- Voter registration address
+- Co-habitants
+
+Employment
+- Employer & job title
+- Work phone
+- Employer address
+- Professional licenses
+
+Financials
+- Property ownership
+- Estimated equity
+- Estimated income range
+- Bankruptcy (chapter, case #)
+
+Legal
+- Civil judgments
+- Liens (amount, filing date)
+- Court & case details
+- Spouse / partner info
+
+--------------------------------------------------------------------------------
+INTEGRATION SECTION (How It Works)
+--------------------------------------------------------------------------------
+Section Label: Integration
+
+Headline:
+Submit. Poll.
+Done.
+
+Body: Built for async workflows. Submit a request, get a job ID back in 100 milliseconds. Poll when you're ready. No blocking. No waiting. Max 10 concurrent jobs. Results stay available for 24 hours.
+
+API Flow Steps:
+
+Step 01 — POST /api/v1/trace
+Detail: Submit name + address. Receive a job_id in under 100ms.
+
+Step 02 — Job runs asynchronously
+Detail: AI agent pipeline executes up to 3 tiers. No blocking. No waiting on the client.
+
+Step 03 — GET /api/v1/trace/{job_id}
+Detail: Poll for status. When completed, retrieve fully structured JSON.
+
+Step 04 — Structured result object
+Detail: Every field is typed and nullable. Plug directly into your CRM, data warehouse, or workflow.
+
+Example Request / Response:
+POST /api/v1/trace
+{
+  "name": "Jane Doe",
+  "address": "123 Main St, MI",
+  "max_tier": 3
+}
+
+202 Accepted Response:
+{
+  "job_id": "a3f9c21b04d7",
+  "status": "queued"
+}
+
+--------------------------------------------------------------------------------
+API REFERENCE SECTION (Collapsible documentation)
+--------------------------------------------------------------------------------
+Section Label: API Reference
+Description: Full endpoint docs, data models, and job lifecycle
+
+Authentication:
+All /api/v1/* endpoints require an X-API-Key header.
+GET /health does not require authentication.
+
+Header: X-API-Key: <your-api-key>
+401 Error: { "detail": "Invalid or missing API key" }
+
+Endpoints:
+
+GET /health
+Description: Server status. No authentication required.
+200 Response: { "status": "ok" }
+
+---
+
+POST /api/v1/trace
+Description: Submit a new entity find job. Queued immediately, executed asynchronously. Deduplication: same name+address returns existing job_id.
+
+Request body:
+{
+  "name": "Jane Doe",
+  "address": "123 Main St, Detroit, MI 48201",
+  "max_tier": 1
+}
+
+max_tier: 1 (default), 2, or 3. Omit for Tier 1 only.
+
+202 Accepted Response:
+{
+  "job_id": "a3f9c21b04d7",
+  "status": "queued"
+}
+
+---
+
+GET /api/v1/trace/{job_id}
+Description: Retrieve status and result of an entity find job. Poll until status is completed, failed, or cancelled.
+
+200 Completed Response:
+{
+  "job_id": "a3f9c21b04d7",
+  "status": "completed",
+  "debtor": { "name": "...", "address": "...", "max_tier": 1 },
+  "created_at": "2026-03-08T14:00:00Z",
+  "completed_at": "2026-03-08T14:04:32Z",
+  "total_steps": 87,
+  "result": { ... },
+  "error": null
+}
+
+200 Running/Queued Response: (result null)
+404 Not Found: Job not found
+
+---
+
+DELETE /api/v1/trace/{job_id}
+Description: Request cancellation. Acknowledged immediately (202); worker stops at next tier boundary. Poll GET to confirm status: cancelled and partial result.
+
+202 Cancellation Requested:
+{ "job_id": "...", "status": "running" }
+
+409 Error: Job already completed/failed | 404 Error: Job not found
+
+---
+
+GET /api/v1/jobs
+Description: List all jobs in memory. Returns full job details per job.
+200 Response: Array of Job objects
+
+Data Models:
+
+DebtorInput (Request):
+- name: string — Debtor's full name
+- address: string — Known address (free-form)
+- max_tier: integer — Max tier 1–3. Default 1.
+
+TraceResponse (POST trace, DELETE trace):
+- job_id: string
+- status: queued | running | completed | failed | cancelled
+
+Job (GET trace/{job_id}, GET jobs):
+- job_id: string
+- status: queued | running | completed | failed | cancelled
+- debtor: DebtorInput
+- created_at: datetime (UTC)
+- completed_at: datetime | null
+- total_steps: integer | null
+- result: EntityFinderResult | null
+- error: string | null
+
+EntityFinderResult (result schema):
+- full_legal_name: string | null
+- aliases: string[]
+- date_of_birth: string | null
+- phone_numbers: PhoneNumber[]
+- current_address: Address | null
+- previous_addresses: AddressHistory[]
+- email_addresses: string[]
+- employment: EmploymentInfo | null
+- spouse_partner: RelativeInfo | null
+- co_habitants: string[]
+- property_ownership: PropertyInfo | null
+- homeowner_or_renter: owner | renter | unknown | null
+- bankruptcy: BankruptcyInfo | null
+- civil_judgments_liens: JudgmentLien[]
+- voter_registration_address: string | null
+- professional_licenses: License[]
+- facebook_url: string | null
+- estimated_income_range: string | null
+- deceased: DeceasedInfo | null
+
+Nested types: PhoneNumber (number, phone_type, carrier), Address (street, city, state, zip_code), AddressHistory (address, date_range), EmploymentInfo (employer_name, job_title, work_phone, employer_address, employer_main_line), RelativeInfo (name, phone, relationship), PropertyInfo (owner_of_record, estimated_value, estimated_equity, property_address), BankruptcyInfo (status, chapter, case_number, filing_date), JudgmentLien (case_type, description, amount, filing_date, court), License (license_type, status, issuing_state, license_number), DeceasedInfo (is_deceased, date_of_death, source).
+
+Job Lifecycle:
+POST /api/v1/trace → status: queued (returned immediately) → status: running → success: status: completed (result populated) OR error: status: failed (error populated)
+DELETE during running → status: cancelled (partial result preserved)
+
+Concurrency & Persistence:
+- Max concurrency: 10 simultaneous trace jobs (asyncio.Semaphore)
+- Persistence: Jobs in-memory only; history lost on restart
+- Job TTL: Terminal jobs (completed/failed/cancelled) purged after 24 hours. Cleanup runs hourly.
+- Result files: data/{job_id}.json written on completion; survive restarts
+
+Known Issues & Optimizations:
+
+Tiers Table:
+| Tier | max_tier | Max steps | Finds |
+| Tier 1 | 1 (default) | 30 | Name, phones, email, address, DOB, bankruptcy, deceased |
+| Tier 2 | 2 | 30 | Employer, job title, work phone, aliases, previous addresses |
+| Tier 3 | 3 | 40 | Spouse, co-habitants, property, judgments, licenses, voter reg, Facebook, income |
+
+How to minimize token drain:
+- Deduplication: Same name+address returns existing job_id; no duplicate pipeline.
+- Cancel long-running jobs: DELETE /api/v1/trace/{job_id} returns 202; poll until status: cancelled and use partial result.
+- Tier control: Use max_tier in request; default 1 runs Tier 1 only.
+- Agent instructions: Tier 2/3 prompts tell the agent not to re-search already-confirmed fields.
+
+Each tier runs only if the previous tier left target fields unfilled. Later tiers skip re-verifying already-found data.
+
+--------------------------------------------------------------------------------
+CLOSING CTA SECTION
+--------------------------------------------------------------------------------
+Section Label: Get Access
+
+Headline:
+Ready to source faster?
+
+Body: Entity Finder is available to PE deal teams and operators. Standard pricing for sourcing workflows, custom pricing for high-volume compliance screening. Email to discuss your use case and get started.
+
+Primary CTA: Request API Access
+Secondary CTA: ← Back to Landex
+
+================================================================================
+END OF ENTITY FINDER API COPY
+================================================================================

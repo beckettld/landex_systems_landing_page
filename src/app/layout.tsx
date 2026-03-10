@@ -6,7 +6,7 @@ import ThemeRegistry from "@/theme/ThemeRegistry";
 export const metadata: Metadata = {
   title: "Landex Systems | AI for PE Portfolio Companies",
   description:
-    "We deploy AI systems inside your portfolio companies that cut costs, automate operations, and drive EBITDA growth. Working systems in weeks, not quarters.",
+    "Deploy working AI systems in 6-8 weeks. Cut operational costs, automate workflows, and drive EBITDA growth. Faster and cheaper than traditional consulting.",
 };
 
 export default function RootLayout({
