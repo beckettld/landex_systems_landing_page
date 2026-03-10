@@ -70,7 +70,7 @@ export default function Footer() {
                 sx={{ color: "text.secondary", mb: 6, maxWidth: 520, mx: "auto" }}
               >
                 Pick one portfolio company with clear operational pain. We&apos;ll
-                embed a small team for 6-8 weeks, build a working AI system, and
+                embed a small team in weeks, build a working AI system, and
                 show you measurable results. If it works, we expand across your
                 fund. No long-term commitment required.
               </Typography>
@@ -155,10 +155,11 @@ export default function Footer() {
                 Navigate
               </Typography>
               {[
-                { label: "The Problem", href: "#problem" },
-                { label: "How It Works", href: "#approach" },
-                { label: "What We Build", href: "#capabilities" },
-                { label: "Why Us", href: "#advantage" },
+                { label: "The Problem", href: "/#problem" },
+                { label: "How It Works", href: "/#approach" },
+                { label: "What We Build", href: "/#capabilities" },
+                { label: "Work", href: "/portfolio" },
+                { label: "Why Us", href: "/#advantage" },
               ].map((item) => (
                   <Typography
                     key={item.label}

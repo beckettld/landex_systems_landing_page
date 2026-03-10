@@ -37,7 +37,17 @@ export default function Navbar() {
           disableGutters
           sx={{ minHeight: { xs: 64, md: 72 }, justifyContent: "space-between" }}
         >
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Box
+            component="a"
+            href="/"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
             <Box
               sx={{
                 width: 8,
@@ -63,10 +73,11 @@ export default function Navbar() {
 
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 4 }}>
             {[
-              { label: "The Problem", href: "#problem" },
-              { label: "How It Works", href: "#approach" },
-              { label: "What We Build", href: "#capabilities" },
-              { label: "Why Us", href: "#advantage" },
+              { label: "The Problem", href: "/#problem" },
+              { label: "How It Works", href: "/#approach" },
+              { label: "What We Build", href: "/#capabilities" },
+              { label: "Work", href: "/portfolio" },
+              { label: "Why Us", href: "/#advantage" },
             ].map((item) => (
                 <Typography
                   key={item.label}
@@ -88,7 +99,7 @@ export default function Navbar() {
             <Button
               variant="outlined"
               size="small"
-              href="#contact"
+              href="/#contact"
               sx={{
                 borderColor: "rgba(232,236,244,0.15)",
                 color: "text.primary",
