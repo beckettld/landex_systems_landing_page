@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync-favicon": "bash -c '[ -d favicon ] || exit 0; for f in favicon/favicon.ico favicon/icon.png favicon/apple-icon.png; do [ -f \"$f\" ] && cp \"$f\" src/app/; done; rm -rf favicon'"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
