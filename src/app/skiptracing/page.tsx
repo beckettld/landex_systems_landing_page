@@ -1642,7 +1642,7 @@ function EntityFinderCTA() {
                   "&:hover": { borderColor: "rgba(232,236,244,0.3)", bgcolor: "rgba(255,255,255,0.03)" },
                 }}
               >
-                ← Back to Landex
+                ← Back to Landex Systems
               </Button>
             </Stack>
           </Box>

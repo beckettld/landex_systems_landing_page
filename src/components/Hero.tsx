@@ -143,9 +143,8 @@ export default function Hero() {
                 fontSize: { xs: "1rem", md: "1.125rem" },
               }}
             >
-              Deploy production AI infrastructure in 6-8 weeks. Cut costs that
-              flow straight to EBITDA. Fixed scope. Fixed price. No
-              recommendations, no delays.
+              Fixed scope. Fixed price. Working systems deployed in weeks, not
+              months. Cut costs that flow straight to EBITDA.
             </Typography>
           </motion.div>
 

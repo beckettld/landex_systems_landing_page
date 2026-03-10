@@ -8,27 +8,27 @@ import StaggerContainer, { staggerItem } from "./StaggerContainer";
 const steps = [
   {
     number: "/01",
-    title: "Identify",
+    title: "Bring Ideas",
     description:
-      "Work with your operating team to select the portfolio company with the biggest operational drag: manual data entry, paper-based workflows, fragmented legacy systems. We narrow the scope to one specific problem with a measurable outcome.",
+      "You have a portfolio company with a specific operational problem. We bring ideas on how AI can solve it. We scope the project, define what success looks like, and agree on timeline and cost upfront.",
   },
   {
     number: "/02",
-    title: "Embed & Build",
+    title: "Understand & Build",
     description:
-      "A small team of engineers operates from inside the portfolio company. We map the workflow, design the AI system, and build production infrastructure. No consultants, no decks. Just working code that runs.",
+      "We work with your team to understand the exact operational bottleneck. Then we build production infrastructure to fix it—not a strategy deck, not recommendations. The system goes live in weeks delivering measurable results from day one.",
   },
   {
     number: "/03",
-    title: "Deploy & Measure",
+    title: "Validate Results",
     description:
-      "Go live in 6-8 weeks. Measure the output: headcount freed up, cost per transaction cut in half, days of manual work eliminated. Show the impact in terms that matter to your LPs.",
+      "You see proof of concept. Measure the impact: headcount freed, costs cut, days of manual work eliminated. You have proof that this works in your fund.",
   },
   {
     number: "/04",
-    title: "Expand Across the Portfolio",
+    title: "Scale & Expand",
     description:
-      "Once you have proof of concept, we deploy the same AI system to your next portfolio company. Timeline drops to 4-6 weeks. Each subsequent deployment is cheaper. What took 8 weeks for company one takes 3 weeks for company ten.",
+      "Once validated, the second deployment takes 4-6 weeks and costs half as much. Each subsequent company is faster and cheaper. By your third or fourth company, the cost per deployment becomes negligible. We move as fast as you want to scale.",
   },
 ];
 
@@ -62,10 +62,10 @@ export default function Playbook() {
               maxWidth: 700,
             }}
           >
-            Start with one company.
+            Pilot one company.
             <br />
             <Box component="span" sx={{ color: "text.secondary" }}>
-              Then scale the playbook.
+              Multiply across your fund.
             </Box>
           </Typography>
         </AnimateIn>
@@ -79,10 +79,10 @@ export default function Playbook() {
               maxWidth: 560,
             }}
           >
-            We identify the portfolio company with the clearest operational
-            pain. Deploy a small team of engineers for 6-8 weeks. Build, launch,
-            and measure. Once you see the results, we roll the same system across
-            the rest of your portfolio faster and cheaper.
+            Here's how we work together. You bring the portfolio company and the
+            problem. We bring ideas on how AI fixes it. We scope one project, execute it,
+            show you the results. Then we talk about expanding: either the same
+            system across your portfolio, or new solutions. You control what comes next.
           </Typography>
         </AnimateIn>
 

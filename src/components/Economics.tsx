@@ -4,7 +4,6 @@ import { Box, Container, Typography, Grid, Divider } from "@mui/material";
 import { motion } from "framer-motion";
 import AnimateIn from "./AnimateIn";
 import StaggerContainer, {
-  staggerItem,
   staggerItemLeft,
   staggerItemRight,
 } from "./StaggerContainer";
@@ -13,39 +12,21 @@ const traditional = {
   label: "Traditional Consulting",
   items: [
     { metric: "Timeline", value: "3–6 months" },
-    { metric: "Team on-site", value: "5–8 people" },
-    { metric: "Your cost", value: "$500K–$1M" },
-    { metric: "What you get", value: "A binder of recommendations" },
+    { metric: "Cost", value: "$500K–$1M" },
+    { metric: "What you get", value: "Strategic recommendations you need to hire someone else to implement" },
+    { metric: "Scaling", value: "Same timeline and cost structure for each engagement" },
   ],
 };
 
 const landex = {
   label: "Landex Systems",
   items: [
-    { metric: "Timeline", value: "6–8 weeks" },
-    { metric: "Team on-site", value: "2–3 engineers" },
-    { metric: "Your cost", value: "$100K–$300K" },
-    { metric: "What you get", value: "Production AI running in your company" },
+    { metric: "Timeline", value: "4–8 weeks" },
+    { metric: "Cost", value: "Custom-scoped, fixed price upfront" },
+    { metric: "What you get", value: "Operating infrastructure deployed and running in your company" },
+    { metric: "Scaling", value: "Deploying the same system again: timeline cuts in half, costs decrease" },
   ],
 };
-
-const advantages = [
-  {
-    title: "Fixed Scope, Fixed Price",
-    description:
-      "Your engagement is scoped and priced upfront. No scope creep, no surprise invoices. You know exactly what we're building and what it costs.",
-  },
-  {
-    title: "Production Infrastructure, Not PowerPoint",
-    description:
-      "We deliver AI systems that operate inside your portfolio company. When we leave, the systems stay and keep running. No recommendations to shelf, no playbook to interpret.",
-  },
-  {
-    title: "Portfolio Leverage",
-    description:
-      "Once the first deployment works, the second one costs half as much and moves twice as fast. By your fourth or fifth company, the per-deployment cost is negligible.",
-  },
-];
 
 export default function Economics() {
   return (
@@ -129,20 +110,19 @@ export default function Economics() {
                       <Box
                         sx={{
                           display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "baseline",
+                          gap: 3,
                           py: 2.5,
                         }}
                       >
                         <Typography
                           variant="body2"
-                          sx={{ color: "text.secondary" }}
+                          sx={{ color: "text.secondary", flex: "0 0 33%" }}
                         >
                           {item.metric}
                         </Typography>
                         <Typography
                           variant="body2"
-                          sx={{ color: "text.secondary", fontWeight: 500 }}
+                          sx={{ color: "text.secondary", fontWeight: 500, flex: 1, textAlign: "right" }}
                         >
                           {item.value}
                         </Typography>
@@ -162,21 +142,8 @@ export default function Economics() {
                     p: { xs: 4, md: 5 },
                     height: "100%",
                     bgcolor: "rgba(79,125,247,0.04)",
-                    position: "relative",
-                    overflow: "hidden",
                   }}
                 >
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      top: 0,
-                      right: 0,
-                      width: 80,
-                      height: 80,
-                      background:
-                        "linear-gradient(135deg, rgba(79,125,247,0.1) 0%, transparent 100%)",
-                    }}
-                  />
 
                   <Typography
                     variant="h6"
@@ -194,20 +161,19 @@ export default function Economics() {
                       <Box
                         sx={{
                           display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "baseline",
+                          gap: 3,
                           py: 2.5,
                         }}
                       >
                         <Typography
                           variant="body2"
-                          sx={{ color: "text.secondary" }}
+                          sx={{ color: "text.secondary", flex: "0 0 33%" }}
                         >
                           {item.metric}
                         </Typography>
                         <Typography
                           variant="body2"
-                          sx={{ color: "text.primary", fontWeight: 600 }}
+                          sx={{ color: "text.primary", fontWeight: 600, flex: 1, textAlign: "right" }}
                         >
                           {item.value}
                         </Typography>
@@ -225,50 +191,27 @@ export default function Economics() {
           </Grid>
         </StaggerContainer>
 
-        {/* Advantage cards stagger up */}
-        <StaggerContainer stagger={0.12} delay={0.1}>
-          <Grid container spacing={0}>
-            {advantages.map((adv, i) => (
-              <Grid key={adv.title} size={{ xs: 12, md: 4 }}>
-                <motion.div variants={staggerItem} style={{ height: "100%" }}>
-                  <Box
-                    sx={{
-                      p: { xs: 4, md: 5 },
-                      height: "100%",
-                      borderTop: "2px solid",
-                      borderColor:
-                        i === 0 ? "primary.main" : "rgba(232,236,244,0.06)",
-                      borderRight: {
-                        xs: "none",
-                        md:
-                          i < 2
-                            ? "1px solid rgba(232,236,244,0.06)"
-                            : "none",
-                      },
-                    }}
-                  >
-                    <Typography
-                      variant="h4"
-                      sx={{
-                        fontSize: "1.25rem",
-                        color: "text.primary",
-                        mb: 2,
-                      }}
-                    >
-                      {adv.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "text.secondary", lineHeight: 1.7 }}
-                    >
-                      {adv.description}
-                    </Typography>
-                  </Box>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </StaggerContainer>
+        {/* Scaling advantage section */}
+        <AnimateIn delay={0.2} blur>
+          <Box sx={{ mb: { xs: 8, md: 12 }, maxWidth: 560 }}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "text.secondary",
+                lineHeight: 1.7,
+              }}
+            >
+              <Typography
+                component="span"
+                sx={{ fontWeight: 600, color: "text.primary" }}
+              >
+                Deploy once, scale efficiently.
+              </Typography>
+              {" "}When you deploy the same AI system to your next portfolio company, the timeline cuts in half and efficiency gains lower your cost. Different solutions are scoped individually.
+            </Typography>
+          </Box>
+        </AnimateIn>
+
       </Container>
     </Box>
   );

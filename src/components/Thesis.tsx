@@ -10,7 +10,7 @@ const stats = [
   { figure: "6%", label: "of PE firms currently use AI for operations" },
   { figure: "70%", label: "expect AI to materially impact returns over the next 3-5 years" },
   { figure: "Now", label: "The window is closing. First movers will have a portfolio-wide advantage." },
-  { figure: "6–8 wk", label: "That's how long it takes to deploy a working system." },
+  { figure: "4–8 weeks", label: "That's how long it takes to deploy a working system." },
 ];
 
 export default function Thesis() {
@@ -62,13 +62,13 @@ export default function Thesis() {
                   mb: 5,
                 }}
               >
-                Multiples are tight.
+                Multiples are compressed.
                 <br />
                 <Box
                   component="span"
                   sx={{ fontStyle: "italic", color: "primary.main" }}
                 >
-                  AI is the gap.
+                  AI is the unequal advantage.
                 </Box>
               </Typography>
             </AnimateIn>
@@ -79,12 +79,7 @@ export default function Thesis() {
                   variant="body1"
                   sx={{ color: "text.secondary", mb: 4, maxWidth: 580 }}
                 >
-                  Purchase multiples have compressed. Financial engineering
-                  won&apos;t move the needle anymore. What does: operational
-                  improvements that hit the P&L. AI can automate a portfolio
-                  company&apos;s manual workflows, consolidate legacy systems,
-                  and eliminate costs that flow straight to EBITDA. But it has
-                  to work.
+                  Purchase multiples have compressed. Financial engineering won&apos;t move the needle anymore. Every portfolio company is bleeding cash through manual workflows, legacy system friction, and redundant headcount. AI stops that bleeding by consolidating workflows, cutting operational hours, and eliminating costs that flow straight to EBITDA. With multiples tight, pure operational profit improvement is how you move returns.
                 </Typography>
               </motion.div>
 
@@ -93,11 +88,7 @@ export default function Thesis() {
                   variant="body1"
                   sx={{ color: "text.secondary", mb: 4, maxWidth: 580 }}
                 >
-                  The problem is clear. Your typical consulting firm charges
-                  $500K-$1M, stations 8 people on-site for 3-6 months, and
-                  delivers a binder of recommendations. Your portfolio company
-                  gets a strategy deck. What it actually needs is a system that
-                  runs.
+                  Traditional consulting firms don&apos;t deliver working systems. They deliver recommendations. And their incentives are inverse to yours: the longer the engagement, the more they get paid. There&apos;s no pressure to move fast, no accountability for results. We align incentives differently. Fixed scope, fixed price, deployed in weeks. You only pay when working infrastructure is live in your company. Speed is profit for both of us.
                 </Typography>
               </motion.div>
 
@@ -106,10 +97,7 @@ export default function Thesis() {
                   variant="body1"
                   sx={{ color: "text.primary", maxWidth: 580, fontWeight: 500 }}
                 >
-                  We&apos;re different. We build and deploy the AI. You get
-                  infrastructure you can operate, not a consultant-written
-                  playbook. Fixed scope, fixed price, 6-8 weeks in. Every dollar
-                  of savings drops to EBITDA.
+                  We deploy production AI in weeks. Fixed scope, fixed price. You get operating infrastructure that runs the day we leave. Every dollar of EBITDA savings hits your exit multiple. That's how you move the needle at exit.
                 </Typography>
               </motion.div>
             </StaggerContainer>
