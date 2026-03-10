@@ -76,8 +76,8 @@ export default function Navbar() {
               { label: "The Problem", href: "/#problem" },
               { label: "How It Works", href: "/#approach" },
               { label: "What We Build", href: "/#capabilities" },
-              { label: "Work", href: "/portfolio" },
               { label: "Why Us", href: "/#advantage" },
+              { label: "Past work", href: "/portfolio" },
             ].map((item) => (
                 <Typography
                   key={item.label}

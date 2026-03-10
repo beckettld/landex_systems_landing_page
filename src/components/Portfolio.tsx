@@ -103,7 +103,7 @@ export default function Portfolio() {
             variant="overline"
             sx={{ color: "primary.main", mb: 3, display: "block" }}
           >
-            Work
+            Past work
           </Typography>
         </AnimateIn>
 
