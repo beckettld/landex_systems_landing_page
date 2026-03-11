@@ -78,6 +78,7 @@ export default function Navbar() {
               { label: "What We Build", href: "/#capabilities" },
               { label: "Why Us", href: "/#advantage" },
               { label: "Past work", href: "/portfolio" },
+              { label: "Entity Finder", href: "/entity-find" },
             ].map((item) => (
                 <Typography
                   key={item.label}
