@@ -71,29 +71,24 @@ const tiers = [
 
 const useCases = [
   {
-    title: "Deal Sourcing",
+    title: "Skip Tracing / Collections",
     description:
-      "Find HVAC founders, regional MSPs, and niche manufacturers before bankers run an auction. Direct dial, email verified, ready to call.",
+      "You have a name and a last known address. You need current phones, a verified location, and employer info. The enrich pipeline runs four tiers and returns everything the collector or process server needs to act.",
   },
   {
-    title: "Founder Background",
+    title: "Outbound Sales",
     description:
-      "Confirm bankruptcy, judgments, and litigation history before signing an LOI. Two minutes instead of two weeks.",
+      "You have a list of target companies. Give them to the pipeline and get back the decision-makers with direct phones, personal emails, and current addresses. No manual research. No LinkedIn approximations.",
   },
   {
-    title: "Operator Vetting",
+    title: "Property-Signal Targeting",
     description:
-      "Verify professional licenses, employment history, and property ownership when you're hiring or adding to the portfolio.",
+      "A property record reveals a homeowner. A deed transfer reveals a new buyer. A tax lien reveals a motivated seller. The discover pipeline finds the people behind those signals and enriches each one with contact info.",
   },
   {
-    title: "LP Due Diligence",
+    title: "Event-Triggered Outreach",
     description:
-      "Screen beneficial owners for AML compliance, bankruptcy, and liens before closing commitments.",
-  },
-  {
-    title: "Target Company Pipeline",
-    description:
-      "Give us a company name. We identify the CEO, CFO, and key contacts with titles and LinkedIn. Then enrich each one: direct phone, personal email, current address. One call, full pipeline.",
+      "A new business filing, a renovation permit, a domestic relations case, a job change. These events define a population at exactly the moment they are a relevant target. The pipeline catches them and builds a verified list.",
   },
 ];
 
@@ -294,7 +289,7 @@ function EntityFinderHero() {
               variant="overline"
               sx={{ color: "primary.main", mb: 4, display: "block", letterSpacing: "0.15em" }}
             >
-              Entity Finder API for Deal Teams
+              Entity Finder API
             </Typography>
           </motion.div>
 
@@ -311,11 +306,11 @@ function EntityFinderHero() {
                 mb: 4,
               }}
             >
-              Direct contact for
+              Find anyone.
               <br />
-              every founder and
+              From any
               <br />
-              operator in your target list
+              starting point.
             </Typography>
           </motion.div>
 
@@ -328,11 +323,11 @@ function EntityFinderHero() {
               variant="subtitle1"
               sx={{ color: "text.secondary", maxWidth: 580, mb: 6, fontSize: { xs: "1rem", md: "1.125rem" } }}
             >
-              Submit a name and address. Get back verified phone, email, current
-              employer, and legal exposure in under 2 minutes. Or give us a
-              company name. We find who runs it and build a full verified profile
-              on each key contact. No stale data. No manual research. Straight
-              into your deal workflow.
+              A name and address. A company name. A property signal. A life
+              event. Tell us who you are looking for and we find them, locate
+              them, and build a verified profile on everyone who matches. Phones,
+              email, employer, assets, legal history. Structured JSON, straight
+              into your workflow.
             </Typography>
           </motion.div>
 
@@ -396,6 +391,222 @@ function EntityFinderHero() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Three Operations
+// ─────────────────────────────────────────────────────────────────────────────
+
+const operations = [
+  {
+    name: "Discover",
+    status: "Coming soon",
+    statusLive: false,
+    tagline: "Define a population. Find everyone in it.",
+    description:
+      "You have a description of a target, not a list of names. Property owners in a county with delinquent taxes. New deed transfers in a zip code. Recent LLC registrations in a state. The discover operation translates a filter into a set of partial entities — names and addresses — ready for enrichment.",
+    examples: [
+      "New homebuyers in a target market (deed transfers, last 60 days)",
+      "Commercial owners in a zip with outstanding tax liens",
+      "New business registrations by state, filtered by entity type",
+      "Permit pulls in a target neighborhood, last 30 days",
+    ],
+  },
+  {
+    name: "Expand",
+    status: "Live",
+    statusLive: true,
+    tagline: "One entity. Get the people around it.",
+    description:
+      "You have a company. You need the people who run it. Expand takes an organization and returns its key contacts — name, title, LinkedIn, email — plus company-level signals. Filter by role, seniority, or department. The contacts it returns are seeded for enrichment without needing a separate address lookup.",
+    examples: [
+      "Company name to CEO, CFO, and owners with LinkedIn and email",
+      "Filter by seniority (C-suite, VP, director) or department",
+      "Returns registered agent, office locations, email pattern",
+      "Output is valid input to enrich — no manual chaining required",
+    ],
+  },
+  {
+    name: "Enrich",
+    status: "Live",
+    statusLive: true,
+    tagline: "Partial record. Full profile.",
+    description:
+      "You have a name and address, or a name and LinkedIn from expand. You need everything else. Enrich runs a four-tier agent pipeline and returns verified phones, email, employment, property, assets, legal history, and household data. Use max_tier to control depth and cost.",
+    examples: [
+      "Name + address → verified phones, email, employer, current location",
+      "Name + LinkedIn (from expand) → full profile without an address",
+      "Four tiers: identity, employment, full background, deep background",
+      "Every field typed and nullable — direct to CRM or data warehouse",
+    ],
+  },
+];
+
+function ThreeOperations() {
+  const [active, setActive] = useState(1);
+
+  return (
+    <Box sx={{ py: { xs: 12, md: 18 }, bgcolor: "#080C1E" }}>
+      <Container maxWidth="lg">
+        <AnimateIn blur>
+          <Typography variant="overline" sx={{ color: "primary.main", mb: 3, display: "block" }}>
+            How it works
+          </Typography>
+        </AnimateIn>
+
+        <Grid container spacing={{ xs: 4, md: 10 }} sx={{ mb: { xs: 8, md: 12 } }}>
+          <Grid size={{ xs: 12, md: 7 }}>
+            <AnimateIn delay={0.1} blur>
+              <Typography
+                variant="h2"
+                sx={{ fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" }, color: "text.primary" }}
+              >
+                Three operations.
+                <br />
+                <Box component="span" sx={{ fontStyle: "italic", color: "primary.main" }}>
+                  Composable by design.
+                </Box>
+              </Typography>
+            </AnimateIn>
+          </Grid>
+          <Grid size={{ xs: 12, md: 5 }}>
+            <AnimateIn delay={0.2}>
+              <Typography variant="body1" sx={{ color: "text.secondary" }}>
+                Every capability in the system is one of three operations.
+                Each one stands alone or feeds the next. The output of discover
+                is valid input to expand. The output of expand is valid input
+                to enrich. You call as many stages as you need.
+              </Typography>
+            </AnimateIn>
+          </Grid>
+        </Grid>
+
+        <StaggerContainer stagger={0.12} delay={0.1}>
+          <Grid container spacing={2}>
+            {operations.map((op, i) => {
+              const isActive = i === active;
+              return (
+                <Grid key={op.name} size={{ xs: 12, md: 4 }}>
+                  <motion.div variants={staggerItem} style={{ height: "100%" }}>
+                    <Box
+                      onClick={() => setActive(i)}
+                      sx={{
+                        border: "1px solid",
+                        borderColor: isActive ? "rgba(79,125,247,0.35)" : "rgba(232,236,244,0.06)",
+                        p: { xs: 4, md: 5 },
+                        height: "100%",
+                        bgcolor: isActive ? "rgba(79,125,247,0.04)" : "rgba(255,255,255,0.01)",
+                        cursor: "pointer",
+                        transition: "border-color 0.25s ease, background-color 0.25s ease",
+                        "&:hover": {
+                          borderColor: isActive ? "rgba(79,125,247,0.5)" : "rgba(232,236,244,0.15)",
+                        },
+                      }}
+                    >
+                      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 3 }}>
+                        <Typography
+                          sx={{
+                            fontFamily: '"Instrument Serif", serif',
+                            fontSize: "2.25rem",
+                            color: isActive ? "primary.main" : "rgba(232,236,244,0.12)",
+                            lineHeight: 1,
+                            transition: "color 0.25s ease",
+                          }}
+                        >
+                          {op.name}
+                        </Typography>
+                        <Chip
+                          label={op.status}
+                          size="small"
+                          sx={{
+                            bgcolor: op.statusLive ? "rgba(79,125,247,0.12)" : "rgba(232,236,244,0.05)",
+                            color: op.statusLive ? "primary.main" : "rgba(232,236,244,0.3)",
+                            fontSize: "0.6rem",
+                            height: 18,
+                            borderRadius: 0,
+                            fontWeight: 500,
+                            letterSpacing: "0.06em",
+                          }}
+                        />
+                      </Box>
+
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: isActive ? "text.primary" : "text.secondary",
+                          fontSize: "0.875rem",
+                          fontWeight: 500,
+                          mb: 2,
+                          transition: "color 0.25s ease",
+                        }}
+                      >
+                        {op.tagline}
+                      </Typography>
+
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "text.secondary", lineHeight: 1.75, mb: 3, fontSize: "0.8125rem" }}
+                      >
+                        {op.description}
+                      </Typography>
+
+                      <Divider sx={{ mb: 3, borderColor: isActive ? "rgba(79,125,247,0.15)" : "rgba(232,236,244,0.06)" }} />
+
+                      <Box>
+                        {op.examples.map((ex) => (
+                          <Box key={ex} sx={{ display: "flex", alignItems: "flex-start", gap: 1.5, mb: 1 }}>
+                            <Box sx={{ width: 3, height: 3, bgcolor: isActive ? "primary.main" : "rgba(232,236,244,0.2)", flexShrink: 0, mt: "6px", transition: "background-color 0.25s ease" }} />
+                            <Typography variant="body2" sx={{ color: "rgba(232,236,244,0.4)", fontSize: "0.8rem", lineHeight: 1.6 }}>
+                              {ex}
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
+                    </Box>
+                  </motion.div>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </StaggerContainer>
+
+        <AnimateIn delay={0.3}>
+          <Box
+            sx={{
+              mt: 4,
+              p: { xs: 3, md: 4 },
+              border: "1px solid rgba(232,236,244,0.06)",
+              bgcolor: "rgba(255,255,255,0.01)",
+            }}
+          >
+            <Typography variant="body2" sx={{ color: "text.secondary", fontSize: "0.8125rem", mb: 1 }}>
+              <Box component="span" sx={{ color: "text.primary", fontWeight: 500 }}>Pipelines</Box> chain these operations. The output of each stage is the input to the next.
+            </Typography>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 1, sm: 3 }} sx={{ mt: 2 }}>
+              {[
+                { label: "Skip trace", flow: "name + address → enrich → full profile", live: true },
+                { label: "Company to contacts", flow: "company → expand → enrich each contact", live: true },
+                { label: "Property targeting", flow: "property signal → discover → enrich", live: false },
+                { label: "Event-triggered", flow: "life event → discover → enrich", live: false },
+              ].map((p) => (
+                <Box key={p.label} sx={{ display: "flex", alignItems: "center", gap: 1.5, minWidth: 0 }}>
+                  <Box sx={{ width: 5, height: 5, bgcolor: p.live ? "primary.main" : "rgba(232,236,244,0.15)", flexShrink: 0 }} />
+                  <Box>
+                    <Typography sx={{ fontSize: "0.7rem", color: p.live ? "primary.main" : "rgba(232,236,244,0.25)", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                      {p.label}{!p.live && " — soon"}
+                    </Typography>
+                    <Typography sx={{ fontFamily: "monospace", fontSize: "0.7rem", color: "rgba(232,236,244,0.3)" }}>
+                      {p.flow}
+                    </Typography>
+                  </Box>
+                </Box>
+              ))}
+            </Stack>
+          </Box>
+        </AnimateIn>
+      </Container>
+    </Box>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Use Cases
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -415,7 +626,7 @@ function UseCases() {
       <Container maxWidth="lg">
         <AnimateIn blur>
           <Typography variant="overline" sx={{ color: "primary.main", mb: 3, display: "block" }}>
-            Built for PE
+            Use cases
           </Typography>
         </AnimateIn>
 
@@ -426,21 +637,21 @@ function UseCases() {
                 variant="h2"
                 sx={{ fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" }, color: "text.primary", mb: 5 }}
               >
-                Contact intelligence
+                Any population.
                 <br />
-                for every stage of{" "}
+                Defined{" "}
                 <Box component="span" sx={{ fontStyle: "italic", color: "primary.main" }}>
-                  deal work
+                  any way.
                 </Box>
               </Typography>
             </AnimateIn>
             <AnimateIn delay={0.2}>
               <Typography variant="body1" sx={{ color: "text.secondary", maxWidth: 520 }}>
-                Your team spends hours pulling fragments from LinkedIn,
-                Crunchbase, and scattered public records. By the time you have a
-                phone number, the banker already called. Our API consolidates
-                40+ data sources into structured profiles. One name and address.
-                Structured JSON in 90 seconds. Ready to load into your CRM.
+                The input can be a known individual, a company name, a
+                property characteristic, or a life event. The output is a
+                structured profile for each entity that matches: phones, email,
+                location, employment, assets, and legal history. The research
+                pattern is the same regardless of where you start.
               </Typography>
             </AnimateIn>
           </Grid>
@@ -795,7 +1006,7 @@ function PEUseCases() {
         {/* Section header */}
         <AnimateIn blur>
           <Typography variant="overline" sx={{ color: "primary.main", mb: 3, display: "block" }}>
-            Where This Moves the Needle
+            Example — PE deal teams
           </Typography>
         </AnimateIn>
 
@@ -806,10 +1017,10 @@ function PEUseCases() {
                 variant="h2"
                 sx={{ fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" }, color: "text.primary" }}
               >
-                Seven ways PE firms
+                How PE firms
                 <br />
                 <Box component="span" sx={{ fontStyle: "italic", color: "primary.main" }}>
-                  use this today
+                  run this workflow
                 </Box>
               </Typography>
             </AnimateIn>
@@ -817,10 +1028,10 @@ function PEUseCases() {
           <Grid size={{ xs: 12, md: 5 }}>
             <AnimateIn delay={0.2}>
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
-                Off-market deals are worth 1-3x less than auctioned assets. But
-                you only win if you reach the owner first. We handle the
-                research, verification, and compliance piece so your team can
-                focus on dialing. Each use case ties directly to fund economics.
+                Private equity is one vertical where all three operations show
+                up across the deal cycle. Deal sourcing, diligence, compliance,
+                and post-close recovery each map to a different pipeline. The
+                same API, different starting points.
               </Typography>
             </AnimateIn>
           </Grid>
@@ -1909,6 +2120,7 @@ export default function EntityFinderPage() {
     <>
       <Navbar />
       <EntityFinderHero />
+      <ThreeOperations />
       <UseCases />
       <CompanyPipeline />
       <PEUseCases />
