@@ -90,6 +90,11 @@ const useCases = [
     description:
       "Screen beneficial owners for AML compliance, bankruptcy, and liens before closing commitments.",
   },
+  {
+    title: "Target Company Pipeline",
+    description:
+      "Give us a company name. We identify the CEO, CFO, and key contacts with titles and LinkedIn. Then enrich each one: direct phone, personal email, current address. One call, full pipeline.",
+  },
 ];
 
 const peUseCases = [
@@ -100,11 +105,11 @@ const peUseCases = [
     impactDetail: "Off-market deals close at 1–3x lower multiples than auction processes",
     tier: "Tier 1",
     description:
-      "Bankers run auctions. The best deals never surface. Entity Finder gives you direct dial and email for HVAC founders, regional MSPs, and niche manufacturers in your target verticals. Reach the decision-maker before the process starts.",
+      "Bankers run auctions. The best deals never surface. Give us a list of target companies. We identify who runs each one, then build a full verified profile on every key contact — direct phone, personal email, current address. Your team starts dialing before the banker even gets the mandate.",
     bullets: [
-      "Find founders and operators on your target list (not LinkedIn approximations)",
-      "Skip the CFO gatekeeper. Get the owner's personal number.",
-      "Run 50 target companies in parallel in under an hour.",
+      "Submit a company name. Get the CEO, CFO, and owners with titles and LinkedIn.",
+      "Enrich each contact automatically: direct phone, personal email, current address.",
+      "Run 50 target companies in parallel. Full contact list in under an hour.",
     ],
   },
   {
@@ -205,9 +210,9 @@ const dataPoints = [
 ];
 
 const apiSteps = [
-  { step: "01", action: "POST /api/v1/trace", detail: "Submit name + address. Receive a job_id in under 100ms." },
-  { step: "02", action: "Job runs asynchronously", detail: "AI agent pipeline executes up to 3 tiers. No blocking. No waiting on the client." },
-  { step: "03", action: "GET /api/v1/trace/{job_id}", detail: "Poll for status. When completed, retrieve fully structured JSON." },
+  { step: "01", action: "POST /api/v1/enrich", detail: "Submit name + address (or company name for the pipeline). Receive a job_id in under 100ms." },
+  { step: "02", action: "Job runs asynchronously", detail: "Agent pipeline executes up to 4 tiers per person. Company pipeline expands contacts first, then enriches each one. No blocking." },
+  { step: "03", action: "GET /api/v1/jobs/{job_id}", detail: "Poll for status. When completed, retrieve a fully structured JSON result." },
   { step: "04", action: "Structured result object", detail: "Every field is typed and nullable. Plug directly into your CRM, data warehouse, or workflow." },
 ];
 
@@ -324,9 +329,10 @@ function EntityFinderHero() {
               sx={{ color: "text.secondary", maxWidth: 580, mb: 6, fontSize: { xs: "1rem", md: "1.125rem" } }}
             >
               Submit a name and address. Get back verified phone, email, current
-              employer, and legal exposure in under 2 minutes. No stale LinkedIn
-              data. No manual research. Automated intelligence that flows
-              straight into your deal workflow.
+              employer, and legal exposure in under 2 minutes. Or give us a
+              company name. We find who runs it and build a full verified profile
+              on each key contact. No stale data. No manual research. Straight
+              into your deal workflow.
             </Typography>
           </motion.div>
 
@@ -572,6 +578,193 @@ function CardContent({ uc }: { uc: PEUseCase }) {
           </Box>
         ))}
       </Box>
+    </Box>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Company Pipeline
+// ─────────────────────────────────────────────────────────────────────────────
+
+function CompanyPipeline() {
+  return (
+    <Box sx={{ py: { xs: 12, md: 18 }, bgcolor: "#06091A", position: "relative" }}>
+      <motion.div
+        initial={{ scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        style={{
+          position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
+          width: 1, height: 80, background: "rgba(79,125,247,0.35)", transformOrigin: "top",
+        }}
+      />
+      <Container maxWidth="lg">
+        <AnimateIn blur>
+          <Typography variant="overline" sx={{ color: "primary.main", mb: 3, display: "block" }}>
+            Two ways in
+          </Typography>
+        </AnimateIn>
+
+        <Grid container spacing={{ xs: 6, md: 10 }} sx={{ mb: { xs: 10, md: 14 } }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <AnimateIn delay={0.1} blur>
+              <Typography
+                variant="h2"
+                sx={{ fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" }, color: "text.primary", mb: 4 }}
+              >
+                Start with a person.
+                <br />
+                <Box component="span" sx={{ fontStyle: "italic", color: "primary.main" }}>
+                  Start with a company.
+                </Box>
+              </Typography>
+            </AnimateIn>
+            <AnimateIn delay={0.2}>
+              <Typography variant="body1" sx={{ color: "text.secondary", maxWidth: 520 }}>
+                Most tools assume you already know who you&apos;re looking for.
+                We don&apos;t. Give us a company name and we find the people who
+                run it. Then we build a full verified profile on each one. One
+                API call covers the whole target.
+              </Typography>
+            </AnimateIn>
+          </Grid>
+        </Grid>
+
+        <Grid container spacing={3}>
+          {/* Path 1: Person */}
+          <Grid size={{ xs: 12, md: 6 }}>
+            <AnimateIn delay={0.1}>
+              <Box
+                sx={{
+                  border: "1px solid rgba(232,236,244,0.08)",
+                  p: { xs: 4, md: 5 },
+                  height: "100%",
+                  position: "relative",
+                }}
+              >
+                <Chip
+                  label="Person search"
+                  size="small"
+                  sx={{
+                    bgcolor: "rgba(232,236,244,0.06)",
+                    color: "text.secondary",
+                    fontSize: "0.6875rem",
+                    height: 20,
+                    borderRadius: 0,
+                    mb: 4,
+                    letterSpacing: "0.06em",
+                  }}
+                />
+                <Typography variant="h4" sx={{ fontSize: "1.25rem", color: "text.primary", mb: 2 }}>
+                  You know the person.
+                </Typography>
+                <Typography variant="body2" sx={{ color: "text.secondary", mb: 5, lineHeight: 1.75 }}>
+                  Name and address is enough. We run a four-tier agent pipeline
+                  and return everything: verified phones, email, employer, property,
+                  legal history, relatives, and more.
+                </Typography>
+
+                {/* Flow */}
+                {[
+                  { label: "Input", value: "Name + address (or LinkedIn URL)" },
+                  { label: "Process", value: "Up to 4 enrichment tiers, async" },
+                  { label: "Output", value: "Full personal profile — verified contact, employment, legal, assets" },
+                ].map((row, i) => (
+                  <Box key={row.label} sx={{ display: "flex", gap: 2, mb: i < 2 ? 0 : 0 }}>
+                    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: 20, flexShrink: 0, pt: "3px" }}>
+                      <Box sx={{ width: 6, height: 6, border: "1px solid", borderColor: "primary.main", flexShrink: 0 }} />
+                      {i < 2 && <Box sx={{ width: 1, flex: 1, bgcolor: "rgba(79,125,247,0.2)", my: 0.5, minHeight: 28 }} />}
+                    </Box>
+                    <Box sx={{ pb: i < 2 ? 3 : 0 }}>
+                      <Typography sx={{ fontSize: "0.6875rem", color: "primary.main", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600, mb: 0.5 }}>
+                        {row.label}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6 }}>
+                        {row.value}
+                      </Typography>
+                    </Box>
+                  </Box>
+                ))}
+
+                <Box sx={{ mt: 4, pt: 4, borderTop: "1px solid rgba(232,236,244,0.06)" }}>
+                  <Typography sx={{ fontFamily: "monospace", fontSize: "0.75rem", color: "rgba(232,236,244,0.3)" }}>
+                    POST /api/v1/enrich
+                  </Typography>
+                </Box>
+              </Box>
+            </AnimateIn>
+          </Grid>
+
+          {/* Path 2: Company */}
+          <Grid size={{ xs: 12, md: 6 }}>
+            <AnimateIn delay={0.2}>
+              <Box
+                sx={{
+                  border: "1px solid rgba(79,125,247,0.3)",
+                  bgcolor: "rgba(79,125,247,0.03)",
+                  p: { xs: 4, md: 5 },
+                  height: "100%",
+                  position: "relative",
+                }}
+              >
+                <Chip
+                  label="Company pipeline"
+                  size="small"
+                  sx={{
+                    bgcolor: "rgba(79,125,247,0.12)",
+                    color: "primary.main",
+                    fontSize: "0.6875rem",
+                    height: 20,
+                    borderRadius: 0,
+                    mb: 4,
+                    letterSpacing: "0.06em",
+                    fontWeight: 500,
+                  }}
+                />
+                <Typography variant="h4" sx={{ fontSize: "1.25rem", color: "text.primary", mb: 2 }}>
+                  You know the company.
+                </Typography>
+                <Typography variant="body2" sx={{ color: "text.secondary", mb: 5, lineHeight: 1.75 }}>
+                  Give us a company name and we handle the rest. We identify
+                  the key contacts — by role, seniority, or department — then
+                  enrich every one of them in the same job. One call, whole
+                  leadership team, ready to dial.
+                </Typography>
+
+                {/* Flow */}
+                {[
+                  { label: "Input", value: "Company name (and optional domain, roles, seniority)" },
+                  { label: "Expand", value: "Identify CEO, CFO, owners, and key contacts with titles and LinkedIn" },
+                  { label: "Enrich", value: "Full profile on each contact: direct phone, email, address, legal, assets" },
+                  { label: "Output", value: "Structured JSON — entire leadership team, ready for your CRM or workflow" },
+                ].map((row, i) => (
+                  <Box key={row.label} sx={{ display: "flex", gap: 2 }}>
+                    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: 20, flexShrink: 0, pt: "3px" }}>
+                      <Box sx={{ width: 6, height: 6, bgcolor: "primary.main", flexShrink: 0 }} />
+                      {i < 3 && <Box sx={{ width: 1, flex: 1, bgcolor: "rgba(79,125,247,0.35)", my: 0.5, minHeight: 28 }} />}
+                    </Box>
+                    <Box sx={{ pb: i < 3 ? 3 : 0 }}>
+                      <Typography sx={{ fontSize: "0.6875rem", color: "primary.main", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600, mb: 0.5 }}>
+                        {row.label}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6 }}>
+                        {row.value}
+                      </Typography>
+                    </Box>
+                  </Box>
+                ))}
+
+                <Box sx={{ mt: 4, pt: 4, borderTop: "1px solid rgba(79,125,247,0.12)" }}>
+                  <Typography sx={{ fontFamily: "monospace", fontSize: "0.75rem", color: "rgba(79,125,247,0.5)" }}>
+                    POST /api/v1/expand/company/enrich
+                  </Typography>
+                </Box>
+              </Box>
+            </AnimateIn>
+          </Grid>
+        </Grid>
+      </Container>
     </Box>
   );
 }
@@ -1717,6 +1910,7 @@ export default function EntityFinderPage() {
       <Navbar />
       <EntityFinderHero />
       <UseCases />
+      <CompanyPipeline />
       <PEUseCases />
       <TierPipeline />
       <DataPointsGrid />
