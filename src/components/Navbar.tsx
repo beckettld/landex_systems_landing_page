@@ -73,11 +73,8 @@ export default function Navbar() {
 
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 4 }}>
             {[
-              { label: "The Problem", href: "/#problem" },
-              { label: "How It Works", href: "/#approach" },
-              { label: "What We Build", href: "/#capabilities" },
-              { label: "Why Us", href: "/#advantage" },
-              { label: "Past work", href: "/portfolio" },
+              { label: "Home", href: "/" },
+              { label: "Past Work", href: "/portfolio" },
               { label: "Entity Finder", href: "/entity-find" },
             ].map((item) => (
                 <Typography
