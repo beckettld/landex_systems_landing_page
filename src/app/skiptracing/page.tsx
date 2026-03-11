@@ -194,12 +194,14 @@ const peUseCases = [
 ];
 
 const dataPoints = [
-  { category: "Identity", items: ["Full legal name", "Aliases & maiden names", "Date of birth", "Deceased status"] },
-  { category: "Contact", items: ["Cell, landline, work phones", "Carrier & phone type", "Email addresses", "Facebook URL"] },
-  { category: "Location", items: ["Current address", "Address history with date ranges", "Voter registration address", "Co-habitants"] },
-  { category: "Employment", items: ["Employer & job title", "Work phone", "Employer address", "Professional licenses"] },
-  { category: "Financials", items: ["Property ownership", "Estimated equity", "Estimated income range", "Bankruptcy (chapter, case #)"] },
-  { category: "Legal", items: ["Civil judgments", "Liens (amount, filing date)", "Court & case details", "Spouse / partner info"] },
+  { category: "Identity", items: ["Full legal name", "Aliases", "Date of birth", "Age", "Deceased status"] },
+  { category: "Contact", items: ["Phone numbers (type, carrier, verified)", "Current address", "Previous addresses", "Email addresses"] },
+  { category: "Employment", items: ["Employment info", "LinkedIn URL"] },
+  { category: "Household", items: ["Spouse or partner", "Relatives", "Co-habitants"] },
+  { category: "Assets", items: ["Property ownership", "Homeowner or renter", "Vehicles"] },
+  { category: "Legal", items: ["Bankruptcy", "Civil judgments & liens", "Court cases", "UCC filings", "Professional licenses"] },
+  { category: "Social", items: ["Facebook URL", "LinkedIn URL", "Social media profiles"] },
+  { category: "Other", items: ["Voter registration address", "Estimated income range", "SSN last four", "Data quality score (0–100)"] },
 ];
 
 const apiSteps = [
@@ -1045,10 +1047,9 @@ function ApiFlow() {
             </AnimateIn>
             <AnimateIn delay={0.2}>
               <Typography variant="body1" sx={{ color: "text.secondary", mb: 4 }}>
-                Built for async workflows. Submit a request, get a job ID back in
-                100 milliseconds. Poll when you&apos;re ready. No blocking. No
-                waiting. Max 10 concurrent jobs. Results stay available for 24
-                hours.
+                All POST start endpoints return 202 Accepted with job_id. Poll GET
+                until status is terminal. Max 10 concurrent jobs. Completed, failed,
+                and cancelled jobs purged after 24 hours.
               </Typography>
             </AnimateIn>
 
@@ -1113,12 +1114,12 @@ function ApiFlow() {
                       }}
                     >
                       <Typography sx={{ color: "rgba(232,236,244,0.4)", mb: 1, fontSize: "0.75rem", fontFamily: "monospace" }}>
-                        POST /api/v1/trace
+                        POST /api/v1/enrich or /api/v1/trace
                       </Typography>
                       <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", fontSize: "0.8125rem", whiteSpace: "pre" }}>
 {`{
   "name": "Jane Doe",
-  "address": "123 Main St, MI",
+  "address": "123 Main St, Detroit, MI",
   "max_tier": 3
 }`}
                       </Typography>
@@ -1301,7 +1302,7 @@ function ApiReference() {
                 { href: "#api-endpoints", label: "Endpoints" },
                 { href: "#api-models", label: "Data Models" },
                 { href: "#api-lifecycle", label: "Job Lifecycle" },
-                { href: "#api-concurrency", label: "Concurrency & Persistence" },
+                { href: "#api-concurrency", label: "HTTP behavior & limits" },
                 { href: "#api-optimizations", label: "Known Issues & Optimizations" },
               ].map(({ href, label }) => (
                 <Typography
@@ -1323,13 +1324,13 @@ function ApiReference() {
             Authentication
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
-            All <Box component="code" sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "0.85em" }}>/api/v1/*</Box> endpoints require an <Box component="code" sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "0.85em" }}>X-API-Key</Box> header. <Box component="code" sx={{ color: "text.secondary", fontFamily: "monospace", fontSize: "0.85em" }}>GET /health</Box> does not require authentication.
+            All <Box component="code" sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "0.85em" }}>/api/v1/*</Box> requests require header <Box component="code" sx={{ color: "primary.main", fontFamily: "monospace", fontSize: "0.85em" }}>X-API-Key: &lt;your-api-key&gt;</Box>. Use <Box component="code" sx={{ color: "text.secondary", fontFamily: "monospace", fontSize: "0.85em" }}>Content-Type: application/json</Box> for all POST bodies. Missing or invalid key returns 401 Unauthorized. <Box component="code" sx={{ color: "text.secondary", fontFamily: "monospace", fontSize: "0.85em" }}>GET /health</Box> does not require authentication.
           </Typography>
           <Box sx={codeBlockSx}>
-            <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace", mb: 0.5 }}>Header</Typography>
-            <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", whiteSpace: "pre" }}>X-API-Key: &lt;your-api-key&gt;</Typography>
+            <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace", mb: 0.5 }}>Headers</Typography>
+            <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", whiteSpace: "pre" }}>X-API-Key: &lt;your-api-key&gt;\nContent-Type: application/json</Typography>
             <Divider sx={{ my: 2, borderColor: "rgba(79,125,247,0.12)" }} />
-            <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>401 — Invalid or missing key</Typography>
+            <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>401 — Missing or invalid key</Typography>
             <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", whiteSpace: "pre" }}>{`{ "detail": "Invalid or missing API key" }`}</Typography>
           </Box>
         </Box>
@@ -1351,22 +1352,28 @@ function ApiReference() {
             </Box>
           </Box>
 
-          {/* POST /api/v1/trace */}
+          {/* POST /api/v1/enrich or /api/v1/trace */}
           <Box sx={{ mb: 6 }}>
             <Chip label="POST" size="small" sx={{ bgcolor: "rgba(79,125,247,0.2)", color: "primary.main", fontWeight: 600, mr: 1, mb: 1 }} />
+            <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/enrich</Typography>
+            <Typography component="span" sx={{ color: "text.secondary", fontSize: "0.9rem", mx: 1 }}>or</Typography>
             <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/trace</Typography>
             <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>
-              Submit a new entity find job. Queued immediately, executed asynchronously. Deduplication: same name+address returns existing job_id.
+              Enrich person: name + address (skip trace) or name + LinkedIn. Returns full profile (phones, employment, relatives, property, legal, etc.). Four-tier agent; max_tier 1–4 controls depth. Dedup: same name+address or name+linkedin_url returns existing job_id.
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary", mb: 1, fontSize: "0.8rem" }}>Request body:</Typography>
             <Box sx={codeBlockSx}>
-              <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", whiteSpace: "pre" }}>{`{
-  "name": "Jane Doe",
-  "address": "123 Main St, Detroit, MI 48201",
-  "max_tier": 1
+              <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", whiteSpace: "pre", fontSize: "0.75rem" }}>{`{
+  "name": "string",           // required
+  "address": "string",         // optional; use for skip trace
+  "max_tier": 1,               // optional; 1–4, default 1
+  "date_of_birth": "string",   // optional
+  "known_phone": "string",     // optional
+  "ssn_last_four": "string",   // optional
+  "linkedin_url": "string",    // optional; use when no address
+  "employer": "string"         // optional
 }`}</Typography>
             </Box>
-            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 1, fontSize: "0.8rem" }}>max_tier: 1 (default), 2, or 3. Omit for Tier 1 only.</Typography>
             <Box sx={codeBlockSx}>
               <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>202 Accepted</Typography>
               <Typography sx={{ color: "#4F7DF7", fontFamily: "monospace", whiteSpace: "pre" }}>{`{
@@ -1376,50 +1383,99 @@ function ApiReference() {
             </Box>
           </Box>
 
-          {/* GET /api/v1/trace/{job_id} */}
+          {/* GET /api/v1/jobs/{job_id} or /api/v1/trace/{job_id} */}
           <Box sx={{ mb: 6 }}>
             <Chip label="GET" size="small" sx={{ bgcolor: "rgba(79,125,247,0.2)", color: "primary.main", fontWeight: 600, mr: 1, mb: 1 }} />
+            <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/jobs/{`{job_id}`}</Typography>
+            <Typography component="span" sx={{ color: "text.secondary", fontSize: "0.9rem", mx: 1 }}>or</Typography>
             <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/trace/{`{job_id}`}</Typography>
-            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>Retrieve status and result of an entity find job. Poll until status is completed, failed, or cancelled.</Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>Poll until status is completed, failed, or cancelled. For enrich: job_type is &quot;trace&quot;; result is in &quot;result&quot; (EntityFindingResult).</Typography>
             <Box sx={codeBlockSx}>
-              <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>200 — completed</Typography>
-              <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", fontSize: "0.75rem", whiteSpace: "pre" }}>{`{
+              <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>200 — enrich completed</Typography>
+              <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", fontSize: "0.7rem", whiteSpace: "pre" }}>{`{
   "job_id": "a3f9c21b04d7",
+  "job_type": "trace",
   "status": "completed",
   "debtor": { "name": "...", "address": "...", "max_tier": 1 },
   "created_at": "2026-03-08T14:00:00Z",
   "completed_at": "2026-03-08T14:04:32Z",
   "total_steps": 87,
+  "cost_usd": 0.42,
   "result": { ... },
   "error": null
 }`}</Typography>
               <Divider sx={{ my: 2, borderColor: "rgba(79,125,247,0.12)" }} />
               <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>200 — running / queued (result null)</Typography>
-              <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>404 — Job not found</Typography>
+              <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>404 — job_id not found</Typography>
             </Box>
           </Box>
 
-          {/* DELETE /api/v1/trace/{job_id} */}
+          {/* DELETE /api/v1/jobs/{job_id} or /api/v1/trace/{job_id} */}
           <Box sx={{ mb: 6 }}>
             <Chip label="DELETE" size="small" sx={{ bgcolor: "rgba(79,125,247,0.2)", color: "primary.main", fontWeight: 600, mr: 1, mb: 1 }} />
+            <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/jobs/{`{job_id}`}</Typography>
+            <Typography component="span" sx={{ color: "text.secondary", fontSize: "0.9rem", mx: 1 }}>or</Typography>
             <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/trace/{`{job_id}`}</Typography>
             <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>
-              Request cancellation. Acknowledged immediately (202); worker stops at next tier boundary. Poll GET to confirm status: cancelled and partial result.
+              Cancel trace or expand job. Only queued or running. Response 202. Poll to confirm &quot;cancelled&quot; and get partial result. 409 if job already completed/failed/cancelled.
             </Typography>
             <Box sx={codeBlockSx}>
               <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>202 — cancellation requested</Typography>
-              <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", whiteSpace: "pre" }}>{`{ "job_id": "...", "status": "running" }`}</Typography>
-              <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace", mt: 1 }}>409 — Job already completed/failed | 404 — Job not found</Typography>
+              <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace", mt: 1 }}>404 — job_id not found | 409 — job already terminal</Typography>
             </Box>
           </Box>
 
+          {/* POST /api/v1/expand/company */}
+          <Box sx={{ mb: 6 }}>
+            <Typography variant="h6" sx={{ color: "primary.main", fontSize: "0.95rem", mt: 4, mb: 2 }}>Expand Company</Typography>
+            <Chip label="POST" size="small" sx={{ bgcolor: "rgba(79,125,247,0.2)", color: "primary.main", fontWeight: 600, mr: 1, mb: 1 }} />
+            <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/expand/company</Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>
+              Company name (and optional domain) to list of key contacts and company signals. No person enrichment. Dedup: same company name returns existing job_id.
+            </Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary", mb: 1, fontSize: "0.8rem" }}>Request body:</Typography>
+            <Box sx={codeBlockSx}>
+              <Typography sx={{ color: "#E8ECF4", fontFamily: "monospace", whiteSpace: "pre", fontSize: "0.75rem" }}>{`{
+  "company": { "name": "string", "domain": "string" },
+  "limit": 10,
+  "roles": ["CEO"],
+  "seniority": ["c_suite", "vp", "director", "manager"],
+  "department": "string"
+}`}</Typography>
+            </Box>
+            <Typography variant="body2" sx={{ color: "text.secondary", fontSize: "0.8rem" }}>limit: 1–50, default 10. Poll GET /api/v1/jobs/{`{job_id}`}. job_type &quot;expand_company&quot;; result in &quot;expand_result&quot;: company_name, contacts_found, contacts[], signals (email_pattern, office_locations, registered_agent, etc.).</Typography>
+          </Box>
+
+          {/* POST /api/v1/expand/company/enrich — pipeline */}
+          <Box sx={{ mb: 6 }}>
+            <Typography variant="h6" sx={{ color: "primary.main", fontSize: "0.95rem", mt: 4, mb: 2 }}>Expand + Enrich (pipeline)</Typography>
+            <Chip label="POST" size="small" sx={{ bgcolor: "rgba(79,125,247,0.2)", color: "primary.main", fontWeight: 600, mr: 1, mb: 1 }} />
+            <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/expand/company/enrich</Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>
+              Company to contacts (expand) then enrich each contact in one job. One POST, one job_id. Body: company, limit, roles, seniority, department, enrich {`{ "max_tier": 1 }`} (optional, 1–4 per contact).
+            </Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary", mb: 1, fontSize: "0.8rem" }}>Poll</Typography>
+            <Typography component="span" sx={{ fontFamily: "monospace", color: "primary.main", fontSize: "0.9rem" }}> GET /api/v1/expand/company/enrich/{`{job_id}`}</Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary", fontSize: "0.8rem" }}> until status completed, failed, or cancelled. Pipeline statuses: queued | expanding | enriching | completed | failed | cancelled. Cancel: DELETE /api/v1/expand/company/enrich/{`{job_id}`}. List all pipeline jobs: GET /api/v1/expand/company/enrich.</Typography>
+          </Box>
+
           {/* GET /api/v1/jobs */}
-          <Box sx={{ mb: 4 }}>
+          <Box sx={{ mb: 6 }}>
             <Chip label="GET" size="small" sx={{ bgcolor: "rgba(79,125,247,0.2)", color: "primary.main", fontWeight: 600, mr: 1, mb: 1 }} />
             <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/jobs</Typography>
-            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>List all jobs in memory. Returns full job details per job.</Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>List all jobs (trace and expand_company). Does not include pipeline jobs.</Typography>
             <Box sx={codeBlockSx}>
-              <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>200 — Array of Job objects</Typography>
+              <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>200 — Array of Job</Typography>
+            </Box>
+          </Box>
+
+          {/* GET /api/v1/usage */}
+          <Box sx={{ mb: 4 }}>
+            <Chip label="GET" size="small" sx={{ bgcolor: "rgba(79,125,247,0.2)", color: "primary.main", fontWeight: 600, mr: 1, mb: 1 }} />
+            <Typography component="span" sx={{ fontFamily: "monospace", color: "text.primary", fontSize: "0.95rem" }}>/api/v1/usage</Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary", mt: 1, mb: 2 }}>Usage for the current API key. Returns key_id, first_seen, total_cost_usd, total_steps, job_count, jobs[] (JobRecord).</Typography>
+            <Box sx={codeBlockSx}>
+              <Typography sx={{ color: "rgba(232,236,244,0.5)", fontSize: "0.75rem", fontFamily: "monospace" }}>200 — UsageResponse</Typography>
             </Box>
           </Box>
         </Box>
@@ -1430,17 +1486,22 @@ function ApiReference() {
             Data Models
           </Typography>
 
-          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Request — DebtorInput</Typography>
+          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Enrich request body (POST /enrich or /trace)</Typography>
           <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", mb: 4, "& th, & td": { border: "1px solid rgba(232,236,244,0.1)", p: 1.5, textAlign: "left", fontSize: "0.8125rem" }, "& th": { color: "primary.main", fontWeight: 600 } }}>
             <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
             <tbody>
-              <tr><td>name</td><td>string</td><td>Debtor&apos;s full name</td></tr>
-              <tr><td>address</td><td>string</td><td>Known address (free-form)</td></tr>
-              <tr><td>max_tier</td><td>integer</td><td>Max tier 1–3. Default 1.</td></tr>
+              <tr><td>name</td><td>string</td><td>Required</td></tr>
+              <tr><td>address</td><td>string</td><td>Optional; use for skip trace</td></tr>
+              <tr><td>max_tier</td><td>integer</td><td>1–4, default 1</td></tr>
+              <tr><td>date_of_birth</td><td>string</td><td>Optional</td></tr>
+              <tr><td>known_phone</td><td>string</td><td>Optional</td></tr>
+              <tr><td>ssn_last_four</td><td>string</td><td>Optional</td></tr>
+              <tr><td>linkedin_url</td><td>string</td><td>Optional; use when no address (e.g. from expand)</td></tr>
+              <tr><td>employer</td><td>string</td><td>Optional</td></tr>
             </tbody>
           </Box>
 
-          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Response — TraceResponse (POST trace, DELETE trace)</Typography>
+          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Response (POST enrich/trace, DELETE job)</Typography>
           <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", mb: 4, "& th, & td": { border: "1px solid rgba(232,236,244,0.1)", p: 1.5, textAlign: "left", fontSize: "0.8125rem" }, "& th": { color: "primary.main", fontWeight: 600 } }}>
             <thead><tr><th>Field</th><th>Type</th></tr></thead>
             <tbody>
@@ -1449,48 +1510,40 @@ function ApiReference() {
             </tbody>
           </Box>
 
-          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Job (GET trace/{`{job_id}`}, GET jobs)</Typography>
+          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Job (GET jobs/{`{job_id}`}, GET trace/{`{job_id}`}, GET jobs)</Typography>
           <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", mb: 4, "& th, & td": { border: "1px solid rgba(232,236,244,0.1)", p: 1.5, textAlign: "left", fontSize: "0.8125rem" }, "& th": { color: "primary.main", fontWeight: 600 } }}>
             <thead><tr><th>Field</th><th>Type</th></tr></thead>
             <tbody>
               <tr><td>job_id</td><td>string</td></tr>
+              <tr><td>job_type</td><td>&quot;trace&quot; | &quot;expand_company&quot;</td></tr>
               <tr><td>status</td><td>queued | running | completed | failed | cancelled</td></tr>
-              <tr><td>debtor</td><td>DebtorInput</td></tr>
+              <tr><td>debtor</td><td>input (enrich only)</td></tr>
               <tr><td>created_at</td><td>datetime (UTC)</td></tr>
               <tr><td>completed_at</td><td>datetime | null</td></tr>
               <tr><td>total_steps</td><td>integer | null</td></tr>
-              <tr><td>result</td><td>EntityFinderResult | null</td></tr>
+              <tr><td>cost_usd</td><td>number | null</td></tr>
+              <tr><td>result</td><td>EntityFindingResult | null (enrich)</td></tr>
+              <tr><td>expand_result</td><td>expand result | null (expand_company)</td></tr>
               <tr><td>error</td><td>string | null</td></tr>
             </tbody>
           </Box>
 
-          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Entity Finder Result (result schema)</Typography>
+          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Entity Finding Result (enrich result schema)</Typography>
           <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", mb: 2, "& th, & td": { border: "1px solid rgba(232,236,244,0.1)", p: 1.5, textAlign: "left", fontSize: "0.8125rem" }, "& th": { color: "primary.main", fontWeight: 600 } }}>
-            <thead><tr><th>Field</th><th>Type</th></tr></thead>
+            <thead><tr><th>Category</th><th>Fields</th></tr></thead>
             <tbody>
-              <tr><td>full_legal_name</td><td>string | null</td></tr>
-              <tr><td>aliases</td><td>string[]</td></tr>
-              <tr><td>date_of_birth</td><td>string | null</td></tr>
-              <tr><td>phone_numbers</td><td>PhoneNumber[]</td></tr>
-              <tr><td>current_address</td><td>Address | null</td></tr>
-              <tr><td>previous_addresses</td><td>AddressHistory[]</td></tr>
-              <tr><td>email_addresses</td><td>string[]</td></tr>
-              <tr><td>employment</td><td>EmploymentInfo | null</td></tr>
-              <tr><td>spouse_partner</td><td>RelativeInfo | null</td></tr>
-              <tr><td>co_habitants</td><td>string[]</td></tr>
-              <tr><td>property_ownership</td><td>PropertyInfo | null</td></tr>
-              <tr><td>homeowner_or_renter</td><td>owner | renter | unknown | null</td></tr>
-              <tr><td>bankruptcy</td><td>BankruptcyInfo | null</td></tr>
-              <tr><td>civil_judgments_liens</td><td>JudgmentLien[]</td></tr>
-              <tr><td>voter_registration_address</td><td>string | null</td></tr>
-              <tr><td>professional_licenses</td><td>License[]</td></tr>
-              <tr><td>facebook_url</td><td>string | null</td></tr>
-              <tr><td>estimated_income_range</td><td>string | null</td></tr>
-              <tr><td>deceased</td><td>DeceasedInfo | null</td></tr>
+              <tr><td>Identity</td><td>full_legal_name, aliases[], date_of_birth, age, deceased{`{}`}</td></tr>
+              <tr><td>Contact</td><td>phone_numbers[], current_address{`{}`}, previous_addresses[], email_addresses[]</td></tr>
+              <tr><td>Employment</td><td>employment{`{}`}, linkedin_url</td></tr>
+              <tr><td>Household</td><td>spouse_partner{`{}`}, relatives[], co_habitants[]</td></tr>
+              <tr><td>Assets</td><td>property_ownership{`{}`}, homeowner_or_renter, vehicles[]</td></tr>
+              <tr><td>Legal</td><td>bankruptcy{`{}`}, civil_judgments_liens[], court_cases[], ucc_filings[], professional_licenses[]</td></tr>
+              <tr><td>Social</td><td>facebook_url, linkedin_url, social_media_profiles[]</td></tr>
+              <tr><td>Other</td><td>voter_registration_address, estimated_income_range, ssn_last_four, data_quality_score (0–100)</td></tr>
             </tbody>
           </Box>
           <Typography variant="body2" sx={{ color: "text.secondary", fontSize: "0.8rem" }}>
-            Nested types: PhoneNumber (number, phone_type, carrier), Address (street, city, state, zip_code), AddressHistory (address, date_range), EmploymentInfo (employer_name, job_title, work_phone, employer_address, employer_main_line), RelativeInfo (name, phone, relationship), PropertyInfo (owner_of_record, estimated_value, estimated_equity, property_address), BankruptcyInfo (status, chapter, case_number, filing_date), JudgmentLien (case_type, description, amount, filing_date, court), License (license_type, status, issuing_state, license_number), DeceasedInfo (is_deceased, date_of_death, source).
+            Nested types: PhoneNumber (number, phone_type, carrier, is_verified), Address (street, city, state, zip_code), EmploymentInfo, RelativeInfo, etc. Optional fields may be null/empty; only found data is returned.
           </Typography>
         </Box>
 
@@ -1519,13 +1572,14 @@ function ApiReference() {
         {/* Concurrency & Persistence */}
         <Box id="api-concurrency" sx={{ mb: 10 }}>
           <Typography variant="h4" sx={{ color: "text.primary", fontSize: "1.25rem", mb: 2 }}>
-            Concurrency & Persistence
+            HTTP behavior & limits
           </Typography>
           <Stack spacing={1} sx={{ color: "text.secondary", fontSize: "0.9rem" }}>
-            <Typography variant="body2">• <strong>Max concurrency:</strong> 10 simultaneous trace jobs (asyncio.Semaphore).</Typography>
-            <Typography variant="body2">• <strong>Persistence:</strong> Jobs in-memory only; history lost on restart.</Typography>
-            <Typography variant="body2">• <strong>Job TTL:</strong> Terminal jobs (completed/failed/cancelled) purged after 24 hours. Cleanup runs hourly.</Typography>
-            <Typography variant="body2">• <strong>Result files:</strong> data/{`<job_id>`}.json written on completion; survive restarts.</Typography>
+            <Typography variant="body2">• All POST start endpoints return 202 Accepted with job_id; work is async. Poll GET until status is terminal.</Typography>
+            <Typography variant="body2">• <strong>404:</strong> job_id not found.</Typography>
+            <Typography variant="body2">• <strong>409:</strong> cancel requested but job already completed/failed/cancelled.</Typography>
+            <Typography variant="body2">• <strong>Max concurrency:</strong> 10 concurrent jobs (server-side); additional requests queue.</Typography>
+            <Typography variant="body2">• <strong>Persistence:</strong> Jobs (and pipeline jobs) are in-memory; completed/failed/cancelled purged after 24 hours.</Typography>
           </Stack>
         </Box>
 
@@ -1534,13 +1588,14 @@ function ApiReference() {
           <Typography variant="h4" sx={{ color: "text.primary", fontSize: "1.25rem", mb: 3 }}>
             Known Issues & Optimizations
           </Typography>
-          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Tiers</Typography>
+          <Typography variant="h6" sx={{ color: "text.secondary", fontSize: "0.85rem", mb: 2 }}>Tiers (enrich)</Typography>
           <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", mb: 4, "& th, & td": { border: "1px solid rgba(232,236,244,0.1)", p: 1.5, textAlign: "left", fontSize: "0.8125rem" }, "& th": { color: "primary.main", fontWeight: 600 } }}>
-            <thead><tr><th>Tier</th><th>max_tier</th><th>Max steps</th><th>Finds</th></tr></thead>
+            <thead><tr><th>Tier</th><th>max_tier</th><th>Finds</th></tr></thead>
             <tbody>
-              <tr><td>Tier 1</td><td>1 (default)</td><td>30</td><td>Name, phones, email, address, DOB, bankruptcy, deceased</td></tr>
-              <tr><td>Tier 2</td><td>2</td><td>30</td><td>Employer, job title, work phone, aliases, previous addresses</td></tr>
-              <tr><td>Tier 3</td><td>3</td><td>40</td><td>Spouse, co-habitants, property, judgments, licenses, voter reg, Facebook, income</td></tr>
+              <tr><td>Tier 1</td><td>1 (default)</td><td>Name, phones, email, address, DOB, bankruptcy, deceased</td></tr>
+              <tr><td>Tier 2</td><td>2</td><td>Employer, job title, work phone, aliases, previous addresses</td></tr>
+              <tr><td>Tier 3</td><td>3</td><td>Spouse, co-habitants, property, judgments, licenses, voter reg, Facebook, income</td></tr>
+              <tr><td>Tier 4</td><td>4</td><td>Full depth; all tiers</td></tr>
             </tbody>
           </Box>
           <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
