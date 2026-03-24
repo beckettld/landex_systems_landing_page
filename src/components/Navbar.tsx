@@ -73,9 +73,8 @@ export default function Navbar() {
 
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 4 }}>
             {[
-              { label: "Home", href: "/" },
               { label: "Past Work", href: "/portfolio" },
-              { label: "Entity Finder", href: "/entity-find" },
+              { label: "API Docs", href: "/entity-find/docs" },
             ].map((item) => (
                 <Typography
                   key={item.label}
@@ -97,7 +96,9 @@ export default function Navbar() {
             <Button
               variant="outlined"
               size="small"
-              href="/#contact"
+              href="https://calendly.com/d/cxmx-c75-jgv/landex-systems-demo"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 borderColor: "rgba(232,236,244,0.15)",
                 color: "text.primary",
