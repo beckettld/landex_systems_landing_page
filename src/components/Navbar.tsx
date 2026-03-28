@@ -71,28 +71,7 @@ export default function Navbar() {
             </Typography>
           </Box>
 
-          <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 4 }}>
-            {[
-              { label: "Past Work", href: "/portfolio" },
-              { label: "API Docs", href: "/entity-find/docs" },
-            ].map((item) => (
-                <Typography
-                  key={item.label}
-                  component="a"
-                  href={item.href}
-                  sx={{
-                    color: "text.secondary",
-                    fontSize: "0.8125rem",
-                    fontWeight: 500,
-                    letterSpacing: "0.04em",
-                    textDecoration: "none",
-                    transition: "color 0.25s ease",
-                    "&:hover": { color: "text.primary" },
-                  }}
-                >
-                  {item.label}
-                </Typography>
-              ))}
+          <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
             <Button
               variant="outlined"
               size="small"

@@ -1,0 +1,168 @@
+LANDEX DESIGN SYSTEM
+====================
+
+
+FONTS
+-----
+Google Fonts import (paste in <head>):
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  Headings (h1-h3): "Instrument Serif", Georgia, serif
+  Everything else:  "Inter", "Helvetica Neue", Arial, sans-serif
+
+
+COLORS
+------
+Backgrounds:
+  Page background:   #06091A
+  Card / paper:      #0B0F22
+  Secondary surface: #0E1225
+  Secondary light:   #161B33
+  Secondary dark:    #080B18
+
+Primary blue:
+  Main:   #4F7DF7
+  Light:  #7BA0FF
+  Dark:   #3358CC
+
+Text:
+  Primary:  #E8ECF4
+  Muted:    rgba(232, 236, 244, 0.55)
+
+Borders / dividers:
+  Default:  rgba(232, 236, 244, 0.08)
+  Hover:    rgba(79, 125, 247, 0.25)
+
+Selection highlight:
+  background: rgba(79, 125, 247, 0.3)
+  color:      #E8ECF4
+
+
+TYPOGRAPHY
+----------
+h1:
+  font-family: "Instrument Serif", Georgia, serif
+  font-weight: 400
+  letter-spacing: -0.02em
+  line-height: 1.05
+
+h2:
+  font-family: "Instrument Serif", Georgia, serif
+  font-weight: 400
+  letter-spacing: -0.015em
+  line-height: 1.1
+
+h3:
+  font-family: "Instrument Serif", Georgia, serif
+  font-weight: 400
+  letter-spacing: -0.01em
+  line-height: 1.15
+
+h4:
+  font-family: "Inter", sans-serif
+  font-weight: 600
+  letter-spacing: -0.01em
+  line-height: 1.25
+
+h5:
+  font-family: "Inter", sans-serif
+  font-weight: 600
+  letter-spacing: 0
+  line-height: 1.3
+
+h6 (label / eyebrow style):
+  font-family: "Inter", sans-serif
+  font-weight: 600
+  letter-spacing: 0.02em
+  text-transform: uppercase
+  line-height: 1.4
+
+subtitle1 (large body):
+  font-size: 1.125rem
+  font-weight: 400
+  line-height: 1.6
+  letter-spacing: 0.005em
+
+subtitle2 (small caps label):
+  font-size: 0.875rem
+  font-weight: 500
+  letter-spacing: 0.06em
+  text-transform: uppercase
+
+body1:
+  font-size: 1.0625rem  (17px)
+  font-weight: 400
+  line-height: 1.7
+  letter-spacing: 0.005em
+
+body2:
+  font-size: 0.9375rem  (15px)
+  font-weight: 400
+  line-height: 1.65
+
+overline / caption:
+  font-size: 0.75rem
+  font-weight: 500
+  letter-spacing: 0.1em
+  text-transform: uppercase
+
+buttons:
+  font-weight: 500
+  text-transform: none
+  letter-spacing: 0.02em
+
+
+COMPONENTS
+----------
+Border radius:
+  Global default: 2px  (very subtle, nearly square)
+  Buttons:        0px  (fully square)
+
+Buttons (primary filled):
+  background: #4F7DF7
+  color:      #FFFFFF
+  padding:    14px 32px
+  font-size:  0.9375rem
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+  hover bg:   #7BA0FF
+
+Buttons (outlined):
+  border:     1px solid rgba(232, 236, 244, 0.2)
+  color:      #E8ECF4
+  hover border: #4F7DF7
+  hover bg:     rgba(79, 125, 247, 0.06)
+
+Cards:
+  background:    rgba(255, 255, 255, 0.02)
+  border:        1px solid rgba(232, 236, 244, 0.06)
+  border-radius: 2px
+  backdrop-filter: blur(12px)
+  transition:    border-color 0.3s ease, background-color 0.3s ease
+  hover border:  rgba(79, 125, 247, 0.25)
+  hover bg:      rgba(79, 125, 247, 0.04)
+
+
+BASE CSS RESET
+--------------
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(79, 125, 247, 0.3);
+  color: #E8ECF4;
+}
