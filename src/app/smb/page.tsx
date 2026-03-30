@@ -189,7 +189,7 @@ function Hero() {
               variant="overline"
               sx={{ color: "primary.main", mb: 4, display: "block", letterSpacing: "0.15em" }}
             >
-              MIT-trained AI engineers · Natives from Massachusetts and North Carolina · Built for small businesses
+              Built for small business owners who are tired of doing it all manually
             </Typography>
           </motion.div>
 
@@ -497,7 +497,7 @@ function AutomationSection() {
 
             <Box
               sx={{
-                mb: 6,
+                mb: 4,
                 px: 3,
                 py: 2.5,
                 borderLeft: "2px solid",
@@ -508,6 +508,23 @@ function AutomationSection() {
               <Typography variant="body2" sx={{ color: "primary.main", fontSize: "0.9375rem", lineHeight: 1.7 }}>
                 Priced based on what you need. Most projects land between $500 and $2,500.
                 We scope it together on the audit call so there are no surprises.
+              </Typography>
+            </Box>
+
+            <Box
+              sx={{
+                mb: 6,
+                px: 3,
+                py: 2.5,
+                borderLeft: "2px solid",
+                borderColor: "rgba(232,236,244,0.2)",
+                bgcolor: "rgba(232,236,244,0.03)",
+              }}
+            >
+              <Typography variant="body2" sx={{ color: "text.secondary", fontSize: "0.9375rem", lineHeight: 1.7 }}>
+                <Box component="span" sx={{ color: "text.primary", fontWeight: 500 }}>Our guarantee:</Box>{" "}
+                If you&apos;re not satisfied with what we deliver, we&apos;ll keep working until you are —
+                or we&apos;ll refund the full project fee. No questions asked.
               </Typography>
             </Box>
 
@@ -539,7 +556,7 @@ const otherServices = [
   },
   {
     title: "AI Readiness Audit",
-    body: "A deeper look at everything AI could do across your business, delivered as a prioritized action plan.",
+    body: "A deeper look at everything AI could do across your business, delivered as a prioritized action plan. Starting at $299.",
   },
   {
     title: "Ongoing Advisory",
@@ -563,10 +580,10 @@ function OtherServices() {
             variant="h2"
             sx={{ fontSize: { xs: "1.75rem", md: "2.5rem" }, color: "text.primary", mb: 4, maxWidth: 600 }}
           >
-            We do more than automations.
+            Other ways we can help.
           </Typography>
           <Typography variant="body1" sx={{ color: "text.secondary", mb: 8, maxWidth: 520, lineHeight: 1.8 }}>
-            If you reach out we can talk about:
+            If automation isn&apos;t the right next step, we offer:
           </Typography>
         </AnimateIn>
 
@@ -633,11 +650,11 @@ function About() {
             variant="h2"
             sx={{ fontSize: { xs: "1.75rem", md: "2.5rem" }, color: "text.primary", mb: 6, maxWidth: 600 }}
           >
-            Small team. MIT-trained. Natives from Massachusetts and North Carolina.
+            A small team that actually knows how small businesses run.
           </Typography>
           <Stack spacing={3} sx={{ maxWidth: 640 }}>
             <Typography variant="body1" sx={{ color: "text.secondary", lineHeight: 1.85 }}>
-              We&apos;ve spent years working at the intersection of AI and real business operations. Not in research labs, but in the messy, practical reality of how companies actually run.
+              We&apos;re MIT-trained engineers based in Massachusetts and North Carolina. We&apos;ve spent years working at the intersection of AI and real business operations — not in research labs, but in the messy, practical reality of how companies actually run.
             </Typography>
             <Typography variant="body1" sx={{ color: "text.secondary", lineHeight: 1.85 }}>
               We started this because we kept seeing the same thing: the tools to save small
@@ -777,16 +794,28 @@ function FinalCTA() {
               No pitch. No pressure. Just a straight conversation about your business
               and where AI fits. If it fits at all.
             </Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{ px: 5, py: 1.75, fontSize: "0.9375rem", mb: 4 }}
-            >
-              Book your free call →
-            </Button>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems={{ sm: "center" }} sx={{ mb: 4 }}>
+              <Button
+                variant="contained"
+                color="primary"
+                href={CALENDLY}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ px: 5, py: 1.75, fontSize: "0.9375rem" }}
+              >
+                Book your free call →
+              </Button>
+              <Typography variant="body2" sx={{ color: "text.secondary", fontSize: "0.8125rem" }}>
+                or email{" "}
+                <Box
+                  component="a"
+                  href="mailto:allen@landexsystems.com"
+                  sx={{ color: "primary.main", textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+                >
+                  allen@landexsystems.com
+                </Box>
+              </Typography>
+            </Stack>
             <Box
               sx={{
                 mt: 5,
@@ -797,7 +826,7 @@ function FinalCTA() {
                 flexWrap: "wrap",
               }}
             >
-              {["Free", "30 minutes", "Zoom or phone", "Massachusetts and North Carolina"].map((tag) => (
+              {["Free", "30 minutes", "Zoom or phone", "Satisfaction guaranteed"].map((tag) => (
                 <Typography key={tag} variant="body2" sx={{ color: "text.secondary", fontSize: "0.8125rem", opacity: 0.5 }}>
                   {tag}
                 </Typography>
