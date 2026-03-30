@@ -71,7 +71,18 @@ export default function Navbar() {
             </Typography>
           </Box>
 
-          <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>
+            <Button
+              size="small"
+              href="/smb"
+              sx={{
+                color: "text.secondary",
+                fontSize: "0.8125rem",
+                "&:hover": { color: "text.primary" },
+              }}
+            >
+              For Small Businesses
+            </Button>
             <Button
               variant="outlined"
               size="small"
