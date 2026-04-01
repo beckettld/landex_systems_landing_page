@@ -27,74 +27,52 @@
   letter-spacing: -0.03em;
   line-height: 1.08;
   max-width: 680px;
-  margin-bottom: 24px;
+  margin-bottom: 64px;
 }
 
-.body {
-  font-size: 1.1rem;
-  font-weight: 300;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 540px;
-  margin-bottom: 80px;
-}
-
-.cards {
+.points {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--rule);
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
 }
 
-.card {
-  padding: 40px 36px 40px 0;
-  border-bottom: 1px solid var(--rule);
+.point {
+  display: flex;
+  gap: 20px;
 }
 
-.card:not(:last-child) {
-  border-right: 1px solid var(--rule);
+.pointMarker {
+  flex-shrink: 0;
+  width: 2px;
+  background: var(--green);
+  border-radius: 1px;
+  margin-top: 4px;
 }
 
-.card:not(:first-child) {
-  padding-left: 36px;
+.pointContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.cardIcon { display: none; }
-
-.cardLabel {
+.pointTitle {
   font-family: var(--font);
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--text-dim);
-  margin-bottom: 8px;
-}
-
-.cardStat {
-  font-family: var(--font);
-  font-size: 3rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--text);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: 16px;
+  letter-spacing: -0.01em;
 }
 
-.cardDescription {
+.pointBody {
   font-size: 0.95rem;
   font-weight: 300;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 @media (max-width: 768px) {
   .section { padding: 96px 0 72px; }
   .container { padding: 0 24px; }
-  .body { margin-bottom: 48px; }
-  .cards { grid-template-columns: 1fr; }
-  .card { padding: 32px 0; }
-  .card:not(:last-child) { border-right: none; }
-  .card:not(:first-child) { padding-left: 0; }
-  .cardStat { font-size: 2.25rem; }
+  .title { margin-bottom: 40px; }
+  .points { grid-template-columns: 1fr; gap: 32px; }
 }

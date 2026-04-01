@@ -30,7 +30,7 @@ function Hero() {
         <div className={styles.heroContent}>
           <span className={styles.eyebrow}>Infrastructure data, unlocked</span>
           <h1 className={styles.headline}>
-            Your old maps have the answers. We make them findable.
+            One search across every drawing, map, and record you've ever filed.
           </h1>
           <p className={styles.subheadline}>
             We index your legacy maps, drawings, and records and turn them into searchable, location-based data your team can actually use.
