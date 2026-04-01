@@ -1,0 +1,112 @@
+LANDEX SYSTEMS — LANDING PAGE COPY
+=====================================
+
+
+NAV
+---
+Landex Systems
+[Book a call]
+
+
+HERO
+----
+Eyebrow: Infrastructure data, unlocked
+
+Headline:
+Your old maps have the answers. We make them findable.
+
+Subheadline:
+We index your legacy maps, drawings, and records and turn them into searchable, location-based data your team can actually use.
+
+CTAs: [Book a call]  [See how it works]
+
+
+THE PROBLEM
+-----------
+Eyebrow: The problem
+
+Headline:
+Critical information is sitting in your archives. Unreachable.
+
+Body:
+Engineering and operations teams spend hours hunting through filing cabinets, shared drives, and PDFs to find records that should take seconds. That's expensive. Sometimes it's dangerous.
+
+Stat cards:
+
+  Time lost — Hours
+  Per search. For information that already exists inside your organization.
+
+  The risk — Real
+  Missing records lead to costly surprises in the field, regulatory exposure, and safety incidents.
+
+  The cause — Format
+  Decades of maps in PDFs, scans, and paper records that were never made searchable.
+
+
+HOW IT WORKS
+------------
+Eyebrow: How it works
+
+Headline:
+We index your archive. You search it like a database.
+
+Subheadline:
+No ripping and replacing your existing systems. We work with what you have.
+
+Steps:
+
+  01 — Send us your records
+  PDFs, scans, CAD exports, paper records — we handle any format. No prep work required on your end.
+
+  02 — We assign geographic context
+  Every document gets tied to a precise location. We do the work of figuring out what's where.
+
+  03 — Your team searches by location
+  Type in a site, address, or coordinates — instantly see every relevant record your organization has ever produced.
+
+
+WHO WE WORK WITH
+----------------
+Eyebrow: Who we work with
+
+Headline:
+Built for teams that operate long-lived physical infrastructure.
+
+Subheadline:
+If your team does work in the field and needs to know what's already there, we can help.
+
+Industries:
+
+  Utilities
+  Know what's in the ground before your crews dig. Find the right records before every job.
+
+  Manufacturing
+  Get the right drawing before anyone touches equipment. Stop losing time to archive searches.
+
+  Civil engineering
+  Surface past project work when you need it. Stop starting from scratch on every engagement.
+
+  Oil & gas
+  Search decades of pipeline and field records in seconds, not days.
+
+  Municipal government
+  Stop losing institutional knowledge when staff turns over. Make your records last.
+
+  Rail & transit
+  Give maintenance teams instant access to the infrastructure records they need.
+
+
+CTA BLOCK
+---------
+Headline:
+Not sure if it's right for you?
+
+Body:
+Book a 20-minute call. We'll ask about your archive, your team's workflow, and whether we're actually a fit. No pitch, no pressure.
+
+CTA: [Book a call]
+
+
+FOOTER
+------
+© 2026 Landex Systems

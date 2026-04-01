@@ -1,17 +1,40 @@
-*,
-*::before,
-*::after {
+:root {
+  --font: 'Syne', sans-serif;
+
+  --green: #4a7c6a;
+  --green-bright: #5d9980;
+  --sand: #c4b49a;
+  --dark: #111113;
+  --surface: #18181b;
+  --surface-raised: #222225;
+  --surface-border: #2a2a2e;
+  --text: #e4e4e7;
+  --text-secondary: #8b8b92;
+  --text-dim: #5a5a62;
+  --rule: #2a2a2e;
+}
+
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+html { scroll-behavior: smooth; }
 
 body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
+
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+img { max-width: 100%; height: auto; display: block; }
+ul, ol { list-style: none; }
+::selection { background: var(--green); color: #fff; }
