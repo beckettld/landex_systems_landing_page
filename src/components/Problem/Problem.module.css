@@ -1,6 +1,18 @@
 .section {
+  position: relative;
   padding: 140px 0 120px;
   background: var(--surface);
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, var(--dark) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .container {
@@ -64,6 +76,7 @@
 }
 
 .pointBody {
+  font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 300;
   color: var(--text-secondary);

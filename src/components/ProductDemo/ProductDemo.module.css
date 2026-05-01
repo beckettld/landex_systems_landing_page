@@ -1,6 +1,18 @@
 .section {
+  position: relative;
   padding: 140px 0 120px;
   background: var(--surface);
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, var(--dark) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .container {
@@ -35,6 +47,7 @@
 }
 
 .subtitle {
+  font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 300;
   color: var(--text-dim);
@@ -205,10 +218,11 @@
 }
 
 .outputCard {
-  border: 1px solid var(--rule);
+  border: 1px solid rgba(93, 153, 128, 0.2);
   border-radius: 2px;
   background: var(--surface-raised);
   overflow: hidden;
+  box-shadow: 0 0 40px rgba(93, 153, 128, 0.06), 0 0 80px rgba(93, 153, 128, 0.03);
 }
 
 /* Meta row */
@@ -326,6 +340,39 @@
 .coordSep {
   color: var(--text-dim);
   margin: 0 6px;
+}
+
+/* Axis block (where/when/what) */
+.axisBlock {
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.axisRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.axisKey {
+  font-family: var(--font);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--green);
+  min-width: 42px;
+}
+
+.axisVal {
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--sand);
+  line-height: 1.4;
 }
 
 /* Features block */
@@ -679,6 +726,23 @@
   font-weight: 400;
   color: var(--text-dim);
   line-height: 1.4;
+}
+
+/* Progress bar */
+.progressBar {
+  margin-top: 24px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 1px;
+  transition: width 0.15s ease-out;
+  opacity: 0.5;
 }
 
 /* ── Responsive ── */

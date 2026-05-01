@@ -1,8 +1,10 @@
 :root {
   --font: 'Syne', sans-serif;
+  --font-body: 'Syne', sans-serif;
 
   --green: #4a7c6a;
   --green-bright: #5d9980;
+  --green-glow: rgba(93, 153, 128, 0.15);
   --sand: #c4b49a;
   --dark: #111113;
   --surface: #18181b;
@@ -23,7 +25,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font);
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
   color: var(--text);

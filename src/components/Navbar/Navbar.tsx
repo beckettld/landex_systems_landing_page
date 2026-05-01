@@ -29,9 +29,10 @@ function Navbar() {
       <div className={styles.left}>
         <img src="/assets/logo.png" alt="Landex Systems" className={styles.logo} />
         <div className={styles.links}>
-          <button className={styles.link} onClick={() => scrollTo('problem')}>Problem</button>
           <button className={styles.link} onClick={() => scrollTo('how-it-works')}>How it works</button>
+          <button className={styles.link} onClick={() => scrollTo('what-you-can-ask')}>What you can ask</button>
           <button className={styles.link} onClick={() => scrollTo('industries')}>Industries</button>
+          <button className={styles.link} onClick={() => scrollTo('security')}>Security</button>
           <button className={styles.link} onClick={() => scrollTo('contact')}>Contact</button>
         </div>
       </div>

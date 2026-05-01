@@ -64,6 +64,7 @@
 .cta:hover {
   background: var(--green-bright);
   transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(93, 153, 128, 0.25);
 }
 
 @media (max-width: 768px) {

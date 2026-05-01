@@ -1,34 +1,41 @@
 "use client";
 
+import AnimateIn from '@/components/AnimateIn'
 import styles from './Problem.module.css'
 
 function Problem() {
   return (
     <section id="problem" className={styles.section}>
       <div className={styles.container}>
-        <span className={styles.eyebrow}>The problem</span>
-        <h2 className={styles.title}>
-          The answers exist. They're just buried.
-        </h2>
+        <AnimateIn>
+          <span className={styles.eyebrow}>The problem</span>
+          <h2 className={styles.title}>
+            The physical world generates an enormous trail of paper. None of it is searchable.
+          </h2>
+        </AnimateIn>
         <div className={styles.points}>
-          <div className={styles.point}>
-            <div className={styles.pointMarker} />
-            <div className={styles.pointContent}>
-              <h3 className={styles.pointTitle}>Back in the office</h3>
-              <p className={styles.pointBody}>
-                Your team spends hours digging through filing cabinets, shared drives, and PDFs for records that already exist somewhere in the organization. Every search is a guessing game across decades of documents.
-              </p>
+          <AnimateIn delay={0.1}>
+            <div className={styles.point}>
+              <div className={styles.pointMarker} />
+              <div className={styles.pointContent}>
+                <h3 className={styles.pointTitle}>Decades of documents, no way through them</h3>
+                <p className={styles.pointBody}>
+                  Every building, parcel, pipeline, well, claim, and project leaves behind decades of drawings, as-builts, permits, inspection reports, deeds, scans, and reports. Most of it is stranded across PDFs, network drives, file rooms, and acquired archives that nobody can search.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className={styles.point}>
-            <div className={styles.pointMarker} />
-            <div className={styles.pointContent}>
-              <h3 className={styles.pointTitle}>Out in the field</h3>
-              <p className={styles.pointBody}>
-                You're on-site and need to know what's underground before you dig. But the relevant records are in a cabinet 30 miles away — or in a PDF no one can find. You can't search decades of archives from a job site.
-              </p>
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <div className={styles.point}>
+              <div className={styles.pointMarker} />
+              <div className={styles.pointContent}>
+                <h3 className={styles.pointTitle}>Hours or days to answer a single question</h3>
+                <p className={styles.pointBody}>
+                  When someone needs to make a decision about a place (buy it, build on it, dig under it, take it over, insure it), they spend hours or days reconstructing context from a pile of documents. AI tools that should help have nothing structured to work with.
+                </p>
+              </div>
             </div>
-          </div>
+          </AnimateIn>
         </div>
       </div>
     </section>

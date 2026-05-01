@@ -27,13 +27,15 @@ function Hero() {
       </div>
 
       <div className={styles.content}>
-        <div className={styles.heroContent}>
-          <span className={styles.eyebrow}>Infrastructure data, unlocked</span>
+        <div className={styles.textSide}>
+          <span className={styles.eyebrow}>The data room for the physical world</span>
           <h1 className={styles.headline}>
-            One search across every drawing, map, and record you've ever filed.
+            Every drawing, plan, and record in one place.
+            <br />
+            Ask anything and get answers sourced to the page.
           </h1>
           <p className={styles.subheadline}>
-            We index your legacy maps, drawings, and records and turn them into searchable, location-based data your team can actually use.
+            Drop in a folder of as-builts, site plans, deeds, permits, scans, and reports. Our AI indexes every page by location, date, and content, building a structured understanding of the entire site that your team can query instead of digging through files.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>

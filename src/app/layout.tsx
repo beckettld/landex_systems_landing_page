@@ -3,9 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Landex Systems | Infrastructure data, unlocked",
+  title: "Landex Systems | The data room for the physical world",
   description:
-    "We index your legacy maps, drawings, and records and turn them into searchable, location-based data your team can actually use.",
+    "Drop in every document that describes a place. Ask questions in plain English. Get answers. Drawings, plans, scans, deeds, photos, reports, maps - indexed by where, when, and what.",
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
         <link

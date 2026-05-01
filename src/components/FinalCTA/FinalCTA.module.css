@@ -20,6 +20,7 @@
 }
 
 .subheadline {
+  font-family: var(--font-body);
   font-size: 1.05rem;
   font-weight: 300;
   color: var(--text-secondary);
@@ -39,12 +40,14 @@
   color: #fff;
   background: var(--green);
   border-radius: 4px;
-  transition: background 0.25s, transform 0.2s;
+  box-shadow: 0 2px 12px var(--green-glow);
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
 }
 
 .primaryCta:hover {
   background: var(--green-bright);
   transform: translateY(-1px);
+  box-shadow: 0 4px 24px rgba(93, 153, 128, 0.3);
 }
 
 .ctaArrow {

@@ -1,6 +1,18 @@
 .section {
+  position: relative;
   padding: 140px 0 120px;
   background: var(--surface);
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, var(--dark) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .container {
@@ -35,6 +47,7 @@
 }
 
 .subtitle {
+  font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 300;
   color: var(--text-secondary);
@@ -52,6 +65,11 @@
 .card {
   padding: 36px 32px 36px 0;
   border-bottom: 1px solid var(--rule);
+  transition: background 0.3s;
+}
+
+.card:hover {
+  background: rgba(93, 153, 128, 0.03);
 }
 
 .card:nth-child(3n+2),
@@ -86,6 +104,7 @@
 }
 
 .cardDescription {
+  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 300;
   color: var(--text-secondary);
