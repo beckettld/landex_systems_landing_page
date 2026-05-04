@@ -1,0 +1,205 @@
+.section {
+  padding: 140px 0;
+  background: var(--dark);
+  border-top: 1px solid var(--rule);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 64px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.stretchWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 4px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+}
+
+.cardCustom {
+  border-color: var(--green);
+  position: relative;
+}
+
+.cardCustom::before {
+  content: 'Popular for teams';
+  position: absolute;
+  top: -1px;
+  right: 32px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--green-bright);
+  padding: 4px 12px;
+  border-radius: 0 0 4px 4px;
+}
+
+.cardHeader {
+  margin-bottom: 36px;
+}
+
+.planName {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.period {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+
+.planDesc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
+  flex: 1;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.check {
+  color: var(--green-bright);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--green);
+  border-radius: 4px;
+  box-shadow: 0 2px 12px var(--green-glow);
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  align-self: flex-start;
+}
+
+.primaryCta:hover {
+  background: var(--green-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px rgba(93, 153, 128, 0.3);
+}
+
+.ctaArrow {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.2s;
+}
+
+.primaryCta:hover .ctaArrow {
+  transform: translateX(3px);
+}
+
+.customCtaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.orEmail {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--text-dim);
+}
+
+.orEmail a {
+  color: var(--green-bright);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.orEmail a:hover {
+  border-color: var(--green-bright);
+}
+
+@media (max-width: 768px) {
+  .section { padding: 96px 0; }
+  .container { padding: 0 24px; }
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 36px 28px; }
+  .cardCustom::before { right: 20px; }
+}
