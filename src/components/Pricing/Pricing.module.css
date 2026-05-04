@@ -10,92 +10,35 @@
   padding: 0 48px;
 }
 
-.eyebrow {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--green-bright);
-  margin-bottom: 16px;
-}
-
-.headline {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 500;
-  color: var(--text);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 64px;
-}
-
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: stretch;
-}
-
-.stretchWrapper {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 64px;
+  align-items: center;
 }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--surface-border);
-  border-radius: 4px;
-  padding: 48px;
   display: flex;
   flex-direction: column;
   gap: 0;
-  height: 100%;
-}
-
-.cardCustom {
-  border-color: var(--green);
-  position: relative;
-}
-
-.cardCustom::before {
-  content: 'Popular for teams';
-  position: absolute;
-  top: -1px;
-  right: 32px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--dark);
-  background: var(--green-bright);
-  padding: 4px 12px;
-  border-radius: 0 0 4px 4px;
 }
 
 .cardHeader {
-  margin-bottom: 36px;
-}
-
-.planName {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
+  margin-bottom: 28px;
 }
 
 .priceRow {
   display: flex;
   align-items: baseline;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .price {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 500;
   color: var(--text);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   line-height: 1;
 }
 
@@ -115,16 +58,15 @@
 .featureList {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-bottom: 40px;
-  flex: 1;
+  gap: 12px;
+  margin-bottom: 36px;
 }
 
 .feature {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 300;
   color: var(--text);
   line-height: 1.5;
@@ -152,8 +94,6 @@
   box-shadow: 0 2px 12px var(--green-glow);
   transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
   text-decoration: none;
-  cursor: pointer;
-  border: none;
   align-self: flex-start;
 }
 
@@ -169,15 +109,63 @@
   transition: transform 0.2s;
 }
 
-.primaryCta:hover .ctaArrow {
+.primaryCta:hover .ctaArrow,
+.secondaryCta:hover .ctaArrow {
   transform: translateX(3px);
 }
 
-.customCtaGroup {
+.divider {
+  background: var(--rule);
+  height: 100%;
+  min-height: 200px;
+  width: 1px;
+}
+
+.aside {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  align-items: flex-start;
+  gap: 0;
+}
+
+.asideHeadline {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.asideDesc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--surface-border);
+  border-radius: 4px;
+  transition: border-color 0.25s, color 0.25s, transform 0.2s;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.secondaryCta:hover {
+  border-color: var(--green);
+  color: var(--green-bright);
+  transform: translateY(-1px);
 }
 
 .orEmail {
@@ -199,7 +187,13 @@
 @media (max-width: 768px) {
   .section { padding: 96px 0; }
   .container { padding: 0 24px; }
-  .grid { grid-template-columns: 1fr; }
-  .card { padding: 36px 28px; }
-  .cardCustom::before { right: 20px; }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .divider {
+    height: 1px;
+    min-height: unset;
+    width: 100%;
+  }
 }
