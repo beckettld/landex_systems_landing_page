@@ -12,8 +12,8 @@ const items = [
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
-    title: 'Your environment',
-    description: 'Deploy in your VPC, on-prem, or in a sovereign cloud. Your documents never leave your perimeter.',
+    title: 'Your documents stay yours',
+    description: 'We work with your team on deployment to ensure documents remain within your environment and under your control.',
   },
   {
     icon: (
@@ -22,8 +22,8 @@ const items = [
         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
     ),
-    title: 'Your access controls',
-    description: 'SSO, role-based permissions, audit logging. Inherits the policies you already run.',
+    title: 'Fits your existing policies',
+    description: 'Built to work alongside the access controls and data handling policies you already have, not around them.',
   },
   {
     icon: (
@@ -32,8 +32,8 @@ const items = [
         <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
       </svg>
     ),
-    title: 'Your compliance posture',
-    description: 'CUI, ITAR, NDA\'d diligence, regulated environments. Designed to fit your existing controls, not replace them.',
+    title: 'Built for sensitive environments',
+    description: 'Designed from the start for environments where data sensitivity is non-negotiable. We take security requirements seriously from the first conversation.',
   },
 ]
 
@@ -44,10 +44,10 @@ function Security() {
         <AnimateIn>
           <span className={styles.eyebrow}>Security & deployment</span>
           <h2 className={styles.title}>
-            Runs on your infrastructure. Under your security policies.
+            Built for environments where data sensitivity matters.
           </h2>
           <p className={styles.subtitle}>
-            Federal jobs, NDA'd transactions, and regulated environments. Out of the box.
+            Enterprise buyers ask hard security questions. We take them seriously from the first conversation.
           </p>
         </AnimateIn>
         <StaggerContainer className={styles.items} stagger={0.1}>

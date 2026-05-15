@@ -29,6 +29,16 @@ const industries = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+        <line x1="4" y1="22" x2="4" y2="15" />
+      </svg>
+    ),
+    title: 'Rail & transit',
+    description: 'Corridor transfers, infrastructure handoffs, maintenance package handovers.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M2 20h20" />
         <path d="M5 20V8l7-5 7 5v12" />
         <path d="M9 20v-4h6v4" />
@@ -36,6 +46,18 @@ const industries = [
     ),
     title: 'Civil engineering',
     description: 'Site diligence, project initiation, prior-work surfacing on inherited engagements. Every record relevant to a parcel, in one place.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 22c-4.97 0-9-2.69-9-6v-4" />
+        <path d="M3 8c0-3.31 4.03-6 9-6s9 2.69 9 6-4.03 6-9 6-9-2.69-9-6" />
+        <path d="M21 8v4c0 3.31-4.03 6-9 6" />
+        <path d="M21 12v4c0 3.31-4.03 6-9 6" />
+      </svg>
+    ),
+    title: 'Mining & minerals',
+    description: 'Claims, leases, exploration records, asset transfers. Decades of survey and exploration data, structured per claim.',
   },
   {
     icon: (
@@ -58,28 +80,6 @@ const industries = [
     ),
     title: 'Real estate',
     description: 'CRE diligence, environmental Phase I, site history. Records research that takes weeks, completed in days.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 22c-4.97 0-9-2.69-9-6v-4" />
-        <path d="M3 8c0-3.31 4.03-6 9-6s9 2.69 9 6-4.03 6-9 6-9-2.69-9-6" />
-        <path d="M21 8v4c0 3.31-4.03 6-9 6" />
-        <path d="M21 12v4c0 3.31-4.03 6-9 6" />
-      </svg>
-    ),
-    title: 'Mining & minerals',
-    description: 'Claims, leases, exploration records, asset transfers. Decades of survey and exploration data, structured per claim.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-        <line x1="4" y1="22" x2="4" y2="15" />
-      </svg>
-    ),
-    title: 'Rail & transit',
-    description: 'Corridor transfers, infrastructure handoffs, maintenance package handovers.',
   },
   {
     icon: (

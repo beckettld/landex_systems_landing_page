@@ -22,17 +22,32 @@
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: var(--dark);
+}
 
 body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
   color: var(--text);
-  background: var(--dark);
+  background: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('/assets/bg-night.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) brightness(0.35);
+  z-index: -1;
+  pointer-events: none;
 }
 
 a { text-decoration: none; color: inherit; }

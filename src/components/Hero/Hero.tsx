@@ -35,7 +35,7 @@ function Hero() {
             Ask anything and get answers sourced to the page.
           </h1>
           <p className={styles.subheadline}>
-            Drop in a folder of as-builts, site plans, deeds, permits, scans, and reports. Our AI indexes every page by location, date, and content, building a structured understanding of the entire site that your team can query instead of digging through files.
+            Drop in your corpus of as-builts, deeds, permits, scans, and reports. Our AI indexes, extracts, and structures every page by location, date, and content. New documents are absorbed as they arrive. The system lives continuously in your workflow, not just a one-time project.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>

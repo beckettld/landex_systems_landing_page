@@ -1,6 +1,6 @@
 .section {
   padding: 140px 0 120px;
-  background: var(--dark);
+  background: rgba(17, 17, 19, 0.82);
 }
 
 .container {

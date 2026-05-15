@@ -11,7 +11,7 @@ const steps = [
   },
   {
     number: '02',
-    title: 'We read every document and index it three ways',
+    title: 'We read every document, extract what matters, and index it three ways',
     description: 'Our AI parses each document and builds a three-axis index:',
     subItems: [
       { label: 'Where', detail: 'geolocation. Every document anchored to where on the map it applies.' },
@@ -22,7 +22,7 @@ const steps = [
   {
     number: '03',
     title: 'Ask anything in plain English',
-    description: 'Get back the exact pages from the exact documents that answer the question, anchored to the right place and the right point in time. Hand it to your team, your field crews, or your AI tools.',
+    description: 'Get back the exact pages from the exact documents that answer the question, anchored to the right place and the right point in time. Query conversationally or integrate directly: structured exports to ESRI, Trimble, Bentley, Maximo, and your existing GIS and asset management stack via API.',
   },
 ]
 
@@ -36,7 +36,7 @@ function Solution() {
             Drop in the documents. Get a queryable index in minutes.
           </h2>
           <p className={styles.subtitle}>
-            No archive digitization initiative. No multi-year rollout. Drop in a folder of PDFs, drawings, scans, shapefiles, and images tied to a site, building, parcel, or asset, and our AI does the rest.
+            No archive digitization initiative. No multi-year rollout. Drop in your document corpus and our AI does the rest. As new documents arrive, they are absorbed automatically. The system runs continuously inside your workflow.
           </p>
         </AnimateIn>
         <div className={styles.steps}>
