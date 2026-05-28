@@ -10,7 +10,7 @@ function Problem() {
         <AnimateIn>
           <span className={styles.eyebrow}>The problem</span>
           <h2 className={styles.title}>
-            The physical world generates an enormous trail of paper. None of it is searchable.
+            The model goes dumb the moment construction starts.
           </h2>
         </AnimateIn>
         <div className={styles.points}>
@@ -18,9 +18,9 @@ function Problem() {
             <div className={styles.point}>
               <div className={styles.pointMarker} />
               <div className={styles.pointContent}>
-                <h3 className={styles.pointTitle}>Decades of documents, no way through them</h3>
+                <h3 className={styles.pointTitle}>Every major project is modeled in 3D before groundbreaking</h3>
                 <p className={styles.pointBody}>
-                  Every building, parcel, pipeline, well, claim, and project leaves behind decades of drawings, as-builts, permits, inspection reports, deeds, scans, and reports. Most of it is stranded across PDFs, network drives, file rooms, and acquired archives that nobody can search.
+                  Architects, engineers, and contractors coordinate against a shared model. It is the most detailed representation of the project that exists.
                 </p>
               </div>
             </div>
@@ -29,14 +29,21 @@ function Problem() {
             <div className={styles.point}>
               <div className={styles.pointMarker} />
               <div className={styles.pointContent}>
-                <h3 className={styles.pointTitle}>Hours or days to answer a single question</h3>
+                <h3 className={styles.pointTitle}>Then construction starts. The site changes daily. The model doesn't.</h3>
                 <p className={styles.pointBody}>
-                  When someone needs to make a decision about a place (buy it, build on it, dig under it, take it over, insure it), they spend hours or days reconstructing context from a pile of documents. AI tools that should help have nothing structured to work with.
+                  Tracking reality falls to site walks, photos, and videos. Two people on the same site come back with different answers. Schedules slip, mistakes get made, and millions are spent fixing them.
                 </p>
               </div>
             </div>
           </AnimateIn>
         </div>
+        <AnimateIn delay={0.3}>
+          <div className={styles.stat}>
+            <span className={styles.statFigure}>$31B</span>
+            <span className={styles.statLabel}>lost annually in U.S. construction to inaccurate or inaccessible information</span>
+            <span className={styles.statSource}>FMI Corporation</span>
+          </div>
+        </AnimateIn>
       </div>
     </section>
   )

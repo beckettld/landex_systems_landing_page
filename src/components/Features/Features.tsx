@@ -5,37 +5,7 @@ import AnimateIn from '@/components/AnimateIn'
 import StaggerContainer, { staggerItem } from '@/components/StaggerContainer'
 import styles from './Features.module.css'
 
-const industries = [
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 2v20" />
-        <path d="M2 12h20" />
-      </svg>
-    ),
-    title: 'Oil & gas',
-    description: 'Pipelines, wells, ROW, integrity packages, asset transfers. Decades of records, queryable per asset.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-      </svg>
-    ),
-    title: 'Utilities',
-    description: 'Water, gas, electric. Service area transfers, system acquisitions, infrastructure handoffs. Know what\'s underground before responsibility passes to you.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-        <line x1="4" y1="22" x2="4" y2="15" />
-      </svg>
-    ),
-    title: 'Rail & transit',
-    description: 'Corridor transfers, infrastructure handoffs, maintenance package handovers.',
-  },
+const sectors = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -44,63 +14,39 @@ const industries = [
         <path d="M9 20v-4h6v4" />
       </svg>
     ),
-    title: 'Civil engineering',
-    description: 'Site diligence, project initiation, prior-work surfacing on inherited engagements. Every record relevant to a parcel, in one place.',
+    title: 'Commercial and institutional construction',
+    description: 'Office, healthcare, life sciences, data centers, education, mixed-use. MEP-heavy work where the gap between design and as-built is most expensive.',
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 22c-4.97 0-9-2.69-9-6v-4" />
-        <path d="M3 8c0-3.31 4.03-6 9-6s9 2.69 9 6-4.03 6-9 6-9-2.69-9-6" />
-        <path d="M21 8v4c0 3.31-4.03 6-9 6" />
-        <path d="M21 12v4c0 3.31-4.03 6-9 6" />
+        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+        <line x1="4" y1="22" x2="4" y2="15" />
       </svg>
     ),
-    title: 'Mining & minerals',
-    description: 'Claims, leases, exploration records, asset transfers. Decades of survey and exploration data, structured per claim.',
+    title: 'Civil and heavy infrastructure',
+    description: 'Roads, bridges, transit corridors, water and wastewater. Long-duration projects where the model has to stay honest across phases.',
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-        <polyline points="3.27,6.96 12,12.01 20.73,6.96" />
-        <line x1="12" y1="22.08" x2="12" y2="12" />
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
       </svg>
     ),
-    title: 'Manufacturing',
-    description: 'Facility acquisitions, equipment transfers, plant handoffs. Every drawing that matters before the keys change hands.',
+    title: 'Energy and utilities buildouts',
+    description: 'Substations, generation, pipeline construction, distribution upgrades. Projects where regulatory inspection trails matter as much as the physical work.',
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18" />
-        <path d="M9 21V9" />
+        <rect x="2" y="7" width="20" height="14" rx="2" />
+        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+        <line x1="12" y1="12" x2="12" y2="16" />
+        <line x1="10" y1="14" x2="14" y2="14" />
       </svg>
     ),
-    title: 'Real estate',
-    description: 'CRE diligence, environmental Phase I, site history. Records research that takes weeks, completed in days.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M3 21h18" />
-        <path d="M5 21V7l8-4v18" />
-        <path d="M19 21V11l-6-4" />
-      </svg>
-    ),
-    title: 'Municipal government & federal',
-    description: 'Permitting, land transactions, infrastructure inventory, NEPA support. Every record relevant to a parcel, in one place.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M9 12l2 2 4-4" />
-        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-      </svg>
-    ),
-    title: 'Insurance & underwriting',
-    description: 'Property and asset risk assessment grounded in the actual record set, not just the application.',
+    title: 'Industrial and process facilities',
+    description: 'Plants, refineries, manufacturing buildouts. Element-rich projects where document linkage to physical work is the difference between a clean commissioning and a six-month closeout.',
   },
 ]
 
@@ -110,21 +56,21 @@ function Features() {
       <div className={styles.container}>
         <AnimateIn>
           <div className={styles.header}>
-            <span className={styles.eyebrow}>Who we work with</span>
+            <span className={styles.eyebrow}>Who it's for</span>
             <h2 className={styles.title}>
-              Built for teams that buy, build on, take over, and operate the physical world.
+              Built for anyone responsible for getting a project built right.
             </h2>
             <p className={styles.subtitle}>
-              If your work depends on knowing exactly what's at a place before you decide, dig, sign, or break ground, we can help.
+              If your project gets built, gets inspected, and gets handed over, Landex fits.
             </p>
           </div>
         </AnimateIn>
         <StaggerContainer className={styles.grid} stagger={0.06}>
-          {industries.map((industry) => (
-            <motion.div key={industry.title} className={styles.card} variants={staggerItem}>
-              <div className={styles.cardIcon}>{industry.icon}</div>
-              <h3 className={styles.cardTitle}>{industry.title}</h3>
-              <p className={styles.cardDescription}>{industry.description}</p>
+          {sectors.map((sector) => (
+            <motion.div key={sector.title} className={styles.card} variants={staggerItem}>
+              <div className={styles.cardIcon}>{sector.icon}</div>
+              <h3 className={styles.cardTitle}>{sector.title}</h3>
+              <p className={styles.cardDescription}>{sector.description}</p>
             </motion.div>
           ))}
         </StaggerContainer>

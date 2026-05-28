@@ -1,64 +1,54 @@
 "use client";
 
-import { motion } from 'framer-motion'
 import AnimateIn from '@/components/AnimateIn'
-import StaggerContainer, { staggerItem } from '@/components/StaggerContainer'
 import styles from './Security.module.css'
 
-const items = [
+const steps = [
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
-    title: 'Your documents stay yours',
-    description: 'We work with your team on deployment to ensure documents remain within your environment and under your control.',
+    number: '01',
+    title: 'Capture comes in.',
+    description: 'Phone video, 360 cameras, drone footage, laser scans. Landex ingests whatever your team is already capturing. No proprietary hardware.',
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-      </svg>
-    ),
-    title: 'Fits your existing policies',
-    description: 'Built to work alongside the access controls and data handling policies you already have, not around them.',
+    number: '02',
+    title: 'The model gets built and updated.',
+    description: 'Multimodal models reconstruct the site as it stands today and align it against the design model. Every element is identified, located, and tied to its source documents.',
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M9 12l2 2 4-4" />
-        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-      </svg>
-    ),
-    title: 'Built for sensitive environments',
-    description: 'Designed from the start for environments where data sensitivity is non-negotiable. We take security requirements seriously from the first conversation.',
+    number: '03',
+    title: "The project's context is embedded.",
+    description: 'Drawings, RFIs, submittals, schedules, change orders, inspection sign-offs. All linked to the elements they govern. The model knows what document version applies to what physical work.',
+  },
+  {
+    number: '04',
+    title: 'You query the model.',
+    description: 'Ask in plain English. Get answers sourced to the document, the date, and the element. Integrate with Procore, Autodesk Construction Cloud, and your existing stack via API.',
   },
 ]
 
 function Security() {
   return (
-    <section id="security" className={styles.section}>
+    <section id="how-it-works" className={styles.section}>
       <div className={styles.container}>
         <AnimateIn>
-          <span className={styles.eyebrow}>Security & deployment</span>
+          <span className={styles.eyebrow}>How it works</span>
           <h2 className={styles.title}>
-            Built for environments where data sensitivity matters.
+            Captures in. Queryable model out.
           </h2>
-          <p className={styles.subtitle}>
-            Enterprise buyers ask hard security questions. We take them seriously from the first conversation.
-          </p>
         </AnimateIn>
-        <StaggerContainer className={styles.items} stagger={0.1}>
-          {items.map((item) => (
-            <motion.div key={item.title} className={styles.item} variants={staggerItem}>
-              <div className={styles.itemIcon}>{item.icon}</div>
-              <h3 className={styles.itemTitle}>{item.title}</h3>
-              <p className={styles.itemDescription}>{item.description}</p>
-            </motion.div>
+        <div className={styles.steps}>
+          {steps.map((step, i) => (
+            <AnimateIn key={step.number} delay={i * 0.08}>
+              <div className={styles.step}>
+                <div className={styles.stepNumber}>{step.number}</div>
+                <div className={styles.stepBody}>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <p className={styles.stepDescription}>{step.description}</p>
+                </div>
+              </div>
+            </AnimateIn>
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   )

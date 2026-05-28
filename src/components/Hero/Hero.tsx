@@ -28,14 +28,11 @@ function Hero() {
 
       <div className={styles.content}>
         <div className={styles.textSide}>
-          <span className={styles.eyebrow}>The data room for the physical world</span>
           <h1 className={styles.headline}>
-            Every drawing, plan, and record in one place.
-            <br />
-            Ask anything and get answers sourced to the page.
+            3D intelligence for projects under construction.
           </h1>
           <p className={styles.subheadline}>
-            Drop in your corpus of as-builts, deeds, permits, scans, and reports. Our AI indexes, extracts, and structures every page by location, date, and content. New documents are absorbed as they arrive. The system lives continuously in your workflow, not just a one-time project.
+            The model of your site, kept honest as it gets built. Every element knows what it is, when it's scheduled, which documents govern it, and where it stands today. Ask anything about the project. Get an answer grounded in the model.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>

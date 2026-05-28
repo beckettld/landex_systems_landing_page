@@ -76,17 +76,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 64px;
-  border-top: 1px solid var(--rule);
 }
 
 .ctaHeadline {
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 500;
   color: var(--text);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 20px;
 }
 
 .ctaDesc {
