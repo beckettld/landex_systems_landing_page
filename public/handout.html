@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Landex Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+
+    body {
+      width: 8.5in;
+      height: 11in;
+      background: #fff;
+      font-family: 'Inter', sans-serif;
+      color: #1a1a1c;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      overflow: hidden;
+    }
+
+    /* ────────────────────────────────
+       HEADER
+    ──────────────────────────────── */
+    .header {
+      background: #111113;
+      padding: 0 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 87px;
+      width: auto;
+      filter: invert(1) brightness(2);
+    }
+
+    .header-tagline {
+      font-family: 'Syne', sans-serif;
+      font-size: 9pt;
+      font-weight: 600;
+      color: #7a9e94;
+      text-align: right;
+      max-width: 280px;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+
+    /* ────────────────────────────────
+       BODY
+    ──────────────────────────────── */
+    .body {
+      padding: 34px 56px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto auto;
+      gap: 0 52px;
+    }
+
+    /* ────────────────────────────────
+       SECTION LABEL
+    ──────────────────────────────── */
+    .label {
+      font-family: 'Syne', sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #5d9980;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .label::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 1.5px;
+      background: #5d9980;
+      flex-shrink: 0;
+    }
+
+    /* ────────────────────────────────
+       WHAT WE DO — full width
+    ──────────────────────────────── */
+    .what-we-do {
+      grid-column: 1 / -1;
+      margin-bottom: 26px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid #e4e4e6;
+    }
+
+    .what-we-do p {
+      font-size: 9.5pt;
+      font-weight: 300;
+      color: #333;
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    /* ────────────────────────────────
+       EXAMPLES — left column
+    ──────────────────────────────── */
+    .examples-col {
+      grid-column: 1;
+      grid-row: 2;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e4e4e6;
+    }
+
+    .examples-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .example {
+      padding: 11px 0;
+      border-top: 1px solid #ebebed;
+    }
+
+    .example:first-child { border-top: none; padding-top: 0; }
+
+    .example-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #5d9980;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
+    }
+
+    .example-body {
+      font-size: 8pt;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* ────────────────────────────────
+       WHERE IT EARNS + HOW — right col
+    ──────────────────────────────── */
+    .right-col {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e4e4e6;
+    }
+
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bullet-list li {
+      font-size: 8.5pt;
+      font-weight: 300;
+      color: #333;
+      line-height: 1.55;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .bullet-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 1.5px;
+      background: #5d9980;
+    }
+
+    .how-body {
+      font-size: 8.5pt;
+      font-weight: 300;
+      color: #333;
+      line-height: 1.65;
+    }
+
+    /* ────────────────────────────────
+       STATS ROW — full width
+    ──────────────────────────────── */
+    .stats-row {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #e0e0e2;
+      border: 1px solid #e0e0e2;
+      margin-bottom: 0;
+    }
+
+    .stat {
+      background: #f7f6f4;
+      padding: 14px 18px;
+    }
+
+    .stat-figure {
+      font-family: 'Inter', sans-serif;
+      font-size: 18pt;
+      font-weight: 800;
+      color: #111113;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .stat-figure span {
+      color: #5d9980;
+    }
+
+    .stat-label {
+      font-size: 7pt;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* ────────────────────────────────
+       FOOTER
+    ──────────────────────────────── */
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 1px solid #e4e4e6;
+      padding: 14px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-cta {
+      font-size: 8pt;
+      font-weight: 300;
+      color: #888;
+      font-style: italic;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-contact {
+      font-size: 8pt;
+      font-weight: 400;
+      color: #888;
+    }
+
+    .footer-contact a {
+      color: #5d9980;
+      text-decoration: none;
+    }
+
+    .footer-divider {
+      width: 1px;
+      height: 14px;
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-brand">
+      <img src="/assets/logo.png" alt="Landex Systems" class="logo" />
+    </div>
+    <div class="header-tagline">The documents say one thing.<br>The field says another.<br>We surface every gap.</div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- What we do -->
+    <div class="what-we-do">
+      <div class="label">What we do</div>
+      <p>Landex reads your project documents and compares them to your site capture, including scans, videos, and walkthroughs. We give you back a list of every place the paperwork and the field do not match, with the photo evidence next to the governing document. Your team works the list.</p>
+    </div>
+
+    <!-- Examples -->
+    <div class="examples-col">
+      <div class="label">What that looks like in practice</div>
+      <div class="examples-list">
+
+        <div class="example">
+          <div class="example-title">The substitution.</div>
+          <div class="example-body">Field shows a Crane valve at FCV-2034. The approved submittal is Fisher. There is no change record.</div>
+        </div>
+
+        <div class="example">
+          <div class="example-title">The completion gap.</div>
+          <div class="example-body">The database says System 7B is signed off. The capture shows two valves still in the open position and one flange unbolted.</div>
+        </div>
+
+        <div class="example">
+          <div class="example-title">The undocumented change.</div>
+          <div class="example-body">Something moved on the rack between last week's scan and this week's. There is no MOC or RFI in the file.</div>
+        </div>
+
+        <div class="example">
+          <div class="example-title">The class mismatch.</div>
+          <div class="example-body">The model puts a 4-inch gate valve at HV-2018. The field shows a 4-inch ball valve. Same size, same flanges, different function.</div>
+        </div>
+
+        <div class="example">
+          <div class="example-title">The wrong spec.</div>
+          <div class="example-body">The line spec calls for 600# flanges. The flanges on this run have an 8-bolt pattern. That is 300#.</div>
+        </div>
+
+        <div class="example">
+          <div class="example-title">The coverage map.</div>
+          <div class="example-body">847 of 894 elements verified against the documents. 47 still unverified. Here are the photos you need.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div class="right-col">
+
+      <div>
+        <div class="label">Where this earns its keep</div>
+        <ul class="bullet-list">
+          <li>Substitutions caught at install instead of at hydrotest.</li>
+          <li>Completions reconciled automatically, so people only walk work that still needs hands.</li>
+          <li>Pre-turnaround scans returned as a redlined record of the unit before scope freeze.</li>
+          <li>Modules verified at the yard gate instead of after they ship.</li>
+          <li>Owners get a true as-built at handover instead of a filing cabinet.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="label">How to start</div>
+        <p class="how-body">We start on a small section of the project. One room, one module, one system. We work with the documents and the capture you already have. You see what we found and you decide whether it is worth expanding to the whole site.</p>
+      </div>
+
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-figure"><span>~10x</span></div>
+        <div class="stat-label">cost multiplier on the same error found at commissioning instead of at install</div>
+      </div>
+      <div class="stat">
+        <div class="stat-figure"><span>~50%</span></div>
+        <div class="stat-label">of rework traces to bad data and document gaps, not workmanship</div>
+      </div>
+      <div class="stat">
+        <div class="stat-figure"><span>$1M+</span>/day</div>
+        <div class="stat-label">of lost production for every day a facility starts up late</div>
+      </div>
+      <div class="stat">
+        <div class="stat-figure"><span>64%</span></div>
+        <div class="stat-label">of oil &amp; gas megaprojects hit serious production problems in their first two years (IPA)</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-cta">If your documents and your field do not agree and you can feel it costing you, we should talk.</span>
+    <div class="footer-right">
+      <span class="footer-contact"><a href="mailto:allen@landexsystems.com">allen@landexsystems.com</a></span>
+      <div class="footer-divider"></div>
+      <span class="footer-contact">landexsystems.com</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -29,7 +29,7 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            The documents say one thing. The field says another. We tell you where.
+            The documents say one thing. The field says another. We surface every gap.
           </h1>
           <p className={styles.subheadline}>
             We read every document on the job and compare it against the field. Substitutions, undocumented changes, and completion gaps surface as flags with the evidence next to the document, while there is still time to fix them.
