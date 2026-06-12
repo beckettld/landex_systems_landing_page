@@ -6,23 +6,23 @@ import styles from './Security.module.css'
 const steps = [
   {
     number: '01',
-    title: 'Capture comes in.',
-    description: 'Phone video, 360 cameras, drone footage, laser scans. Landex ingests whatever your team is already capturing. No proprietary hardware.',
+    title: 'Your documentation comes in.',
+    description: 'Drawings, models, submittals, schedules, change orders, line lists, completion records. Whatever your team is already maintaining as the project\'s source of truth.',
   },
   {
     number: '02',
-    title: 'The model gets built and updated.',
-    description: 'Multimodal models reconstruct the site as it stands today and align it against the design model. Every element is identified, located, and tied to its source documents.',
+    title: 'Your capture comes in.',
+    description: 'Phone video, 360 cameras, drone footage, laser scans. Whatever your team is already capturing in the field. No new hardware, no new field behavior.',
   },
   {
     number: '03',
-    title: "The project's context is embedded.",
-    description: 'Drawings, RFIs, submittals, schedules, change orders, inspection sign-offs. All linked to the elements they govern. The model knows what document version applies to what physical work.',
+    title: 'We compare the two.',
+    description: 'For every element the documents describe, we check the field. For every element the field shows, we check the documents. Substitutions, undocumented changes, wrong specs, completion gaps, and missing change orders all surface as flags with the source documents cited.',
   },
   {
     number: '04',
-    title: 'You query the model.',
-    description: 'Ask in plain English. Get answers sourced to the document, the date, and the element. Integrate with Procore, Autodesk Construction Cloud, and your existing stack via API.',
+    title: 'Your team works the list.',
+    description: 'Review the report and the flags in the browser, assign issues, resolve or escalate. Integrate with Procore, Autodesk Construction Cloud, and your existing stack via API.',
   },
 ]
 
@@ -33,7 +33,7 @@ function Security() {
         <AnimateIn>
           <span className={styles.eyebrow}>How it works</span>
           <h2 className={styles.title}>
-            Captures in. Queryable model out.
+            Documents in. Field in. Disagreements out.
           </h2>
         </AnimateIn>
         <div className={styles.steps}>

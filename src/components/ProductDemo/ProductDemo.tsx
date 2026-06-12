@@ -4,30 +4,31 @@ import { useRef, useState, useCallback, useEffect } from 'react'
 import AnimateIn from '@/components/AnimateIn'
 import styles from './ProductDemo.module.css'
 
-const queries = [
+const flags = [
   {
-    tag: 'Schedule and progress',
-    query: 'Is any interior finishing work on floors 5–9 behind schedule?',
-    answer: 'Drywall on floors 5–7 is on schedule. Floor 8 ceiling grid is 9 days behind per the look-ahead. Floor 9 finishing has not started because MEP rough-in cleared inspection on May 22, two weeks late.',
-    sources: ['Look-ahead schedule, Week of May 19', 'MEP rough-in inspection log, Floor 9 (5-22-26)'],
+    tag: 'The substitution',
+    lead: 'Fisher approved. Crane installed. No record of the change.',
+    body: 'The submittal log lists Fisher for FCV-2034. The field shows a Crane valve installed at that location. No change record exists in the RFI log, the submittal revisions, or the change order register. Two additional substitution flags this week, both involving motor model differences on equipment in the P-100 series. Each flag includes the source submittal page, the field photo, and the absence of any documented approval.',
   },
   {
-    tag: 'Coordination and clashes',
-    query: 'Where does the new ductwork run conflict with the proposed sprinkler layout?',
-    answer: 'The pipe contractor is working from drawings that predate Change Order #47 (April 18). The highlighted runs on levels 4–9 now conflict with the revised sprinkler layout. Flag CO #47 with the mechanical foreman before Tuesday\'s pour.',
-    sources: ['CO #47 (4-18-26)', 'Sprinkler layout, Rev. 4 (4-20-26)'],
+    tag: 'The completion gap',
+    lead: 'Signed off Thursday. Still open Monday.',
+    body: 'The completions database shows System 7B as fully signed off as of last Thursday. The capture from Monday shows two block valves in the open position, one flange unbolted, and the temporary blind still in place on the south header. The opposite case also shows up: System 9A is physically complete in the field, but no ITR has been signed.',
   },
   {
-    tag: 'Document and change history',
-    query: 'Which segments of the pipeline are affected by the latest alignment revision?',
-    answer: 'Revision 3 (May 9) shifts the alignment 14 feet north between STA 142+00 and STA 168+00. Six segments are affected. The trenching crew is still working off Rev 2 and has completed STA 142+00 through 151+50 on the old alignment.',
-    sources: ['ALN-REV-03 (5-9-26)', 'Daily progress log, STA 142–168 corridor'],
+    tag: 'The undocumented change',
+    lead: 'A line moved. No MOC, no RFI, no inspection record.',
+    body: 'A diff between the capture from two weeks ago and the capture from this week shows a 4-inch line on the east rack has been rerouted. The displaced pipe support has been removed and two new welds added. No MOC, no RFI, and no change order on file. The new welds carry no inspection record because none was scheduled.',
   },
   {
-    tag: 'Closeout and handover',
-    query: "Which systems are commissioned, and what's left before turnover?",
-    answer: 'Life safety and fire alarm are commissioned. HVAC commissioning is 60% complete with 4 air handlers remaining. Pressure testing passed on the domestic water loop. Outstanding for turnover: elevator inspection, sprinkler final, and three punch items on egress signage.',
-    sources: ['Commissioning log (5-24-26)', 'Punch list, Sheet P-07 (5-21-26)'],
+    tag: 'The wrong spec',
+    lead: '600# specified. 300# installed. Full pressure at startup.',
+    body: 'Line 12-P-114 is specified as 600# in the piping class. The flanges on the run between FCV-2034 and the pump skid show an 8-bolt pattern, which corresponds to 300#. The wrong pressure class is installed on a line that will see full operating pressure at startup.',
+  },
+  {
+    tag: 'The coverage map',
+    lead: '847 of 894 verified. Here is what we still need.',
+    body: '847 of 894 elements on this week\'s report were verified against the documents. 47 remain unverified, mostly insulated components and six with no readable identity from current capture angles. The report includes the list of unverified elements and the targeted shots needed to close coverage in next week\'s walk.',
   },
 ]
 
@@ -61,14 +62,14 @@ function ProductDemo() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        {/* Natural language search demo */}
-        <div id="what-you-can-ask" className={styles.searchDemo}>
+        {/* What we flag */}
+        <div id="what-we-flag" className={styles.searchDemo}>
           <AnimateIn>
           <div className={styles.searchHeaderRow}>
             <div className={styles.searchHeader}>
-              <span className={styles.eyebrow}>What you can ask</span>
+              <span className={styles.eyebrow}>What we flag</span>
               <h3 className={styles.searchTitle}>
-                Plain-English questions. Answers sourced to the document, the date, and the element.
+                A sample of what shows up in the report.
               </h3>
             </div>
             <div className={styles.carouselNav}>
@@ -96,34 +97,12 @@ function ProductDemo() {
 
           <div className={`${styles.carouselWrap} ${canScrollLeft ? styles.fadeLeft : ''} ${canScrollRight ? styles.fadeRight : ''}`}>
           <div className={styles.carouselTrack} ref={trackRef}>
-            {queries.map((q, i) => (
+            {flags.map((f, i) => (
               <div key={i} className={styles.queryCard}>
-                <div className={styles.queryTag}>{q.tag}</div>
-                <div className={styles.queryInput}>
-                  <span className={styles.queryPrompt}>&gt;</span>
-                  <span className={styles.queryText}>{q.query}</span>
-                </div>
+                <div className={styles.queryTag}>{f.tag}</div>
                 <div className={styles.queryResult}>
-                  <p className={styles.queryAnswer}>{q.answer}</p>
-                  <div className={styles.querySources}>
-                    <span className={styles.querySourcesLabel}>Referenced documents</span>
-                    {q.sources.slice(0, 2).map((src, j) => (
-                      <div key={j} className={styles.querySourceItem}>
-                        <span className={styles.querySourceIcon}>
-                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                            <rect x="1.5" y="1" width="9" height="10" rx="1" stroke="currentColor" strokeWidth="0.8" />
-                            <line x1="4" y1="4" x2="8" y2="4" stroke="currentColor" strokeWidth="0.6" />
-                            <line x1="4" y1="6" x2="8" y2="6" stroke="currentColor" strokeWidth="0.6" />
-                            <line x1="4" y1="8" x2="6.5" y2="8" stroke="currentColor" strokeWidth="0.6" />
-                          </svg>
-                        </span>
-                        <span className={styles.querySourceText}>{src}</span>
-                      </div>
-                    ))}
-                    {q.sources.length > 2 && (
-                      <span className={styles.querySourceMore}>+{q.sources.length - 2} more</span>
-                    )}
-                  </div>
+                  <p className={styles.flagLead}>{f.lead}</p>
+                  <p className={styles.queryAnswer} style={{ height: 'auto', WebkitLineClamp: 'unset' }}>{f.body}</p>
                 </div>
               </div>
             ))}

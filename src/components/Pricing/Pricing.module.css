@@ -147,6 +147,33 @@
   border-color: var(--green-bright);
 }
 
+.pilotBox {
+  border: 1px solid rgba(93, 153, 128, 0.2);
+  background: rgba(93, 153, 128, 0.04);
+  border-radius: 2px;
+  padding: 24px 28px;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.pilotLabel {
+  display: block;
+  font-family: var(--font);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--green-bright);
+  margin-bottom: 10px;
+}
+
+.pilotBody {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
 @media (max-width: 768px) {
   .section { padding: 96px 0; }
   .container { padding: 0 24px; }

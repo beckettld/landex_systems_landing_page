@@ -9,23 +9,14 @@ const sectors = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M2 20h20" />
-        <path d="M5 20V8l7-5 7 5v12" />
-        <path d="M9 20v-4h6v4" />
+        <rect x="2" y="7" width="20" height="14" rx="2" />
+        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+        <line x1="12" y1="12" x2="12" y2="16" />
+        <line x1="10" y1="14" x2="14" y2="14" />
       </svg>
     ),
-    title: 'Commercial and institutional construction',
-    description: 'Office, healthcare, life sciences, data centers, education, mixed-use. MEP-heavy work where the gap between design and as-built is most expensive.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-        <line x1="4" y1="22" x2="4" y2="15" />
-      </svg>
-    ),
-    title: 'Civil and heavy infrastructure',
-    description: 'Roads, bridges, transit corridors, water and wastewater. Long-duration projects where the model has to stay honest across phases.',
+    title: 'Industrial and process facilities',
+    description: 'Plants, refineries, petrochemical, LNG, chemical manufacturing. Element-rich projects where document linkage to physical work is the difference between a clean commissioning and a six-month closeout. This is where substitution catches alone pay for the system.',
   },
   {
     icon: (
@@ -39,14 +30,23 @@ const sectors = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="2" y="7" width="20" height="14" rx="2" />
-        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-        <line x1="12" y1="12" x2="12" y2="16" />
-        <line x1="10" y1="14" x2="14" y2="14" />
+        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+        <line x1="4" y1="22" x2="4" y2="15" />
       </svg>
     ),
-    title: 'Industrial and process facilities',
-    description: 'Plants, refineries, manufacturing buildouts. Element-rich projects where document linkage to physical work is the difference between a clean commissioning and a six-month closeout.',
+    title: 'Civil and heavy infrastructure',
+    description: 'Roads, bridges, transit corridors, water and wastewater. Long-duration projects where the record has to stay honest across phases and through crew turnover.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M2 20h20" />
+        <path d="M5 20V8l7-5 7 5v12" />
+        <path d="M9 20v-4h6v4" />
+      </svg>
+    ),
+    title: 'Commercial and institutional construction',
+    description: 'Office, healthcare, life sciences, data centers, education, mixed-use. MEP-heavy work where the gap between design and as-built is most expensive.',
   },
 ]
 

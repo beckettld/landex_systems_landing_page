@@ -19,7 +19,7 @@ function Hero() {
     <section id="hero" className={styles.hero}>
       <div className={styles.backgroundWrapper}>
         <img
-          src="/assets/background.png"
+          src="/assets/frames-for-your-heart-VoI2jd75M6Q-unsplash.jpg"
           alt=""
           className={styles.backgroundImage}
         />
@@ -29,10 +29,10 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            3D intelligence for projects under construction.
+            The documents say one thing. The field says another. We tell you where.
           </h1>
           <p className={styles.subheadline}>
-            The model of your site, kept honest as it gets built. Every element knows what it is, when it's scheduled, which documents govern it, and where it stands today. Ask anything about the project. Get an answer grounded in the model.
+            We read every document on the job and compare it against the field. Substitutions, undocumented changes, and completion gaps surface as flags with the evidence next to the document, while there is still time to fix them.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>

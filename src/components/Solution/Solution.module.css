@@ -119,9 +119,20 @@
   color: var(--text-secondary);
 }
 
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+  align-items: start;
+}
+
+.colLeft {}
+.colRight {}
+
 @media (max-width: 768px) {
   .section { padding: 96px 0 72px; }
   .container { padding: 0 24px; }
   .subtitle { margin-bottom: 48px; }
   .step { grid-template-columns: 48px 1fr; padding: 28px 0; }
+  .twoCol { grid-template-columns: 1fr; gap: 40px 0; }
 }

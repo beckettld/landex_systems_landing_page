@@ -10,38 +10,41 @@ function Problem() {
         <AnimateIn>
           <span className={styles.eyebrow}>The problem</span>
           <h2 className={styles.title}>
-            The model goes dumb the moment construction starts.
+            Your documents and your field stop agreeing the moment construction starts.
           </h2>
         </AnimateIn>
-        <div className={styles.points}>
+        <div className={styles.proseList}>
           <AnimateIn delay={0.1}>
-            <div className={styles.point}>
-              <div className={styles.pointMarker} />
-              <div className={styles.pointContent}>
-                <h3 className={styles.pointTitle}>Every major project is modeled in 3D before groundbreaking</h3>
-                <p className={styles.pointBody}>
-                  Architects, engineers, and contractors coordinate against a shared model. It is the most detailed representation of the project that exists.
-                </p>
-              </div>
+            <div className={styles.proseItem}>
+              <h3 className={styles.proseTitle}>Two records, one asset</h3>
+              <p className={styles.proseBody}>
+                Every large project starts with two records of the same asset. The physical one in the field, and the document one that defines what should exist: models, specs, approved submittals, certs, test records, change orders.
+              </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.2}>
-            <div className={styles.point}>
-              <div className={styles.pointMarker} />
-              <div className={styles.pointContent}>
-                <h3 className={styles.pointTitle}>Then construction starts. The site changes daily. The model doesn't.</h3>
-                <p className={styles.pointBody}>
-                  Tracking reality falls to site walks, photos, and videos. Two people on the same site come back with different answers. Schedules slip, mistakes get made, and millions are spent fixing them.
-                </p>
-              </div>
+            <div className={styles.proseItem}>
+              <h3 className={styles.proseTitle}>Construction breaks the match</h3>
+              <p className={styles.proseBody}>
+                When construction starts, lead times force substitutions that never make it into the submittal log, drawings get revised but crews work off the old set, and completion sign-offs drift from what is actually installed. Within weeks, the documents and the physical project are telling two different stories about the same job.
+              </p>
+            </div>
+          </AnimateIn>
+          <AnimateIn delay={0.3}>
+            <div className={styles.proseItem}>
+              <h3 className={styles.proseTitle}>The cost of finding it late</h3>
+              <p className={styles.proseBody}>
+                Closing that gap has always fallen to senior people walking the site by hand on a fraction of the work. The errors that slip through get found at hydrotest, at commissioning, or at startup, when the same fix costs ten to a hundred times more than it would have at install.
+              </p>
             </div>
           </AnimateIn>
         </div>
-        <AnimateIn delay={0.3}>
+        <AnimateIn delay={0.4}>
           <div className={styles.stat}>
             <span className={styles.statFigure}>$31B</span>
             <span className={styles.statLabel}>lost annually in U.S. construction to inaccurate or inaccessible information</span>
             <span className={styles.statSource}>FMI Corporation</span>
+            <span className={styles.statLabel} style={{ marginTop: '8px' }}>About half of all construction rework traces to bad data and document gaps, not workmanship.</span>
           </div>
         </AnimateIn>
       </div>

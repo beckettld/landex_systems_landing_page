@@ -3,9 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Landex Systems | The data room for the physical world",
+  title: "Landex Systems. We compare your project documents to the field and tell you where they disagree.",
   description:
-    "Drop in every document that describes a place. Ask questions in plain English. Get answers. Drawings, plans, scans, deeds, photos, reports, maps - indexed by where, when, and what.",
+    "Landex compares your project documentation to the physical site and surfaces every disagreement, from substitutions to missing change orders, with the photo evidence next to the document.",
 };
 
 export default function RootLayout({
