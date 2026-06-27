@@ -6,29 +6,29 @@ import styles from './ProductDemo.module.css'
 
 const flags = [
   {
-    tag: 'The substitution',
-    lead: 'Fisher approved. Crane installed. No record of the change.',
-    body: 'The submittal log lists Fisher for FCV-2034. The field shows a Crane valve installed at that location. No change record exists in the RFI log, the submittal revisions, or the change order register. Two additional substitution flags this week, both involving motor model differences on equipment in the P-100 series. Each flag includes the source submittal page, the field photo, and the absence of any documented approval.',
+    tag: 'The scope falling behind',
+    lead: 'East pipe rack: 218 of 540 spools set against a planned 290.',
+    body: 'Verified completion on the rack is 40 percent against a planned 54. The 72-spool gap is listed by line number, with the tie-ins downstream that slip if it is not closed. You see the exact work that is behind, in time to add crew before it cascades.',
   },
   {
-    tag: 'The completion gap',
-    lead: 'Signed off Thursday. Still open Monday.',
-    body: 'The completions database shows System 7B as fully signed off as of last Thursday. The capture from Monday shows two block valves in the open position, one flange unbolted, and the temporary blind still in place on the south header. The opposite case also shows up: System 9A is physically complete in the field, but no ITR has been signed.',
+    tag: 'The scope you are overpaying for',
+    lead: 'Mechanical: billed 60 percent, 126 of 300 VAV boxes and 18 of 40 air handlers actually set.',
+    body: 'The pay app claims 60 percent on the mechanical package. The count confirms 42 percent installed against the schedule. You are being billed for 174 elements that are not in the building yet. Each one is listed, with the photo evidence next to the governing document.',
   },
   {
-    tag: 'The undocumented change',
-    lead: 'A line moved. No MOC, no RFI, no inspection record.',
-    body: 'A diff between the capture from two weeks ago and the capture from this week shows a 4-inch line on the east rack has been rerouted. The displaced pipe support has been removed and two new welds added. No MOC, no RFI, and no change order on file. The new welds carry no inspection record because none was scheduled.',
+    tag: 'The scope bleeding cost',
+    lead: 'Earned value on 412 verified elements: 52 percent. Cost report: spent like 64.',
+    body: 'The package has 412 of its elements counted and earned against budget. Actual cost from your job cost system is well past that. The 12-point gap is broken out by element class, so you can see whether it is rework, productivity, or a scope that was underbid, not just that a number is red.',
   },
   {
-    tag: 'The wrong spec',
-    lead: '600# specified. 300# installed. Full pressure at startup.',
-    body: 'Line 12-P-114 is specified as 600# in the piping class. The flanges on the run between FCV-2034 and the pump skid show an 8-bolt pattern, which corresponds to 300#. The wrong pressure class is installed on a line that will see full operating pressure at startup.',
+    tag: 'The early warning',
+    lead: 'Variance turning negative three weeks running.',
+    body: 'A scope still inside tolerance, but the count is falling further behind plan each week. The report surfaces the slope, not just the snapshot, so you catch the bleed before it crosses the line instead of after.',
   },
   {
     tag: 'The coverage map',
-    lead: '847 of 894 verified. Here is what we still need.',
-    body: '847 of 894 elements on this week\'s report were verified against the documents. 47 remain unverified, mostly insulated components and six with no readable identity from current capture angles. The report includes the list of unverified elements and the targeted shots needed to close coverage in next week\'s walk.',
+    lead: '847 of 894 elements counted. Here is what we still need.',
+    body: 'Earned value is only as honest as the elements you actually counted. 847 of 894 were confirmed against the documents this week. 47 remain uncounted, with the targeted shots needed to close coverage on the next walk, so your variance never rests on a black box.',
   },
 ]
 
@@ -67,9 +67,9 @@ function ProductDemo() {
           <AnimateIn>
           <div className={styles.searchHeaderRow}>
             <div className={styles.searchHeader}>
-              <span className={styles.eyebrow}>What we flag</span>
+              <span className={styles.eyebrow}>What shows up in the report</span>
               <h3 className={styles.searchTitle}>
-                A sample of what shows up in the report.
+                Every number traces to counted elements.
               </h3>
             </div>
             <div className={styles.carouselNav}>

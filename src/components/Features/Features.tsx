@@ -16,7 +16,7 @@ const sectors = [
       </svg>
     ),
     title: 'Industrial and process facilities',
-    description: 'Plants, refineries, petrochemical, LNG, chemical manufacturing. Element-rich projects where document linkage to physical work is the difference between a clean commissioning and a six-month closeout. This is where substitution catches alone pay for the system.',
+    description: 'Plants, refineries, petrochemical, LNG, chemical. Element-rich scopes where a single bleeding package can swing the whole job, and a turnaround leaves no time to find it late.',
   },
   {
     icon: (
@@ -25,7 +25,7 @@ const sectors = [
       </svg>
     ),
     title: 'Energy and utilities buildouts',
-    description: 'Substations, generation, pipeline construction, distribution upgrades. Projects where regulatory inspection trails matter as much as the physical work.',
+    description: 'Substations, generation, pipeline, distribution. High-dollar scopes where cost and schedule performance have to be visible per package, not just per project.',
   },
   {
     icon: (
@@ -35,7 +35,7 @@ const sectors = [
       </svg>
     ),
     title: 'Civil and heavy infrastructure',
-    description: 'Roads, bridges, transit corridors, water and wastewater. Long-duration projects where the record has to stay honest across phases and through crew turnover.',
+    description: 'Roads, bridges, transit, water and wastewater. Long-duration work where variance compounds quietly across phases and crew turnover.',
   },
   {
     icon: (
@@ -46,7 +46,7 @@ const sectors = [
       </svg>
     ),
     title: 'Commercial and institutional construction',
-    description: 'Office, healthcare, life sciences, data centers, education, mixed-use. MEP-heavy work where the gap between design and as-built is most expensive.',
+    description: 'Office, healthcare, life sciences, data centers, education. MEP-heavy work where the gap between earned and spent opens fastest.',
   },
 ]
 
@@ -58,10 +58,10 @@ function Features() {
           <div className={styles.header}>
             <span className={styles.eyebrow}>Who it's for</span>
             <h2 className={styles.title}>
-              Built for anyone responsible for getting a project built right.
+              Built for anyone who owns the budget and can still change the outcome.
             </h2>
             <p className={styles.subtitle}>
-              If your project gets built, gets inspected, and gets handed over, Landex fits.
+              If you are accountable for whether a project lands on cost and on schedule, and you need to know which scope is in trouble in time to do something, Landex counts it.
             </p>
           </div>
         </AnimateIn>

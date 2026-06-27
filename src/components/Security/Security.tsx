@@ -7,22 +7,22 @@ const steps = [
   {
     number: '01',
     title: 'Your documentation comes in.',
-    description: 'Drawings, models, submittals, schedules, change orders, line lists, completion records. Whatever your team is already maintaining as the project\'s source of truth.',
+    description: 'Model, equipment list, line specs, schedule of values, baseline schedule, change orders. The budget and the plan for every element.',
   },
   {
     number: '02',
     title: 'Your capture comes in.',
-    description: 'Phone video, 360 cameras, drone footage, laser scans. Whatever your team is already capturing in the field. No new hardware, no new field behavior.',
+    description: 'Phone video, 360 cameras, drone footage, laser scans. Whatever your team already captures in the field. No new hardware, no new field behavior, no specialist to run it.',
   },
   {
     number: '03',
-    title: 'We compare the two.',
-    description: 'For every element the documents describe, we check the field. For every element the field shows, we check the documents. Substitutions, undocumented changes, wrong specs, completion gaps, and missing change orders all surface as flags with the source documents cited.',
+    title: 'We count, then measure.',
+    description: 'We count what is installed against the documents, convert that to earned value per component, and set it against planned cost and schedule. Actual cost pulls from your job cost system.',
   },
   {
     number: '04',
-    title: 'Your team works the list.',
-    description: 'Review the report and the flags in the browser, assign issues, resolve or escalate. Integrate with Procore, Autodesk Construction Cloud, and your existing stack via API.',
+    title: 'Your team acts on the variance.',
+    description: 'Open any scope and see what is behind, what is bleeding, and the exact elements driving it. Reallocate, escalate, or hold, while it still changes the outcome. Integrate with Procore, Autodesk Construction Cloud, and your existing stack via API.',
   },
 ]
 
@@ -33,7 +33,7 @@ function Security() {
         <AnimateIn>
           <span className={styles.eyebrow}>How it works</span>
           <h2 className={styles.title}>
-            Documents in. Field in. Disagreements out.
+            Documents in. Field in. A counted earned value, out.
           </h2>
         </AnimateIn>
         <div className={styles.steps}>

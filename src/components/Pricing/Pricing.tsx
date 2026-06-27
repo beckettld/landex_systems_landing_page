@@ -20,12 +20,12 @@ function Pricing() {
             <span className={styles.eyebrow}>Tell us about your project</span>
             <p className={styles.ctaHeadline}>Tell us about your project.</p>
             <p className={styles.ctaDesc}>
-              Let's do a 20-minute call. We will walk you through what Landex would do on a project like yours, and what a pilot looks like.
+              Let's do a 20-minute call. We will show you the counted earned value Landex would produce on a scope like yours, and what a pilot looks like.
             </p>
             <div className={styles.pilotBox}>
               <span className={styles.pilotLabel}>Start small</span>
               <p className={styles.pilotBody}>
-                We can start on a small section of one project, whether it is one room, one module, or one system. You see what we find, and you decide whether it is worth expanding to a whole site.
+                Pick one system or one package on one project. We count it, measure it against your budget and schedule, and show you the variance and the elements behind it. You decide whether to expand.
               </p>
             </div>
             <button className={styles.primaryCta} onClick={openCalendly}>

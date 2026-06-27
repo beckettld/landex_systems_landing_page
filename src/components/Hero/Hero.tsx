@@ -29,10 +29,10 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            The documents say one thing. The field says another. We surface every gap.
+            Know which scope is running over while you can still do something about it.
           </h1>
           <p className={styles.subheadline}>
-            We read every document on the job and compare it against the field. Substitutions, undocumented changes, and completion gaps surface as flags with the evidence next to the document, while there is still time to fix them.
+            Most projects learn they went over at closeout, when the crew is gone and nothing can change. Landex counts what is actually installed, element by element, sets it against your budget and schedule, and flags the scopes falling behind while there is still time to act.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>

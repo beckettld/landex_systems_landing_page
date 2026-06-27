@@ -12,20 +12,23 @@ function Solution() {
             <div className={styles.colLeft}>
               <span className={styles.eyebrow}>What Landex does</span>
               <h2 className={styles.title}>
-                We compare what the documents say to what is actually there.
+                We count what is installed, then turn the count into earned value.
               </h2>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <div className={styles.colRight}>
               <p className={styles.subtitle}>
-                Landex starts with your project documentation: the model, the submittal log, the equipment list, the line specs, the completion records, the change orders. That is the description of what should exist. We then look at the physical project through whatever your team is already capturing, including laser scans, 360 walkthroughs, and drone footage. That is the description of what does exist.
+                Landex starts with the documents that define the work: the model, the equipment list, the line specs, the schedule of values, the baseline schedule. That gives us the budget and the plan for every element on the job.
               </p>
               <p className={styles.body}>
-                Where the two records disagree, we generate a flag with the photo evidence next to the governing document, so your team can resolve it before the cost of fixing it multiplies.
+                We then count what is actually installed against those documents, through whatever your team is already capturing: phone video, 360 walkthroughs, drone footage, laser scans. Not a sampled walk. Every element the documents describe, checked against the field.
               </p>
               <p className={styles.body} style={{ marginTop: '16px' }}>
-                By handover, every element on your project carries a verified record of what it is and what governs it. The as-built is true for the first time.
+                That count is your earned value. We roll it up per component, scope, and system, set it against the budgeted cost and the planned schedule, and pull actual cost from your job cost system. Because the number is built from named, counted elements, you can always open any variance and see the exact units behind it.
+              </p>
+              <p className={styles.body} style={{ marginTop: '16px' }}>
+                The moment a scope runs behind plan or behind budget, it flags, with the specific elements that are missing. Not at closeout. While you can still move a crew, hold a pay app, escalate a sub, or change the plan.
               </p>
             </div>
           </AnimateIn>
