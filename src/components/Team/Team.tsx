@@ -11,21 +11,21 @@ const team = [
     role: 'Co-founder',
     initials: 'AC',
     email: 'allen@landexsystems.com',
-    bio: 'Allen studied at MIT, where he worked on 3D capture and computer vision, and now builds the systems that turn scans, walkthroughs, and drone footage into something a project team can check against. He works in construction because he wants to influence the built world, the part of life everyone lives inside but almost no one gets to shape.',
+    bio: 'Allen graduated from MIT in 2026 with a degree in mechanical engineering, where he worked on robotics. He works on Landex to build software for the physical world of construction, which almost no tools touch today.',
   },
   {
     name: 'Auddithio Nag',
     role: 'Co-founder',
     initials: 'AN',
     email: 'auddi@landexsystems.com',
-    bio: 'Auddithio earned his computer science masters at Stanford, with a background in machine learning and geospatial analysis spanning satellite flood prediction to medical imaging. Construction goes hand in hand with his past research on understanding 3D scenes, turning raw sensor data into a structured read of what is actually there.',
+    bio: 'Auddithio earned his CS masters at Stanford in 2026, with research in machine learning and geospatial analysis spanning satellite flood prediction and medical imaging. He works on Landex because reading a construction site from sensor data is the same problem as his past work on 3D scene understanding.',
   },
   {
     name: 'Beckett Devoe',
     role: 'Co-founder',
     initials: 'BD',
     email: 'beckett@landexsystems.com',
-    bio: 'Beckett studied AI and decision making at MIT and spent years building computer vision models for the physical world, from shellfish health at MIT Sea Grant to ocean research in Norway. Like Allen, he works in construction to influence the built world, taking the same tools he aimed at the natural world and pointing them at the things people make.',
+    bio: 'Beckett graduated from MIT in 2026 studying AI and decision making, and built computer vision models for the physical world, from shellfish health at MIT Sea Grant to ocean research in Norway. He works on Landex to point those same tools at the things people build.',
   },
 ]
 
@@ -41,9 +41,6 @@ function Team() {
             </h2>
             <p className={styles.subtitle}>
               A small team that has spent enough time around real projects to know where the record breaks down.
-            </p>
-            <p className={styles.lede}>
-              Backed by <strong>Keel Ventures</strong>, building and operating out of New York City. Three founders out of MIT and Stanford, working full time on closing the gap between what gets drawn and what gets built.
             </p>
           </div>
         </AnimateIn>
