@@ -6,6 +6,7 @@ import ProductDemo from '@/components/ProductDemo/ProductDemo'
 import Features from '@/components/Features/Features'
 import Security from '@/components/Security/Security'
 import Pricing from '@/components/Pricing/Pricing'
+import Team from '@/components/Team/Team'
 import Footer from '@/components/Footer/Footer'
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <Security />
         <Features />
         <Pricing />
+        <Team />
         <Footer />
       </main>
     </div>
