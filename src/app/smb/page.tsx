@@ -14,7 +14,7 @@ import { useState, useEffect, useRef } from "react";
 import AnimateIn from "@/components/AnimateIn";
 import StaggerContainer, { staggerItem } from "@/components/StaggerContainer";
 
-const CALENDLY = "https://calendly.com/d/cxmx-c75-jgv/landex-systems-demo";
+const CALENDLY = "https://calendly.com/allen-landexsystems/landex-systems-demo";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Navbar

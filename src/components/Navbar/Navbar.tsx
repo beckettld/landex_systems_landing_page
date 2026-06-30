@@ -15,7 +15,7 @@ function Navbar() {
   const openCalendly = () => {
     if (window.Calendly) {
       window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/d/cxmx-c75-jgv/landex-systems-demo'
+        url: 'https://calendly.com/allen-landexsystems/landex-systems-demo'
       });
     }
   };

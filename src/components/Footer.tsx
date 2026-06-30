@@ -88,7 +88,7 @@ export default function Footer() {
                   endIcon={<ArrowForwardIcon />}
                   onClick={() =>
                     window.Calendly?.initPopupWidget({
-                      url: "https://calendly.com/d/cxmx-c75-jgv/landex-systems-demo",
+                      url: "https://calendly.com/allen-landexsystems/landex-systems-demo",
                     })
                   }
                   sx={{ px: 5, py: 1.75, fontSize: "0.9375rem", cursor: "pointer" }}
@@ -213,7 +213,7 @@ export default function Footer() {
                 onClick={(e) => {
                   e.preventDefault();
                   window.Calendly?.initPopupWidget({
-                    url: "https://calendly.com/d/cxmx-c75-jgv/landex-systems-demo",
+                    url: "https://calendly.com/allen-landexsystems/landex-systems-demo",
                   });
                 }}
                 sx={{
