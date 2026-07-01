@@ -32,6 +32,7 @@ function Navbar() {
           <button className={styles.link} onClick={() => scrollTo('what-we-flag')}>What we flag</button>
           <button className={styles.link} onClick={() => scrollTo('how-it-works')}>How it works</button>
           <button className={styles.link} onClick={() => scrollTo('industries')}>Who it's for</button>
+          <button className={styles.link} onClick={() => scrollTo('team')}>Who we are</button>
           <button className={styles.link} onClick={() => scrollTo('contact')}>Contact</button>
         </div>
       </div>

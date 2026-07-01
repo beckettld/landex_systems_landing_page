@@ -16,12 +16,12 @@ export default function Home() {
       <main>
         <Hero />
         <Problem />
+        <Team />
         <Solution />
         <ProductDemo />
         <Security />
         <Features />
         <Pricing />
-        <Team />
         <Footer />
       </main>
     </div>
