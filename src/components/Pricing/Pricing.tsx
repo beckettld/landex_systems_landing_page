@@ -20,7 +20,7 @@ function Pricing() {
             <span className={styles.eyebrow}>Tell us about your project</span>
             <p className={styles.ctaHeadline}>Tell us about your project.</p>
             <p className={styles.ctaDesc}>
-              Let's do a 20-minute call. We will show you the counted earned value Landex would produce on a scope like yours, and what a pilot looks like.
+              A 20-minute call. We will show you the counted productivity factor Landex would produce on a scope like yours, and what a pilot looks like.
             </p>
             <div className={styles.pilotBox}>
               <span className={styles.pilotLabel}>Start small</span>

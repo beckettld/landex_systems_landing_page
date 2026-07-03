@@ -6,29 +6,14 @@ import styles from './ProductDemo.module.css'
 
 const flags = [
   {
-    tag: 'The scope falling behind',
-    lead: 'East pipe rack: 218 of 540 spools set against a planned 290.',
-    body: 'Verified completion on the rack is 40 percent against a planned 54. The 72-spool gap is listed by line number, with the tie-ins downstream that slip if it is not closed. You see the exact work that is behind, in time to add crew before it cascades.',
+    tag: 'The scope losing money.',
+    lead: 'Mechanical earned 42 percent of its hours and burned 60.',
+    body: 'The count shows why: 126 of 300 VAV boxes and 18 of 40 air handlers actually set. The productivity factor is underwater, and every missing element is listed, photo evidence next to the governing document.',
   },
   {
-    tag: 'The scope you are overpaying for',
-    lead: 'Mechanical: billed 60 percent, 126 of 300 VAV boxes and 18 of 40 air handlers actually set.',
-    body: 'The pay app claims 60 percent on the mechanical package. The count confirms 42 percent installed against the schedule. You are being billed for 174 elements that are not in the building yet. Each one is listed, with the photo evidence next to the governing document.',
-  },
-  {
-    tag: 'The scope bleeding cost',
-    lead: 'Earned value on 412 verified elements: 52 percent. Cost report: spent like 64.',
-    body: 'The package has 412 of its elements counted and earned against budget. Actual cost from your job cost system is well past that. The 12-point gap is broken out by element class, so you can see whether it is rework, productivity, or a scope that was underbid, not just that a number is red.',
-  },
-  {
-    tag: 'The early warning',
-    lead: 'Variance turning negative three weeks running.',
-    body: 'A scope still inside tolerance, but the count is falling further behind plan each week. The report surfaces the slope, not just the snapshot, so you catch the bleed before it crosses the line instead of after.',
-  },
-  {
-    tag: 'The coverage map',
-    lead: '847 of 894 elements counted. Here is what we still need.',
-    body: 'Earned value is only as honest as the elements you actually counted. 847 of 894 were confirmed against the documents this week. 47 remain uncounted, with the targeted shots needed to close coverage on the next walk, so your variance never rests on a black box.',
+    tag: 'The early warning.',
+    lead: 'A scope still inside tolerance, but the count falls further behind plan every week.',
+    body: 'The report surfaces the slope, not just the snapshot, so you catch the bleed before it crosses the line.',
   },
 ]
 

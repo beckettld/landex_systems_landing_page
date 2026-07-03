@@ -29,10 +29,10 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            Know which scope is running over while you can still do something about it.
+            Catch the productivity drift in week 3, not week 12.
           </h1>
           <p className={styles.subheadline}>
-            Most projects learn they went over at closeout, when the crew is gone and nothing can change. Landex counts what is actually installed, element by element, sets it against your budget and schedule, and flags the scopes falling behind while there is still time to act.
+            Labor overruns are most dangerous when they surface too late. Landex counts what is actually installed, element by element, converts it to a live productivity factor per IWP and cost code, and flags the scopes going burned over earned while you can still move a crew and pull the work back under budget.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>
@@ -45,6 +45,14 @@ function Hero() {
               See how it works
             </button>
           </div>
+        </div>
+
+        <div className={styles.productSide}>
+          <img
+            src="/assets/product-dashboard.png"
+            alt="Landex dashboard — verified components view"
+            className={styles.productImage}
+          />
         </div>
       </div>
     </section>

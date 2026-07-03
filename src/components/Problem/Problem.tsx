@@ -10,42 +10,35 @@ function Problem() {
         <AnimateIn>
           <span className={styles.eyebrow}>The problem</span>
           <h2 className={styles.title}>
-            Your earned value is built on a number nobody counted.
+            Your earned value is late, and it rests on a number nobody counted.
           </h2>
         </AnimateIn>
         <div className={styles.proseList}>
           <AnimateIn delay={0.1}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>Percent complete is a guess</h3>
+              <h3 className={styles.proseTitle}>Percent complete is self-reported.</h3>
               <p className={styles.proseBody}>
-                Earned value is budget times percent complete. On every project, that percent complete is self-reported by the field. Nobody counts the boxes. So the cost variance and schedule variance you track all the way up to the executive dashboard rest on a number the crew handed you.
+                Earned value is budget times percent complete, and on every job that percent is handed up from the field. Nobody counts the boxes. The productivity factor your VP watches rests on a number the crew reported.
               </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.2}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>The number rolls up too high to act on</h3>
+              <h3 className={styles.proseTitle}>It lands too late to act on.</h3>
               <p className={styles.proseBody}>
-                Even where the math is clean, it lives at the project or cost-code level. You learn the whole job is running a 0.94 CPI. You do not learn that you are paying for 174 elements that are not installed yet, or which scope they are in. A number you cannot trace to specific work is a number you cannot fix.
+                The mismatch surfaces in the weekly reconciliation, the WIP review, or at closeout. If labor is burning faster than work is installing, that gap may not be visible until the job has already lost the time or the budget. Catching it in week 3 instead of week 12 is the difference between a fix and an overage.
               </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.3}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>You learn it too late to change course</h3>
+              <h3 className={styles.proseTitle}>It rolls up too high to trace.</h3>
               <p className={styles.proseBody}>
-                By the time the overage surfaces in the WIP review or at closeout, the labor is spent and the schedule is set. The window where moving a crew or holding a pay app would have mattered closed weeks ago.
+                You learn the job is running behind. You do not learn that you are billed for 174 elements that are not set yet, or which IWP they are in. A number you cannot open is a number you cannot fix.
               </p>
             </div>
           </AnimateIn>
         </div>
-        <AnimateIn delay={0.4}>
-          <div className={styles.stat}>
-            <span className={styles.statFigure}>3–7%</span>
-            <span className={styles.statLabel}>of total project cost is lost to billing and progress errors that go uncaught until late. On a $10M project, that is up to $700K that was countable months earlier, if anyone had counted it.</span>
-            <span className={styles.statSource}>Industry benchmark, construction project cost review</span>
-          </div>
-        </AnimateIn>
       </div>
     </section>
   )
