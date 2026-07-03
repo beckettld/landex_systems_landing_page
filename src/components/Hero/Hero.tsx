@@ -41,7 +41,7 @@ function Hero() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-            <button className={styles.secondaryCta} onClick={() => scrollToSection('how-it-works')}>
+            <button className={styles.secondaryCta} onClick={() => scrollToSection('what-landex-does')}>
               See how it works
             </button>
           </div>

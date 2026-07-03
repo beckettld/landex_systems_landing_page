@@ -3,7 +3,7 @@ import Hero from '@/components/Hero/Hero'
 import Numbers from '@/components/Numbers/Numbers'
 import Problem from '@/components/Problem/Problem'
 import Solution from '@/components/Solution/Solution'
-import ProductDemo from '@/components/ProductDemo/ProductDemo'
+// import ProductDemo from '@/components/ProductDemo/ProductDemo'
 import Features from '@/components/Features/Features'
 import Pricing from '@/components/Pricing/Pricing'
 import Team from '@/components/Team/Team'
@@ -19,7 +19,7 @@ export default function Home() {
         <Problem />
         <Team />
         <Solution />
-        <ProductDemo />
+        {/* <ProductDemo /> */}
         <Features />
         <Pricing />
         <Footer />

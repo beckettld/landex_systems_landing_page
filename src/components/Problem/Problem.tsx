@@ -26,7 +26,7 @@ function Problem() {
             <div className={styles.proseItem}>
               <h3 className={styles.proseTitle}>It lands too late to act on.</h3>
               <p className={styles.proseBody}>
-                The mismatch surfaces in the weekly reconciliation, the WIP review, or at closeout. If labor is burning faster than work is installing, that gap may not be visible until the job has already lost the time or the budget. Catching it in week 3 instead of week 12 is the difference between a fix and an overage.
+                Trend data you see the same day a scope starts slipping has a different value than trend data you see at the WIP review. When the productivity factor on a package turns negative, you can reallocate crew, escalate a sub, or revise the plan. If you learn it three weeks later, those options have closed and the margin that was recoverable is locked in.
               </p>
             </div>
           </AnimateIn>
@@ -34,7 +34,7 @@ function Problem() {
             <div className={styles.proseItem}>
               <h3 className={styles.proseTitle}>It rolls up too high to trace.</h3>
               <p className={styles.proseBody}>
-                You learn the job is running behind. You do not learn that you are billed for 174 elements that are not set yet, or which IWP they are in. A number you cannot open is a number you cannot fix.
+                You learn the job is running behind. You do not learn which IWP is causing it, which elements are missing, or whether the issue is productivity, rework, or a scope that was underbid. A variance you cannot decompose is a variance you cannot address. The number stays red.
               </p>
             </div>
           </AnimateIn>
