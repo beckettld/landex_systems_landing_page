@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>P1 and Landex Systems — Software Pilot Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page { size: letter portrait; margin: 0; }
+
+    body {
+      background: #eeecea;
+      font-family: 'Inter', sans-serif;
+      color: #1a1a1c;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    @media screen {
+      body { padding: 32px 0; }
+    }
+
+    /* ── PAGE ── */
+    .page {
+      width: 8.5in;
+      height: 11in;
+      background: #fff;
+      margin: 0 auto;
+      position: relative;
+      page-break-after: always;
+      break-after: page;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen {
+      .page { margin: 0 auto 24px; box-shadow: 0 4px 28px rgba(0,0,0,0.15); }
+    }
+
+    /* ── HEADERS ── */
+    .header-full {
+      background: #111113;
+      padding: 0 56px;
+      height: 87px;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .header-mini {
+      background: #111113;
+      padding: 0 56px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    .logo-full {
+      height: 60px;
+      width: auto;
+      filter: invert(1) brightness(2);
+    }
+
+    .logo-mini {
+      height: 60px;
+      width: auto;
+      filter: invert(1) brightness(2);
+    }
+
+    .header-section {
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #5d9980;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      border-top: 1px solid #e4e4e6;
+      padding: 11px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .footer-left {
+      font-size: 7pt;
+      font-weight: 300;
+      color: #bbb;
+      font-style: italic;
+    }
+
+    .footer-right {
+      font-size: 7pt;
+      color: #bbb;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-right a { color: #5d9980; text-decoration: none; }
+    .footer-divider { width: 1px; height: 12px; background: #e0e0e0; }
+
+    /* ── CONTENT AREA ── */
+    .content {
+      flex: 1;
+      padding: 32px 56px 0;
+      overflow: hidden;
+    }
+
+    /* ── SECTION LABEL ── */
+    .label {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #5d9980;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+
+    .label::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 1.5px;
+      background: #5d9980;
+      flex-shrink: 0;
+    }
+
+    /* ── HEADINGS ── */
+    .h2 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #111113;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+
+    /* ── BODY TEXT ── */
+    .body-text {
+      font-size: 8.5pt;
+      font-weight: 300;
+      color: #333;
+      line-height: 1.72;
+      margin-bottom: 9px;
+    }
+
+    .body-text:last-child { margin-bottom: 0; }
+
+    strong { font-weight: 600; color: #1a1a1c; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #e4e4e6;
+      margin: 20px 0;
+    }
+
+    /* ── CALLOUT ── */
+    .callout {
+      background: #f4f7f6;
+      border-left: 3px solid #5d9980;
+      padding: 12px 16px;
+      margin: 14px 0;
+    }
+
+    .callout p {
+      font-size: 8.5pt;
+      font-weight: 400;
+      color: #2a4a3e;
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #e0e0e2;
+      border: 1px solid #e0e0e2;
+      margin-bottom: 22px;
+    }
+
+    .stat {
+      background: #f7f6f4;
+      padding: 12px 16px;
+    }
+
+    .stat-fig {
+      font-size: 16pt;
+      font-weight: 800;
+      color: #111113;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-fig span { color: #5d9980; }
+
+    .stat-desc {
+      font-size: 6.5pt;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* ── TEAM ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .team-card {
+      border-top: 2px solid #5d9980;
+      padding-top: 14px;
+    }
+
+    .team-photo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .team-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #111113;
+      margin-bottom: 2px;
+    }
+
+    .team-school {
+      font-size: 6.5pt;
+      font-weight: 700;
+      color: #5d9980;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .team-bio {
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.62;
+    }
+
+    /* ── PAIN POINTS ── */
+    .pain-item {
+      padding: 11px 0;
+      border-top: 1px solid #ebebed;
+    }
+
+    .pain-item:first-child { border-top: none; padding-top: 0; }
+
+    .pain-title {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #1a1a1c;
+      margin-bottom: 3px;
+    }
+
+    .pain-body {
+      font-size: 8pt;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.62;
+    }
+
+    /* ── STEPS ── */
+    .step {
+      padding: 13px 0;
+      border-top: 1px solid #ebebed;
+    }
+
+    .step:first-child { border-top: none; padding-top: 0; }
+
+    .step-num {
+      font-size: 6.5pt;
+      font-weight: 800;
+      color: #5d9980;
+      letter-spacing: 0.1em;
+      margin-bottom: 2px;
+    }
+
+    .step-title {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #111113;
+      margin-bottom: 4px;
+    }
+
+    .step-body {
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.63;
+    }
+
+    /* ── BULLET LIST ── */
+    .bullet-list {
+      list-style: none;
+      margin-top: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bullet-list li {
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.5;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .bullet-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 6px;
+      height: 1.5px;
+      background: #5d9980;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline-header {
+      font-size: 8pt;
+      font-weight: 800;
+      color: #111113;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .timeline-sub {
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: #888;
+      margin-bottom: 14px;
+    }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #e0e0e2;
+      border: 1px solid #e0e0e2;
+    }
+
+    .week-item {
+      background: #f7f6f4;
+      padding: 14px 16px;
+    }
+
+    .week-label {
+      font-size: 6.5pt;
+      font-weight: 800;
+      color: #5d9980;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .week-body {
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.62;
+    }
+
+    /* ── NUMBERED ITEMS ── */
+    .num-item {
+      padding: 12px 0;
+      border-top: 1px solid #ebebed;
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .num-item:first-child { border-top: none; padding-top: 0; }
+
+    .num-badge {
+      font-size: 6.5pt;
+      font-weight: 800;
+      color: #5d9980;
+      padding-top: 1px;
+    }
+
+    .num-title {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #111113;
+      margin-bottom: 4px;
+    }
+
+    .num-body {
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.62;
+    }
+
+    .compact-items .num-item { padding: 8px 0; }
+    .compact-items .num-body { line-height: 1.55; }
+
+    /* ── GOALS ── */
+    .goals-label {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #1a1a1c;
+      margin-bottom: 6px;
+      margin-top: 12px;
+    }
+
+    /* ── TWO-COL ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    /* ── COVER ── */
+    .cover-hero {
+      padding: 48px 56px 32px;
+      border-bottom: 1px solid #e4e4e6;
+      flex-shrink: 0;
+    }
+
+    .cover-eyebrow {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: #5d9980;
+      margin-bottom: 14px;
+    }
+
+    .cover-title {
+      font-size: 30pt;
+      font-weight: 800;
+      color: #111113;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    /* ── TOC ── */
+    .toc-wrap {
+      padding: 26px 56px;
+      flex: 1;
+    }
+
+    .toc-item {
+      padding: 10px 0;
+      border-top: 1px solid #e4e4e6;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .toc-num {
+      font-size: 6.5pt;
+      font-weight: 700;
+      color: #5d9980;
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+      width: 22px;
+    }
+
+    .toc-title {
+      font-size: 8.5pt;
+      font-weight: 400;
+      color: #1a1a1c;
+    }
+
+    .toc-dots {
+      flex: 1;
+      border-bottom: 1px dotted #ccc;
+      margin: 0 8px;
+      margin-bottom: 2px;
+    }
+
+    .toc-pg {
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: #aaa;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     PAGE 1 — COVER
+════════════════════════════════════════════ -->
+<div class="page">
+
+  <header class="header-full">
+    <img src="/assets/logo.png" alt="Landex Systems" class="logo-full" />
+  </header>
+
+  <div class="cover-hero">
+    <div class="cover-eyebrow">Prepared for P1 Construction</div>
+    <div class="cover-title">P1 and Landex Systems,<br>Software Pilot Proposal</div>
+    <p class="body-text" style="margin-top:16px; margin-bottom:0; font-size:8pt; color:#555;">Design Partner: Craig Fritts, Director of Advanced Technology, P1 Construction</p>
+  </div>
+
+  <div class="toc-wrap">
+    <div class="label">Contents</div>
+    <div class="toc-item">
+      <span class="toc-num">01</span>
+      <span class="toc-title">Executive Summary</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg">2</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">02</span>
+      <span class="toc-title">The Team</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg">2</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">03</span>
+      <span class="toc-title">Problem Statement</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg">3</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">04</span>
+      <span class="toc-title">Our Solution</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg">4</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">05</span>
+      <span class="toc-title">Timeline</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg">4</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">06</span>
+      <span class="toc-title">Success Metrics</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg">5</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">07</span>
+      <span class="toc-title">Resource Requirements</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg">6</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">08</span>
+      <span class="toc-title">Next Steps</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg">7</span>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-left">Prepared for P1 Construction</span>
+    <div class="footer-right">
+      <a href="mailto:allen@landexsystems.com">allen@landexsystems.com</a>
+      <div class="footer-divider"></div>
+      <span>landexsystems.com</span>
+    </div>
+  </footer>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     PAGE 2 — EXECUTIVE SUMMARY
+════════════════════════════════════════════ -->
+<div class="page">
+
+  <header class="header-mini">
+    <img src="/assets/logo.png" alt="Landex Systems" class="logo-mini" />
+    <span class="header-section">Executive Summary</span>
+  </header>
+
+  <div class="content">
+
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-fig"><span>98%</span></div>
+        <div class="stat-desc">of megaprojects experience cost overruns of more than 30% (McKinsey)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-fig"><span>77%</span></div>
+        <div class="stat-desc">are almost behind by half of the planned schedule</div>
+      </div>
+      <div class="stat">
+        <div class="stat-fig"><span>$1.85T</span></div>
+        <div class="stat-desc">lost to bad construction data globally in 2020 (Autodesk / FMI)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-fig"><span>5–6%</span></div>
+        <div class="stat-desc">typical contractor pre-tax net margin — a few points of fade erases the job</div>
+      </div>
+    </div>
+
+    <div class="label">01 — Executive Summary</div>
+
+    <p class="body-text">Construction labor overruns are most dangerous when they are discovered too late.</p>
+    <p class="body-text">McKinsey has reported that 98% of megaprojects experience cost overruns of more than 30%, and 77% are almost behind by half of the planned schedule. Poor communication and inconsistent reporting are listed as major causes. Autodesk and FMI also estimated that bad construction data cost the global construction industry $1.85 trillion in 2020, with 30% of survey respondents saying more than half of their project data was bad.</p>
+    <p class="body-text">The difference of catching a productivity drift on week 3 instead of week 12 could mean saving millions of dollars. In an industry where typical contractor pre-tax net margins are often only around 5–6%, even a few points of profit fade can erase the expected return on a job.</p>
+    <p class="body-text">Landex Systems replaces manual progress tracking with a 3D model that updates itself. Instead of hand-marked blueprints and delayed field reports, Landex uses spatial Artificial Intelligence (AI) to turn routine site walkthroughs, photos, and checklists into near-instaneous updates, showing exactly what IWPs are installed, what isn't, and how real earned value compares against burn rate, labor budget, and schedule.</p>
+    <p class="body-text">Through Landex, you have a visual, component-level understanding of progress, and can receive warnings when earned value is not keeping pace with labor spend or budget thresholds. This allows managers to intervene earlier, protect margin, reduce reporting lag, and prevent small field inefficiencies from turning into large financial overruns, saving millions in downstream losses.</p>
+
+    <div class="divider"></div>
+
+    <div class="label">02 — The Team</div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="/assets/team/allen.png" alt="Allen Chen" class="team-photo" />
+        <div class="team-name">Allen Chen</div>
+        <div class="team-school">MIT '26 &nbsp;·&nbsp; BS Mechanical Engineering</div>
+        <p class="team-bio">Allen is from central North Carolina. He graduated MIT in 2026 with a BS in Mechanical Engineering with a focus in robotics. He is passionate about working on large-impact projects. Allen occasionally enjoys fishing and martial arts.</p>
+      </div>
+      <div class="team-card">
+        <img src="/assets/team/beckett.png" alt="Beckett Devoe" class="team-photo" />
+        <div class="team-name">Beckett Devoe</div>
+        <div class="team-school">MIT '26 &nbsp;·&nbsp; BS CS / AI</div>
+        <p class="team-bio">Beckett is originally from coastal Massachusetts. He graduated from MIT in 2026 with a degree in AI and computer science, and is passionate about working on problems in the built world. Beckett enjoys biking, archery and being outside.</p>
+      </div>
+      <div class="team-card">
+        <img src="/assets/team/auddi.png" alt="Auddithio Nag" class="team-photo" />
+        <div class="team-name">Auddithio Nag</div>
+        <div class="team-school">Stanford &nbsp;·&nbsp; MS Computer Science</div>
+        <p class="team-bio">Hailing from Dhaka, Bangladesh, Auddithio is Master's student in Computer Science at Stanford, where he completed his Bachelor's in the same field. Auddithio conducts research in cutting-edge 3D spatial intelligence, and is eager to bring this technology into the real world. Outside work, Auddithio loves hiking and playing the guitar.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-left">Prepared for P1 Construction</span>
+    <div class="footer-right">
+      <span>Page 2</span>
+      <div class="footer-divider"></div>
+      <span>landexsystems.com</span>
+    </div>
+  </footer>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     PAGE 4 — PROBLEM STATEMENT
+════════════════════════════════════════════ -->
+<div class="page">
+
+  <header class="header-mini">
+    <img src="/assets/logo.png" alt="Landex Systems" class="logo-mini" />
+    <span class="header-section">Problem Statement</span>
+  </header>
+
+  <div class="content">
+
+    <div class="label">03 — Problem Statement</div>
+
+
+    <p class="body-text">P1 Construction's current tracking workflow uses a Kanban board to manage installation tasks and estimate labor productivity based on progress reported during engineer walkthroughs. This gives the team a structured way to organize work, monitor task status, and connect field progress to labor performance.</p>
+    <p class="body-text">However, the biggest limitation is the time gap between what happens on-site and when the tracking system is updated.</p>
+    <p class="body-text">Today, progress updates depend on a person physically walking the site, observing what has changed, interpreting installation status, and then manually translating those observations into the Kanban board. This process takes time, introduces subjectivity, and creates delay. By the time the board reflects the latest field conditions, the project team may already be working from outdated information.</p>
+    <p class="body-text" style="margin-bottom:14px;">This creates several operational weaknesses:</p>
+
+    <div class="pain-item">
+      <div class="pain-title">Progress updates are not automatic and thus, not timely.</div>
+      <div class="pain-body">The Kanban board must be manually updated after walkthroughs, which means the system does not continuously reflect the true state of the jobsite.</div>
+    </div>
+
+    <div class="pain-item">
+      <div class="pain-title">Field changes are delayed before becoming actionable data.</div>
+      <div class="pain-body">Installed work, incomplete work, and missed progress may not appear in the tracking system until after the walkthrough is completed and the update is entered.</div>
+    </div>
+
+    <div class="pain-item">
+      <div class="pain-title">Labor productivity insights lag behind actual site conditions.</div>
+      <div class="pain-body">If labor hours are being spent faster than work is being installed, that mismatch may not be visible until after the project has already lost time or budget.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="body-text">Landex Systems can reduce the time it takes to understand actual site progress, automate part of the reporting workflow, and surface labor-efficiency risks earlier, before small delays become larger budget losses.</p>
+
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-left">Prepared for P1 Construction</span>
+    <div class="footer-right">
+      <span>Page 3</span>
+      <div class="footer-divider"></div>
+      <span>landexsystems.com</span>
+    </div>
+  </footer>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     PAGE 4 — OUR SOLUTION + TIMELINE
+════════════════════════════════════════════ -->
+<div class="page">
+
+  <header class="header-mini">
+    <img src="/assets/logo.png" alt="Landex Systems" class="logo-mini" />
+    <span class="header-section">Our Solution</span>
+  </header>
+
+  <div class="content">
+
+    <div class="label">04 — Our Solution</div>
+
+    <p class="body-text" style="margin-bottom:18px;">Landex Systems provides a full-stack platform augmented with real-time spatial intelligence, that automates the whole site to model translation and metrics calculations commonly used for Earned Value Management (EVM). The proposed workflow operates as follows:</p>
+
+    <div class="step">
+      <div class="step-num">STEP 1</div>
+      <div class="step-title">Import the Project Model</div>
+      <div class="step-body">P1 provides the project model, drawing set, or BIM file for the scope being tracked, and Landex organizes it into trackable components and areas as the planned state of the finished work. Schedules, budgets, and other reference documents can be uploaded alongside it so progress can be measured against scope, schedule, and labor budget.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">STEP 2</div>
+      <div class="step-title">Define Installation Work Packages (IWPs)</div>
+      <div class="step-body">Landex works with P1 to break the scope into IWPs, each tied to a cost code, at whatever grain P1 wants to monitor, from systems and floors down to specific installed sections or quantities rather than a broad task like "install ductwork." Each IWP carries its planned labor hours, target dates, and responsible team.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">STEP 3</div>
+      <div class="step-title">Capture Daily Ground-Truth Evidence and produce daily reports</div>
+      <div class="step-body">Each day, field teams record progress in the Landex platform by checking off installed components and attaching a photo or video as objective proof of what is actually in place. Landex generates a visual, evidence-backed daily report from the verified model, showing:
+        <ul class="bullet-list" style="margin-top:7px;">
+          <li>The updated 3D model reflecting verified installed work</li>
+          <li>Earned value compared against charged labor hours and budget, as a productivity factor per IWP and cost code</li>
+          <li>Warnings and risk signals when burn outpaces verified install</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="body-text" style="margin-bottom:14px;">The result is earlier, more objective decision-making, letting P1 catch a falling productivity factor and budget risk while there is still time to act, rather than after the loss is locked in.</p>
+
+    <div class="label">05 — Timeline</div>
+
+    <div class="timeline-header">THREE-WEEK PILOT TIMELINE</div>
+    <div class="timeline-sub">One project scope, four inputs from P1, no payment, on a real active project.</div>
+
+    <div class="week-grid">
+      <div class="week-item">
+        <div class="week-label">WEEK 1 - SET UP</div>
+        <div class="week-body">Import the model, map elements into IWPs tied to cost codes, load MCAA labor units, and run a baseline walk to set planned value.</div>
+      </div>
+      <div class="week-item">
+        <div class="week-label">WEEK 2 - TRACK LIVE</div>
+        <div class="week-body">Field team captures verified installs on their normal walk; earned hours roll up by IWP. Landex ingests the weekly cost report, and the productivity factor goes live, burned over earned, per IWP and cost code.</div>
+      </div>
+      <div class="week-item">
+        <div class="week-label">WEEK 3 - IN AND EVALUATE</div>
+        <div class="week-body">Landex flags scopes going under early enough for the PM to act, measures how many days earlier variance surfaced than the manual loop, and delivers the evaluation summary.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-left">Prepared for P1 Construction</span>
+    <div class="footer-right">
+      <span>Page 4</span>
+      <div class="footer-divider"></div>
+      <span>landexsystems.com</span>
+    </div>
+  </footer>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     PAGE 5 — SUCCESS METRICS
+════════════════════════════════════════════ -->
+<div class="page">
+
+  <header class="header-mini">
+    <img src="/assets/logo.png" alt="Landex Systems" class="logo-mini" />
+    <span class="header-section">Success Metrics</span>
+  </header>
+
+  <div class="content">
+
+    <div class="label">06 — Success Metrics</div>
+
+    <p class="body-text">Under the guidance of Craig Fritts, Director of Advanced Technology at P1 Construction, Landex Systems has developed a working prototype of the proposed construction progress intelligence tool.</p>
+    <p class="body-text">The objective of this proposal is to move beyond a controlled prototype environment and apply Landex Systems to a real, large-scale, early-stage construction project for one month without any financial commitment on behalf of P1 Construction. The goal is to evaluate how effectively the tool can capture field progress, identify labor inefficiencies, and provide earlier warning signs when installation progress is not keeping pace with labor spend or planned productivity.</p>
+
+    <div class="pain-item" style="border-top:none; padding-top:0;">
+      <div class="pain-title">Progress-detection accuracy</div>
+      <div class="pain-body">Landex's verified percent-complete per IWP matches an independent manual audit within ±10 percentage points on at least 85% of a weekly audited sample of 30+ active IWPs, measured each week of the pilot.</div>
+    </div>
+
+    <div class="pain-item">
+      <div class="pain-title">Reporting latency / earlier warning</div>
+      <div class="pain-body">Landex delivers a verified progress-and-productivity update within one business day of each walkthrough. Establish P1's current Kanban update lag in week one as the baseline, and show the reduction.</div>
+    </div>
+
+    <div class="pain-item">
+      <div class="pain-title">Productivity-drift detection</div>
+      <div class="pain-body">Using Landex-verified earned progress combined with P1 timesheet hours, compute a performance factor per IWP against the planned baseline and flag any IWP deviating by more than 15%. Of the IWPs P1's team independently confirms drifted during the month, Landex flags at least 75%, and surfaces them a median of 3+ days earlier than the current state-of-the-art did, while raising no more than two false flags per week so the signal stays trustworthy.</div>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-left">Prepared for P1 Construction</span>
+    <div class="footer-right">
+      <span>Page 5</span>
+      <div class="footer-divider"></div>
+      <span>landexsystems.com</span>
+    </div>
+  </footer>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     PAGE 6 — RESOURCE REQUIREMENTS
+════════════════════════════════════════════ -->
+<div class="page">
+
+  <header class="header-mini">
+    <img src="/assets/logo.png" alt="Landex Systems" class="logo-mini" />
+    <span class="header-section">Resource Requirements</span>
+  </header>
+
+  <div class="content">
+
+    <div class="label">07 — Resource Requirements</div>
+
+    <div class="compact-items">
+    <div class="num-item" style="border-top:none; padding-top:0;">
+      <span class="num-badge">1</span>
+      <div>
+        <div class="num-title">Access to an Early-Stage Project</div>
+        <div class="num-body">Landex requests access to a large-scale project at a stage of construction early enough for progress tracking to yield actionable insight, with active installation underway across multiple zones, floors, or building systems.</div>
+      </div>
+    </div>
+
+    <div class="num-item">
+      <span class="num-badge">2</span>
+      <div>
+        <div class="num-title">Project Model, Drawings, or Spatial Documentation</div>
+        <div class="num-body">P1 Construction will provide the project BIM model, drawing set, or equivalent spatial documentation required to construct the virtual 3D project environment. This documentation need not be complete at pilot commencement; Landex will establish a baseline model from the available information that represents the planned installation scope and organizes the project into trackable areas and components.</div>
+      </div>
+    </div>
+
+    <div class="num-item">
+      <span class="num-badge">3</span>
+      <div>
+        <div class="num-title">Installation Work Package Register and Scope Mapping</div>
+        <div class="num-body">P1 Construction will provide the authoritative IWP register or work breakdown structure, together with sufficient information to map model elements and installation scope to their corresponding IWPs, and the planned percent-complete profile for each IWP across the pilot window. All pilot metrics are reported at the IWP level against a planned baseline; this mapping and schedule define the unit of measurement and the expected rate of progress.</div>
+      </div>
+    </div>
+
+    <div class="num-item">
+      <span class="num-badge">4</span>
+      <div>
+        <div class="num-title">Planned Labor Budgets and Productivity Benchmarks</div>
+        <div class="num-body">P1 Construction will provide planned labor-hour budgets, productivity targets, or industry benchmarks such as MCAA labor units for each scope under evaluation. These figures establish the planned baseline against which verified installation progress and actual labor consumption are compared to identify areas of potential risk.</div>
+      </div>
+    </div>
+
+    <div class="num-item">
+      <span class="num-badge">5</span>
+      <div>
+        <div class="num-title">Actual Labor Timesheets at Work Package and Trade Granularity</div>
+        <div class="num-body">P1 Construction will provide actual labor hours booked, itemized by IWP and by trade, at the cadence in which they are recorded, weekly or more frequently. This data complements the planned budgets in Requirement 4 and constitutes the actual-hours input to the performance-factor calculation underlying the productivity-drift metric.</div>
+      </div>
+    </div>
+
+    <div class="num-item">
+      <span class="num-badge">6</span>
+      <div>
+        <div class="num-title">Field Walkthrough Access</div>
+        <div class="num-body">Landex requests permission to conduct, accompany, or receive the outputs of regular site walkthroughs, including photographs, video, checklist responses, field notes, and progress updates recorded by engineering, superintendent, foreman, or other field personnel. These outputs provide the on-site ground truth that Landex maps to the virtual 3D model.</div>
+      </div>
+    </div>
+
+    <div class="num-item">
+      <span class="num-badge">7</span>
+      <div>
+        <div class="num-title">Independent Ground-Truth Audit Partner</div>
+        <div class="num-body">P1 Construction will designate a field or project-controls representative to conduct a brief weekly audit of a sample of no fewer than 30 active IWPs, recording an independent percent-complete assessment for each, and to confirm at the conclusion of the pilot which IWPs experienced genuine productivity drift. This reference data is the basis against which the progress-detection accuracy and productivity-drift metrics are scored; the estimated commitment is approximately two to three hours per week.</div>
+      </div>
+    </div>
+
+    <div class="num-item">
+      <span class="num-badge">8</span>
+      <div>
+        <div class="num-title">Current Tracking Board Export and Update History</div>
+        <div class="num-body">P1 Construction will provide an export of the existing Kanban tracking board, including edit timestamps and the complete update history over the pilot period, together with a description of the conditions that currently prompt recognition of a productivity issue. This establishes the baseline for the reporting-latency metric, the comparator for the earlier-warning component of the drift metric, and the basis for quantifying the discrepancy between self-reported and independently verified progress.</div>
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-left">Prepared for P1 Construction</span>
+    <div class="footer-right">
+      <span>Page 6</span>
+      <div class="footer-divider"></div>
+      <span>landexsystems.com</span>
+    </div>
+  </footer>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     PAGE 7 — NEXT STEPS
+════════════════════════════════════════════ -->
+<div class="page">
+
+  <header class="header-mini">
+    <img src="/assets/logo.png" alt="Landex Systems" class="logo-mini" />
+    <span class="header-section">Next Steps</span>
+  </header>
+
+  <div class="content">
+
+    <div class="label">08 — Next Steps</div>
+
+    <p class="body-text">Landex Systems is grateful for the opportunity to work with P1 Construction and to develop this prototype under the guidance of Craig Fritts, Director of Advanced Technology.</p>
+    <p class="body-text">The proposed one-month pilot is the next step in validating Landex Systems in a real project environment. By applying the tool to an active, large-scale, early-stage construction project, P1 will be able to evaluate whether a daily updated virtual 3D model can add to current PM workflows, provide clearer ground truth from the field, and surface warning signs when labor spend is outpacing verified installation progress.</p>
+    <p class="body-text">The goal of this pilot is not to disrupt P1's current process, but to strengthen it. Landex will work alongside the existing workflow by connecting reported task progress to on-site evidence, visual installation status, and budget-risk alerts. This will give P1 a clearer way to see what has been installed, what remains incomplete, and where corrective action may be needed before small inefficiencies snowball into larger project losses.</p>
+    <p class="body-text">As a next step, Landex Systems respectfully requests the opportunity to partner with P1 Construction on a one-month pilot project. We would welcome the chance to align on the project scope, identify the necessary data inputs, define success metrics, and begin testing the platform on a real jobsite.</p>
+    <p class="body-text">We propose scheduling a kickoff meeting with P1's project and technology stakeholders to select a pilot project, confirm the scope of work, and establish the one-month testing timeline. Landex Systems would be honored to continue working with P1 Construction and demonstrate how objective, 3D ground-truth progress tracking can help protect labor budgets, improve project visibility, and support better field decision-making.</p>
+
+    <div class="divider" style="margin-top:28px;"></div>
+
+    <div class="two-col">
+      <div>
+        <div class="label">Contact</div>
+        <p class="body-text"><strong>Allen Chen</strong><br>allen@landexsystems.com</p>
+        <p class="body-text" style="margin-top:8px;"><strong>Beckett Devoe</strong><br>beckett@landexsystems.com</p>
+        <p class="body-text" style="margin-top:8px;"><strong>Auddithio Nag</strong><br>auddi@landexsystems.com</p>
+      </div>
+      <div>
+        <div class="label">Landex Systems</div>
+        <p class="body-text">landexsystems.com</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-left">Prepared for P1 Construction</span>
+    <div class="footer-right">
+      <span>Page 7</span>
+      <div class="footer-divider"></div>
+      <span>landexsystems.com</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

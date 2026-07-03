@@ -9,21 +9,21 @@ const team = [
   {
     name: 'Allen Chen',
     role: 'Co-founder',
-    initials: 'AC',
+    photo: '/assets/team/allen.png',
     email: 'allen@landexsystems.com',
     bio: 'Allen graduated from MIT in 2026 with a degree in mechanical engineering, where he worked on robotics. He works on Landex to build software for the physical world of construction, which almost no tools touch today.',
   },
   {
     name: 'Auddithio Nag',
     role: 'Co-founder',
-    initials: 'AN',
+    photo: '/assets/team/auddi.png',
     email: 'auddi@landexsystems.com',
     bio: 'Auddithio earned his CS masters at Stanford in 2026, with research in machine learning and geospatial analysis spanning satellite flood prediction and medical imaging. He works on Landex because reading a construction site from sensor data is the same problem as his past work on 3D scene understanding.',
   },
   {
     name: 'Beckett Devoe',
     role: 'Co-founder',
-    initials: 'BD',
+    photo: '/assets/team/beckett.png',
     email: 'beckett@landexsystems.com',
     bio: 'Beckett graduated from MIT in 2026 studying AI and decision making, and built computer vision models for the physical world, from shellfish health at MIT Sea Grant to ocean research in Norway. He works on Landex to point those same tools at the things people build.',
   },
@@ -47,7 +47,13 @@ function Team() {
         <StaggerContainer className={styles.grid} stagger={0.08}>
           {team.map((person) => (
             <motion.div key={person.name} className={styles.card} variants={staggerItem}>
-              <div className={styles.avatar}>{person.initials}</div>
+              <div className={styles.avatar}>
+                <img
+                  src={person.photo}
+                  alt={person.name}
+                  className={styles.avatarImage}
+                />
+              </div>
               <h3 className={styles.cardName}>{person.name}</h3>
               <span className={styles.cardRole}>{person.role}</span>
               <p className={styles.cardBio}>{person.bio}</p>
