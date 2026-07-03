@@ -21,7 +21,7 @@ function Features() {
               If you self-perform mission-critical work and own the labor budget, this is for you. On data center, hospital, lab, and fab jobs you carry your own crews and you answer for whether they land under budget. Landex tells you which scope is running over while the crew is still on site, not at closeout when the number is fixed. MEP is where the gap between earned and burned opens fastest, and where element-dense scopes make an element-level count worth more than a coverage estimate.
             </p>
             <p className={styles.body}>
-              The same engine extends to any element-rich scope, industrial process, energy, and heavy infrastructure among them. We start where the count pays for itself first.
+              The same engine extends to any element-rich scope — industrial process, energy, and heavy infrastructure among them.
             </p>
           </div>
         </AnimateIn>

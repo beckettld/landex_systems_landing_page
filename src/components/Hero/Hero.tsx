@@ -29,7 +29,7 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            Catch the productivity drift in week 3, not week 12.
+            Know which scope is running over while you can still do something about it.
           </h1>
           <p className={styles.subheadline}>
             Labor overruns are most dangerous when they surface too late. Landex counts what is actually installed, element by element, converts it to a live productivity factor per IWP and cost code, and flags the scopes going burned over earned while you can still move a crew and pull the work back under budget.

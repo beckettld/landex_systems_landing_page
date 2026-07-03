@@ -6,14 +6,19 @@ import styles from './ProductDemo.module.css'
 
 const flags = [
   {
-    tag: 'The scope losing money.',
-    lead: 'Mechanical earned 42 percent of its hours and burned 60.',
-    body: 'The count shows why: 126 of 300 VAV boxes and 18 of 40 air handlers actually set. The productivity factor is underwater, and every missing element is listed, photo evidence next to the governing document.',
+    tag: 'The scope going burned over earned.',
+    lead: 'Mechanical: 42 percent of planned hours earned. 60 percent burned. The gap opened three weeks ago.',
+    body: '126 of 300 VAV boxes and 18 of 40 air handlers actually set. The productivity factor is below 1.0 and falling. Every missing element is listed by IWP, with the labor hours at risk if the slope does not reverse.',
+  },
+  {
+    tag: 'The pay app you should not sign.',
+    lead: 'Billed 60 percent. Installed 42 percent. 174 elements are not in the building yet.',
+    body: 'The count shows what is actually set against the governing documents. Every element the pay app claims is checked against the field, with photo evidence. You know what to hold before the app is approved.',
   },
   {
     tag: 'The early warning.',
-    lead: 'A scope still inside tolerance, but the count falls further behind plan every week.',
-    body: 'The report surfaces the slope, not just the snapshot, so you catch the bleed before it crosses the line.',
+    lead: 'A scope still inside tolerance. The productivity factor has slipped three weeks running.',
+    body: 'The report surfaces the slope, not just the snapshot. A scope trending the wrong direction before it crosses the threshold is a scope you can still fix. The same data a month later is a postmortem.',
   },
 ]
 
