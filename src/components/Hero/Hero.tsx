@@ -29,10 +29,10 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            Know which scope is running over while you can still do something about it.
+            Turn an ordinary walk video into a verified install record.
           </h1>
           <p className={styles.subheadline}>
-            Labor overruns are most dangerous when they surface too late. Landex counts what is actually installed, element by element, converts it to a live productivity factor per IWP and cost code, and flags the scopes going burned over earned while you can still move a crew and pull the work back under budget.
+            The walkdown already happens — your engineers walk the area and check what is installed against what was planned. Landex turns that walk into the record. Capture the area on a phone, and Landex tags each installed component, reconciles it against the approved submittal and spec, and writes it back to the 3D model as a timestamped, attributable install record, element by element. No special rig, no new field behavior.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>
@@ -49,8 +49,8 @@ function Hero() {
 
         <div className={styles.productSide}>
           <img
-            src="/assets/product-dashboard.png"
-            alt="Landex dashboard — verified components view"
+            src="/assets/video_annotator.png"
+            alt="Landex — walk video with auto-tagged installed components"
             className={styles.productImage}
           />
         </div>

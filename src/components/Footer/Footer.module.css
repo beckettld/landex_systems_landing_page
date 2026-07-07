@@ -12,6 +12,13 @@
   opacity: 0.3;
 }
 
+.tagline {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+}
+
 .copyright {
   font-size: 0.75rem;
   font-weight: 300;

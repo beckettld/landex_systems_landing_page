@@ -3,35 +3,54 @@
 import AnimateIn from '@/components/AnimateIn'
 import styles from './Solution.module.css'
 
+const steps = [
+  {
+    number: '01',
+    title: 'Take a video',
+    description: 'Walk the area and capture the recently installed parts on a phone. No special rig.',
+  },
+  {
+    number: '02',
+    title: 'Upload it',
+    description: 'Landex automatically tags which components appear in the video and marks each one installed or missing.',
+  },
+  {
+    number: '03',
+    title: 'Confirm or flag',
+    description: 'Select more, deselect, or add a note if the walker finds a tag is wrong. The engineer stays in control.',
+  },
+  {
+    number: '04',
+    title: 'Write back to the model',
+    description: 'Each element is marked installed and verified on the 3D model, as a timestamped, attributable install record.',
+  },
+]
+
 function Solution() {
   return (
     <section id="what-landex-does" className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.twoCol}>
-          <AnimateIn>
-            <div className={styles.colLeft}>
-              <span className={styles.eyebrow}>What Landex does</span>
-              <h2 className={styles.title}>
-                We count what is installed, then turn the count into a live productivity factor.
-              </h2>
-            </div>
-          </AnimateIn>
-          <AnimateIn delay={0.1}>
-            <div className={styles.colRight}>
-              <p className={styles.subtitle}>
-                We start with the documents that define the work: the model, the equipment list, the schedule of values, the baseline schedule. We break work into IWPs, each tied to a cost code, each carrying its planned labor hours and MCAA labor units. That sets the budget and the plan for every element.
-              </p>
-              <p className={styles.body}>
-                We count what is installed against those documents, through whatever your team already captures: phone video, 360 walkthroughs, laser scans. No new hardware, no new field behavior.
-              </p>
-              <p className={styles.body} style={{ marginTop: '16px' }}>
-                That count is your earned value. We roll it up per IWP and cost code, set earned hours against charged hours, and pull actual cost from your job cost system. Because every number is built from named, counted elements, you can open any variance and see the exact units behind it.
-              </p>
-              <p className={styles.body} style={{ marginTop: '16px' }}>
-                The moment a scope runs burned over earned, it flags, with the specific elements missing. Earlier than the weekly loop can surface it. Integrates with Procore, Autodesk Construction Cloud, and your stack via API.
-              </p>
-            </div>
-          </AnimateIn>
+        <AnimateIn>
+          <span className={styles.eyebrow}>What Landex does</span>
+          <h2 className={styles.title}>
+            An ordinary walk video, turned into a verified install record in four steps.
+          </h2>
+          <p className={styles.subtitle}>
+            No new hardware, no new field behavior. The engineer stays in control the whole way through.
+          </p>
+        </AnimateIn>
+        <div className={styles.steps}>
+          {steps.map((step, i) => (
+            <AnimateIn key={step.number} delay={0.1 + i * 0.08}>
+              <div className={styles.step}>
+                <span className={styles.stepNumber}>{step.number}</span>
+                <div className={styles.stepBody}>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <p className={styles.stepDescription}>{step.description}</p>
+                </div>
+              </div>
+            </AnimateIn>
+          ))}
         </div>
       </div>
     </section>

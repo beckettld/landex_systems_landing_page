@@ -10,31 +10,31 @@ function Problem() {
         <AnimateIn>
           <span className={styles.eyebrow}>The problem</span>
           <h2 className={styles.title}>
-            Your earned value is late, and it rests on a number nobody counted.
+            The walkdown already happens. The record does not.
           </h2>
         </AnimateIn>
         <div className={styles.proseList}>
           <AnimateIn delay={0.1}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>Percent complete is self-reported.</h3>
+              <h3 className={styles.proseTitle}>The record gets rebuilt by hand.</h3>
               <p className={styles.proseBody}>
-                Earned value is budget times percent complete, and on every job that percent is handed up from the field. Nobody counts the boxes. The productivity factor your VP watches rests on a number the crew reported.
+                Your managing engineers walk the area and check what is installed against what was supposed to be. They come back with notes that then get entered into the BIM, by hand, element by element. The walk already found the truth. A person retypes it.
               </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.2}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>It lands too late to act on.</h3>
+              <h3 className={styles.proseTitle}>The evidence is scattered when you need it.</h3>
               <p className={styles.proseBody}>
-                Trend data you see the same day a scope starts slipping has a different value than trend data you see at the WIP review. When the productivity factor on a package turns negative, you can reallocate crew, escalate a sub, or revise the plan. If you learn it three weeks later, those options have closed and the margin that was recoverable is locked in.
+                When a pay application is challenged, when an owner asks whether the installed equipment matches the approved submittal, when closeout drags — the proof is spread across people and inboxes. Nothing holds it in one place, at the element.
               </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.3}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>It rolls up too high to trace.</h3>
+              <h3 className={styles.proseTitle}>The context never reaches the element.</h3>
               <p className={styles.proseBody}>
-                You learn the job is running behind. You do not learn which IWP is causing it, which elements are missing, or whether the issue is productivity, rework, or a scope that was underbid. A variance you cannot decompose is a variance you cannot address. The number stays red.
+                To verify one valve, an engineer holds the submittal, the spec, and the change orders in their head — or flips between Procore tabs and email to reassemble them. The context is real. It just never arrives in one place, at the element, at the moment of verification. So the walkdown checks the work but leaves nothing behind that holds up later.
               </p>
             </div>
           </AnimateIn>
