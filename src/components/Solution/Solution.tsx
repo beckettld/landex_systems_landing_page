@@ -6,23 +6,23 @@ import styles from './Solution.module.css'
 const steps = [
   {
     number: '01',
-    title: 'Take a video',
-    description: 'Walk the area and capture the recently installed parts on a phone. No special rig.',
+    title: 'The trades film as they build',
+    description: 'Each GC and sub captures their own scope on a phone, before the wall closes, during install, and after. The people who did the work document the work. No 360 rig, no dedicated walker.',
   },
   {
     number: '02',
-    title: 'Upload it',
-    description: 'Landex automatically tags which components appear in the video and marks each one installed or missing.',
+    title: 'Landex orders it in time',
+    description: 'The clips are assembled into one time-ordered record, so every element is on file from before it went in to after it was covered. Scrub back to any wall, on any date.',
   },
   {
     number: '03',
-    title: 'Confirm or flag',
-    description: 'Select more, deselect, or add a note if the walker finds a tag is wrong. The engineer stays in control.',
+    title: 'Every element is identified and reconciled',
+    description: 'Landex tags each installed component, keys it to the element, and reconciles it against the approved submittal and spec. Disagreements are flagged. This is the step a video archive cannot do.',
   },
   {
     number: '04',
-    title: 'Write back to the model',
-    description: 'Each element is marked installed and verified on the 3D model, as a timestamped, attributable install record.',
+    title: 'The owner takes the record at handoff',
+    description: 'At delivery the owner receives a durable, itemized record of every installed element, backed by the footage that proves it. Owned outright. Portable. It outlives the project, and it outlives us.',
   },
 ]
 
@@ -31,12 +31,12 @@ function Solution() {
     <section id="what-landex-does" className={styles.section}>
       <div className={styles.container}>
         <AnimateIn>
-          <span className={styles.eyebrow}>What Landex does</span>
+          <span className={styles.eyebrow}>How it works</span>
           <h2 className={styles.title}>
-            An ordinary walk video, turned into a verified install record in four steps.
+            The trades already on site film their own work. Landex turns it into the record the owner keeps.
           </h2>
           <p className={styles.subtitle}>
-            No new hardware, no new field behavior. The engineer stays in control the whole way through.
+            No rig, no new field behavior. Everyone films the narrow scope they know best, on the phone in their pocket.
           </p>
         </AnimateIn>
         <div className={styles.steps}>

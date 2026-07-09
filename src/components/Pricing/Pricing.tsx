@@ -18,25 +18,25 @@ function Pricing() {
         <AnimateIn>
           <span className={styles.eyebrow}>The pilot</span>
           <h2 className={styles.title}>
-            One scope, one pay cycle. Prove it where the money is already moving.
+            One system, one milestone. Prove the record where handoff actually hurts.
           </h2>
         </AnimateIn>
         <AnimateIn delay={0.1}>
           <div className={styles.replaceGrid}>
             <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Scope — one scope, one pay cycle</div>
+              <div className={styles.replaceLabel}>Scope: one system, one milestone</div>
               <div className={styles.replaceDesc}>
-                Pick a single scope on a live job. We prove it where the money is already moving.
+                Pick a single scope or system on a live job. We prove the record at the point where acceptance and turnover already bite.
               </div>
             </div>
             <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Flow — video in, verified model out</div>
+              <div className={styles.replaceLabel}>Flow: capture in, owned record out</div>
               <div className={styles.replaceDesc}>
-                You walk and upload. Landex tags installed and missing. You confirm. It writes back to the model.
+                The trades film their scope and upload. Landex orders it in time, identifies and reconciles each element, and delivers the record keyed to every element.
               </div>
             </div>
             <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Terms — fixed fee, fixed window</div>
+              <div className={styles.replaceLabel}>Terms: fixed fee, fixed window</div>
               <div className={styles.replaceDesc}>
                 Scoped and priced up front. No integration project, no open-ended commitment.
               </div>

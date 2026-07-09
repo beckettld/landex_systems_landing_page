@@ -5,22 +5,24 @@ import styles from './Numbers.module.css'
 
 const stats = [
   {
-    figure: '5–6%',
-    label: 'Typical contractor pre-tax margin. A few points of fade erases the job.',
-  },
-  {
-    figure: '98%',
-    label: 'Of megaprojects run over 30 percent on cost.',
-    source: 'McKinsey',
-  },
-  {
     figure: '$1.85T',
-    label: 'Lost to bad construction data globally in 2020.',
+    label: 'Lost to bad construction data globally. The as-built you inherit is part of it.',
     source: 'Autodesk / FMI',
   },
   {
-    figure: '3–7%',
-    label: 'Of project cost lost to billing and progress errors caught late.',
+    figure: '98%',
+    label: 'Of megaprojects run over 30 percent on cost. The owner eats the overrun.',
+    source: 'McKinsey',
+  },
+  {
+    figure: '30 to 90 days',
+    label: 'The standard target to close out a commercial project after substantial completion. Mission-critical handovers slip past it when no one can prove, element by element, what was installed.',
+    source: 'Construction closeout benchmark',
+  },
+  {
+    figure: '54%',
+    label: 'Of significant data center outages cost the operator over $100,000. One in five top $1 million. When a system fails, proving what was installed is how you shorten it.',
+    source: 'Uptime Institute, 2024',
   },
 ]
 

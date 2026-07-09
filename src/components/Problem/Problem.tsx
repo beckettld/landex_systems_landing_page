@@ -10,31 +10,31 @@ function Problem() {
         <AnimateIn>
           <span className={styles.eyebrow}>The problem</span>
           <h2 className={styles.title}>
-            The walkdown already happens. The record does not.
+            You take the keys. You don't get a record of what's inside.
           </h2>
         </AnimateIn>
         <div className={styles.proseList}>
           <AnimateIn delay={0.1}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>The record gets rebuilt by hand.</h3>
+              <h3 className={styles.proseTitle}>The as-built is fiction.</h3>
               <p className={styles.proseBody}>
-                Your managing engineers walk the area and check what is installed against what was supposed to be. They come back with notes that then get entered into the BIM, by hand, element by element. The walk already found the truth. A person retypes it.
+                The drawings you inherit at handoff were updated by hand, if at all. By the time the walls close, the record of what actually went in has drifted from the model. You own a building you cannot see into, described by documents you cannot fully trust.
               </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.2}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>The evidence is scattered when you need it.</h3>
+              <h3 className={styles.proseTitle}>The evidence is gone when you need it.</h3>
               <p className={styles.proseBody}>
-                When a pay application is challenged, when an owner asks whether the installed equipment matches the approved submittal, when closeout drags — the proof is spread across people and inboxes. Nothing holds it in one place, at the element.
+                When a system fails, when you need to prove the installed equipment matched the approved submittal, when a dispute opens years later, the proof is scattered across people and inboxes that have long since moved on. Nothing held it, at the element, at the moment it went in.
               </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.3}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>The context never reaches the element.</h3>
+              <h3 className={styles.proseTitle}>Acceptance can't be proven, so closeout drags.</h3>
               <p className={styles.proseBody}>
-                To verify one valve, an engineer holds the submittal, the spec, and the change orders in their head — or flips between Procore tabs and email to reassemble them. The context is real. It just never arrives in one place, at the element, at the moment of verification. So the walkdown checks the work but leaves nothing behind that holds up later.
+                Turnover stalls because no one can show, element by element, that what was installed matches what was approved. The commissioning agent holds the acceptance pen and nothing clean to sign against. Handoff slips. The record that would have cleared it was never captured.
               </p>
             </div>
           </AnimateIn>

@@ -5,20 +5,20 @@ import styles from './Features.module.css'
 
 const benefits = [
   {
-    title: 'No more manual BIM entry.',
-    body: 'The video does the tagging. Your engineer confirms the model instead of transcribing walkdown notes into it by hand.',
+    title: 'Operate.',
+    body: 'From day one, find the exact valve, damper, or conduit run behind the wall without opening it. The record you took at handoff is the map for the next thirty years.',
   },
   {
-    title: 'Installed or missing, at the element.',
-    body: 'You see exactly what is in and what is not, per component — not area coverage or a percent someone guessed.',
+    title: 'Accept.',
+    body: 'Before you sign off at handoff, prove the installed work matches the approved submittals, element by element. Catch what does not while the trades are still on site, not months after they have gone.',
   },
   {
-    title: 'The walkdown becomes defensible.',
-    body: 'Every install marked in the model is backed by video and reconciled to the approved submittal — a record you can hand to an owner or an auditor. The same record settles a pay application, answers a substitution question, feeds earned value, and clears closeout when the time comes.',
+    title: 'Prove.',
+    body: 'When a system fails years later, you already hold the record of exactly what was installed, at element grain, captured the day you took the keys.',
   },
   {
-    title: 'You own the system of record first.',
-    body: 'Early teams shape it and hold the verified install history before anyone else does.',
+    title: 'It does not go stale.',
+    body: 'A live model rots because no one funds keeping it current. This is a frozen record, faithful to the moment each element was closed up. Nothing to maintain. As true in year twelve as it was at delivery.',
   },
 ]
 
@@ -28,9 +28,9 @@ function Features() {
       <div className={styles.container}>
         <AnimateIn>
           <div className={styles.header}>
-            <span className={styles.eyebrow}>Why run it now</span>
+            <span className={styles.eyebrow}>Why now</span>
             <h2 className={styles.title}>
-              The walkdown, finally leaving a record behind.
+              The record, finally delivered with the building.
             </h2>
           </div>
         </AnimateIn>

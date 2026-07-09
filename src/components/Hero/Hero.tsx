@@ -29,10 +29,10 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            Turn an ordinary walk video into a verified install record.
+            Take delivery of your building with an X-ray of everything inside it.
           </h1>
           <p className={styles.subheadline}>
-            The walkdown already happens — your engineers walk the area and check what is installed against what was planned. Landex turns that walk into the record. Capture the area on a phone, and Landex tags each installed component, reconciles it against the approved submittal and spec, and writes it back to the 3D model as a timestamped, attributable install record, element by element. No special rig, no new field behavior.
+            At handoff, Landex hands you a verified record of every installed element, behind every wall, because it was filmed before the wall closed and reconciled to the documents that governed it. Not a live model that goes stale. Captured as the building was built. Yours to keep for its entire life.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>
@@ -45,15 +45,11 @@ function Hero() {
               See how it works
             </button>
           </div>
+          <p className={styles.tagline}>
+            Landex: every installed element, behind the wall, delivered at handoff.
+          </p>
         </div>
 
-        <div className={styles.productSide}>
-          <img
-            src="/assets/video_annotator.png"
-            alt="Landex — walk video with auto-tagged installed components"
-            className={styles.productImage}
-          />
-        </div>
       </div>
     </section>
   );
