@@ -11,18 +11,18 @@ const steps = [
   },
   {
     number: '02',
-    title: 'Landex orders it in time',
-    description: 'The clips are assembled into one time-ordered record, so every element is on file from before it went in to after it was covered. Scrub back to any wall, on any date.',
+    title: 'Landex grounds it in a rich spatial model',
+    description: 'Every element is identified, keyed to the real component, and embedded semantically in a model of the site. This is the substrate. It is what separates a picture of the job from something a reasoning model can think across.',
   },
   {
     number: '03',
-    title: 'Every element is identified and reconciled',
-    description: 'Landex tags each installed component, keys it to the element, and reconciles it against the approved submittal and spec. Disagreements are flagged. This is the step a video archive cannot do.',
+    title: 'Landex reasons across the full context',
+    description: 'Landex reads across the field and the documents that govern it, the drawings, the submittals, the meetings, as one connected context. It surfaces the problems and inefficiencies that cost the owner money, reconciling what was installed against what was approved wherever they disagree.',
   },
   {
     number: '04',
-    title: 'The owner takes the record at handoff',
-    description: 'At delivery the owner receives a durable, itemized record of every installed element, backed by the footage that proves it. Owned outright. Portable. It outlives the project, and it outlives us.',
+    title: 'Your rep acts on it while the job is live',
+    description: 'The findings land while the trades are still on site, when a fix is cheap. Your rep drives real gains against schedule and cost, on the same walks they already do. The record you build along the way is yours to keep.',
   },
 ]
 
@@ -33,7 +33,7 @@ function Solution() {
         <AnimateIn>
           <span className={styles.eyebrow}>How it works</span>
           <h2 className={styles.title}>
-            The trades already on site film their own work. Landex turns it into the record the owner keeps.
+            The trades already on site film their own work. Landex turns it into context you can reason over.
           </h2>
           <p className={styles.subtitle}>
             No rig, no new field behavior. Everyone films the narrow scope they know best, on the phone in their pocket.

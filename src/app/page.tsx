@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar/Navbar'
 import Hero from '@/components/Hero/Hero'
+import ProductShot from '@/components/ProductShot/ProductShot'
 import Numbers from '@/components/Numbers/Numbers'
 import Problem from '@/components/Problem/Problem'
 import Difference from '@/components/Difference/Difference'
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <ProductShot />
         <Numbers />
         <Problem />
         <Difference />

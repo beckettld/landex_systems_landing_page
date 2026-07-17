@@ -29,10 +29,10 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            Take delivery of your building with an X-ray of everything inside it.
+            Find what's going wrong on your site, while there's still time to fix it.
           </h1>
           <p className={styles.subheadline}>
-            At handoff, Landex hands you a verified record of every installed element, behind every wall, because it was filmed before the wall closed and reconciled to the documents that governed it. Not a live model that goes stale. Captured as the building was built. Yours to keep for its entire life.
+            Landex grounds every element on your site in a rich spatial model, then reasons across the field and the documents that govern it to surface what a rep would never have time to catch.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>
@@ -46,7 +46,7 @@ function Hero() {
             </button>
           </div>
           <p className={styles.tagline}>
-            Landex: every installed element, behind the wall, delivered at handoff.
+            Landex: long reasoning over your entire site, grounded element by element, surfacing what costs you money while there's still time to act.
           </p>
         </div>
 

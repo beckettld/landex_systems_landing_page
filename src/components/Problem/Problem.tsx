@@ -10,31 +10,31 @@ function Problem() {
         <AnimateIn>
           <span className={styles.eyebrow}>The problem</span>
           <h2 className={styles.title}>
-            You take the keys. You don't get a record of what's inside.
+            No one can hold the whole site in their head.
           </h2>
         </AnimateIn>
         <div className={styles.proseList}>
           <AnimateIn delay={0.1}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>The as-built is fiction.</h3>
+              <h3 className={styles.proseTitle}>The context is more than any rep can take in.</h3>
               <p className={styles.proseBody}>
-                The drawings you inherit at handoff were updated by hand, if at all. By the time the walls close, the record of what actually went in has drifted from the model. You own a building you cannot see into, described by documents you cannot fully trust.
+                A commercial project generates more drawings, submittals, RFIs, meetings, and site conditions than one person can hold at once. The owner's rep does the best they can on the walks they have time for. The problems that matter live in the gaps between all of it, exactly where a human runs out of attention.
               </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.2}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>The evidence is gone when you need it.</h3>
+              <h3 className={styles.proseTitle}>The record is fragmented and unlinked.</h3>
               <p className={styles.proseBody}>
-                When a system fails, when you need to prove the installed equipment matched the approved submittal, when a dispute opens years later, the proof is scattered across people and inboxes that have long since moved on. Nothing held it, at the element, at the moment it went in.
+                Drawings sit in one system, submittals in another, meeting notes in an inbox, the field in someone's phone. Nothing connects a thing said in a meeting to the wall it was about. So the synthesis that would surface a problem never happens, because no one can see across all of it at once.
               </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.3}>
             <div className={styles.proseItem}>
-              <h3 className={styles.proseTitle}>Acceptance can't be proven, so closeout drags.</h3>
+              <h3 className={styles.proseTitle}>Caught late, every problem is expensive.</h3>
               <p className={styles.proseBody}>
-                Turnover stalls because no one can show, element by element, that what was installed matches what was approved. The commissioning agent holds the acceptance pen and nothing clean to sign against. Handoff slips. The record that would have cleared it was never captured.
+                An over-install, a substitution, a coordination clash, a slipping scope. Caught while the trade is on site, it is a same-week fix. Caught at closeout or after a failure, it is a dispute, a delay, or an opening you cannot get back into.
               </p>
             </div>
           </AnimateIn>

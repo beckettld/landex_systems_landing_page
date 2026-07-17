@@ -10,16 +10,16 @@ function Difference() {
         <AnimateIn>
           <span className={styles.eyebrow}>The difference</span>
           <h2 className={styles.title}>
-            Reality capture is built for the build. Landex is built for what you keep.
+            The tools on site give you a picture. Landex gives you something you can reason over.
           </h2>
         </AnimateIn>
         <AnimateIn delay={0.1}>
           <div className={styles.prose}>
             <p className={styles.body}>
-              The tools on site today are during-construction instruments. They help the crew see the job while the job is live, and the record lives inside a platform the general contractor pays for. When the GC demobilizes, that access leaves with them. The owner inherits a building and no durable record of what is inside it.
+              Reality-capture tools built for the general contractor render a shallow model, a clay shell with light tags on top, this is an HVAC system. That is a picture of the site. It is not a substrate a reasoning model can think across, and the record lives inside a platform the GC pays for. When the GC demobilizes, that access leaves with them.
             </p>
             <p className={styles.body}>
-              Landex inverts the customer. The owner is who we build for, and the deliverable is an asset they own, not a login they rent. An itemized, reconciled record of every installed element, handed over at delivery, portable, and yours for the life of the building. The footage is the receipt. The record is the product.
+              Landex grounds every element in a rich spatial model, semantically, keyed to the real component and connected to the documents that govern it. That grounding is what makes long reasoning across the whole site possible. It is the same job your owner's rep already does, taking in the site walks, the drawings, the submittals, and the meetings and hunting for what is wrong, except done across everything at once, at a scale no person can hold in their head. Think of how a strong case file lets a lawyer reason across years of documents and pull out exactly what bears on the matter at hand. Landex does that for a construction site, and it is built for the owner's side of the table: an asset you own, not a login you rent for the duration.
             </p>
           </div>
         </AnimateIn>

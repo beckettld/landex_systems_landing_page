@@ -6,23 +6,23 @@ import styles from './Numbers.module.css'
 const stats = [
   {
     figure: '$1.85T',
-    label: 'Lost to bad construction data globally. The as-built you inherit is part of it.',
+    label: 'Lost to bad construction data globally. The problems hide in context no one has time to connect.',
     source: 'Autodesk / FMI',
   },
   {
     figure: '98%',
-    label: 'Of megaprojects run over 30 percent on cost. The owner eats the overrun.',
+    label: 'Of megaprojects run over 30 percent on cost. The overrun builds during construction, one uncaught issue at a time.',
     source: 'McKinsey',
   },
   {
-    figure: '30 to 90 days',
-    label: 'The standard target to close out a commercial project after substantial completion. Mission-critical handovers slip past it when no one can prove, element by element, what was installed.',
-    source: 'Construction closeout benchmark',
+    figure: '54%',
+    label: 'Of significant data center outages cost the operator over $100,000. One in five top $1 million. The record you built during construction is how you shorten the next one.',
+    source: 'Uptime Institute, 2024',
   },
   {
-    figure: '54%',
-    label: 'Of significant data center outages cost the operator over $100,000. One in five top $1 million. When a system fails, proving what was installed is how you shorten it.',
-    source: 'Uptime Institute, 2024',
+    figure: '30 to 90 days',
+    label: 'The standard target to close out a commercial project after substantial completion. When the record is already built, element by element, acceptance is something you prove, not something you scramble for.',
+    source: 'Construction closeout benchmark',
   },
 ]
 

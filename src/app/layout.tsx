@@ -3,9 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Landex Systems. We compare your project documents to the field and tell you where they disagree.",
+  title: "Landex Systems. Reason over your entire construction site, while the job is still live.",
   description:
-    "Landex compares your project documentation to the physical site and surfaces every disagreement, from substitutions to missing change orders, with the photo evidence next to the document.",
+    "Landex grounds every element on your site in a rich spatial model, then reasons across the field and the documents that govern it to surface the problems and inefficiencies that cost you money, while the trades are still on site to act on them.",
 };
 
 export default function RootLayout({

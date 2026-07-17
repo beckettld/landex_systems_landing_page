@@ -18,21 +18,21 @@ function Pricing() {
         <AnimateIn>
           <span className={styles.eyebrow}>The pilot</span>
           <h2 className={styles.title}>
-            One system, one milestone. Prove the record where handoff actually hurts.
+            One system, one live job. Prove it where it bites first.
           </h2>
         </AnimateIn>
         <AnimateIn delay={0.1}>
           <div className={styles.replaceGrid}>
             <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Scope: one system, one milestone</div>
+              <div className={styles.replaceLabel}>Scope: one system, live job</div>
               <div className={styles.replaceDesc}>
-                Pick a single scope or system on a live job. We prove the record at the point where acceptance and turnover already bite.
+                Pick a single scope or system on a project that is building now. We ground it, reason across it, and surface issues while the trades are on site, where visibility pays immediately.
               </div>
             </div>
             <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Flow: capture in, owned record out</div>
+              <div className={styles.replaceLabel}>Flow: capture in, findings out</div>
               <div className={styles.replaceDesc}>
-                The trades film their scope and upload. Landex orders it in time, identifies and reconciles each element, and delivers the record keyed to every element.
+                The trades film their scope and upload. Landex grounds each element, reasons across the field and the governing documents, and delivers the issues worth acting on, plus a record keyed to every element that you keep.
               </div>
             </div>
             <div className={styles.replaceItem}>
