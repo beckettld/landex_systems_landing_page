@@ -15,9 +15,9 @@ const stats = [
     source: 'McKinsey',
   },
   {
-    figure: '54%',
-    label: 'Of significant data center outages cost the operator over $100,000. One in five top $1 million. The record you built during construction is how you shorten the next one.',
-    source: 'Uptime Institute, 2024',
+    figure: '$4 to $10',
+    label: 'Saved for every dollar spent on an owner’s representative. The savings come from catching issues early — the record you build during construction is where those catches live.',
+    source: 'National owner’s rep ROI study',
   },
   {
     figure: '30 to 90 days',
