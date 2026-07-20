@@ -6,8 +6,8 @@ import styles from './Solution.module.css'
 const steps = [
   {
     number: '01',
-    title: 'The trades film as they build',
-    description: 'Each GC and sub captures their own scope on a phone, before the wall closes, during install, and after. The people who did the work document the work. No 360 rig, no dedicated walker.',
+    title: 'Whoever already walks the site just films it',
+    description: 'Someone is already walking the job, your super, your PM, your rep. They point their phone at what they are already looking at, before the wall closes, during install, and after. No 360 rig, no dedicated walker, no trades to coordinate. The walk already happens; now it is captured.',
   },
   {
     number: '02',
@@ -33,10 +33,10 @@ function Solution() {
         <AnimateIn>
           <span className={styles.eyebrow}>How it works</span>
           <h2 className={styles.title}>
-            The trades already on site film their own work. Landex turns it into context you can reason over.
+            Whoever already walks the site just films what they are looking at. Landex turns it into context you can reason over.
           </h2>
           <p className={styles.subtitle}>
-            No rig, no new field behavior. Everyone films the narrow scope they know best, on the phone in their pocket.
+            No rig, no new person, no new field behavior. The walkthrough already happens, now it is captured on the phone in their pocket.
           </p>
         </AnimateIn>
         <div className={styles.steps}>
