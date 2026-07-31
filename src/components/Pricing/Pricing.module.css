@@ -131,6 +131,18 @@
   transform: translateX(3px);
 }
 
+.audienceLine {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
 .orEmail {
   font-size: 0.82rem;
   font-weight: 300;

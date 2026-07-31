@@ -103,6 +103,18 @@
   line-height: 1.7;
 }
 
+.closing {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 620px;
+}
+
 @media (max-width: 768px) {
   .section { padding: 96px 0 72px; }
   .container { padding: 0 24px; }

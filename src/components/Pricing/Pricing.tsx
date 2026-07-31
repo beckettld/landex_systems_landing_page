@@ -16,29 +16,29 @@ function Pricing() {
     <section id="contact" className={styles.section}>
       <div className={styles.container}>
         <AnimateIn>
-          <span className={styles.eyebrow}>The pilot</span>
+          <span className={styles.eyebrow}>Start here</span>
           <h2 className={styles.title}>
-            One system, one live job. Prove it where it bites first.
+            One area. Fixed fee, fixed window.
           </h2>
         </AnimateIn>
         <AnimateIn delay={0.1}>
           <div className={styles.replaceGrid}>
             <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Scope: one system, live job</div>
+              <div className={styles.replaceLabel}>Scope</div>
               <div className={styles.replaceDesc}>
-                Pick a single scope or system on a project that is building now. We ground it, reason across it, and surface issues while the trades are on site, where visibility pays immediately.
+                Pick an area or a system. Capture it with a phone, or send the scan you already have.
               </div>
             </div>
             <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Flow: capture in, findings out</div>
+              <div className={styles.replaceLabel}>Flow</div>
               <div className={styles.replaceDesc}>
-                The trades film their scope and upload. Landex grounds each element, reasons across the field and the governing documents, and delivers the issues worth acting on, plus a record keyed to every element that you keep.
+                Capture in, modeled and labeled output back, linked in your tooling. We walk your team through what came back.
               </div>
             </div>
             <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Terms: fixed fee, fixed window</div>
+              <div className={styles.replaceLabel}>Terms</div>
               <div className={styles.replaceDesc}>
-                Scoped and priced up front. No integration project, no open-ended commitment.
+                Fixed fee, fixed window, defined deliverable. The model is yours, the capture is yours, export any time in standard formats. If you stop working with us, you keep everything.
               </div>
             </div>
           </div>
@@ -51,10 +51,10 @@ function Pricing() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-            <p className={styles.orEmail}>
-              or email <a href="mailto:allen@landexsystems.com">allen@landexsystems.com</a>
-            </p>
           </div>
+          <p className={styles.audienceLine}>
+            Built for systems-dense buildings held for the long term. Data centers, pharma and GMP, healthcare campuses, fabs, university campuses.
+          </p>
         </AnimateIn>
       </div>
     </section>

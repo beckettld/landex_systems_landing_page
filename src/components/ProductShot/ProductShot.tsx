@@ -13,18 +13,18 @@ function ProductShot() {
               <span className={styles.dot} />
               <span className={styles.dot} />
               <span className={styles.dot} />
-              <span className={styles.chromeLabel}>Landex — Owner View // As-built record</span>
+              <span className={styles.chromeLabel}>Landex — capture in, model out</span>
             </div>
             <img
               src="/assets/product-photo-july.png"
-              alt="Landex Owner View — every element on the site grounded in a rich spatial model, keyed to the real component and its install record."
+              alt="Left, the source capture. Right, the modeled and labeled building that comes back."
               className={styles.image}
             />
           </div>
         </AnimateIn>
         <AnimateIn delay={0.1}>
           <p className={styles.caption}>
-            Every element on site, grounded in a rich spatial model and keyed to the install record that governs it.
+            Left, the capture. Right, what comes back.
           </p>
         </AnimateIn>
       </div>

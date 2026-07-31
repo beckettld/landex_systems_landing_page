@@ -1,0 +1,83 @@
+.section {
+  position: relative;
+  padding: 140px 0 120px;
+  background: rgba(17, 17, 19, 0.92);
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--green);
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 720px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 40px;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.subBlock {
+  margin-top: 48px;
+  padding: 32px 36px;
+  max-width: 720px;
+  border: 1px solid rgba(93, 153, 128, 0.2);
+  background: rgba(93, 153, 128, 0.04);
+  border-radius: 2px;
+}
+
+.subBlockTitle {
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--green-bright);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.subBlockBody {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 96px 0 72px; }
+  .container { padding: 0 24px; }
+  .title { margin-bottom: 32px; }
+  .prose { padding-top: 28px; }
+  .subBlock { margin-top: 32px; padding: 24px 24px; }
+}

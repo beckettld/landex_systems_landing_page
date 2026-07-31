@@ -6,38 +6,30 @@ import styles from './Solution.module.css'
 const steps = [
   {
     number: '01',
-    title: 'Whoever already walks the site just films it',
-    description: 'Someone is already walking the job, your super, your PM, your rep. They point their phone at what they are already looking at, before the wall closes, during install, and after. No 360 rig, no dedicated walker, no trades to coordinate. The walk already happens; now it is captured.',
+    title: 'Capture comes in however you have it.',
+    description: 'A phone walkthrough or a survey-grade laser scan. Use what your project already produces, or send someone through with a phone.',
   },
   {
     number: '02',
-    title: 'Landex grounds it in a rich spatial model',
-    description: 'Every element is identified, keyed to the real component, and embedded semantically in a model of the site. This is the substrate. It is what separates a picture of the job from something a reasoning model can think across.',
+    title: 'The model comes back knowing what it is made of.',
+    description: 'Every pipe, duct, conduit, fitting and piece of equipment identified as what it is and tied to what it runs to. Linkable in the tooling your team already uses.',
   },
   {
     number: '03',
-    title: 'Landex reasons across the full context',
-    description: 'Landex reads across the field and the documents that govern it, the drawings, the submittals, the meetings, as one connected context. It surfaces the problems and inefficiencies that cost the owner money, reconciling what was installed against what was approved wherever they disagree.',
-  },
-  {
-    number: '04',
-    title: 'Your rep acts on it while the job is live',
-    description: 'The findings land while the trades are still on site, when a fix is cheap. Your rep drives real gains against schedule and cost, on the same walks they already do. The record you build along the way is yours to keep.',
+    title: 'Do it again.',
+    description: 'The model lives under the building, not under the project. The next capture updates it rather than replacing it, so what comes back is not another file but the same building, current.',
   },
 ]
 
 function Solution() {
   return (
-    <section id="what-landex-does" className={styles.section}>
+    <section id="how-it-works" className={styles.section}>
       <div className={styles.container}>
         <AnimateIn>
           <span className={styles.eyebrow}>How it works</span>
           <h2 className={styles.title}>
-            Whoever already walks the site just films what they are looking at. Landex turns it into context you can reason over.
+            Three steps. The third is the one that matters.
           </h2>
-          <p className={styles.subtitle}>
-            No rig, no new person, no new field behavior. The walkthrough already happens, now it is captured on the phone in their pocket.
-          </p>
         </AnimateIn>
         <div className={styles.steps}>
           {steps.map((step, i) => (

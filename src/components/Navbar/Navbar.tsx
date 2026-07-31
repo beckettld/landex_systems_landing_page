@@ -29,10 +29,10 @@ function Navbar() {
       <div className={styles.left}>
         <img src="/assets/logo.png" alt="Landex Systems" className={styles.logo} />
         <div className={styles.links}>
+          <button className={styles.link} onClick={() => scrollTo('what-you-get')}>What you get</button>
+          <button className={styles.link} onClick={() => scrollTo('how-it-works')}>How it works</button>
+          <button className={styles.link} onClick={() => scrollTo('what-runs-on-it')}>What runs on it</button>
           <button className={styles.link} onClick={() => scrollTo('team')}>Who we are</button>
-          <button className={styles.link} onClick={() => scrollTo('what-landex-does')}>How it works</button>
-          <button className={styles.link} onClick={() => scrollTo('why-now')}>Why now</button>
-          <button className={styles.link} onClick={() => scrollTo('contact')}>Contact</button>
         </div>
       </div>
       <button className={styles.cta} onClick={openCalendly}>

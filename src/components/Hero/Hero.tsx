@@ -29,10 +29,10 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            Find what's going wrong on your site, while there's still time to fix it.
+            We capture what is actually inside your building and turn it into the operating system it runs on.
           </h1>
           <p className={styles.subheadline}>
-            Landex grounds every element on your site in a rich spatial model, then reasons across the field and the documents that govern it to surface what a rep would never have time to catch.
+            We use AI to turn video walkthroughs or LiDAR point clouds into a 3D model of the building. Every element in it knows what it is, so you can ask the model questions, keep it current, and run the building off it for its lifetime.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>
@@ -41,12 +41,12 @@ function Hero() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-            <button className={styles.secondaryCta} onClick={() => scrollToSection('what-landex-does')}>
+            <button className={styles.secondaryCta} onClick={() => scrollToSection('how-it-works')}>
               See how it works
             </button>
           </div>
           <p className={styles.tagline}>
-            Landex: long reasoning over your entire site, grounded element by element, surfacing what costs you money while there's still time to act.
+            A phone or a scanner in. A labeled, connected building out. Yours for as long as it stands.
           </p>
         </div>
 

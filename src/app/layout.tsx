@@ -3,9 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Landex Systems. Reason over your entire construction site, while the job is still live.",
+  title: "Landex Systems. An operating system for the building.",
   description:
-    "Landex grounds every element on your site in a rich spatial model, then reasons across the field and the documents that govern it to surface the problems and inefficiencies that cost you money, while the trades are still on site to act on them.",
+    "Landex uses AI to turn video walkthroughs or LiDAR point clouds into a 3D model of a building where every element knows what it is. Query it, keep it current, and run the building off it for its lifetime.",
 };
 
 export default function RootLayout({
