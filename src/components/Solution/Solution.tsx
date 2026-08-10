@@ -7,17 +7,17 @@ const steps = [
   {
     number: '01',
     title: 'Capture comes in however you have it.',
-    description: 'A phone walkthrough or a survey-grade laser scan. Use what your project already produces, or send someone through with a phone.',
+    description: 'A walk with a handheld scanner, a survey-grade laser scan, or a phone walkthrough. Send someone through your building, or send us the scan your project already produced.',
   },
   {
     number: '02',
     title: 'The model comes back knowing what it is made of.',
-    description: 'Every pipe, duct, conduit, fitting and piece of equipment identified as what it is and tied to what it runs to. Linkable in the tooling your team already uses.',
+    description: 'Every pipe, duct, conduit, fitting and piece of equipment identified as what it is, sized, placed, and tied to what it runs to. Linkable in the tooling your team already uses.',
   },
   {
     number: '03',
-    title: 'Do it again.',
-    description: 'The model lives under the building, not under the project. The next capture updates it rather than replacing it, so what comes back is not another file but the same building, current.',
+    title: 'Interact with it.',
+    description: 'Ask questions of your model without sending someone to the site or paying a vendor to go do it.',
   },
 ]
 
@@ -28,7 +28,7 @@ function Solution() {
         <AnimateIn>
           <span className={styles.eyebrow}>How it works</span>
           <h2 className={styles.title}>
-            Three steps. The third is the one that matters.
+            Capture in, model out, and then you use it.
           </h2>
         </AnimateIn>
         <div className={styles.steps}>

@@ -4,6 +4,8 @@ import Record from '@/components/Record/Record'
 import ProductShot from '@/components/ProductShot/ProductShot'
 import Solution from '@/components/Solution/Solution'
 import Features from '@/components/Features/Features'
+import WhereUsed from '@/components/WhereUsed/WhereUsed'
+import Limits from '@/components/Limits/Limits'
 import Pricing from '@/components/Pricing/Pricing'
 import Team from '@/components/Team/Team'
 import Footer from '@/components/Footer/Footer'
@@ -18,6 +20,8 @@ export default function Home() {
         <ProductShot />
         <Solution />
         <Features />
+        <WhereUsed />
+        <Limits />
         <Pricing />
         <Team />
         <Footer />

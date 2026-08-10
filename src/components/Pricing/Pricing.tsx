@@ -18,32 +18,10 @@ function Pricing() {
         <AnimateIn>
           <span className={styles.eyebrow}>Start here</span>
           <h2 className={styles.title}>
-            One area. Fixed fee, fixed window.
+            See what is actually in your building.
           </h2>
         </AnimateIn>
         <AnimateIn delay={0.1}>
-          <div className={styles.replaceGrid}>
-            <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Scope</div>
-              <div className={styles.replaceDesc}>
-                Pick an area or a system. Capture it with a phone, or send the scan you already have.
-              </div>
-            </div>
-            <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Flow</div>
-              <div className={styles.replaceDesc}>
-                Capture in, modeled and labeled output back, linked in your tooling. We walk your team through what came back.
-              </div>
-            </div>
-            <div className={styles.replaceItem}>
-              <div className={styles.replaceLabel}>Terms</div>
-              <div className={styles.replaceDesc}>
-                Fixed fee, fixed window, defined deliverable. The model is yours, the capture is yours, export any time in standard formats. If you stop working with us, you keep everything.
-              </div>
-            </div>
-          </div>
-        </AnimateIn>
-        <AnimateIn delay={0.2}>
           <div className={styles.cta}>
             <button className={styles.primaryCta} onClick={openCalendly}>
               Book a call
@@ -52,9 +30,6 @@ function Pricing() {
               </svg>
             </button>
           </div>
-          <p className={styles.audienceLine}>
-            Built for systems-dense buildings held for the long term. Data centers, pharma and GMP, healthcare campuses, fabs, university campuses.
-          </p>
         </AnimateIn>
       </div>
     </section>

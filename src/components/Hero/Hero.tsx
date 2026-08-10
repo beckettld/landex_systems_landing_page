@@ -29,10 +29,10 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            We capture what is actually inside your building and turn it into the operating system it runs on.
+            A scan of your building that answers questions.
           </h1>
           <p className={styles.subheadline}>
-            We use AI to turn video walkthroughs or LiDAR point clouds into a 3D model of the building. Every element in it knows what it is, so you can ask the model questions, keep it current, and run the building off it for its lifetime.
+            We label every part of the scan and tie it to the system it belongs to. Count what is installed, find a part, measure the space around it, from your desk.
           </p>
           <div className={styles.ctaGroup}>
             <button className={styles.primaryCta} onClick={openCalendly}>
@@ -41,12 +41,12 @@ function Hero() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-            <button className={styles.secondaryCta} onClick={() => scrollToSection('how-it-works')}>
-              See how it works
+            <button className={styles.secondaryCta} onClick={() => scrollToSection('what-you-can-ask')}>
+              See what you can ask it
             </button>
           </div>
           <p className={styles.tagline}>
-            A phone or a scanner in. A labeled, connected building out. Yours for as long as it stands.
+            A walk through the building in. A labeled, connected building out.
           </p>
         </div>
 
