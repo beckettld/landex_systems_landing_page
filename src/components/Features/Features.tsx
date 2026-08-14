@@ -17,6 +17,10 @@ const questions = [
     body: 'Where does this chilled-water line start and what does it feed. Which panel is this circuit home-run to. What is upstream of the isolation valve that just failed.',
   },
   {
+    title: 'Read it.',
+    body: 'What does the nameplate on this pump actually say. What is the model and serial on the equipment in this room, and does it match the submittal. We read the plates, tags and labels in the field, not just the drawings.',
+  },
+  {
     title: 'Find what nobody wrote down.',
     body: 'What conduit is running above this ceiling that no as-built accounts for. What got moved in the field and never made it back to a drawing. This is the only question a document-based process can never answer, because the answer is not in any document.',
   },
