@@ -157,11 +157,7 @@ export default function Hero() {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={() =>
-                  window.Calendly?.initPopupWidget({
-                    url: "https://calendly.com/allen-landexsystems/landex-systems-demo",
-                  })
-                }
+                href="mailto:allen@landexsystems.com?subject=Landex%20demo"
                 sx={{ px: 5, py: 1.75, fontSize: "0.9375rem", cursor: "pointer" }}
               >
                 Discuss Your Portfolio

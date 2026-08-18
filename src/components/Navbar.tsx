@@ -86,9 +86,7 @@ export default function Navbar() {
             <Button
               variant="outlined"
               size="small"
-              href="https://calendly.com/allen-landexsystems/landex-systems-demo"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:allen@landexsystems.com?subject=Landex%20demo"
               sx={{
                 borderColor: "rgba(232,236,244,0.15)",
                 color: "text.primary",

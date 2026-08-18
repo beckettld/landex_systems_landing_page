@@ -3,14 +3,6 @@
 import styles from './Hero.module.css'
 
 function Hero() {
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/allen-landexsystems/landex-systems-demo'
-      });
-    }
-  };
-
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -35,12 +27,15 @@ function Hero() {
             We label every part of the scan and tie it to the system it belongs to. Count what is installed, find a part, measure the space around it, from your desk.
           </p>
           <div className={styles.ctaGroup}>
-            <button className={styles.primaryCta} onClick={openCalendly}>
+            <a
+              className={styles.primaryCta}
+              href="mailto:allen@landexsystems.com?subject=Landex%20demo"
+            >
               Book a call
               <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </button>
+            </a>
             <button className={styles.secondaryCta} onClick={() => scrollToSection('what-you-can-ask')}>
               See what you can ask it
             </button>

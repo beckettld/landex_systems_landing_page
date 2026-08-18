@@ -14,7 +14,7 @@ import { useState, useEffect, useRef } from "react";
 import AnimateIn from "@/components/AnimateIn";
 import StaggerContainer, { staggerItem } from "@/components/StaggerContainer";
 
-const CALENDLY = "https://calendly.com/allen-landexsystems/landex-systems-demo";
+const BOOK_CALL = "mailto:allen@landexsystems.com?subject=Landex%20demo";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Navbar
@@ -90,9 +90,7 @@ function SmbNavbar() {
             <Button
               variant="outlined"
               size="small"
-              href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={BOOK_CALL}
               sx={{
                 ml: 1,
                 borderColor: "rgba(232,236,244,0.15)",
@@ -236,9 +234,7 @@ function Hero() {
               <Button
                 variant="contained"
                 color="primary"
-                href={CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={BOOK_CALL}
                 sx={{ px: 5, py: 1.75, fontSize: "0.9375rem" }}
               >
                 Book your free 30-minute AI Audit →
@@ -346,9 +342,7 @@ function AuditSection() {
           <Button
             variant="contained"
             color="primary"
-            href={CALENDLY}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={BOOK_CALL}
             sx={{ px: 5, py: 1.75, fontSize: "0.9375rem" }}
           >
             Book your free audit →
@@ -531,9 +525,7 @@ function AutomationSection() {
             <Button
               variant="contained"
               color="primary"
-              href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={BOOK_CALL}
               sx={{ px: 5, py: 1.75, fontSize: "0.9375rem" }}
             >
               Book the audit and let&apos;s scope it →
@@ -798,9 +790,7 @@ function FinalCTA() {
               <Button
                 variant="contained"
                 color="primary"
-                href={CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={BOOK_CALL}
                 sx={{ px: 5, py: 1.75, fontSize: "0.9375rem" }}
               >
                 Book your free call →

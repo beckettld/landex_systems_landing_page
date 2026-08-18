@@ -4,14 +4,6 @@ import AnimateIn from '@/components/AnimateIn'
 import styles from './Pricing.module.css'
 
 function Pricing() {
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/allen-landexsystems/landex-systems-demo'
-      });
-    }
-  };
-
   return (
     <section id="contact" className={styles.section}>
       <div className={styles.container}>
@@ -23,12 +15,15 @@ function Pricing() {
         </AnimateIn>
         <AnimateIn delay={0.1}>
           <div className={styles.cta}>
-            <button className={styles.primaryCta} onClick={openCalendly}>
+            <a
+              className={styles.primaryCta}
+              href="mailto:allen@landexsystems.com?subject=Landex%20demo"
+            >
               Book a call
               <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </button>
+            </a>
           </div>
         </AnimateIn>
       </div>

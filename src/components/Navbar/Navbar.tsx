@@ -12,14 +12,6 @@ function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/allen-landexsystems/landex-systems-demo'
-      });
-    }
-  };
-
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -36,9 +28,12 @@ function Navbar() {
           <button className={styles.link} onClick={() => scrollTo('team')}>Who we are</button>
         </div>
       </div>
-      <button className={styles.cta} onClick={openCalendly}>
+      <a
+        className={styles.cta}
+        href="mailto:allen@landexsystems.com?subject=Landex%20demo"
+      >
         Book a call
-      </button>
+      </a>
     </nav>
   );
 }

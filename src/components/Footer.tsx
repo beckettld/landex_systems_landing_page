@@ -86,14 +86,10 @@ export default function Footer() {
                   variant="contained"
                   color="primary"
                   endIcon={<ArrowForwardIcon />}
-                  onClick={() =>
-                    window.Calendly?.initPopupWidget({
-                      url: "https://calendly.com/allen-landexsystems/landex-systems-demo",
-                    })
-                  }
+                  href="mailto:allen@landexsystems.com?subject=Landex%20demo"
                   sx={{ px: 5, py: 1.75, fontSize: "0.9375rem", cursor: "pointer" }}
                 >
-                  Schedule a Conversation
+                  Email Allen to Book a Call
                 </Button>
               </Stack>
             </AnimateIn>
@@ -209,13 +205,7 @@ export default function Footer() {
               </Typography>
               <Typography
                 component="a"
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.Calendly?.initPopupWidget({
-                    url: "https://calendly.com/allen-landexsystems/landex-systems-demo",
-                  });
-                }}
+                href="mailto:allen@landexsystems.com?subject=Landex%20demo"
                 sx={{
                   color: "text.secondary",
                   display: "block",
@@ -227,7 +217,7 @@ export default function Footer() {
                   "&:hover": { color: "text.primary" },
                 }}
               >
-                Schedule a Call
+                Email Allen to Book a Call
               </Typography>
             </Grid>
           </Grid>
