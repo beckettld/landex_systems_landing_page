@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import AnimateIn from '@/components/AnimateIn'
 import styles from './Solution.module.css'
 
@@ -22,6 +24,13 @@ const steps = [
 ]
 
 function Solution() {
+  const stepsRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: stepsRef,
+    offset: ['start 68%', 'end 65%'],
+  })
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
+
   return (
     <section id="how-it-works" className={styles.section}>
       <div className={styles.container}>
@@ -34,7 +43,10 @@ function Solution() {
             Most of what a BIM gets you, without the scan-to-BIM workflow. And where a point cloud only gives you something to look at, this you can just ask.
           </p>
         </AnimateIn>
-        <div className={styles.steps}>
+        <div className={styles.steps} ref={stepsRef}>
+          <div className={styles.timeline} aria-hidden="true">
+            <motion.div className={styles.timelineProgress} style={{ scaleY }} />
+          </div>
           {steps.map((step, i) => (
             <AnimateIn key={step.number} delay={0.1 + i * 0.08}>
               <div className={styles.step}>

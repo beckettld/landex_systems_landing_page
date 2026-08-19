@@ -216,7 +216,10 @@ function Features() {
                     </span>
                     {g.label}
                   </div>
-                  <p className={styles.lead}>{g.lead}</p>
+                  <p className={styles.lead}>
+                    <span className={styles.leadPrompt}>&rsaquo;</span>
+                    {g.lead}
+                  </p>
                   {isOpen && (
                     <div className={styles.more}>
                       {g.more.map((q) => (

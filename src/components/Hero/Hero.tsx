@@ -1,28 +1,92 @@
 "use client";
 
+import { useEffect, useRef, useState } from 'react'
+import PointField from '@/components/PointField/PointField'
 import styles from './Hero.module.css'
 
+const QUERIES = [
+  'How many of the 214 sprinkler heads never reached the ceiling?',
+  'Is there 36 inches of clear working space in front of panel LP-2?',
+  'Where does this chilled-water line start, and what does it feed?',
+  'What does the nameplate on this pump actually say?',
+]
+
+function QueryConsole() {
+  const [reduce, setReduce] = useState(false)
+  const [idx, setIdx] = useState(0)
+  const [text, setText] = useState('')
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    setReduce(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  }, [])
+
+  useEffect(() => {
+    if (reduce) return
+    const full = QUERIES[idx]
+    let timeout: ReturnType<typeof setTimeout>
+
+    if (!deleting && text === full) {
+      timeout = setTimeout(() => setDeleting(true), 2400)
+    } else if (deleting && text === '') {
+      setDeleting(false)
+      setIdx((i) => (i + 1) % QUERIES.length)
+    } else {
+      const next = deleting
+        ? full.slice(0, text.length - 1)
+        : full.slice(0, text.length + 1)
+      timeout = setTimeout(() => setText(next), deleting ? 18 : 38)
+    }
+    return () => clearTimeout(timeout)
+  }, [text, deleting, idx, reduce])
+
+  return (
+    <div className={styles.console}>
+      <span className={styles.prompt}>ask</span>
+      <span className={styles.consoleText}>
+        {reduce ? QUERIES[0] : text}
+        <span className={styles.cursor} aria-hidden="true" />
+      </span>
+    </div>
+  )
+}
+
 function Hero() {
+  const tiltRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = tiltRef.current
+    if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const onMove = (e: PointerEvent) => {
+      const px = e.clientX / window.innerWidth - 0.5
+      const py = e.clientY / window.innerHeight - 0.5
+      el.style.setProperty('--rx', `${(-py * 5).toFixed(2)}deg`)
+      el.style.setProperty('--ry', `${(px * 9).toFixed(2)}deg`)
+      el.style.setProperty('--tx', `${(px * 10).toFixed(1)}px`)
+    }
+    window.addEventListener('pointermove', onMove, { passive: true })
+    return () => window.removeEventListener('pointermove', onMove)
+  }, [])
+
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.backgroundWrapper}>
         <div className={styles.backgroundGlow} />
         <div className={styles.backgroundGrid} />
+        <PointField />
       </div>
 
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            A scan of your building that answers questions.
+            A scan of your building that{' '}
+            <span className={styles.headlineAccent}>answers questions.</span>
           </h1>
-          <div className={styles.queries}>
-            <p className={styles.query}>
-              &ldquo;How many of the 214 sprinkler heads on the schedule never reached the ceiling?&rdquo;
-            </p>
-            <p className={styles.query}>
-              &ldquo;Is there 36 inches of clear working space in front of panel LP-2?&rdquo;
-            </p>
-          </div>
+
+          <QueryConsole />
+
           <p className={styles.subheadline}>
             We label every part of the scan and tie it to the system it belongs to. Count what is installed, find a part, measure the space around it, from your desk.
           </p>
@@ -49,13 +113,22 @@ function Hero() {
         </div>
 
         <div className={styles.productSide}>
-          <img
-            src="/assets/product-photo-july.png"
-            alt="The Landex viewer: a labeled point cloud of a scanned space, with every element tied to the system it belongs to."
-            className={styles.productImage}
-          />
+          <div ref={tiltRef} className={styles.productTilt}>
+            <img
+              src="/assets/product-photo-july.png"
+              alt="The Landex viewer: a labeled point cloud of a scanned space, with every element tied to the system it belongs to."
+              className={styles.productImage}
+            />
+            <div className={styles.scanline} aria-hidden="true" />
+            <div className={styles.productSheen} aria-hidden="true" />
+          </div>
         </div>
 
+      </div>
+
+      <div className={styles.scrollHint} aria-hidden="true">
+        <span>scroll</span>
+        <span className={styles.scrollLine} />
       </div>
     </section>
   );

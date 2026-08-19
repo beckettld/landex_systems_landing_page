@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+import ScrollProgress from "@/components/ScrollProgress/ScrollProgress";
 
 export const metadata: Metadata = {
   title: "Landex Systems. An operating system for the building.",
@@ -22,11 +24,14 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
       </head>
       <body>
+        <SmoothScroll />
+        <ScrollProgress />
+        <div className="grain" aria-hidden="true" />
         {children}
       </body>
     </html>

@@ -37,16 +37,44 @@
 }
 
 .link {
+  position: relative;
   font-family: var(--font);
   font-size: 0.8rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.02em;
+  padding-bottom: 4px;
   transition: color 0.2s;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .link:hover {
   color: rgba(255, 255, 255, 0.9);
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+}
+
+.link.active {
+  color: #fff;
+}
+
+.link.active::after {
+  transform: scaleX(1);
 }
 
 .cta {
