@@ -1,6 +1,8 @@
 .section {
+  position: relative;
   padding: 140px 0 120px;
-  background: rgba(17, 17, 19, 0.82);
+  background: #0e0e10;
+  border-top: 1px solid var(--rule);
 }
 
 .container {
@@ -27,17 +29,17 @@
   letter-spacing: -0.03em;
   line-height: 1.08;
   max-width: 600px;
-  margin-bottom: 56px;
+  margin-bottom: 16px;
 }
 
 .subtitle {
   font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 300;
-  color: var(--text-dim);
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 620px;
-  margin-bottom: 24px;
+  margin-bottom: 56px;
 }
 
 .body {

@@ -1,18 +1,8 @@
 .section {
   position: relative;
-  padding: 140px 0 120px;
-  background: rgba(24, 24, 27, 0.85);
-}
-
-.section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(180deg, rgba(17, 17, 19, 0.9) 0%, transparent 100%);
-  pointer-events: none;
+  padding: 104px 0 88px;
+  background: #17171b;
+  border-top: 1px solid var(--rule);
 }
 
 .container {
@@ -22,7 +12,7 @@
 }
 
 .header {
-  margin-bottom: 72px;
+  margin-bottom: 32px;
 }
 
 .eyebrow {
@@ -33,91 +23,127 @@
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--text-secondary);
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .title {
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
   font-weight: 500;
   color: var(--text);
   letter-spacing: -0.03em;
-  line-height: 1.08;
-  max-width: 580px;
-  margin-bottom: 16px;
-}
-
-.prose {
-  max-width: 680px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.body {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  font-weight: 300;
-  color: var(--text-secondary);
-  line-height: 1.75;
-}
-
-.benefits {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-}
-
-.benefit {
-  display: flex;
-  gap: 20px;
-}
-
-.benefitMarker {
-  flex-shrink: 0;
-  width: 2px;
-  align-self: stretch;
-  background: var(--green);
-  border-radius: 1px;
-  margin-top: 4px;
-}
-
-.benefitContent {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.benefitTitle {
-  font-family: var(--font);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: -0.01em;
-}
-
-.benefitBody {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-.closing {
-  margin-top: 56px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  font-weight: 300;
-  color: var(--text);
-  line-height: 1.7;
+  line-height: 1.1;
   max-width: 620px;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+/* ---- rows ---- */
+.rows {
+  border-bottom: 1px solid var(--rule);
+}
+
+.row {
+  position: relative;
+  border-top: 1px solid var(--rule);
+  padding: 13px 16px 13px 2px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.row:focus-visible {
+  outline: none;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.rowLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.rowIcon {
+  display: flex;
+  color: var(--text-secondary);
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.more {
+  margin-top: 6px;
+  animation: moreFade 0.18s ease both;
+}
+
+@keyframes moreFade {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: none; }
+}
+
+.moreItem {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  padding: 3px 0;
+}
+
+/* chevron indicator, pinned to the right of the row */
+.toggle {
+  position: absolute;
+  top: 13px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  transition: color 0.15s ease;
+}
+
+.row:hover .toggle {
+  color: var(--text-secondary);
+}
+
+.chev {
+  transition: transform 0.18s ease;
+}
+
+.chevOpen {
+  transform: rotate(180deg);
+  transition: transform 0.18s ease;
 }
 
 @media (max-width: 768px) {
-  .section { padding: 96px 0 72px; }
+  .section { padding: 80px 0 64px; }
   .container { padding: 0 24px; }
-  .header { margin-bottom: 48px; }
-  .benefits { grid-template-columns: 1fr; gap: 32px; }
+  .header { margin-bottom: 28px; }
+  .toggle span { display: none; }
 }

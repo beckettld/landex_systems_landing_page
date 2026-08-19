@@ -13,7 +13,7 @@ function ProductShot() {
               <span className={styles.dot} />
               <span className={styles.dot} />
               <span className={styles.dot} />
-              <span className={styles.chromeLabel}>Landex — capture in, model out</span>
+              <span className={styles.chromeLabel}>Landex</span>
             </div>
             <img
               src="/assets/product-photo-july.png"

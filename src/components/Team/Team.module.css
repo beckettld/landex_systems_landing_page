@@ -1,18 +1,8 @@
 .section {
   position: relative;
   padding: 140px 0 120px;
-  background: rgba(20, 20, 23, 0.85);
-}
-
-.section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(180deg, rgba(17, 17, 19, 0.9) 0%, transparent 100%);
-  pointer-events: none;
+  background: #17171b;
+  border-top: 1px solid var(--rule);
 }
 
 .container {

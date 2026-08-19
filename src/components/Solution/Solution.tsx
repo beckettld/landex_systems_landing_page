@@ -28,8 +28,11 @@ function Solution() {
         <AnimateIn>
           <span className={styles.eyebrow}>How it works</span>
           <h2 className={styles.title}>
-            Capture in, model out, and then you use it.
+            From a walkthrough to a model you can question.
           </h2>
+          <p className={styles.subtitle}>
+            Most of what a BIM gets you, without the scan-to-BIM workflow. And where a point cloud only gives you something to look at, this you can just ask.
+          </p>
         </AnimateIn>
         <div className={styles.steps}>
           {steps.map((step, i) => (
