@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AnimateIn from '@/components/AnimateIn'
 import styles from './WhereUsed.module.css'
 
@@ -109,21 +109,33 @@ const useCases: UseCase[] = [
 
 function WhereUsed() {
   const [active, setActive] = useState('handoff')
-  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const activeIndex = useCases.findIndex((u) => u.key === active)
+  const current = useCases[activeIndex] ?? useCases[0]
+
+  const itemRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const [indicator, setIndicator] = useState({ top: 0, height: 0 })
+
+  useEffect(() => {
+    const measure = () => {
+      const el = itemRefs.current[activeIndex]
+      if (el) setIndicator({ top: el.offsetTop, height: el.offsetHeight })
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [activeIndex])
 
   const onKeyDown = (e: React.KeyboardEvent, i: number) => {
     let n: number | null = null
-    if (e.key === 'ArrowRight') n = (i + 1) % useCases.length
-    if (e.key === 'ArrowLeft') n = (i - 1 + useCases.length) % useCases.length
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = (i + 1) % useCases.length
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = (i - 1 + useCases.length) % useCases.length
     if (e.key === 'Home') n = 0
     if (e.key === 'End') n = useCases.length - 1
     if (n === null) return
     e.preventDefault()
     setActive(useCases[n].key)
-    tabRefs.current[n]?.focus()
+    itemRefs.current[n]?.focus()
   }
-
-  const current = useCases.find((u) => u.key === active) ?? useCases[0]
 
   return (
     <section id="where-it-gets-used" className={styles.section}>
@@ -138,38 +150,43 @@ function WhereUsed() {
         </AnimateIn>
 
         <AnimateIn delay={0.1}>
-          <div className={styles.folder}>
-            <div className={styles.tabs} role="tablist" aria-label="Use cases">
+          <div className={styles.explorer}>
+            <div className={styles.rail} role="tablist" aria-label="Use cases" aria-orientation="vertical">
+              <span
+                className={styles.railIndicator}
+                aria-hidden="true"
+                style={{ transform: `translateY(${indicator.top}px)`, height: indicator.height }}
+              />
               {useCases.map((u, i) => {
                 const on = u.key === active
                 return (
                   <button
                     key={u.key}
-                    ref={(el) => { tabRefs.current[i] = el }}
-                    className={styles.tab}
+                    ref={(el) => { itemRefs.current[i] = el }}
+                    className={`${styles.railItem} ${on ? styles.railItemActive : ''}`}
                     role="tab"
-                    id={`tab-${u.key}`}
+                    id={`uc-tab-${u.key}`}
                     aria-selected={on}
-                    aria-controls={`panel-${u.key}`}
+                    aria-controls={`uc-panel-${u.key}`}
                     tabIndex={on ? 0 : -1}
                     onClick={() => setActive(u.key)}
                     onKeyDown={(e) => onKeyDown(e, i)}
                   >
-                    {u.tab}
+                    <span className={styles.railIndex}>{String(i + 1).padStart(2, '0')}</span>
+                    <span className={styles.railLabel}>{u.tab}</span>
                   </button>
                 )
               })}
             </div>
 
-            <div className={styles.folderBody}>
-              <section
-                key={current.key}
-                className={styles.panel}
-                role="tabpanel"
-                id={`panel-${current.key}`}
-                aria-labelledby={`tab-${current.key}`}
-                tabIndex={0}
-              >
+            <div
+              className={styles.panel}
+              role="tabpanel"
+              id={`uc-panel-${current.key}`}
+              aria-labelledby={`uc-tab-${current.key}`}
+              tabIndex={0}
+            >
+              <div key={current.key} className={styles.panelInner}>
                 <p className={styles.who}>{current.who}</p>
                 <h3 className={styles.question}>{current.question}</h3>
                 <div className={styles.grid}>
@@ -187,11 +204,10 @@ function WhereUsed() {
                     </ul>
                   </div>
                 </div>
-              </section>
+              </div>
             </div>
           </div>
         </AnimateIn>
-
       </div>
     </section>
   )
