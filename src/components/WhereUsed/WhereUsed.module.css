@@ -68,6 +68,7 @@
   padding: 15px 10px 17px;
   min-height: 60px;
   position: relative;
+  overflow: hidden;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -76,24 +77,77 @@
   transition: background 0.18s ease, color 0.18s ease;
 }
 
+/* soft green glow that breathes on the active tab */
+.tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(75% 130% at 50% 55%, rgba(93, 153, 128, 0.22) 0%, transparent 68%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* green light that sweeps across a tab the moment it becomes active */
+.tab::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, transparent 20%, rgba(127, 184, 160, 0.45) 50%, transparent 80%);
+  transform: translateX(-130%);
+  opacity: 0;
+  pointer-events: none;
+}
+
 .tab:hover:not([aria-selected="true"]) {
   background: #1a1a1f;
   color: var(--text);
 }
 
+.tab:hover:not([aria-selected="true"])::before {
+  opacity: 0.5;
+}
+
 .tab[aria-selected="true"] {
   background: #1e1e23;
   color: var(--text);
-  border-color: var(--rule);
+  border-color: rgba(93, 153, 128, 0.35);
   margin-bottom: -1px;
   padding-bottom: 18px;
   z-index: 3;
+}
+
+.tab[aria-selected="true"]::before {
+  opacity: 1;
+  animation: tabGlow 2.8s ease-in-out infinite;
+}
+
+.tab[aria-selected="true"]::after {
+  animation: tabSweep 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes tabGlow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes tabSweep {
+  0% { transform: translateX(-130%); opacity: 0; }
+  25% { opacity: 1; }
+  100% { transform: translateX(130%); opacity: 0; }
 }
 
 .tab:focus-visible {
   outline: 2px solid var(--green-bright);
   outline-offset: -3px;
   border-radius: 8px 8px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab[aria-selected="true"]::before { animation: none; }
+  .tab[aria-selected="true"]::after { animation: none; opacity: 0; }
 }
 
 /* ---- folder body ---- */
