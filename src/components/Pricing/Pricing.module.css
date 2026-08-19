@@ -1,33 +1,56 @@
 .section {
-  padding: 140px 0;
-  background: #0e0e10;
+  position: relative;
+  overflow: hidden;
+  padding: 168px 0 160px;
+  background:
+    radial-gradient(120% 90% at 50% 30%, rgba(74, 124, 106, 0.12) 0%, transparent 60%),
+    #0e0e10;
   border-top: 1px solid var(--rule);
 }
 
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
 .container {
-  max-width: 960px;
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
   margin: 0 auto;
   padding: 0 48px;
+  text-align: center;
 }
 
 .eyebrow {
   display: block;
-  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--green-bright);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .title {
-  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
   font-weight: 500;
   color: var(--text);
   letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 20px;
+  line-height: 1.12;
+  margin: 0 auto 44px;
   max-width: 600px;
+}
+
+.accent {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .subtitle {
@@ -75,7 +98,7 @@
 .cta {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .ctaHeadline {
@@ -97,28 +120,49 @@
 }
 
 .primaryCta {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 32px;
+  padding: 16px 38px;
   font-family: var(--font);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   color: #fff;
   background: var(--green);
   border: none;
   border-radius: 4px;
-  box-shadow: 0 2px 12px var(--green-glow);
+  box-shadow: 0 2px 12px var(--green-glow), 0 0 40px rgba(93, 153, 128, 0.25);
   transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
   cursor: pointer;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.primaryCta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 32%, rgba(255, 255, 255, 0.28) 50%, transparent 68%);
+  background-size: 250% 100%;
+  background-position: 160% 0;
+  pointer-events: none;
 }
 
 .primaryCta:hover {
   background: var(--green-bright);
   transform: translateY(-1px);
-  box-shadow: 0 4px 24px rgba(93, 153, 128, 0.3);
+  box-shadow: 0 6px 34px rgba(93, 153, 128, 0.45);
+}
+
+.primaryCta:hover::after {
+  animation: ctaShine 0.9s ease;
+}
+
+@keyframes ctaShine {
+  from { background-position: 160% 0; }
+  to { background-position: -60% 0; }
 }
 
 .ctaArrow {
@@ -160,21 +204,36 @@
 }
 
 .pilotBox {
-  border: 1px solid rgba(93, 153, 128, 0.2);
-  background: rgba(93, 153, 128, 0.04);
-  border-radius: 2px;
-  padding: 24px 28px;
+  position: relative;
+  border: 1px solid rgba(93, 153, 128, 0.28);
+  background: rgba(93, 153, 128, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 26px 30px;
   margin-bottom: 40px;
-  max-width: 480px;
+  max-width: 500px;
+  box-shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.6), 0 0 40px rgba(93, 153, 128, 0.08);
+  overflow: hidden;
+}
+
+.pilotBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(127, 184, 160, 0.7), transparent);
 }
 
 .pilotLabel {
   display: block;
-  font-family: var(--font);
+  font-family: var(--font-mono);
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   color: var(--green-bright);
   margin-bottom: 10px;
 }

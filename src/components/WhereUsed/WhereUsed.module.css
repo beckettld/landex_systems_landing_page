@@ -1,7 +1,9 @@
 .section {
   position: relative;
   padding: 140px 0 120px;
-  background: #0e0e10;
+  background:
+    radial-gradient(80% 55% at 50% 12%, rgba(74, 124, 106, 0.07) 0%, transparent 60%),
+    #0e0e10;
   border-top: 1px solid var(--rule);
 }
 

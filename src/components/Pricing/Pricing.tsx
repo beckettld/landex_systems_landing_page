@@ -1,16 +1,21 @@
 "use client";
 
 import AnimateIn from '@/components/AnimateIn'
+import PointField from '@/components/PointField/PointField'
 import styles from './Pricing.module.css'
 
 function Pricing() {
   return (
     <section id="contact" className={styles.section}>
+      <div className={styles.bg} aria-hidden="true">
+        <PointField />
+      </div>
       <div className={styles.container}>
         <AnimateIn>
           <span className={styles.eyebrow}>Start here</span>
           <h2 className={styles.title}>
-            See what is actually in your building.
+            See what is actually{' '}
+            <span className={styles.accent}>in your building.</span>
           </h2>
         </AnimateIn>
         <AnimateIn delay={0.1}>
