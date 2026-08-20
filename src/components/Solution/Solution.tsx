@@ -9,7 +9,7 @@ const steps = [
   {
     number: '01',
     title: 'Capture comes in however you have it.',
-    description: 'A walk with a handheld scanner, a survey-grade laser scan, or a phone walkthrough. Send someone through your building, or send us the scan your project already produced.',
+    description: 'Send us a point cloud your project already produced, or a video walkthrough of the building. Either one is enough to get started.',
   },
   {
     number: '02',

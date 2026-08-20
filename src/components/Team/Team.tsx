@@ -11,21 +11,18 @@ const team = [
     role: 'Co-founder',
     photo: '/assets/team/allen.png',
     email: 'allen@landexsystems.com',
-    bio: 'Allen builds the pipeline that turns a raw capture into a labeled, connected building. He came up through robotics and mechanical engineering at MIT, and started Landex because almost no software touches the physical world of construction.',
   },
   {
     name: 'Auddithio Nag',
     role: 'Co-founder',
     photo: '/assets/team/auddi.png',
     email: 'auddi@landexsystems.com',
-    bio: 'Auddithio builds the machine learning that reads a construction site from sensor data. He has shipped work on 3D scene understanding, satellite flood prediction and medical imaging, and did his CS master’s at Stanford — the same problem, pointed at buildings.',
   },
   {
     name: 'Beckett Devoe',
     role: 'Co-founder',
     photo: '/assets/team/beckett.png',
     email: 'beckett@landexsystems.com',
-    bio: 'Beckett builds computer vision models for the physical world — shellfish health at MIT Sea Grant, ocean research in Norway, and now the things people build. He studied AI and decision making at MIT.',
   },
 ]
 
@@ -56,7 +53,6 @@ function Team() {
               </div>
               <h3 className={styles.cardName}>{person.name}</h3>
               <span className={styles.cardRole}>{person.role}</span>
-              <p className={styles.cardBio}>{person.bio}</p>
               <a className={styles.cardEmail} href={`mailto:${person.email}`}>
                 {person.email}
               </a>
