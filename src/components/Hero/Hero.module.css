@@ -359,6 +359,8 @@
   opacity: 0;
   transition: opacity 1.4s ease;
   cursor: grab;
+  /* nudge the cloud rightward so it sits off the text, not crowding the left */
+  transform: translateX(7%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 20%, #000 42%, #000 100%);
   mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 20%, #000 42%, #000 100%);
 }
