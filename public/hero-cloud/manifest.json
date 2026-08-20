@@ -1,0 +1,212 @@
+{
+  "count": 158360,
+  "offsets": {
+    "position": 0,
+    "label": 1900320
+  },
+  "bounds": {
+    "min": [
+      -2.725248098373413,
+      -2.3242573738098145,
+      -6.018735885620117
+    ],
+    "max": [
+      2.3808670043945312,
+      1.986269474029541,
+      3.260153293609619
+    ],
+    "diag": 11.434633249435047
+  },
+  "classes": [
+    {
+      "id": 0,
+      "name": "wall",
+      "hex": "#2a78d6"
+    },
+    {
+      "id": 1,
+      "name": "cabinet",
+      "hex": "#1baf7a"
+    },
+    {
+      "id": 2,
+      "name": "floor",
+      "hex": "#eda100"
+    },
+    {
+      "id": 3,
+      "name": "ceiling",
+      "hex": "#008300"
+    },
+    {
+      "id": 4,
+      "name": "door",
+      "hex": "#4a3aa7"
+    },
+    {
+      "id": 5,
+      "name": "ashcan",
+      "hex": "#e34948"
+    },
+    {
+      "id": 6,
+      "name": "table",
+      "hex": "#e87ba4"
+    },
+    {
+      "id": 7,
+      "name": "chair",
+      "hex": "#eb6834"
+    },
+    {
+      "id": 8,
+      "name": "refrigerator",
+      "hex": "#898781"
+    },
+    {
+      "id": 9,
+      "name": "shelf",
+      "hex": "#898781"
+    },
+    {
+      "id": 10,
+      "name": "counter",
+      "hex": "#898781"
+    },
+    {
+      "id": 11,
+      "name": "signboard",
+      "hex": "#898781"
+    },
+    {
+      "id": 12,
+      "name": "lamp",
+      "hex": "#898781"
+    },
+    {
+      "id": 13,
+      "name": "box",
+      "hex": "#898781"
+    },
+    {
+      "id": 14,
+      "name": "sink",
+      "hex": "#898781"
+    },
+    {
+      "id": 15,
+      "name": "countertop",
+      "hex": "#898781"
+    },
+    {
+      "id": 17,
+      "name": "light",
+      "hex": "#898781"
+    },
+    {
+      "id": 19,
+      "name": "painting",
+      "hex": "#898781"
+    },
+    {
+      "id": 20,
+      "name": "dishwasher",
+      "hex": "#898781"
+    },
+    {
+      "id": 21,
+      "name": "mirror",
+      "hex": "#898781"
+    },
+    {
+      "id": 22,
+      "name": "computer",
+      "hex": "#898781"
+    },
+    {
+      "id": 23,
+      "name": "blind",
+      "hex": "#898781"
+    },
+    {
+      "id": 24,
+      "name": "bottle",
+      "hex": "#898781"
+    },
+    {
+      "id": 25,
+      "name": "tank",
+      "hex": "#898781"
+    },
+    {
+      "id": 26,
+      "name": "stove",
+      "hex": "#898781"
+    },
+    {
+      "id": 28,
+      "name": "person",
+      "hex": "#898781"
+    },
+    {
+      "id": 32,
+      "name": "window",
+      "hex": "#898781"
+    },
+    {
+      "id": 33,
+      "name": "railing",
+      "hex": "#898781"
+    },
+    {
+      "id": 35,
+      "name": "microwave",
+      "hex": "#898781"
+    },
+    {
+      "id": 39,
+      "name": "glass",
+      "hex": "#898781"
+    },
+    {
+      "id": 40,
+      "name": "tray",
+      "hex": "#898781"
+    },
+    {
+      "id": 42,
+      "name": "hood",
+      "hex": "#898781"
+    },
+    {
+      "id": 45,
+      "name": "stool",
+      "hex": "#898781"
+    },
+    {
+      "id": 48,
+      "name": "clock",
+      "hex": "#898781"
+    },
+    {
+      "id": 51,
+      "name": "bannister",
+      "hex": "#898781"
+    },
+    {
+      "id": 52,
+      "name": "seat",
+      "hex": "#898781"
+    },
+    {
+      "id": 54,
+      "name": "rug",
+      "hex": "#898781"
+    },
+    {
+      "id": 57,
+      "name": "sculpture",
+      "hex": "#898781"
+    }
+  ]
+}

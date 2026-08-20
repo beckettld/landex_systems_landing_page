@@ -45,11 +45,15 @@
   justify-content: space-between;
   gap: 56px;
   padding: 100px 48px 72px;
+  /* Let pointer events fall through the empty area to the cloud behind, while
+     the text column stays interactive (so the cloud is draggable on the right). */
+  pointer-events: none;
 }
 
 .textSide {
   max-width: 680px;
   animation: heroFadeIn 0.9s ease-out both;
+  pointer-events: auto;
 }
 
 @keyframes heroFadeIn {
@@ -98,8 +102,7 @@
 /* query console */
 .console {
   display: flex;
-  align-items: baseline;
-  gap: 12px;
+  flex-direction: column;
   max-width: 620px;
   margin-bottom: 30px;
   padding: 14px 16px;
@@ -110,6 +113,44 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   min-height: 56px;
+}
+
+.consoleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.answerRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  animation: answerIn 0.28s ease-out;
+}
+
+@keyframes answerIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.answerPrompt {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  transform: translateY(1px);
+}
+
+.answerText {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
 }
 
 .prompt {
@@ -281,6 +322,31 @@
   display: block;
 }
 
+/* Live point cloud as a large free-floating layer on the right. Sits above the
+   background but below the hero text (.content is z-index 1), and fades out
+   toward the left so points only faintly bleed behind the headline. */
+.heroCloudLayer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 72%;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 20%, #000 42%, #000 100%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 20%, #000 42%, #000 100%);
+}
+
+.heroCloudLayer:active {
+  cursor: grabbing;
+}
+
+.heroCloudLayer.ready {
+  opacity: 1;
+}
+
 /* sweeping scan line over the product panel */
 .scanline {
   position: absolute;
@@ -370,6 +436,7 @@
 
 @media (max-width: 1024px) {
   .productSide { display: none; }
+  .heroCloudLayer { display: none; }
 }
 
 @media (max-width: 768px) {

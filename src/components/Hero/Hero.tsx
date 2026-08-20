@@ -1,17 +1,25 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react'
-import PointField from '@/components/PointField/PointField'
+import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import styles from './Hero.module.css'
 
-const QUERIES = [
-  'How many of the 214 sprinkler heads never reached the ceiling?',
-  'Is there 36 inches of clear working space in front of panel LP-2?',
-  'Where does this chilled-water line start, and what does it feed?',
-  'What does the nameplate on this pump actually say?',
+// three.js lives client-only and stays out of the initial bundle.
+const HeroCloud = dynamic(() => import('@/components/HeroCloud/HeroCloud'), {
+  ssr: false,
+})
+
+// Each rotating question maps to the semantic classes it lights up in the live
+// scan, plus a short (curated, illustrative) answer tinted to the highlight.
+// Class names must match those in public/hero-cloud/manifest.json.
+const QUERIES: { text: string; classes: string[]; answer: string; color: string }[] = [
+  { text: 'How many cabinets line this kitchen?', classes: ['cabinet'], answer: '14 cabinet runs · 22 linear ft', color: '#37d495' },
+  { text: 'Where does the countertop meet the sink?', classes: ['countertop', 'counter', 'sink'], answer: '1 sink basin set into 3 counter segments', color: '#ffb638' },
+  { text: 'Is the refrigerator clear of the door swing?', classes: ['refrigerator', 'door'], answer: 'Yes — 4 in clearance to the door arc', color: '#8a7bff' },
+  { text: 'Flag every appliance in the room.', classes: ['refrigerator', 'stove', 'microwave', 'dishwasher'], answer: '4 appliances — fridge, stove, microwave, dishwasher', color: '#5fd0b0' },
 ]
 
-function QueryConsole() {
+function QueryConsole({ onActiveChange }: { onActiveChange: (idx: number) => void }) {
   const [reduce, setReduce] = useState(false)
   const [idx, setIdx] = useState(0)
   const [text, setText] = useState('')
@@ -23,7 +31,7 @@ function QueryConsole() {
 
   useEffect(() => {
     if (reduce) return
-    const full = QUERIES[idx]
+    const full = QUERIES[idx].text
     let timeout: ReturnType<typeof setTimeout>
 
     if (!deleting && text === full) {
@@ -40,43 +48,78 @@ function QueryConsole() {
     return () => clearTimeout(timeout)
   }, [text, deleting, idx, reduce])
 
+  // Light up the model once a question has finished typing; clear as it deletes.
+  const settled = reduce || (!deleting && text === QUERIES[idx].text)
+  useEffect(() => {
+    onActiveChange(settled ? (reduce ? 0 : idx) : -1)
+  }, [settled, idx, reduce, onActiveChange])
+
+  // Reveal the answer once the question settles; clear it as the line deletes.
+  const answerIdx = reduce ? 0 : idx
+  const [answer, setAnswer] = useState('')
+  useEffect(() => {
+    if (!settled) {
+      setAnswer('')
+      return
+    }
+    const full = QUERIES[answerIdx].answer
+    if (reduce) {
+      setAnswer(full)
+      return
+    }
+    let i = 0
+    let t: ReturnType<typeof setTimeout>
+    const tick = () => {
+      i += 1
+      setAnswer(full.slice(0, i))
+      if (i < full.length) t = setTimeout(tick, 22)
+    }
+    t = setTimeout(tick, 280) // brief beat after the question lands
+    return () => clearTimeout(t)
+  }, [settled, answerIdx, reduce])
+
   return (
     <div className={styles.console}>
-      <span className={styles.prompt}>ask</span>
-      <span className={styles.consoleText}>
-        {reduce ? QUERIES[0] : text}
-        <span className={styles.cursor} aria-hidden="true" />
-      </span>
+      <div className={styles.consoleRow}>
+        <span className={styles.prompt}>ask</span>
+        <span className={styles.consoleText}>
+          {reduce ? QUERIES[0].text : text}
+          <span className={styles.cursor} aria-hidden="true" />
+        </span>
+      </div>
+      {answer && (
+        <div className={styles.answerRow}>
+          <span className={styles.answerPrompt} style={{ color: QUERIES[answerIdx].color }}>
+            »
+          </span>
+          <span className={styles.answerText} style={{ color: QUERIES[answerIdx].color }}>
+            {answer}
+          </span>
+        </div>
+      )}
     </div>
   )
 }
 
 function Hero() {
-  const tiltRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const el = tiltRef.current
-    if (!el) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-
-    const onMove = (e: PointerEvent) => {
-      const px = e.clientX / window.innerWidth - 0.5
-      const py = e.clientY / window.innerHeight - 0.5
-      el.style.setProperty('--rx', `${(-py * 5).toFixed(2)}deg`)
-      el.style.setProperty('--ry', `${(px * 9).toFixed(2)}deg`)
-      el.style.setProperty('--tx', `${(px * 10).toFixed(1)}px`)
-    }
-    window.addEventListener('pointermove', onMove, { passive: true })
-    return () => window.removeEventListener('pointermove', onMove)
-  }, [])
+  const [cloudReady, setCloudReady] = useState(false)
+  const [activeQuery, setActiveQuery] = useState(-1)
+  const highlight = activeQuery >= 0 ? QUERIES[activeQuery].classes : []
 
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.backgroundWrapper}>
         <div className={styles.backgroundGlow} />
         <div className={styles.backgroundGrid} />
-        <PointField />
       </div>
+
+      {/* Live scan floats large on the right, bleeding faintly behind the text. */}
+      <HeroCloud
+        className={`${styles.heroCloudLayer} ${cloudReady ? styles.ready : ''}`}
+        highlight={highlight}
+        onReady={() => setCloudReady(true)}
+        onError={() => setCloudReady(false)}
+      />
 
       <div className={styles.content}>
         <div className={styles.textSide}>
@@ -85,7 +128,7 @@ function Hero() {
             <span className={styles.headlineAccent}>answers questions.</span>
           </h1>
 
-          <QueryConsole />
+          <QueryConsole onActiveChange={setActiveQuery} />
 
           <p className={styles.subheadline}>
             We label every part of the scan and tie it to the system it belongs to. Count what is installed, find a part, measure the space around it, from your desk.
@@ -111,19 +154,6 @@ function Hero() {
             A walk through the building goes in. A labeled, connected building comes back.
           </p>
         </div>
-
-        <div className={styles.productSide}>
-          <div ref={tiltRef} className={styles.productTilt}>
-            <img
-              src="/assets/product-photo-july.png"
-              alt="The Landex viewer: a labeled point cloud of a scanned space, with every element tied to the system it belongs to."
-              className={styles.productImage}
-            />
-            <div className={styles.scanline} aria-hidden="true" />
-            <div className={styles.productSheen} aria-hidden="true" />
-          </div>
-        </div>
-
       </div>
 
       <div className={styles.scrollHint} aria-hidden="true">
