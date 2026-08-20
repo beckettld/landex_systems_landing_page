@@ -6,9 +6,9 @@ import styles from './Navbar.module.css'
 
 const links = [
   { id: 'how-it-works', label: 'How it works' },
-  { id: 'what-you-can-ask', label: 'What you can ask it' },
-  { id: 'where-it-gets-used', label: 'Where it gets used' },
-  { id: 'team', label: 'Who we are' },
+  { id: 'what-you-can-ask', label: 'Capabilities' },
+  { id: 'where-it-gets-used', label: 'Industries' },
+  { id: 'team', label: 'Team' },
 ]
 
 function Navbar() {
