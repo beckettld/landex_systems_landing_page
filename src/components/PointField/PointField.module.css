@@ -5,8 +5,9 @@
   height: 100%;
   display: block;
   pointer-events: none;
-  /* fade the field into the dark at the edges */
-  -webkit-mask-image: radial-gradient(120% 90% at 62% 45%, #000 30%, rgba(0, 0, 0, 0.5) 62%, transparent 88%);
-  mask-image: radial-gradient(120% 90% at 62% 45%, #000 30%, rgba(0, 0, 0, 0.5) 62%, transparent 88%);
-  opacity: 0.9;
+  /* Weight the ambient field to the left / behind the text and fade it out
+     before the real point cloud on the right, so the two never compete. */
+  -webkit-mask-image: radial-gradient(100% 92% at 24% 50%, #000 32%, rgba(0, 0, 0, 0.5) 58%, transparent 80%);
+  mask-image: radial-gradient(100% 92% at 24% 50%, #000 32%, rgba(0, 0, 0, 0.5) 58%, transparent 80%);
+  opacity: 0.85;
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
+import PointField from '@/components/PointField/PointField'
 import styles from './Hero.module.css'
 
 // three.js lives client-only and stays out of the initial bundle.
@@ -54,29 +55,29 @@ function QueryConsole({ onActiveChange }: { onActiveChange: (idx: number) => voi
     onActiveChange(settled ? (reduce ? 0 : idx) : -1)
   }, [settled, idx, reduce, onActiveChange])
 
-  // Reveal the answer once the question settles; clear it as the line deletes.
+  // The answer bar is always present. The text types IN character by character
+  // once the question settles...
   const answerIdx = reduce ? 0 : idx
+  const full = QUERIES[answerIdx].answer
   const [answer, setAnswer] = useState('')
   useEffect(() => {
-    if (!settled) {
-      setAnswer('')
-      return
-    }
-    const full = QUERIES[answerIdx].answer
+    if (!settled) return
     if (reduce) {
       setAnswer(full)
       return
     }
-    let i = 0
-    let t: ReturnType<typeof setTimeout>
-    const tick = () => {
-      i += 1
-      setAnswer(full.slice(0, i))
-      if (i < full.length) t = setTimeout(tick, 22)
-    }
-    t = setTimeout(tick, 280) // brief beat after the question lands
+    if (answer === full) return
+    const t = setTimeout(() => setAnswer(full.slice(0, answer.length + 1)), answer === '' ? 300 : 22)
     return () => clearTimeout(t)
-  }, [settled, answerIdx, reduce])
+  }, [settled, answer, full, reduce])
+
+  // ...but on clear it fades out cleanly (see .answerHidden) instead of
+  // backspacing like the question, then the bar returns to its loading state.
+  useEffect(() => {
+    if (settled) return
+    const t = setTimeout(() => setAnswer(''), 340)
+    return () => clearTimeout(t)
+  }, [settled])
 
   return (
     <div className={styles.console}>
@@ -87,16 +88,25 @@ function QueryConsole({ onActiveChange }: { onActiveChange: (idx: number) => voi
           <span className={styles.cursor} aria-hidden="true" />
         </span>
       </div>
-      {answer && (
-        <div className={styles.answerRow}>
-          <span className={styles.answerPrompt} style={{ color: QUERIES[answerIdx].color }}>
-            »
-          </span>
-          <span className={styles.answerText} style={{ color: QUERIES[answerIdx].color }}>
+      <div className={styles.answerRow}>
+        <span className={styles.answerPrompt} style={{ color: QUERIES[answerIdx].color }}>
+          »
+        </span>
+        {answer ? (
+          <span
+            className={`${styles.answerText} ${settled ? '' : styles.answerHidden}`}
+            style={{ color: QUERIES[answerIdx].color }}
+          >
             {answer}
           </span>
-        </div>
-      )}
+        ) : (
+          <span className={styles.answerLoading} aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </span>
+        )}
+      </div>
     </div>
   )
 }
@@ -111,6 +121,7 @@ function Hero() {
       <div className={styles.backgroundWrapper}>
         <div className={styles.backgroundGlow} />
         <div className={styles.backgroundGrid} />
+        <PointField />
       </div>
 
       {/* Live scan floats large on the right, bleeding faintly behind the text. */}

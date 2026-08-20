@@ -77,11 +77,11 @@ export default function PointField() {
 
       mouseX += (targetX - mouseX) * 0.04
       mouseY += (targetY - mouseY) * 0.04
-      angle += reduce ? 0 : 0.0016
+      angle += reduce ? 0 : 0.0009
       t += 0.016
 
-      const rotY = angle + mouseX * 0.5
-      const tilt = -0.35 + mouseY * 0.18
+      const rotY = angle + mouseX * 0.35
+      const tilt = -0.35 + mouseY * 0.12
       const cosY = Math.cos(rotY)
       const sinY = Math.sin(rotY)
       const cosX = Math.cos(tilt)
@@ -112,8 +112,8 @@ export default function PointField() {
 
         const depth = (persp - 0.55) / 1.4 // 0..~1 near
         const twinkle = reduce ? 1 : 0.7 + 0.3 * Math.sin(t * 1.4 + p.tw)
-        const alpha = Math.max(0, Math.min(0.85, depth * 0.9)) * twinkle
-        const size = Math.max(0.6, depth * 2.1)
+        const alpha = Math.max(0, Math.min(0.6, depth * 0.72)) * twinkle
+        const size = Math.max(0.5, depth * 1.9)
 
         ctx.fillStyle = `rgba(${p.r},${p.g},${p.b},${alpha})`
         ctx.fillRect(sx - size / 2, sy - size / 2, size, size)
