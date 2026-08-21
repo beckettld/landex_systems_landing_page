@@ -1,7 +1,8 @@
 "use client";
 
-// Live point-cloud viewer for the hero. Renders a decimated kitchen scan
-// (positions + class label + true RGB — no provenance/embeddings ship to the
+// Live point-cloud viewer for the hero. Renders a decimated construction scan
+// — the rohbau_02005 structural shell with exposed beams, columns, and MEP
+// (positions + class label only; no RGB/provenance/embeddings ship to the
 // browser; see scripts/build-hero-cloud.py). Points show in true color at rest
 // and slowly auto-rotate. When `highlight` names one or more semantic classes,
 // those points light up in their class color and grow while the rest dim.
@@ -61,15 +62,14 @@ const fragmentShader = /* glsl */ `
 // invisible against the white cloud. Give the query-highlightable classes their
 // own vivid, distinct hues so each answer reads clearly.
 const HIGHLIGHT_COLORS: Record<string, string> = {
-  cabinet: '#37d495',
-  countertop: '#ffb638',
-  counter: '#ffb638',
-  sink: '#37c6e0',
-  refrigerator: '#8a7bff',
-  door: '#b98bff',
-  stove: '#ff6a4d',
-  microwave: '#ff7fb0',
-  dishwasher: '#4aa3ff',
+  beam: '#ffb638',
+  column: '#37d495',
+  wall: '#37c6e0',
+  tga: '#8a7bff',
+  'window cutout': '#ff6a4d',
+  'wall cutout': '#ff6a4d',
+  'ceiling cutout': '#ff6a4d',
+  'door rough opening': '#ff6a4d',
 }
 
 export default function HeroCloud({

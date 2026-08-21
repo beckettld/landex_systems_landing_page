@@ -1,212 +1,77 @@
 {
-  "count": 158360,
+  "count": 156242,
   "offsets": {
     "position": 0,
-    "label": 1900320
+    "label": 1874904
   },
   "bounds": {
     "min": [
-      -2.725248098373413,
-      -2.3242573738098145,
-      -6.018735885620117
+      -19.62802505493164,
+      -6.915490627288818,
+      -23.01040267944336
     ],
     "max": [
-      2.3808670043945312,
-      1.986269474029541,
-      3.260153293609619
+      21.441553115844727,
+      2.2229905128479004,
+      19.615806579589844
     ],
-    "diag": 11.434633249435047
+    "diag": 59.89337028811313
   },
   "classes": [
     {
       "id": 0,
       "name": "wall",
-      "hex": "#2a78d6"
+      "hex": "#d86161"
     },
     {
       "id": 1,
-      "name": "cabinet",
-      "hex": "#1baf7a"
+      "name": "ceiling",
+      "hex": "#6184d8"
     },
     {
       "id": 2,
       "name": "floor",
-      "hex": "#eda100"
+      "hex": "#a7d861"
     },
     {
       "id": 3,
-      "name": "ceiling",
-      "hex": "#008300"
+      "name": "beam",
+      "hex": "#d861c9"
     },
     {
       "id": 4,
-      "name": "door",
-      "hex": "#4a3aa7"
+      "name": "unlabelled",
+      "hex": "#61d8c4"
     },
     {
       "id": 5,
-      "name": "ashcan",
-      "hex": "#e34948"
+      "name": "column",
+      "hex": "#d8a261"
     },
     {
       "id": 6,
-      "name": "table",
-      "hex": "#e87ba4"
+      "name": "tga",
+      "hex": "#7f61d8"
     },
     {
       "id": 7,
-      "name": "chair",
-      "hex": "#eb6834"
+      "name": "window cutout",
+      "hex": "#66d861"
     },
     {
       "id": 8,
-      "name": "refrigerator",
-      "hex": "#898781"
+      "name": "wall cutout",
+      "hex": "#d86189"
     },
     {
       "id": 9,
-      "name": "shelf",
-      "hex": "#898781"
+      "name": "door rough opening",
+      "hex": "#61acd8"
     },
     {
       "id": 10,
-      "name": "counter",
-      "hex": "#898781"
-    },
-    {
-      "id": 11,
-      "name": "signboard",
-      "hex": "#898781"
-    },
-    {
-      "id": 12,
-      "name": "lamp",
-      "hex": "#898781"
-    },
-    {
-      "id": 13,
-      "name": "box",
-      "hex": "#898781"
-    },
-    {
-      "id": 14,
-      "name": "sink",
-      "hex": "#898781"
-    },
-    {
-      "id": 15,
-      "name": "countertop",
-      "hex": "#898781"
-    },
-    {
-      "id": 17,
-      "name": "light",
-      "hex": "#898781"
-    },
-    {
-      "id": 19,
-      "name": "painting",
-      "hex": "#898781"
-    },
-    {
-      "id": 20,
-      "name": "dishwasher",
-      "hex": "#898781"
-    },
-    {
-      "id": 21,
-      "name": "mirror",
-      "hex": "#898781"
-    },
-    {
-      "id": 22,
-      "name": "computer",
-      "hex": "#898781"
-    },
-    {
-      "id": 23,
-      "name": "blind",
-      "hex": "#898781"
-    },
-    {
-      "id": 24,
-      "name": "bottle",
-      "hex": "#898781"
-    },
-    {
-      "id": 25,
-      "name": "tank",
-      "hex": "#898781"
-    },
-    {
-      "id": 26,
-      "name": "stove",
-      "hex": "#898781"
-    },
-    {
-      "id": 28,
-      "name": "person",
-      "hex": "#898781"
-    },
-    {
-      "id": 32,
-      "name": "window",
-      "hex": "#898781"
-    },
-    {
-      "id": 33,
-      "name": "railing",
-      "hex": "#898781"
-    },
-    {
-      "id": 35,
-      "name": "microwave",
-      "hex": "#898781"
-    },
-    {
-      "id": 39,
-      "name": "glass",
-      "hex": "#898781"
-    },
-    {
-      "id": 40,
-      "name": "tray",
-      "hex": "#898781"
-    },
-    {
-      "id": 42,
-      "name": "hood",
-      "hex": "#898781"
-    },
-    {
-      "id": 45,
-      "name": "stool",
-      "hex": "#898781"
-    },
-    {
-      "id": 48,
-      "name": "clock",
-      "hex": "#898781"
-    },
-    {
-      "id": 51,
-      "name": "bannister",
-      "hex": "#898781"
-    },
-    {
-      "id": 52,
-      "name": "seat",
-      "hex": "#898781"
-    },
-    {
-      "id": 54,
-      "name": "rug",
-      "hex": "#898781"
-    },
-    {
-      "id": 57,
-      "name": "sculpture",
-      "hex": "#898781"
+      "name": "ceiling cutout",
+      "hex": "#ced861"
     }
   ]
 }

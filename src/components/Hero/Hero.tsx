@@ -14,10 +14,10 @@ const HeroCloud = dynamic(() => import('@/components/HeroCloud/HeroCloud'), {
 // scan, plus a short (curated, illustrative) answer tinted to the highlight.
 // Class names must match those in public/hero-cloud/manifest.json.
 const QUERIES: { text: string; classes: string[]; answer: string; color: string }[] = [
-  { text: 'How many cabinets line this kitchen?', classes: ['cabinet'], answer: '14 cabinet runs · 22 linear ft', color: '#37d495' },
-  { text: 'Where does the countertop meet the sink?', classes: ['countertop', 'counter', 'sink'], answer: '1 sink basin set into 3 counter segments', color: '#ffb638' },
-  { text: 'Is the refrigerator clear of the door swing?', classes: ['refrigerator', 'door'], answer: 'Yes — 4 in clearance to the door arc', color: '#8a7bff' },
-  { text: 'Flag every appliance in the room.', classes: ['refrigerator', 'stove', 'microwave', 'dishwasher'], answer: '4 appliances — fridge, stove, microwave, dishwasher', color: '#5fd0b0' },
+  { text: 'What structural progress can we bill this month?', classes: ['beam', 'column'], answer: 'Frame topped out — 13 beams on 13 columns', color: '#ffb638' },
+  { text: 'Are any columns out of plumb?', classes: ['column'], answer: 'Worst lean 1/4 in, at the core — inside spec', color: '#37d495' },
+  { text: 'How much clearance between the ductwork and the beams?', classes: ['tga', 'beam'], answer: 'Tightest gap 4 in, at the third beam line', color: '#8a7bff' },
+  { text: 'Can we get a 9 ft wide air handler down the main corridor?', classes: ['wall', 'column'], answer: 'Yes — 10 ft 4 in at the tightest pinch', color: '#37c6e0' },
 ]
 
 function QueryConsole({ onActiveChange }: { onActiveChange: (idx: number) => void }) {

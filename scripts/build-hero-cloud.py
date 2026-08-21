@@ -2,12 +2,12 @@
 """
 Build the hero point cloud that ships to the browser.
 
-Source: the owner_demo_v1 kitchen bundle (a documented per-point cloud with
-positions, a semantic class label, true RGB, and — critically — provenance
-sidecars + source video frames). We deliberately ship ONLY positions + class
-label. RGB, provenance (`*_views.bin`), keyframe JPEGs, and any embeddings are
-never written here, so nothing reverse-engineerable leaves the pipeline — the
-browser gets white dots + a class id each, nothing more.
+Source: the owner_demo_v1 rohbau_02005 bundle ("Structural shell — frame &
+MEP": exposed beams, columns, cutouts). It's a documented per-point cloud with
+positions, a semantic class label, and true RGB. We deliberately ship ONLY
+positions + class label. RGB, provenance, keyframe JPEGs, and any embeddings
+are never written here, so nothing reverse-engineerable leaves the pipeline —
+the browser gets white dots + a class id each, nothing more.
 
 Output (public/hero-cloud/):
   cloud.bin      — headerless, little-endian: float32 pos[3N], uint16 label[N].
@@ -25,22 +25,24 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
-SRC = os.path.normpath(os.path.join(REPO, "..", "owner_demo_v1", "handoff"))
+SRC = os.path.normpath(os.path.join(
+    REPO, "..", "owner_demo_v1", "owner", "public", "scenes", "rohbau_02005"))
 OUT = os.path.join(REPO, "public", "hero-cloud")
 
-# Full-res anchor scene (visit 1) — richest small-object detail.
 SCENE_INDEX = 0
 
-# Per-class point budget. Structural classes are capped hard (they're just
-# context for the rotation); object classes we want highlightable are kept in
-# full so a query lights up something crisp. Anything not listed keeps up to
-# DEFAULT_CAP points.
+# Per-class point budget. Enclosure classes are capped hard (they're just
+# context for the rotation); the frame + MEP classes we want highlightable
+# keep more points so a query lights up something crisp. The cutout classes
+# are tiny and kept in full via DEFAULT_CAP.
 CAPS = {
-    "wall": 34000,
-    "floor": 18000,
-    "ceiling": 12000,
-    "door": 12000,
-    "cabinet": 28000,
+    "wall": 28000,
+    "ceiling": 16000,
+    "floor": 16000,
+    "unlabelled": 8000,
+    "beam": 42000,
+    "column": 22000,
+    "tga": 22000,
 }
 DEFAULT_CAP = 20000
 SEED = 7
