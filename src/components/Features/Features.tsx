@@ -181,12 +181,12 @@ function Features() {
       <div className={styles.container}>
         <AnimateIn>
           <div className={styles.header}>
-            <span className={styles.eyebrow}>What you can ask it</span>
+            <span className={styles.eyebrow}>What a smart model answers</span>
             <h2 className={styles.title}>
-              Questions nobody can answer today without walking the building.
+              Questions geometry alone cannot answer.
             </h2>
             <p className={styles.subtitle}>
-              You ask in plain language. There is no menu of reports to pick from. Some of these are not in any document, because nobody wrote them down.
+              Once every element knows what it is, these stop being site visits and become queries. You ask in plain language. There is no menu of reports. Some of these are in no document, because nobody ever wrote them down.
             </p>
           </div>
         </AnimateIn>

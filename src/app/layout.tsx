@@ -4,9 +4,9 @@ import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress/ScrollProgress";
 
 export const metadata: Metadata = {
-  title: "Landex Systems. An operating system for the building.",
+  title: "Landex Systems. We make models smart.",
   description:
-    "Landex uses AI to turn video walkthroughs or LiDAR point clouds into a 3D model of a building where every element knows what it is. Query it, keep it current, and run the building off it for its lifetime.",
+    "Landex gives every point in a scan, from LiDAR to a phone walkthrough, a deep understanding of what it is and what it belongs to, then decodes that understanding into class names, relationships, heatmaps, and quantities for your use case.",
 };
 
 export default function RootLayout({

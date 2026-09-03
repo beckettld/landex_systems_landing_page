@@ -41,10 +41,10 @@
   z-index: 1;
   flex: 1;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 56px;
-  padding: 100px 48px 72px;
+  padding: 120px 48px 96px;
   /* Let pointer events fall through the empty area to the cloud behind, while
      the text column stays interactive (so the cloud is draggable on the right). */
   pointer-events: none;
@@ -84,12 +84,13 @@
 
 .headline {
   font-family: var(--font);
-  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  font-size: clamp(3rem, 5.6vw, 4.9rem);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.02;
   color: #fff;
-  letter-spacing: -0.025em;
-  margin-bottom: 24px;
+  letter-spacing: -0.035em;
+  max-width: 600px;
+  margin-bottom: 34px;
 }
 
 .headlineAccent {
@@ -104,7 +105,7 @@
   display: flex;
   flex-direction: column;
   max-width: 620px;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
   padding: 14px 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 2px solid var(--green-bright);
@@ -119,6 +120,8 @@
   display: flex;
   align-items: baseline;
   gap: 12px;
+  /* reserve one full line so an empty or mid-typed question never changes the box */
+  min-height: calc(0.98rem * 1.45);
 }
 
 .answerRow {
@@ -127,7 +130,9 @@
   gap: 12px;
   margin-top: 12px;
   padding-top: 12px;
-  min-height: 22px;
+  /* padding + border + one line of answer text, so the loading dots and the
+     typed answer occupy exactly the same height */
+  min-height: calc(12px + 1px + 0.95rem * 1.45);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -159,6 +164,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  min-height: calc(0.95rem * 1.45);
 }
 
 .answerLoading i {
@@ -213,12 +219,12 @@
 
 .subheadline {
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 300;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.6);
-  max-width: 480px;
-  margin-bottom: 36px;
+  color: rgba(255, 255, 255, 0.62);
+  max-width: 520px;
+  margin-bottom: 40px;
 }
 
 .ctaGroup {
@@ -466,11 +472,14 @@
 }
 
 @media (max-width: 768px) {
-  .content { padding: 80px 24px 64px; }
-  .headline { font-size: clamp(2rem, 8vw, 3rem); }
+  .content { padding: 96px 24px 64px; }
+  .headline { font-size: clamp(2.4rem, 11vw, 3.4rem); max-width: none; margin-bottom: 24px; }
   .subheadline { font-size: 1rem; }
   .ctaGroup { flex-direction: column; align-items: flex-start; gap: 16px; }
   .console { min-height: 48px; padding: 12px 14px; }
   .consoleText { font-size: 0.85rem; }
+  /* questions and answers wrap to two lines on narrow screens; reserve both */
+  .consoleRow { min-height: calc(0.85rem * 1.45 * 2); }
+  .answerRow { min-height: calc(12px + 1px + 0.95rem * 1.45 * 2); }
   .scrollHint { display: none; }
 }

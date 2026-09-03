@@ -1,7 +1,10 @@
 .section {
-  padding: 120px 0 100px;
-  background: rgba(17, 17, 19, 0.95);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  padding: 128px 0 112px;
+  background:
+    radial-gradient(60% 40% at 85% 100%, rgba(74, 124, 106, 0.08) 0%, transparent 60%),
+    rgba(17, 17, 19, 0.96);
+  border-top: 1px solid var(--rule);
 }
 
 .container {
@@ -12,45 +15,56 @@
 
 .eyebrow {
   display: inline-block;
-  font-family: var(--font);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
+  letter-spacing: 0.22em;
+  color: var(--green-bright);
+  margin-bottom: 22px;
 }
 
 .title {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
   font-weight: 500;
   color: var(--text);
   letter-spacing: -0.03em;
   line-height: 1.1;
-  max-width: 720px;
-  margin-bottom: 56px;
+  max-width: 760px;
+  margin-bottom: 64px;
 }
 
 .prose {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
   max-width: 720px;
-  border-top: 1px solid rgba(255,255,255,0.06);
   padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  position: relative;
+}
+
+.prose::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 56px;
+  height: 2px;
+  background: var(--accent-gradient);
 }
 
 .body {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.02rem;
   font-weight: 300;
   color: var(--text-secondary);
   line-height: 1.75;
 }
 
 @media (max-width: 768px) {
-  .section { padding: 80px 0 64px; }
+  .section { padding: 88px 0 72px; }
   .container { padding: 0 24px; }
-  .title { margin-bottom: 36px; }
+  .title { margin-bottom: 40px; }
   .prose { padding-top: 28px; }
 }

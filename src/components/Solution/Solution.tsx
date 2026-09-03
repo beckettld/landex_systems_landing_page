@@ -8,18 +8,23 @@ import styles from './Solution.module.css'
 const steps = [
   {
     number: '01',
-    title: 'Capture comes in however you have it.',
-    description: 'Send us a point cloud your project already produced, or a video walkthrough of the building. Either one is enough to get started.',
+    title: 'Any geometry you already have.',
+    description: 'A point cloud from a project scan, a mesh, an existing model, or a video walkthrough shot on a phone. No rig, no prep, no new capture program.',
   },
   {
     number: '02',
-    title: 'The model comes back knowing what it is made of.',
-    description: 'Every pipe, duct, conduit, fitting and piece of equipment identified as what it is, sized, placed, and tied to what it runs to. Linkable in the tooling your team already uses.',
+    title: 'Every point understood.',
+    description: 'Not a label stamped on a mesh. Each point carries a deep representation of what it is, what it is part of, and how it relates to what is around it, learned from real buildings.',
   },
   {
     number: '03',
-    title: 'Interact with it.',
-    description: 'Ask questions of your model without sending someone to the site or paying a vendor to go do it.',
+    title: 'Decoded for your use case.',
+    description: 'The same understanding reads out as class names, relationships between systems, a heatmap of any condition you can name, or counts and quantities. New question, new readout. No new scan.',
+  },
+  {
+    number: '04',
+    title: 'Checked and delivered.',
+    description: 'Compared against the documents and earlier captures you provide, then delivered in plain language or in the formats your tools already read.',
   },
 ]
 
@@ -35,12 +40,12 @@ function Solution() {
     <section id="how-it-works" className={styles.section}>
       <div className={styles.container}>
         <AnimateIn>
-          <span className={styles.eyebrow}>How it works</span>
+          <span className={styles.eyebrow}>The engine</span>
           <h2 className={styles.title}>
-            From a walkthrough to a model you can question.
+            Geometry goes in. Understanding comes back.
           </h2>
           <p className={styles.subtitle}>
-            Most of what a BIM gets you, without the scan-to-BIM workflow. And where a point cloud only gives you something to look at, this you can just ask.
+            A point cloud is millions of points that do not know what they are. A BIM knows what was drawn, not what was built. Landex sits between the two. Our models give every point a deep understanding of what it is, what it belongs to, and how it relates to what is around it. That understanding is the product. Everything a use case needs is decoded from it.
           </p>
         </AnimateIn>
         <div className={styles.steps} ref={stepsRef}>

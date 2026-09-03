@@ -5,9 +5,7 @@ import type Lenis from 'lenis';
 import styles from './Navbar.module.css'
 
 const links = [
-  { id: 'how-it-works', label: 'How it works' },
-  { id: 'what-you-can-ask', label: 'Capabilities' },
-  { id: 'where-it-gets-used', label: 'Industries' },
+  { id: 'system', label: 'How it works' },
   { id: 'team', label: 'Team' },
 ]
 

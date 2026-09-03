@@ -37,7 +37,7 @@ function Team() {
               The people building Landex.
             </h2>
             <p className={styles.subtitle}>
-              A small team that has spent enough time around real projects to know where the record breaks down.
+              A small team working where 3D perception meets the built environment, with enough time on real projects to know what a scan leaves out.
             </p>
           </div>
         </AnimateIn>

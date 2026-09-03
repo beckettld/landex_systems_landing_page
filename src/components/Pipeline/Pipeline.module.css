@@ -1,0 +1,187 @@
+.section {
+  position: relative;
+  padding: 96px 0 104px;
+  background:
+    radial-gradient(80% 50% at 50% 100%, rgba(74, 124, 106, 0.07) 0%, transparent 70%),
+    #0e0e10;
+  border-top: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+/* faint blueprint grid behind the diagram */
+.section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(70% 70% at 50% 50%, #000 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, #000 30%, transparent 100%);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.eyebrow {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--green-bright);
+}
+
+.lede {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* ---- flow ---- */
+.flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 40px;
+  padding-top: 28px;
+}
+
+/* the rail every node sits on */
+.flow::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 6px;
+  right: 6px;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* a pulse of light travelling down the rail */
+.flow::after {
+  content: '';
+  position: absolute;
+  top: 27px;
+  left: 6px;
+  right: 6px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, rgba(93, 153, 128, 0) 35%, rgba(127, 184, 160, 0.9) 50%, rgba(93, 153, 128, 0) 65%, transparent 100%);
+  background-size: 40% 100%;
+  background-repeat: no-repeat;
+  filter: blur(0.4px);
+  animation: pulse 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% { background-position: -40% 0; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { background-position: 140% 0; opacity: 0; }
+}
+
+.stage {
+  position: relative;
+  padding-top: 40px;
+}
+
+.node {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--dark);
+  border: 2px solid var(--green-bright);
+  box-shadow: 0 0 0 4px rgba(93, 153, 128, 0.08), 0 0 16px var(--glow-green);
+  animation: nodeGlow 5.5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 1.6s + 0.4s);
+}
+
+@keyframes nodeGlow {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(93, 153, 128, 0.08), 0 0 16px var(--glow-green); }
+  14% { box-shadow: 0 0 0 6px rgba(93, 153, 128, 0.18), 0 0 28px rgba(127, 184, 160, 0.7); background: var(--green-bright); }
+  30% { box-shadow: 0 0 0 4px rgba(93, 153, 128, 0.08), 0 0 16px var(--glow-green); }
+}
+
+.index {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+
+.name {
+  font-family: var(--font);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding-right: 8px;
+  max-width: 300px;
+}
+
+.meta {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  padding: 4px 8px;
+  border: 1px solid rgba(93, 153, 128, 0.25);
+  border-radius: 3px;
+  background: rgba(93, 153, 128, 0.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow::after, .node { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .flow { grid-template-columns: 1fr; gap: 36px 24px; padding-top: 0; }
+  .flow::before, .flow::after { display: none; }
+  .stage { padding-top: 0; padding-left: 26px; }
+  .node { top: 4px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 72px 0; }
+  .container { padding: 0 24px; }
+  .head { flex-direction: column; gap: 14px; margin-bottom: 44px; }
+  .flow { grid-template-columns: 1fr; gap: 32px; }
+}

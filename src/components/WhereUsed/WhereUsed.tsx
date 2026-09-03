@@ -15,100 +15,99 @@ type UseCase = {
 
 const useCases: UseCase[] = [
   {
-    key: 'cost-seg',
-    tab: 'Cost segregation',
-    who: 'For cost segregation engineers',
-    question: 'What is actually in this building, and how much of it?',
+    key: 'input',
+    tab: 'Capture in',
+    who: 'Input layer',
+    question: 'Whatever geometry you have is enough.',
     body: [
-      'A study is a partition that has to reconcile to total project cost. Anything you do not identify and document stays in the 39-year bucket. Under-enumeration throws no error. It just makes the deduction smaller.',
-      'Landex turns one walk into a measured census. Component type, count, dimensions, location, and the capture frame that shows it. On buildings too large to cover on foot in a day, you get the parts the walk would have missed.',
-      'You attach the dollars, make the classification calls, and sign it.',
+      'Terrestrial or mobile LiDAR, photogrammetry, a mesh, an existing model, or a walkthrough video shot on a phone. Landex reads all of them into the same representation, so where the capture came from stops mattering downstream.',
+      'No dedicated rig and no capture program to stand up. If a project already produced a point cloud, that is the starting point.',
     ],
     asks: [
-      'How many receptacles, and in which rooms.',
-      'Linear feet of conduit by floor.',
-      'What the GL line marked only "electrical" actually bought.',
+      'Point clouds from any scanner.',
+      'Meshes and existing BIM or IFC models.',
+      'Video walkthroughs, reconstructed into geometry.',
     ],
   },
   {
-    key: 'inventory',
-    tab: 'Fixed asset inventory',
-    who: 'For controllers and fixed asset teams',
-    question: 'Which line on the register is this machine?',
+    key: 'elements',
+    tab: 'Element model',
+    who: 'Data layer',
+    question: 'Every element becomes a record.',
     body: [
-      'Practitioners put 15 to 30 percent of ERP fixed asset records in the pile that cannot be matched to a physical object. The register has the financial fields and almost none of the physical ones. No durable ID, no photo, no serial, no location.',
-      'Where nothing is tagged, nobody can match by tag either. Landex builds the physical side of the file from the floor up. What is there, where it is, what the plate says, with an image of each one.',
+      'Under the geometry, Landex builds a structured model. One record per element, with its class, its dimensions, its position, and its relationships to the elements around it. A pipe knows its diameter, its run, and the equipment it serves.',
+      'This is the substrate everything else reads from. It is what turns a cloud of points into something software can reason across.',
     ],
     asks: [
-      'What is on the floor that is on no line of the register.',
-      'What the register lists that is no longer there.',
-      'Make, model and serial where the plate is readable.',
+      'Class, size, and location for every instance.',
+      'System membership and connections between elements.',
+      'A stable identity that survives the next capture.',
     ],
   },
   {
-    key: 'sell-side',
-    tab: 'Sell-side diligence',
-    who: 'For deal teams taking an asset to market',
-    question: "What will the buyer's engineer find that you did not?",
+    key: 'documents',
+    tab: 'Document linkage',
+    who: 'Reconciliation layer',
+    question: 'The model knows what each thing should be.',
     body: [
-      'Findings move price, and they move it late, when you have already committed to a number and the clock is running.',
-      'Scan before you go to market. Your access, your timeline, your scope, and a full inventory of what is installed before anyone else has walked the site. Off-hours works fine. An empty floor is the better capture.',
+      'Schedules, submittals, specs, and drawings attach to the elements they govern. The model carries the intended state next to the observed one, so a mismatch is a query rather than a discovery on site.',
+      'Where documents exist they are reconciled. Where they do not, the model becomes the first record.',
     ],
     asks: [
-      'Every piece of installed equipment, with plates read.',
-      'What is on site that appears on no schedule.',
-      'Clearances, routing and layout as built, not as drawn.',
+      'Equipment schedule rows tied to installed units.',
+      'Submittal and nameplate matched per element.',
+      'Spec requirements checked against the field.',
     ],
   },
   {
-    key: 'handoff',
-    tab: 'Handoff',
-    who: 'For the owner signing acceptance',
-    question: 'What are you being handed?',
+    key: 'time',
+    tab: 'Time',
+    who: 'Versioning layer',
+    question: 'Every capture is a version of the same model.',
     body: [
-      'Before signature the contractor pays to fix it. After signature you do. The cost is the same. The payer changes.',
-      'One capture in the acceptance window, checked against the documents that govern the building. Everything on the equipment schedule rather than a sample of it.',
+      'A new scan does not replace the last one. Each element is matched to itself across captures, so you get what was added, what moved, what was removed, and when.',
+      'History is kept at the element, so the answer to what changed is a list rather than two images to compare by eye.',
     ],
     asks: [
-      'Which of the 214 units on the schedule never arrived.',
-      'Whether there is 36 inches of clear space in front of every panel.',
-      'What is standing there that no document accounts for.',
+      'Diff between any two captures.',
+      'First-seen date per element, from the capture it appeared in.',
+      'Progress measured against the schedule.',
     ],
   },
   {
-    key: 'insurance',
-    tab: 'Insurance survey',
-    who: 'For risk managers and brokers',
-    question: "What will the carrier's engineer write up?",
+    key: 'query',
+    tab: 'Query',
+    who: 'Access layer',
+    question: 'Ask in plain language, or let your systems ask.',
     body: [
-      'A risk engineer gives credit for what you can show them. A spare nobody can locate is treated as absent, and that lands in the business interruption exposure rather than the property number.',
-      'Find the geometric write-ups before the first survey instead of closing them after, and be able to point at the spares you already own.',
+      'The same model answers a question typed as a sentence and a request from another system. Counts, quantities, clearances, presence, and change are computed from the element records, not read off a report someone prepared.',
+      'Nothing here is a canned dashboard. If the model contains the answer, it can be asked for.',
     ],
     asks: [
-      'Clearance and obstruction against the written distances.',
-      'What is stored where it should not be.',
-      'Where the spare units are, with their plates read.',
+      'Natural language questions from your desk.',
+      'Pulled directly into your own tools and pipelines.',
+      'Every answer backed by the capture frame that supports it.',
     ],
   },
   {
-    key: 'existing',
-    tab: 'Existing conditions',
-    who: 'For design and VDC teams',
-    question: 'What is here, before you design on top of it?',
+    key: 'ownership',
+    tab: 'Open and portable',
+    who: 'Ownership layer',
+    question: 'Yours, in formats your tools already read.',
     body: [
-      'Existing conditions are measured by hand, drawn by hand, and paid for twice. Once to send someone, once to model what they found.',
-      'Send the scan the project already produced. It comes back with every instance labeled as what it is, sized and placed, and linkable in the tooling your team already uses. Model the new work, not the old.',
+      'The model exports to the formats the industry runs on and links into the tooling your team already uses. It is not a login you rent. It is an asset you keep, structured so the software you buy in ten years can still read it.',
+      'The project ends, the contractor demobilizes, the platform contract expires. The model stays with the building.',
     ],
     asks: [
-      'Where the existing pipe, duct and conduit actually run.',
-      'Clear height and available space, room by room.',
-      'What the last set of as-builts got wrong.',
+      'IFC and standard geometry exports.',
+      'Linkable from the BIM and GIS tools you already run.',
+      'Owned by the building owner for its life.',
     ],
   },
 ]
 
 function WhereUsed() {
-  const [active, setActive] = useState('handoff')
+  const [active, setActive] = useState('elements')
   const activeIndex = useCases.findIndex((u) => u.key === active)
   const current = useCases[activeIndex] ?? useCases[0]
 
@@ -138,20 +137,23 @@ function WhereUsed() {
   }
 
   return (
-    <section id="where-it-gets-used" className={styles.section}>
+    <section id="infrastructure" className={styles.section}>
       <div className={styles.container}>
         <AnimateIn>
           <div className={styles.header}>
-            <span className={styles.eyebrow}>Where it gets used</span>
+            <span className={styles.eyebrow}>The infrastructure</span>
             <h2 className={styles.title}>
-              One capture. Pick the question you came here with.
+              Built to be built on.
             </h2>
+            <p className={styles.subtitle}>
+              A smart model is only useful if everything else can reach it. Landex is structured as a stack, so your captures, your documents, your tools, and your next scan all land on the same model.
+            </p>
           </div>
         </AnimateIn>
 
         <AnimateIn delay={0.1}>
           <div className={styles.explorer}>
-            <div className={styles.rail} role="tablist" aria-label="Use cases" aria-orientation="vertical">
+            <div className={styles.rail} role="tablist" aria-label="Infrastructure layers" aria-orientation="vertical">
               <span
                 className={styles.railIndicator}
                 aria-hidden="true"
@@ -196,7 +198,7 @@ function WhereUsed() {
                     ))}
                   </div>
                   <div className={styles.asks}>
-                    <h4 className={styles.asksTitle}>What it answers</h4>
+                    <h4 className={styles.asksTitle}>What that gives you</h4>
                     <ul className={styles.asksList}>
                       {current.asks.map((a, i) => (
                         <li key={i} className={styles.ask}>{a}</li>

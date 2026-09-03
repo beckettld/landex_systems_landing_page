@@ -1,8 +1,7 @@
 import Navbar from '@/components/Navbar/Navbar'
 import Hero from '@/components/Hero/Hero'
-import Solution from '@/components/Solution/Solution'
-import Features from '@/components/Features/Features'
-import WhereUsed from '@/components/WhereUsed/WhereUsed'
+import Pipeline from '@/components/Pipeline/Pipeline'
+import Difference from '@/components/Difference/Difference'
 import Pricing from '@/components/Pricing/Pricing'
 import Team from '@/components/Team/Team'
 import Footer from '@/components/Footer/Footer'
@@ -13,9 +12,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Solution />
-        <Features />
-        <WhereUsed />
+        <Pipeline />
+        <Difference />
         <Team />
         <Pricing />
         <Footer />

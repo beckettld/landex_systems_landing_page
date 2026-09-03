@@ -14,10 +14,10 @@ const HeroCloud = dynamic(() => import('@/components/HeroCloud/HeroCloud'), {
 // scan, plus a short (curated, illustrative) answer tinted to the highlight.
 // Class names must match those in public/hero-cloud/manifest.json.
 const QUERIES: { text: string; classes: string[]; answer: string; color: string }[] = [
-  { text: 'What structural progress can we bill this month?', classes: ['beam', 'column'], answer: 'Frame topped out — 13 beams on 13 columns', color: '#ffb638' },
-  { text: 'Are any columns out of plumb?', classes: ['column'], answer: 'Worst lean 1/4 in, at the core — inside spec', color: '#37d495' },
-  { text: 'How much clearance between the ductwork and the beams?', classes: ['tga', 'beam'], answer: 'Tightest gap 4 in, at the third beam line', color: '#8a7bff' },
-  { text: 'Can we get a 9 ft wide air handler down the main corridor?', classes: ['wall', 'column'], answer: 'Yes — 10 ft 4 in at the tightest pinch', color: '#37c6e0' },
+  { text: 'Label the structure.', classes: ['beam', 'column'], answer: '13 columns and 13 beams, highlighted', color: '#ffb638' },
+  { text: 'What is the floor to ceiling height?', classes: ['floor', 'ceiling'], answer: '15 ft 2 in, floor to slab', color: '#37d495' },
+  { text: 'How much headroom is under the services?', classes: ['tga', 'beam'], answer: '10 ft 7 in under the ducts, one beam drops to 7 ft 9 in', color: '#8a7bff' },
+  { text: 'Where are the openings?', classes: ['window cutout', 'wall cutout', 'ceiling cutout', 'door rough opening'], answer: '4 windows, 5 wall cutouts, 2 ceiling cutouts, 1 door', color: '#37c6e0' },
 ]
 
 function QueryConsole({ onActiveChange }: { onActiveChange: (idx: number) => void }) {
@@ -135,35 +135,40 @@ function Hero() {
       <div className={styles.content}>
         <div className={styles.textSide}>
           <h1 className={styles.headline}>
-            A scan of your building that{' '}
-            <span className={styles.headlineAccent}>answers questions.</span>
+            We make models{' '}
+            <span className={styles.headlineAccent}>smart.</span>
           </h1>
 
           <QueryConsole onActiveChange={setActiveQuery} />
 
           <p className={styles.subheadline}>
-            We label every part of the scan and tie it to the system it belongs to. Count what is installed, find a part, measure the space around it, from your desk.
+            Your scan already holds more than geometry. Landex understands what every point is, so one capture can tell you what is there, how it connects, and how much of it you have. Ask it anything.
           </p>
           <div className={styles.ctaGroup}>
             <a
               className={styles.primaryCta}
-              href="mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20process%20my%20scan"
+              href="mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20make%20my%20model%20smart"
             >
-              Send us a scan to label
+              Send us a model
               <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
             <a
               className={styles.secondaryCta}
-              href="mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20book%20a%20call"
+              href="#system"
+              onClick={(e) => {
+                const el = document.getElementById('system')
+                if (!el) return
+                e.preventDefault()
+                const lenis = (window as unknown as { __lenis?: { scrollTo: (t: Element, o?: { offset?: number }) => void } }).__lenis
+                if (lenis) lenis.scrollTo(el, { offset: -80 })
+                else el.scrollIntoView({ behavior: 'smooth' })
+              }}
             >
-              Or book a call
+              See how it works
             </a>
           </div>
-          <p className={styles.tagline}>
-            A walk through the building goes in. A labeled, connected building comes back.
-          </p>
         </div>
       </div>
 
