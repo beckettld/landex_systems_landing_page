@@ -47,6 +47,12 @@ function Pipeline() {
             ))}
           </ol>
         </AnimateIn>
+
+        <AnimateIn delay={0.2}>
+          <p className={styles.note}>
+            Checked against the documents you provide. Your capture stays yours, and what comes back arrives in formats your tools already read.
+          </p>
+        </AnimateIn>
       </div>
     </section>
   )
