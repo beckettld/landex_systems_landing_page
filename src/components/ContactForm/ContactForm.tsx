@@ -40,7 +40,7 @@ function ContactForm() {
       <div className={styles.sent} role="status">
         <span className={styles.sentLabel}>Received</span>
         <p className={styles.sentBody}>
-          Thanks. One of us will reply within a day with where to drop the scan.
+          Thanks. One of us will get back to you within a day.
         </p>
         <button type="button" className={styles.again} onClick={() => setStatus('idle')}>
           Send another
@@ -66,14 +66,14 @@ function ContactForm() {
         <input className={styles.input} name="company" type="text" autoComplete="organization" maxLength={160} />
       </label>
       <label className={styles.field}>
-        <span className={styles.label}>What do you have?</span>
+        <span className={styles.label}>What are you working on?</span>
         <textarea
           className={styles.textarea}
           name="message"
           rows={5}
           required
           maxLength={5000}
-          placeholder="Scan format, rough size, and what you want to know from it."
+          placeholder="What you have, or what you are trying to figure out. Rough detail is fine."
         />
       </label>
       {/* Honeypot. Hidden from people, filled by bots. */}
@@ -87,7 +87,7 @@ function ContactForm() {
       {status === 'error' && <p className={styles.error} role="alert">{error}</p>}
 
       <button className={styles.submit} type="submit" disabled={status === 'sending'}>
-        {status === 'sending' ? 'Sending' : 'Send us a model'}
+        {status === 'sending' ? 'Sending' : 'Let\u2019s talk'}
         {status !== 'sending' && (
           <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M12 5l7 7-7 7" />

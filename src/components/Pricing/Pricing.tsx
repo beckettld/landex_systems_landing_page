@@ -15,8 +15,8 @@ function Pricing() {
         <AnimateIn>
           <span className={styles.eyebrow}>Work with us</span>
           <h2 className={styles.title}>
-            Send a scan.{' '}
-            <span className={styles.accent}>See what comes back.</span>
+            Let&rsquo;s see{' '}
+            <span className={styles.accent}>how we can work together.</span>
           </h2>
         </AnimateIn>
         <AnimateIn delay={0.1}>
@@ -24,7 +24,7 @@ function Pricing() {
             <div className={styles.pilotBox}>
               <span className={styles.pilotLabel}>Already producing scans?</span>
               <p className={styles.pilotBody}>
-                Send us one. We run a section through it and send it back, so you see what it does on your own data before you commit to anything.
+                Send us one. We run a section through it and send it back, so you see what it does on your own data before you commit to anything. If you are earlier than that, tell us what you are trying to figure out and we will say whether we can help.
               </p>
             </div>
             <p className={styles.orEmail}>
