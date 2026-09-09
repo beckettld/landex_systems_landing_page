@@ -157,7 +157,7 @@ function Hero() {
                 else el.scrollIntoView({ behavior: 'smooth' })
               }}
             >
-              Send us a model
+              Let&rsquo;s talk
               <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
