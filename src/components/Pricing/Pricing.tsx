@@ -2,6 +2,7 @@
 
 import AnimateIn from '@/components/AnimateIn'
 import PointField from '@/components/PointField/PointField'
+import ContactForm from '@/components/ContactForm/ContactForm'
 import styles from './Pricing.module.css'
 
 function Pricing() {
@@ -26,18 +27,10 @@ function Pricing() {
                 Send us one. We run a section through it and send it back, so you see what it does on your own data before you commit to anything.
               </p>
             </div>
-            <a
-              className={styles.primaryCta}
-              href="mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20make%20my%20model%20smart"
-            >
-              Send us a model
-              <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
             <p className={styles.orEmail}>
-              Nothing captured yet? <a href="mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20book%20a%20call">Book a call</a> and we&rsquo;ll walk you through it.
+              Get in touch here or email <a href="mailto:allen@landexsystems.com">allen@landexsystems.com</a>.
             </p>
+            <ContactForm />
           </div>
         </AnimateIn>
       </div>

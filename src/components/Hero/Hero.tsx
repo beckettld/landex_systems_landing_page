@@ -147,7 +147,15 @@ function Hero() {
           <div className={styles.ctaGroup}>
             <a
               className={styles.primaryCta}
-              href="mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20make%20my%20model%20smart"
+              href="#contact"
+              onClick={(e) => {
+                const el = document.getElementById('contact')
+                if (!el) return
+                e.preventDefault()
+                const lenis = (window as unknown as { __lenis?: { scrollTo: (t: Element, o?: { offset?: number }) => void } }).__lenis
+                if (lenis) lenis.scrollTo(el, { offset: -80 })
+                else el.scrollIntoView({ behavior: 'smooth' })
+              }}
             >
               Send us a model
               <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -9,7 +9,7 @@ const nav = [
 
 const contact = [
   { href: 'mailto:allen@landexsystems.com', label: 'allen@landexsystems.com' },
-  { href: 'mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20make%20my%20model%20smart', label: 'Send us a model' },
+  { href: '/#contact', label: 'Send us a model' },
   { href: 'mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20book%20a%20call', label: 'Book a call' },
 ]
 
