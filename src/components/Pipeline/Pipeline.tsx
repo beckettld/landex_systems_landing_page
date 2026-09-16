@@ -1,23 +1,31 @@
 "use client";
 
 import AnimateIn from '@/components/AnimateIn'
+import { PLATFORM_URL } from '@/lib/contact'
 import styles from './Pipeline.module.css'
 
+// One step per screen of the platform, in the order you meet them.
 const stages = [
   {
-    name: 'Send the scan.',
-    desc: 'A LiDAR point cloud, a drone capture, or a model you already have.',
+    name: 'Upload your scan.',
+    desc: 'A LiDAR point cloud, a drone capture, or a model you already have. Drop it on New scan and processing starts on its own.',
     meta: 'your file',
+    src: '/platform/upload.jpg',
+    alt: 'The scans page, with a New scan tile and six processed scans',
   },
   {
-    name: 'We label it.',
-    desc: 'Every point gets what it is and what it belongs to.',
-    meta: 'per point',
+    name: 'Set the run up.',
+    desc: 'Crop to the part you care about, say what was captured and what you want back, then price the run. From there every point gets labeled with nobody in the loop, usually within 20 minutes.',
+    meta: 'about 20 minutes',
+    src: '/platform/prep.jpg',
+    alt: 'The prep step: a plan-view crop window, a height band, and the survey form',
   },
   {
-    name: 'You get answers.',
-    desc: 'Count tables, pins, and plans as CSV, PDF, or DXF. Or ask it by API.',
+    name: 'Take what you need.',
+    desc: 'Count tables, pins, and plans download as CSV, PDF, or DXF. Ask it anything else on the same page. Every number is measured from the point cloud, and what the answer is about lights up in the view.',
     meta: 'what you receive',
+    src: '/platform/ask.jpg',
+    alt: 'The viewer with a labeled drone survey tile, every building, greenhouse, road and vehicle boxed, and the Ask the scan panel open',
   },
 ]
 
@@ -29,7 +37,7 @@ function Pipeline() {
           <div className={styles.head}>
             <span className={styles.eyebrow}>How it works</span>
             <p className={styles.lede}>
-              Three steps. Your scan goes in, every point comes back labeled, and you receive the counts and plans your team was going to make by hand.
+              Self serve, about 20 minutes from upload to answers. Your scan goes in, every point comes back labeled, and you take the counts and plans your team was going to make by hand.
             </p>
           </div>
         </AnimateIn>
@@ -43,9 +51,21 @@ function Pipeline() {
                 <h3 className={styles.name}>{s.name}</h3>
                 <p className={styles.desc}>{s.desc}</p>
                 <span className={styles.meta}>{s.meta}</span>
+                <div className={styles.shot}>
+                  <img src={s.src} alt={s.alt} loading="lazy" />
+                </div>
               </li>
             ))}
           </ol>
+        </AnimateIn>
+
+        <AnimateIn delay={0.15}>
+          <a className={styles.cta} href={PLATFORM_URL} target="_blank" rel="noopener">
+            Upload a scan
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
         </AnimateIn>
 
         <AnimateIn delay={0.2}>

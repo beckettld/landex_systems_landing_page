@@ -6,7 +6,7 @@ import ScrollProgress from "@/components/ScrollProgress/ScrollProgress";
 export const metadata: Metadata = {
   title: "Landex Systems. Turn point clouds into answers.",
   description:
-    "Send us a scan you already have. Get back equipment counts, floor plans, quantity takeoffs, and asset lists, then ask it anything else in plain language. Upload page or API.",
+    "Upload a scan you already have. About 20 minutes later you have equipment counts, floor plans, quantity takeoffs, and asset lists, then ask it anything else in plain language. Self serve or API.",
 };
 
 export default function RootLayout({

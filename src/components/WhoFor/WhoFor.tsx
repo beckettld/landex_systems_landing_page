@@ -1,7 +1,7 @@
 "use client";
 
 import AnimateIn from '@/components/AnimateIn'
-import { mailto } from '@/lib/contact'
+import { PLATFORM_URL, mailto } from '@/lib/contact'
 import styles from './WhoFor.module.css'
 
 function WhoFor() {
@@ -16,10 +16,10 @@ function WhoFor() {
             <div className={styles.card}>
               <h3 className={styles.cardTitle}>Users.</h3>
               <p className={styles.cardBody}>
-                Get the counts, plans, and measurements out of a scan without adding drafting hours. It comes back labeled and measured, ready to finish.
+                Get the counts, plans, and measurements out of a scan without adding drafting hours. Upload it, and about 20 minutes later it is labeled and measured, ready to finish.
               </p>
-              <a className={styles.cardLink} href={mailto('scan')}>
-                Send us a scan
+              <a className={styles.cardLink} href={PLATFORM_URL} target="_blank" rel="noopener">
+                Upload a scan
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

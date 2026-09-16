@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import PointField from '@/components/PointField/PointField'
-import { mailto } from '@/lib/contact'
+import { PLATFORM_URL, mailto } from '@/lib/contact'
 import styles from './Hero.module.css'
 
 // three.js lives client-only and stays out of the initial bundle.
@@ -185,11 +185,11 @@ function Hero() {
           <QueryConsole onActiveChange={setActiveQuery} />
 
           <p className={styles.subheadline}>
-            Send us a scan you already have. Get back the counts, areas, and plans your team would otherwise pull out by hand. Then ask it anything else in plain language.
+            Upload a scan you already have. About 20 minutes later you have the counts, areas, and plans your team would otherwise pull out by hand. Then ask it anything else in plain language.
           </p>
           <div className={styles.ctaGroup}>
-            <a className={styles.primaryCta} href={mailto('scan')}>
-              Send us a scan
+            <a className={styles.primaryCta} href={PLATFORM_URL} target="_blank" rel="noopener">
+              Upload a scan
               <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>

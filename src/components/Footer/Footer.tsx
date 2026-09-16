@@ -1,6 +1,6 @@
 "use client";
 
-import { mailto } from '@/lib/contact'
+import { PLATFORM_URL, mailto } from '@/lib/contact'
 import styles from './Footer.module.css'
 
 const nav = [
@@ -18,8 +18,8 @@ const demos = [
 ]
 
 const contact = [
+  { href: PLATFORM_URL, label: 'Upload a scan' },
   { href: 'mailto:allen@landexsystems.com', label: 'allen@landexsystems.com' },
-  { href: mailto('scan'), label: 'Send us a scan' },
   { href: mailto('api'), label: 'Request API access' },
   { href: mailto('call'), label: 'Book a call' },
 ]
