@@ -1,9 +1,10 @@
 "use client";
 
-// Live point-cloud viewer for the hero. Renders a decimated construction scan
-// — the rohbau_02005 structural shell with exposed beams, columns, and MEP
-// (positions + class label only; no RGB/provenance/embeddings ship to the
-// browser; see scripts/build-hero-cloud.py). Points show in true color at rest
+// Live point-cloud viewer for the hero. Renders a decimated drone-survey tile
+// (100 x 100 m of the village site, every point carrying the inventory class
+// it was labelled with: buildings, greenhouses, roads, trees, vehicles, stored
+// material). Positions + class label only; no RGB/provenance/embeddings ship
+// to the browser; see scripts/build-hero-cloud.py. Points show in true color at rest
 // and slowly auto-rotate. When `highlight` names one or more semantic classes,
 // those points light up in their class color and grow while the rest dim.
 //
@@ -58,18 +59,20 @@ const fragmentShader = /* glsl */ `
   }
 `
 
-// Most object classes share one gray in the source palette, which would be
-// invisible against the white cloud. Give the query-highlightable classes their
-// own vivid, distinct hues so each answer reads clearly.
+// The source palette is a generic viewer palette, not tuned for a white
+// cloud. Give the query-highlightable classes their own vivid, distinct hues
+// so each answer reads clearly (these match the answer tints in Hero.tsx).
 const HIGHLIGHT_COLORS: Record<string, string> = {
-  beam: '#ffb638',
-  column: '#37d495',
-  wall: '#37c6e0',
-  tga: '#8a7bff',
-  'window cutout': '#ff6a4d',
-  'wall cutout': '#ff6a4d',
-  'ceiling cutout': '#ff6a4d',
-  'door rough opening': '#ff6a4d',
+  building: '#ff6a4d',
+  greenhouse: '#37c6e0',
+  road: '#d8d8e0',
+  vehicle: '#e660d8',
+  material: '#ffb638',
+  tree: '#37d495',
+  tree_group: '#37d495',
+  hedge: '#37d495',
+  fence: '#ffb638',
+  wall: '#8a7bff',
 }
 
 export default function HeroCloud({
@@ -191,8 +194,10 @@ export default function HeroCloud({
       // Place the camera on a halo above the room, angled gently down into it;
       // auto-rotation then sweeps that halo around the vertical axis.
       camera.up.set(0, 1, 0)
-      const dist = diag * 0.72
-      const DEFAULT_POLAR = THREE.MathUtils.degToRad(60) // from vertical (shallow slope)
+      // The tile is wide and flat (100 m square, ~15 m tall), so come in
+      // closer and steeper than a room shell needs.
+      const dist = diag * 0.68
+      const DEFAULT_POLAR = THREE.MathUtils.degToRad(52) // from vertical
       camera.position.set(0, dist * Math.cos(DEFAULT_POLAR), dist * Math.sin(DEFAULT_POLAR))
 
       const geo = new THREE.BufferGeometry()
@@ -226,8 +231,8 @@ export default function HeroCloud({
       controls.dampingFactor = 0.07
       controls.rotateSpeed = 0.42
       // Keep drags within a tasteful vertical band so the framing always reads.
-      controls.minPolarAngle = THREE.MathUtils.degToRad(40)
-      controls.maxPolarAngle = THREE.MathUtils.degToRad(78)
+      controls.minPolarAngle = THREE.MathUtils.degToRad(30)
+      controls.maxPolarAngle = THREE.MathUtils.degToRad(72)
       controls.autoRotate = !reduceMotion
       controls.autoRotateSpeed = AUTO_SPEED
       controls.update()

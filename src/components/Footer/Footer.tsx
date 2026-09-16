@@ -1,16 +1,27 @@
 "use client";
 
+import { mailto } from '@/lib/contact'
 import styles from './Footer.module.css'
 
 const nav = [
+  { href: '/#outcomes', label: 'What you get' },
   { href: '/#system', label: 'How it works' },
+  { href: '/#api', label: 'API' },
   { href: '/#team', label: 'Team' },
+]
+
+// Public showcases, each a real scan with its outputs.
+const demos = [
+  { href: 'https://demo.landexsystems.com', label: 'demo.landexsystems.com', hint: 'Ask a scan anything' },
+  { href: 'https://bim.landexsystems.com', label: 'bim.landexsystems.com', hint: 'Scan to BIM' },
+  { href: 'https://geospatial.landexsystems.com', label: 'geospatial.landexsystems.com', hint: 'Drone survey inventory' },
 ]
 
 const contact = [
   { href: 'mailto:allen@landexsystems.com', label: 'allen@landexsystems.com' },
-  { href: '/#contact', label: 'Let\u2019s talk' },
-  { href: 'mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20book%20a%20call', label: 'Book a call' },
+  { href: mailto('scan'), label: 'Send us a scan' },
+  { href: mailto('api'), label: 'Request API access' },
+  { href: mailto('call'), label: 'Book a call' },
 ]
 
 function Footer() {
@@ -21,9 +32,9 @@ function Footer() {
           <div className={styles.brand}>
             <img src="/assets/logo.svg" alt="Landex Systems" className={styles.logo} />
             <p className={styles.statement}>
-              We give every point in a scan a deep understanding of what it is, and deliver it decoded for whoever needs to know what is inside a building.
+              We turn scans into counts, measurements, and answers for anyone who needs to know what is in a space.
             </p>
-            <p className={styles.mono}>Capture &rarr; Understanding &rarr; Decode</p>
+            <p className={styles.mono}>Scan &rarr; Labels &rarr; Answers</p>
           </div>
 
           <div className={styles.cols}>
@@ -31,6 +42,15 @@ function Footer() {
               <span className={styles.colLabel}>Company</span>
               {nav.map((l) => (
                 <a key={l.label} href={l.href} className={styles.link}>{l.label}</a>
+              ))}
+            </div>
+            <div className={styles.col}>
+              <span className={styles.colLabel}>Live examples</span>
+              {demos.map((l) => (
+                <a key={l.label} href={l.href} className={styles.link} target="_blank" rel="noopener">
+                  {l.label}
+                  <span className={styles.hint}>{l.hint}</span>
+                </a>
               ))}
             </div>
             <div className={styles.col}>

@@ -2,10 +2,11 @@
 """
 Build the hero point cloud that ships to the browser.
 
-Source: the owner_demo_v1 rohbau_02005 bundle ("Structural shell — frame &
-MEP": exposed beams, columns, cutouts). It's a documented per-point cloud with
-positions, a semantic class label, and true RGB. We deliberately ship ONLY
-positions + class label. RGB, provenance, keyframe JPEGs, and any embeddings
+Source: the owner_demo_v1 village_scene bundle (the 100 x 100 m drone-survey
+tile from the village site, every point labelled with the inventory element
+it belongs to: buildings, greenhouses, roads, trees, vehicles, stored
+material). It's a documented per-point cloud with positions, a semantic class
+label, and true RGB. We deliberately ship ONLY positions + class label. RGB, provenance, keyframe JPEGs, and any embeddings
 are never written here, so nothing reverse-engineerable leaves the pipeline —
 the browser gets white dots + a class id each, nothing more.
 
@@ -26,23 +27,26 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 SRC = os.path.normpath(os.path.join(
-    REPO, "..", "owner_demo_v1", "owner", "public", "scenes", "rohbau_02005"))
+    REPO, "..", "owner_demo_v1", "owner", "public", "scenes", "village_scene"))
 OUT = os.path.join(REPO, "public", "hero-cloud")
 
 SCENE_INDEX = 0
 
-# Per-class point budget. Enclosure classes are capped hard (they're just
-# context for the rotation); the frame + MEP classes we want highlightable
-# keep more points so a query lights up something crisp. The cutout classes
-# are tiny and kept in full via DEFAULT_CAP.
+# Per-class point budget. Bulk classes (unclaimed points, bare ground, yard
+# surfaces, canopy) are capped hard since they only give the tile its shape;
+# the classes a hero question lights up keep more points so the answer reads
+# crisply. Small classes (vehicles, walls, poles) are kept in full via
+# DEFAULT_CAP.
 CAPS = {
-    "wall": 28000,
-    "ceiling": 16000,
-    "floor": 16000,
-    "unlabelled": 8000,
-    "beam": 42000,
-    "column": 22000,
-    "tga": 22000,
+    "none": 34000,
+    "ground": 40000,
+    "yard": 14000,
+    "tree_group": 14000,
+    "building": 40000,
+    "greenhouse": 40000,
+    "road": 22000,
+    "tree": 14000,
+    "hedge": 9000,
 }
 DEFAULT_CAP = 20000
 SEED = 7
@@ -81,9 +85,11 @@ def main():
 
     # Source frame is x-right, y-DOWN, z-forward. Flip y so world-up is +y and
     # standard three.js OrbitControls (up = 0,1,0) just works. Center on the
-    # kept-point centroid so the cloud rotates about itself.
+    # tile's plan centre, with y at the ground level (2nd percentile) so the
+    # cloud rotates about the middle of the tile and the ground sits at y=0.
     pos[:, 1] *= -1.0
-    center = pos.mean(axis=0)
+    center = (pos.min(axis=0) + pos.max(axis=0)) / 2
+    center[1] = np.percentile(pos[:, 1], 2)
     pos = (pos - center).astype("<f4")
 
     m = int(len(keep))

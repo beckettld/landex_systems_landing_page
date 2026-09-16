@@ -1,77 +1,97 @@
 {
-  "count": 156242,
+  "count": 264224,
   "offsets": {
     "position": 0,
-    "label": 1874904
+    "label": 3170688
   },
   "bounds": {
     "min": [
-      -19.62802505493164,
-      -6.915490627288818,
-      -23.01040267944336
+      -69.83338928222656,
+      -1.0219001770019531,
+      -69.70196533203125
     ],
     "max": [
-      21.441553115844727,
-      2.2229905128479004,
-      19.615806579589844
+      69.83338928222656,
+      14.315999984741211,
+      69.70196533203125
     ],
-    "diag": 59.89337028811313
+    "diag": 197.92805789107902
   },
   "classes": [
     {
       "id": 0,
-      "name": "wall",
+      "name": "none",
       "hex": "#d86161"
     },
     {
       "id": 1,
-      "name": "ceiling",
+      "name": "ground",
       "hex": "#6184d8"
     },
     {
       "id": 2,
-      "name": "floor",
+      "name": "building",
       "hex": "#a7d861"
     },
     {
       "id": 3,
-      "name": "beam",
+      "name": "greenhouse",
       "hex": "#d861c9"
     },
     {
       "id": 4,
-      "name": "unlabelled",
+      "name": "road",
       "hex": "#61d8c4"
     },
     {
       "id": 5,
-      "name": "column",
+      "name": "wall",
       "hex": "#d8a261"
     },
     {
       "id": 6,
-      "name": "tga",
+      "name": "fence",
       "hex": "#7f61d8"
     },
     {
       "id": 7,
-      "name": "window cutout",
+      "name": "hedge",
       "hex": "#66d861"
     },
     {
       "id": 8,
-      "name": "wall cutout",
+      "name": "tree",
       "hex": "#d86189"
     },
     {
       "id": 9,
-      "name": "door rough opening",
+      "name": "tree_group",
       "hex": "#61acd8"
     },
     {
       "id": 10,
-      "name": "ceiling cutout",
+      "name": "pole",
       "hex": "#ced861"
+    },
+    {
+      "id": 11,
+      "name": "vehicle",
+      "hex": "#bf61d8"
+    },
+    {
+      "id": 12,
+      "name": "material",
+      "hex": "#61d89c"
+    },
+    {
+      "id": 13,
+      "name": "prop",
+      "hex": "#d87a61"
+    },
+    {
+      "id": 15,
+      "name": "yard",
+      "hex": "#8ed861"
     }
   ]
 }

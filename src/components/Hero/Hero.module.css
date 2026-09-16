@@ -84,12 +84,12 @@
 
 .headline {
   font-family: var(--font);
-  font-size: clamp(3rem, 5.6vw, 4.9rem);
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
   font-weight: 500;
-  line-height: 1.02;
+  line-height: 1.04;
   color: #fff;
   letter-spacing: -0.035em;
-  max-width: 600px;
+  max-width: 720px;
   margin-bottom: 34px;
 }
 
@@ -98,6 +98,34 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* rotating headline object: reserve the line, cross-fade the word. The
+   gradient lives on the word itself: a transform/filter on a descendant
+   breaks background-clip:text on an ancestor, so it cannot sit on a wrapper. */
+.rotator {
+  display: inline-block;
+  min-height: 1.04em;
+  vertical-align: top;
+}
+
+.rotatorWord {
+  display: inline-block;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: opacity 0.38s ease, transform 0.38s ease;
+}
+
+.rotatorIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rotatorOut {
+  opacity: 0;
+  transform: translateY(-0.18em);
 }
 
 /* query console */

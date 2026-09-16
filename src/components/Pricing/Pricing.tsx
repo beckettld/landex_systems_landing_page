@@ -2,7 +2,7 @@
 
 import AnimateIn from '@/components/AnimateIn'
 import PointField from '@/components/PointField/PointField'
-import ContactForm from '@/components/ContactForm/ContactForm'
+import { CONTACT_EMAIL, mailto } from '@/lib/contact'
 import styles from './Pricing.module.css'
 
 function Pricing() {
@@ -15,22 +15,34 @@ function Pricing() {
         <AnimateIn>
           <span className={styles.eyebrow}>Work with us</span>
           <h2 className={styles.title}>
-            Let&rsquo;s see{' '}
-            <span className={styles.accent}>how we can work together.</span>
+            Send a scan.{' '}
+            <span className={styles.accent}>See what comes back.</span>
           </h2>
         </AnimateIn>
         <AnimateIn delay={0.1}>
           <div className={styles.cta}>
             <div className={styles.pilotBox}>
-              <span className={styles.pilotLabel}>Already producing scans?</span>
+              <span className={styles.pilotLabel}>Start with one scan</span>
               <p className={styles.pilotBody}>
-                Send us one. We run a section through it and send it back, so you see what it does on your own data before you commit to anything. If you are earlier than that, tell us what you are trying to figure out and we will say whether we can help.
+                Send us one you already have. We run a section and send back the counts and plans, so you see the output on your own data before you commit to anything.
               </p>
             </div>
+            <a className={styles.primaryCta} href={mailto('scan')}>
+              Send us a scan
+              <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
             <p className={styles.orEmail}>
-              Get in touch here or email <a href="mailto:allen@landexsystems.com">allen@landexsystems.com</a>.
+              Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> with the file or a link to it.
             </p>
-            <ContactForm />
+            <p className={styles.paths}>
+              Building software on scans?{' '}
+              <a href={mailto('api')}>Request API access.</a>
+              <br />
+              Nothing captured yet?{' '}
+              <a href={mailto('call')}>Book a call.</a>
+            </p>
           </div>
         </AnimateIn>
       </div>

@@ -2,10 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import type Lenis from 'lenis';
+import { mailto } from '@/lib/contact'
 import styles from './Navbar.module.css'
 
 const links = [
+  { id: 'outcomes', label: 'What you get' },
   { id: 'system', label: 'How it works' },
+  { id: 'api', label: 'API' },
   { id: 'team', label: 'Team' },
 ]
 
@@ -60,11 +63,8 @@ function Navbar() {
           ))}
         </div>
       </div>
-      <a
-        className={styles.cta}
-        href="mailto:allen@landexsystems.com?subject=Landex%20%E2%80%94%20book%20a%20call"
-      >
-        Book a call
+      <a className={styles.cta} href={mailto('scan')}>
+        Send us a scan
       </a>
     </nav>
   );

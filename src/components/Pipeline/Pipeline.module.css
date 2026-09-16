@@ -168,6 +168,11 @@
   background: rgba(93, 153, 128, 0.05);
 }
 
+.note strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
 .note {
   margin-top: 64px;
   padding-top: 24px;

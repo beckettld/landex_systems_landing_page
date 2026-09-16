@@ -5,18 +5,18 @@ import styles from './Pipeline.module.css'
 
 const stages = [
   {
-    name: 'Capture',
-    desc: 'Video walkthroughs, LiDAR scans, photogrammetry, or a model you already have.',
-    meta: 'your materials',
+    name: 'Send the scan.',
+    desc: 'A LiDAR point cloud, a drone capture, or a model you already have.',
+    meta: 'your file',
   },
   {
-    name: 'Understanding',
-    desc: 'Our models give every point a deep understanding of what it is and what it belongs to.',
+    name: 'We label it.',
+    desc: 'Every point gets what it is and what it belongs to.',
     meta: 'per point',
   },
   {
-    name: 'Decode',
-    desc: 'We host a smart copy of your capture. Ask it anything, by API or from a desk, and get the decoded answer: class names, relationships, heatmaps, quantities.',
+    name: 'You get answers.',
+    desc: 'Count tables, pins, and plans as CSV, PDF, or DXF. Or ask it by API.',
     meta: 'what you receive',
   },
 ]
@@ -29,7 +29,7 @@ function Pipeline() {
           <div className={styles.head}>
             <span className={styles.eyebrow}>How it works</span>
             <p className={styles.lede}>
-              One pipeline. Your materials go in. Every point comes back understood, and you receive it decoded for your use case.
+              Three steps. Your scan goes in, every point comes back labeled, and you receive the counts and plans your team was going to make by hand.
             </p>
           </div>
         </AnimateIn>
@@ -50,7 +50,7 @@ function Pipeline() {
 
         <AnimateIn delay={0.2}>
           <p className={styles.note}>
-            Checked against the documents you provide. Your capture stays yours, and what comes back arrives in formats your tools already read.
+            <strong>Your scan stays yours.</strong> We process it, send back the outputs, and never resell or train on your data.
           </p>
         </AnimateIn>
       </div>
