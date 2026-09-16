@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import PointField from '@/components/PointField/PointField'
-import { PLATFORM_URL, mailto } from '@/lib/contact'
+import { CONTACT_EMAIL, PLATFORM_URL, mailto } from '@/lib/contact'
 import styles from './Hero.module.css'
 
 // three.js lives client-only and stays out of the initial bundle.
@@ -195,7 +195,7 @@ function Hero() {
               </svg>
             </a>
             <a className={styles.secondaryCta} href={mailto('api')}>
-              Request API access
+              API access: email {CONTACT_EMAIL}
             </a>
           </div>
         </div>

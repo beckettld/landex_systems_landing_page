@@ -33,15 +33,9 @@ function Pricing() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
-            <p className={styles.orEmail}>
-              Rather have us run it? Email <a href={mailto('scan')}>{CONTACT_EMAIL}</a> with the file or a link to it.
-            </p>
             <p className={styles.paths}>
-              Building software on scans?{' '}
-              <a href={mailto('api')}>Request API access.</a>
-              <br />
-              Nothing captured yet?{' '}
-              <a href={mailto('call')}>Book a call.</a>
+              Everything else goes to one inbox. API access, a call before you upload, or a scan you would rather we ran:{' '}
+              <a href={mailto('call')}>{CONTACT_EMAIL}</a>
             </p>
           </div>
         </AnimateIn>

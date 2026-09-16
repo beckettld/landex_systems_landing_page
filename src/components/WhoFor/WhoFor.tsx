@@ -1,7 +1,7 @@
 "use client";
 
 import AnimateIn from '@/components/AnimateIn'
-import { PLATFORM_URL, mailto } from '@/lib/contact'
+import { CONTACT_EMAIL, PLATFORM_URL, mailto } from '@/lib/contact'
 import styles from './WhoFor.module.css'
 
 function WhoFor() {
@@ -33,7 +33,7 @@ function WhoFor() {
                 Give your users answers from their scans without building the 3D layer yourself.
               </p>
               <a className={styles.cardLink} href={mailto('api')}>
-                Request API access
+                API access: email {CONTACT_EMAIL}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
