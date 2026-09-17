@@ -32,20 +32,41 @@ function Navbar() {
     };
   }, []);
 
+  // The active link is the last section whose top has passed the upper part
+  // of the viewport. Computed from geometry on every frame the page moves,
+  // and on a slow timer as a backstop for devices that skip scroll events.
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id)
-        })
-      },
-      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
-    )
-    links.forEach((l) => {
-      const el = document.getElementById(l.id)
-      if (el) observer.observe(el)
-    })
-    return () => observer.disconnect()
+    let raf = 0;
+    let lastY = -1;
+    const pick = () => {
+      raf = 0;
+      const cut = window.innerHeight * 0.4;
+      let current = '';
+      for (const l of links) {
+        const el = document.getElementById(l.id);
+        if (el && el.getBoundingClientRect().top <= cut) current = l.id;
+      }
+      setActive(current);
+    };
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(pick);
+    };
+    const tick = window.setInterval(() => {
+      if (document.hidden) return;
+      if (window.scrollY !== lastY) {
+        lastY = window.scrollY;
+        schedule();
+      }
+    }, 400);
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+    pick();
+    return () => {
+      window.clearInterval(tick);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   const scrollTo = (id: string) => {
