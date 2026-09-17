@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type Lenis from 'lenis';
-import { PLATFORM_URL } from '@/lib/contact'
+import { mailto } from '@/lib/contact'
 import styles from './Navbar.module.css'
 
 const links = [
@@ -63,8 +63,8 @@ function Navbar() {
           ))}
         </div>
       </div>
-      <a className={styles.cta} href={PLATFORM_URL} target="_blank" rel="noopener">
-        Upload a scan
+      <a className={styles.cta} href={mailto('scan')}>
+        Send us a scan
       </a>
     </nav>
   );

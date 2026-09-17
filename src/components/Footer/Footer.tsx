@@ -1,6 +1,6 @@
 "use client";
 
-import { CONTACT_EMAIL, PLATFORM_URL } from '@/lib/contact'
+import { CONTACT_EMAIL, mailto } from '@/lib/contact'
 import styles from './Footer.module.css'
 
 const nav = [
@@ -17,9 +17,9 @@ const demos = [
   { href: 'https://geospatial.landexsystems.com', label: 'geospatial.landexsystems.com', hint: 'Drone survey inventory' },
 ]
 
-// Two doors: the platform, and Allen's inbox for everything else.
+// One door: Allen's inbox.
 const contact = [
-  { href: PLATFORM_URL, label: 'Upload a scan' },
+  { href: mailto('scan'), label: 'Send us a scan' },
   { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL },
 ]
 

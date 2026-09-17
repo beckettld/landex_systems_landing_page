@@ -5,8 +5,8 @@ export type ContactTopic = 'scan' | 'api' | 'call'
 
 export const CONTACT_EMAIL = 'allen@landexsystems.com'
 
-// The product is self serve: the primary CTA everywhere is the platform.
-export const PLATFORM_URL = 'https://app.landexsystems.com'
+// There is no self-serve door on this site. Access to the platform comes
+// after a first scan through Allen, so every CTA is that inbox.
 
 const SUBJECT: Record<ContactTopic, string> = {
   scan: 'Landex: a scan to run',

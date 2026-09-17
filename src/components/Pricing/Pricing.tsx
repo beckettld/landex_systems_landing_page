@@ -2,7 +2,7 @@
 
 import AnimateIn from '@/components/AnimateIn'
 import PointField from '@/components/PointField/PointField'
-import { CONTACT_EMAIL, PLATFORM_URL, mailto } from '@/lib/contact'
+import { CONTACT_EMAIL, mailto } from '@/lib/contact'
 import styles from './Pricing.module.css'
 
 function Pricing() {
@@ -31,9 +31,7 @@ function Pricing() {
               That goes to <a href={mailto('scan')}>{CONTACT_EMAIL}</a>. Attach the file or a link to it.
             </p>
             <p className={styles.paths}>
-              Rather do it yourself?{' '}
-              <a href={PLATFORM_URL} target="_blank" rel="noopener">Upload it to the platform</a>
-              {' '}and have answers in about 20 minutes.
+              Once you have seen it, you get the platform: upload your own scans and have answers in about 20 minutes, no one in the loop.
             </p>
           </div>
         </AnimateIn>

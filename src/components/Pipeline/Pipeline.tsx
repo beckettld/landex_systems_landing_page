@@ -1,7 +1,7 @@
 "use client";
 
 import AnimateIn from '@/components/AnimateIn'
-import { PLATFORM_URL } from '@/lib/contact'
+import { mailto } from '@/lib/contact'
 import styles from './Pipeline.module.css'
 
 // One step per screen of the platform, in the order you meet them.
@@ -37,7 +37,7 @@ function Pipeline() {
           <div className={styles.head}>
             <span className={styles.eyebrow}>How it works</span>
             <p className={styles.lede}>
-              Self serve, about 20 minutes from upload to answers. Your scan goes in, every point comes back labeled, and you take the counts and plans your team was going to make by hand.
+              Send us one scan first and we show you what came back. After that you are on the platform, and it is self serve: about 20 minutes from upload to answers.
             </p>
           </div>
         </AnimateIn>
@@ -60,8 +60,8 @@ function Pipeline() {
         </AnimateIn>
 
         <AnimateIn delay={0.15}>
-          <a className={styles.cta} href={PLATFORM_URL} target="_blank" rel="noopener">
-            Upload a scan
+          <a className={styles.cta} href={mailto('scan')}>
+            Send us a scan
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
