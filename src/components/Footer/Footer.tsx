@@ -5,13 +5,15 @@ import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Footer.module.css'
 
 const nav = [
+  { href: '/#examples', label: 'Live examples' },
   { href: '/#outcomes', label: 'What you get' },
   { href: '/#system', label: 'How it works' },
   { href: '/#api', label: 'API' },
   { href: '/#team', label: 'Team' },
 ]
 
-// Public showcases, each a real scan with its outputs.
+// Public showcases, each a real scan with its outputs. The section after the
+// hero shows the same three; the footer keeps them reachable from the bottom.
 const demos = [
   { href: 'https://demo.landexsystems.com', label: 'demo.landexsystems.com', hint: 'Ask a scan anything' },
   { href: 'https://bim.landexsystems.com', label: 'bim.landexsystems.com', hint: 'Scan to BIM' },

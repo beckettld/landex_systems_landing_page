@@ -6,6 +6,7 @@ import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Navbar.module.css'
 
 const links = [
+  { id: 'examples', label: 'Live examples' },
   { id: 'outcomes', label: 'What you get' },
   { id: 'system', label: 'How it works' },
   { id: 'api', label: 'API' },

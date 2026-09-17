@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import PointField from '@/components/PointField/PointField'
-import { CONTACT_EMAIL } from '@/lib/contact'
 import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Hero.module.css'
 
@@ -189,14 +188,11 @@ function Hero() {
             Send us a scan you already have. Get back the counts, areas, and plans your team would otherwise pull out by hand. Then ask it anything else in plain language.
           </p>
           <div className={styles.ctaGroup}>
-            <EmailLink className={styles.primaryCta} topic="scan">
-              Send us a scan
+            <EmailLink className={styles.primaryCta} topic="learn">
+              Learn more
               <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </EmailLink>
-            <EmailLink className={styles.secondaryCta} topic="api">
-              API access: email {CONTACT_EMAIL}
             </EmailLink>
           </div>
         </div>

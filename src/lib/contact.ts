@@ -1,7 +1,7 @@
 // Every CTA on the page is a plain mailto to Allen. The topic only sets the
-// subject so the three asks (a scan, API access, a call) are easy to triage.
+// subject so the asks (learn more, a scan, API access, a call) are easy to triage.
 
-export type ContactTopic = 'scan' | 'api' | 'call'
+export type ContactTopic = 'learn' | 'scan' | 'api' | 'call'
 
 export const CONTACT_EMAIL = 'allen@landexsystems.com'
 
@@ -9,6 +9,7 @@ export const CONTACT_EMAIL = 'allen@landexsystems.com'
 // after a first scan through Allen, so every CTA is that inbox.
 
 const SUBJECT: Record<ContactTopic, string> = {
+  learn: 'Landex: learn more',
   scan: 'Landex: a scan to run',
   api: 'Landex: API access',
   call: 'Landex: book a call',
