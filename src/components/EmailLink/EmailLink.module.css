@@ -1,0 +1,63 @@
+.note {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 200;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: calc(100vw - 32px);
+  padding: 14px 18px 14px 20px;
+  border: 1px solid rgba(93, 153, 128, 0.45);
+  border-radius: 8px;
+  background: rgba(17, 17, 19, 0.96);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(93, 153, 128, 0.12);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text);
+  animation: noteIn 0.3s ease both;
+}
+
+@keyframes noteIn {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.noteLead {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.noteBody {
+  color: var(--text-secondary);
+}
+
+.noteBody strong {
+  color: var(--green-bright);
+  font-weight: 500;
+  user-select: all;
+  -webkit-user-select: all;
+}
+
+.noteClose {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--surface-border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.noteClose:hover { color: var(--text); }
+
+@media (max-width: 600px) {
+  .note { flex-wrap: wrap; gap: 6px 12px; bottom: 16px; padding-right: 40px; }
+  .noteLead { white-space: normal; }
+  .noteClose { position: absolute; top: 8px; right: 8px; border: none; }
+}

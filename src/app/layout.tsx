@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress/ScrollProgress";
+import { MailFallbackNote } from "@/components/EmailLink/EmailLink";
 
 export const metadata: Metadata = {
   title: "Landex Systems. Turn point clouds into answers.",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <ScrollProgress />
         <div className="grain" aria-hidden="true" />
         {children}
+        <MailFallbackNote />
       </body>
     </html>
   );

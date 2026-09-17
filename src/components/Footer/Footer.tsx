@@ -1,6 +1,7 @@
 "use client";
 
-import { CONTACT_EMAIL, mailto } from '@/lib/contact'
+import { CONTACT_EMAIL, type ContactTopic } from '@/lib/contact'
+import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Footer.module.css'
 
 const nav = [
@@ -18,9 +19,9 @@ const demos = [
 ]
 
 // One door: Allen's inbox.
-const contact = [
-  { href: mailto('scan'), label: 'Send us a scan' },
-  { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL },
+const contact: { topic: ContactTopic; label: string }[] = [
+  { topic: 'scan', label: 'Send us a scan' },
+  { topic: 'call', label: CONTACT_EMAIL },
 ]
 
 function Footer() {
@@ -55,7 +56,7 @@ function Footer() {
             <div className={styles.col}>
               <span className={styles.colLabel}>Contact</span>
               {contact.map((l) => (
-                <a key={l.label} href={l.href} className={styles.link}>{l.label}</a>
+                <EmailLink key={l.label} topic={l.topic} className={styles.link}>{l.label}</EmailLink>
               ))}
             </div>
           </div>

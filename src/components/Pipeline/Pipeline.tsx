@@ -1,7 +1,7 @@
 "use client";
 
 import AnimateIn from '@/components/AnimateIn'
-import { mailto } from '@/lib/contact'
+import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Pipeline.module.css'
 
 // One step per screen of the platform, in the order you meet them.
@@ -60,12 +60,12 @@ function Pipeline() {
         </AnimateIn>
 
         <AnimateIn delay={0.15}>
-          <a className={styles.cta} href={mailto('scan')}>
+          <EmailLink className={styles.cta} topic="scan">
             Send us a scan
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </EmailLink>
         </AnimateIn>
 
         <AnimateIn delay={0.2}>

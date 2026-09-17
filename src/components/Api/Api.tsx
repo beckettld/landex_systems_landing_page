@@ -1,7 +1,8 @@
 "use client";
 
 import AnimateIn from '@/components/AnimateIn'
-import { CONTACT_EMAIL, mailto } from '@/lib/contact'
+import { CONTACT_EMAIL } from '@/lib/contact'
+import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Api.module.css'
 
 // The landing page does not document the API. Copy and a CTA only; the
@@ -18,12 +19,12 @@ function Api() {
             <p className={styles.lede}>
               Send a point cloud to the API. Get back the labeled cloud and the answer to your question. One engine behind the upload page and the API, one price per upload.
             </p>
-            <a className={styles.cta} href={mailto('api')}>
+            <EmailLink className={styles.cta} topic="api">
               Email {CONTACT_EMAIL}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </EmailLink>
           </AnimateIn>
         </div>
 

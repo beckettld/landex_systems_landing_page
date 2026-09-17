@@ -2,7 +2,8 @@
 
 import AnimateIn from '@/components/AnimateIn'
 import PointField from '@/components/PointField/PointField'
-import { CONTACT_EMAIL, mailto } from '@/lib/contact'
+import { CONTACT_EMAIL } from '@/lib/contact'
+import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Pricing.module.css'
 
 function Pricing() {
@@ -21,14 +22,14 @@ function Pricing() {
         </AnimateIn>
         <AnimateIn delay={0.1}>
           <div className={styles.cta}>
-            <a className={styles.primaryCta} href={mailto('scan')}>
+            <EmailLink className={styles.primaryCta} topic="scan">
               Send us a scan
               <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </EmailLink>
             <p className={styles.orEmail}>
-              That goes to <a href={mailto('scan')}>{CONTACT_EMAIL}</a>. Attach the file or a link to it.
+              That goes to <EmailLink topic="scan">{CONTACT_EMAIL}</EmailLink>. Attach the file or a link to it.
             </p>
             <p className={styles.paths}>
               Once you have seen it, you get the platform: upload your own scans and have answers in about 20 minutes, no one in the loop.

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type Lenis from 'lenis';
-import { mailto } from '@/lib/contact'
+import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Navbar.module.css'
 
 const links = [
@@ -16,11 +16,20 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string>('');
 
+  // A sentinel at the top of the page decides the solid background, so it
+  // holds no matter how the page got scrolled (smooth scroll, a hash link, a
+  // device that never fires window scroll events).
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    const sentinel = document.createElement('div');
+    sentinel.style.cssText = 'position:absolute;top:60px;left:0;width:1px;height:1px;pointer-events:none;';
+    document.body.prepend(sentinel);
+    const io = new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting || window.scrollY > 60));
+    io.observe(sentinel);
+    setScrolled(window.scrollY > 60);
+    return () => {
+      io.disconnect();
+      sentinel.remove();
+    };
   }, []);
 
   useEffect(() => {
@@ -63,9 +72,9 @@ function Navbar() {
           ))}
         </div>
       </div>
-      <a className={styles.cta} href={mailto('scan')}>
+      <EmailLink className={styles.cta} topic="scan">
         Send us a scan
-      </a>
+      </EmailLink>
     </nav>
   );
 }
