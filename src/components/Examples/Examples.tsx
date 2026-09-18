@@ -13,6 +13,8 @@ const examples = [
     host: 'demo.landexsystems.com',
     kind: 'Ask a scan anything',
     title: 'A kitchen and a village, labeled.',
+    src: '/examples/demo.jpg',
+    alt: 'The demo viewer: a drone-survey village tile with every building boxed and the Ask the scan panel answering a question',
     body: 'A LiDAR kitchen scan and a drone-survey tile. Type a question and the answer lights up in the point cloud.',
   },
   {
@@ -20,6 +22,8 @@ const examples = [
     host: 'bim.landexsystems.com',
     kind: 'Scan to BIM',
     title: 'A building shell as a model.',
+    src: '/examples/bim.jpg',
+    alt: 'The BIM showcase: a concrete building shell point cloud with generated slabs, walls, beams and trays drawn over it',
     body: 'A construction-site scan rebuilt as BIM elements you can toggle against the raw points.',
   },
   {
@@ -27,6 +31,8 @@ const examples = [
     host: 'geospatial.landexsystems.com',
     kind: 'Drone survey inventory',
     title: 'A site tile, counted and measured.',
+    src: '/examples/geospatial.jpg',
+    alt: 'The geospatial showcase: a 100 m drone survey tile with buildings, greenhouses, roads and trees outlined',
     body: 'Every building, greenhouse, road, and vehicle on a 100 m tile, with the PDF, GeoJSON, and CSV that go with it.',
   },
 ]
@@ -51,7 +57,11 @@ function Examples() {
               className={styles.card}
               variants={staggerItem}
             >
-              <span className={styles.kind}>{ex.kind}</span>
+              <span className={styles.thumb}>
+                <img src={ex.src} alt={ex.alt} loading="lazy" />
+              </span>
+              <div className={styles.text}>
+                <span className={styles.kind}>{ex.kind}</span>
               <h3 className={styles.cardTitle}>{ex.title}</h3>
               <p className={styles.cardBody}>{ex.body}</p>
               <span className={styles.host}>
@@ -60,6 +70,7 @@ function Examples() {
                   <path d="M7 17L17 7M9 7h8v8" />
                 </svg>
               </span>
+              </div>
             </motion.a>
           ))}
         </StaggerContainer>
