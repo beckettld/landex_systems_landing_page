@@ -72,7 +72,10 @@ function Navbar() {
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
-    if (!el) return;
+    if (!el) {
+      window.location.href = `/#${id}`;
+      return;
+    }
     const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
     if (lenis) lenis.scrollTo(el, { offset: -80 });
     else el.scrollIntoView({ behavior: 'smooth' });
@@ -81,7 +84,9 @@ function Navbar() {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.left}>
-        <img src="/assets/logo.png" alt="Landex Systems" className={styles.logo} />
+        <a href="/" aria-label="Landex Systems home">
+          <img src="/assets/logo.png" alt="Landex Systems" className={styles.logo} />
+        </a>
         <div className={styles.links}>
           {links.map((l) => (
             <button

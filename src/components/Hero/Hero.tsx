@@ -185,7 +185,7 @@ function Hero() {
           <QueryConsole onActiveChange={setActiveQuery} />
 
           <p className={styles.subheadline}>
-            Send us a scan you already have. Get back the counts, areas, and plans your team would otherwise pull out by hand. Then ask it anything else in plain language.
+            Send Landex a scan you already have. Get back the counts, areas, and plans your team would otherwise pull out by hand, as PDF, DXF and CSV. Then ask it anything else in plain language.
           </p>
           <div className={styles.ctaGroup}>
             <EmailLink className={styles.primaryCta} topic="learn">

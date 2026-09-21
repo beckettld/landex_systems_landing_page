@@ -38,6 +38,34 @@
   max-width: 560px;
 }
 
+.lede {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-top: 18px;
+}
+
+.lede a {
+  color: var(--green-bright);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(93, 153, 128, 0.4);
+}
+
+.lede a:hover { border-bottom-color: var(--green-bright); }
+
+.cardMeta {
+  margin-top: auto;
+  padding-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

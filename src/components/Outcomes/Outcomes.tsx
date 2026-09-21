@@ -49,26 +49,30 @@ function Icon({ name }: { name: IconName }) {
   }
 }
 
-const items: { icon: IconName; title: string; body: string }[] = [
+const items: { icon: IconName; title: string; body: string; meta: string }[] = [
   {
     icon: 'plan',
     title: 'Skip the drafting.',
     body: 'Floor plans and areas by room come straight from the scan.',
+    meta: 'PDF sheet, DXF',
   },
   {
     icon: 'count',
     title: 'Count it without going back.',
     body: 'Equipment, fixtures, stockpiles. Every item is pinned where it sits.',
+    meta: 'CSV schedule, pins in the viewer',
   },
   {
     icon: 'measure',
     title: 'Measure from your desk.',
     body: 'Lengths, areas, and distances from the scan you already paid for.',
+    meta: 'CSV, GeoJSON',
   },
   {
     icon: 'ask',
     title: 'Ask what isn’t on the list.',
     body: 'Type a question. There is no menu of reports.',
+    meta: 'Answered in the viewer',
   },
 ]
 
@@ -80,6 +84,9 @@ function Outcomes() {
           <div className={styles.head}>
             <span className={styles.eyebrow}>What you get</span>
             <h2 className={styles.title}>The work after the scan, done for you.</h2>
+            <p className={styles.lede}>
+              Not only a model. From one scan you get plans, counts, measurements and a BIM model when you want one, delivered as PDF sheets, DXF drawings, CSV schedules, GeoJSON layers and IFC. Plus a viewer you can ask questions in. <a href="/deliverables">See every deliverable.</a>
+            </p>
           </div>
         </AnimateIn>
         <StaggerContainer className={styles.grid} stagger={0.08}>
@@ -90,6 +97,7 @@ function Outcomes() {
               </span>
               <h3 className={styles.cardTitle}>{it.title}</h3>
               <p className={styles.cardBody}>{it.body}</p>
+              <span className={styles.cardMeta}>{it.meta}</span>
             </motion.div>
           ))}
         </StaggerContainer>
