@@ -12,10 +12,10 @@ const examples = [
     href: 'https://demo.landexsystems.com',
     host: 'demo.landexsystems.com',
     kind: 'Ask a scan anything',
-    title: 'A kitchen and a village, labeled.',
+    title: 'A kitchen, labeled and askable.',
     src: '/examples/demo.jpg',
-    alt: 'The demo viewer: a drone-survey village tile with every building boxed and the Ask the scan panel answering a question',
-    body: 'A LiDAR kitchen scan and a drone-survey tile. Type a question and the answer lights up in the point cloud.',
+    alt: 'The demo viewer: a LiDAR kitchen scan with every chair numbered and the Ask the scan panel answering how many there are',
+    body: 'A LiDAR scan of a furnished kitchen. Type a question and the answer lights up in the point cloud.',
   },
   {
     href: 'https://bim.landexsystems.com',
