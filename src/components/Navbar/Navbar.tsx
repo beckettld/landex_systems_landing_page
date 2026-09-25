@@ -97,6 +97,7 @@ function Navbar() {
               {l.label}
             </button>
           ))}
+          <a href="/pricing" className={styles.link}>Pricing</a>
         </div>
       </div>
       <EmailLink className={styles.cta} topic="scan">

@@ -2,7 +2,6 @@
 
 import { CONTACT_EMAIL, type ContactTopic } from '@/lib/contact'
 import EmailLink from '@/components/EmailLink/EmailLink'
-import { PAGES } from '@/lib/pages'
 import styles from './Footer.module.css'
 
 const nav = [
@@ -45,15 +44,6 @@ function Footer() {
               <span className={styles.colLabel}>Company</span>
               {nav.map((l) => (
                 <a key={l.label} href={l.href} className={styles.link}>{l.label}</a>
-              ))}
-            </div>
-            <div className={styles.col}>
-              <span className={styles.colLabel}>Read more</span>
-              {PAGES.map((l) => (
-                <a key={l.href} href={l.href} className={styles.link}>
-                  {l.label}
-                  <span className={styles.hint}>{l.hint}</span>
-                </a>
               ))}
             </div>
             <div className={styles.col}>
