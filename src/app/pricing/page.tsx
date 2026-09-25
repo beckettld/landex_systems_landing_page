@@ -185,7 +185,6 @@ export default function Page() {
 
           <section className={styles.enterprise}>
             <div className={styles.planName}>Enterprise</div>
-            <div className={styles.entTitle}>Talk to us</div>
             <p className={styles.entBody}>
               For large portfolios and high volume. Custom credits, seats, pricing, integrations and deliverables.
             </p>
