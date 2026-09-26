@@ -191,40 +191,15 @@
   color: var(--text-dim);
 }
 
-/* enterprise */
-
-.enterprise {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-top: 20px;
-  padding: 22px 24px;
-  background: #0f0f11;
-  border: 1px solid var(--rule);
-  border-radius: 10px;
-}
+/* enterprise card */
 
 .entBody {
-  flex: 1;
-  font-size: 0.9rem;
+  margin: 4px 0 18px;
+  font-size: 0.86rem;
   font-weight: 300;
+  line-height: 1.6;
   color: var(--text-secondary);
 }
-
-.entButton {
-  padding: 10px 20px;
-  font-family: var(--font);
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: var(--text);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.entButton:hover { border-color: var(--green-bright); background: rgba(93, 153, 128, 0.08); }
 
 /* cards */
 
@@ -343,8 +318,6 @@
 @media (max-width: 768px) {
   .main { padding: 120px 0 80px; }
   .container { padding: 0 16px; }
-  .enterprise { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .entButton { margin-top: 6px; }
   .card { padding: 24px 18px; }
   .included { grid-template-columns: 1fr; }
   .terms { grid-template-columns: 1fr; gap: 20px; }

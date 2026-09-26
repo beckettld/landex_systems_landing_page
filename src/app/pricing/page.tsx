@@ -55,20 +55,6 @@ const PLANS: Plan[] = [
       { label: 'Outdoor sites', hint: 'Site inventory', value: 'about 11 acres' },
     ],
   },
-  {
-    name: 'Pro',
-    price: '$4,000',
-    credits: '10,000 credits · 10 seats',
-    perCredit: '$0.40 per credit',
-    checkout: 'https://buy.stripe.com/dRmdR25tT4P8bAL8irbjW04',
-    covers: [['LOD 200', '285,000 sq ft'], ['LOD 300', '200,000 sq ft'], ['LOD 300 + MEP', '100,000 sq ft']],
-    site: '33 acres',
-    month: [
-      { label: 'Commercial floors with MEP', hint: '3,000 sq ft, LOD 300 + MEP', value: 'about 33' },
-      { label: 'Houses', hint: '2,000 sq ft, LOD 200', value: 'about 140' },
-      { label: 'Outdoor sites', hint: 'Site inventory', value: 'about 33 acres' },
-    ],
-  },
 ]
 
 const INCLUDED = [
@@ -181,16 +167,29 @@ export default function Page() {
                 <p className={styles.refund}>First month refundable, no questions asked</p>
               </div>
             ))}
-          </section>
 
-          <section className={styles.enterprise}>
-            <div className={styles.planName}>Enterprise</div>
-            <p className={styles.entBody}>
-              For large portfolios and high volume. Custom credits, seats, pricing, integrations and deliverables.
-            </p>
-            <EmailLink className={styles.entButton} topic="call">
-              Talk to us
-            </EmailLink>
+            <div className={`${styles.plan} ${styles.enterprise}`}>
+              <div className={styles.planName}>Enterprise</div>
+              <div className={styles.price}>Custom</div>
+              <div className={styles.credits}>Custom credits and seats</div>
+              <div className={styles.perCredit}>Volume pricing</div>
+
+              <div className={styles.box}>
+                <div className={styles.boxLabel}>Built for</div>
+                <div className={styles.row}><span>Large portfolios</span></div>
+                <div className={styles.row}><span>High monthly volume</span></div>
+                <div className={styles.row}><span>Custom integrations and deliverables</span></div>
+              </div>
+
+              <p className={styles.entBody}>
+                Tell us what you scan and how often. We put together credits, seats and pricing to match.
+              </p>
+
+              <EmailLink className={styles.choose} topic="call">
+                Talk to us
+              </EmailLink>
+              <p className={styles.refund}>Custom terms, priced for your volume</p>
+            </div>
           </section>
 
           <section className={styles.card}>
