@@ -6,7 +6,7 @@ import styles from './pricing.module.css'
 
 const TITLE = 'Pricing'
 const DESCRIPTION =
-  'Landex plans come with monthly credits. See the credit price for a job before it runs, along with the square footage or acreage it covers. Your first month is refundable.'
+  'Landex plans come with monthly credits. See the credit estimate for a job before it runs; you are charged what it uses, never more. Your first month is refundable.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -22,7 +22,6 @@ type Plan = {
   perCredit: string
   checkout: string
   covers: [string, string][]
-  site: string
   month: { label: string; hint: string; value: string }[]
 }
 
@@ -33,12 +32,11 @@ const PLANS: Plan[] = [
     credits: '1,000 credits · 1 seat',
     perCredit: '$0.50 per credit',
     checkout: 'https://buy.stripe.com/cNi00cbShdlE34f8irbjW02',
-    covers: [['LOD 200', '28,000 sq ft'], ['LOD 300', '20,000 sq ft'], ['LOD 300 + MEP', '10,000 sq ft']],
-    site: '3 acres',
+    covers: [['Floors at LOD 200', 'about 16'], ['Floors at LOD 300', 'about 8'], ['Floors at LOD 300 + MEP', 'about 4']],
     month: [
-      { label: 'Commercial floors with MEP', hint: '3,000 sq ft, LOD 300 + MEP', value: 'about 3' },
-      { label: 'Houses', hint: '2,000 sq ft, LOD 200', value: 'about 14' },
-      { label: 'Outdoor sites', hint: 'Site inventory', value: 'about 3 acres' },
+      { label: 'Office floors with MEP', hint: 'LOD 300 + MEP', value: 'about 4' },
+      { label: 'Houses', hint: 'two storeys, LOD 300', value: 'about 4' },
+      { label: 'Whole buildings', hint: 'five storeys, LOD 300', value: 'about 1' },
     ],
   },
   {
@@ -47,48 +45,44 @@ const PLANS: Plan[] = [
     credits: '3,300 credits · 3 seats',
     perCredit: '$0.45 per credit',
     checkout: 'https://buy.stripe.com/fZueV609z95oeMX2Y7bjW03',
-    covers: [['LOD 200', '95,000 sq ft'], ['LOD 300', '65,000 sq ft'], ['LOD 300 + MEP', '33,000 sq ft']],
-    site: '11 acres',
+    covers: [['Floors at LOD 200', 'about 50'], ['Floors at LOD 300', 'about 27'], ['Floors at LOD 300 + MEP', 'about 13']],
     month: [
-      { label: 'Commercial floors with MEP', hint: '3,000 sq ft, LOD 300 + MEP', value: 'about 11' },
-      { label: 'Houses', hint: '2,000 sq ft, LOD 200', value: 'about 47' },
-      { label: 'Outdoor sites', hint: 'Site inventory', value: 'about 11 acres' },
+      { label: 'Office floors with MEP', hint: 'LOD 300 + MEP', value: 'about 13' },
+      { label: 'Houses', hint: 'two storeys, LOD 300', value: 'about 13' },
+      { label: 'Whole buildings', hint: 'five storeys, LOD 300', value: 'about 5' },
     ],
   },
 ]
 
 const INCLUDED = [
-  'BIM models at LOD 200, LOD 300 and MEP',
-  'Site and yard inventory',
-  'Floor plan sets from your models',
+  'BIM models at LOD 200, LOD 300 and LOD 300 + MEP',
+  'IFC, floor plan (DXF + SVG) and quantities with every model',
+  'Sections and elevations at no extra credits',
   "Questions about models we've built for you",
-  'Upload E57, LAS, LAZ, RCP or RCS',
+  'Upload E57, LAS or LAZ',
   'Processed instantly, usually delivered in under 1 hour',
   'Email support',
   'Onboarding call',
 ]
 
 const RATES = [
-  { name: 'LOD 200', hint: 'Walls, floors, doors, windows at approximate size', credits: '35 / 1,000 sq ft' },
-  { name: 'LOD 300', hint: 'Accurate sizes and positions, plus columns, beams, stairs', credits: '50 / 1,000 sq ft' },
-  { name: 'LOD 300 + MEP', hint: 'Adds ducts, pipes, cable trays, equipment', credits: '100 / 1,000 sq ft' },
-  { name: 'Site and yard inventory', hint: 'Outdoor sites: piles, equipment, vehicles counted and labeled', credits: '300 / acre' },
-  { name: 'Floor plan set', hint: 'Drawn from a model you already have', credits: '15 / 1,000 sq ft' },
-  { name: 'Questions', hint: "Ask anything about models or inventories we've built for you", credits: '1 per question' },
+  { name: 'LOD 200', hint: 'Walls, floors, doors, windows at approximate size', credits: '50–70 per floor' },
+  { name: 'LOD 300', hint: 'Accurate sizes and positions, plus columns, beams, stairs, with a review pass', credits: '100–140 per floor' },
+  { name: 'LOD 300 + MEP', hint: 'Adds ducts, pipes, cable trays, equipment', credits: '200–300 per floor' },
+  { name: 'Questions', hint: "Ask anything about models we've built for you", credits: '1 per question' },
 ]
 
 const EXAMPLES: [string, string][] = [
-  ['2,000 sq ft house, LOD 200', '70'],
-  ['1,650 sq ft condo unit, LOD 300', '83'],
-  ['3,800 sq ft apartment floor, LOD 300', '190'],
-  ['3,000 sq ft office floor, LOD 300 + MEP', '300'],
-  ['60,000 sq ft warehouse, LOD 300', '3,000'],
-  ['8-acre storage yard, site inventory', '2,400'],
+  ['Condo unit, LOD 300', '100–140'],
+  ['Two-storey house, LOD 300', '200–280'],
+  ['Office floor, LOD 300 + MEP', '200–300'],
+  ['Five-storey building, LOD 300', '500–700'],
+  ['Same building, LOD 200', '250–350'],
 ]
 
 const TERMS = [
   { title: 'First month refundable', body: 'Not happy? We refund your first month, no questions asked.' },
-  { title: 'Job minimum', body: 'Every model or inventory uses at least 50 credits.' },
+  { title: 'Job minimum', body: 'Every model uses at least 10 credits.' },
   {
     title: 'Extra credits',
     body: "Buy more anytime as a one-time purchase, at your plan's per-credit rate.",
@@ -113,8 +107,8 @@ export default function Page() {
             <span className={styles.eyebrow}>Pricing</span>
             <h1 className={styles.title}>Plans with monthly credits.</h1>
             <p className={styles.lede}>
-              Every plan comes with monthly credits. You see the credit price for a job before it runs, along with the
-              square footage or acreage it covers. Your first month is refundable, no questions asked.
+              Every plan comes with monthly credits. You see the credit estimate for a job before it runs, and you are
+              charged what it actually uses, never more. Your first month is refundable, no questions asked.
             </p>
             <nav className={styles.jump} aria-label="On this page">
               <a href="#plans">Plans</a>
@@ -142,10 +136,6 @@ export default function Page() {
                       <span className={styles.num}>{v}</span>
                     </div>
                   ))}
-                  <div className={`${styles.row} ${styles.rowSplit}`}>
-                    <span>Site inventory</span>
-                    <span className={styles.num}>{p.site}</span>
-                  </div>
                 </div>
 
                 <div className={styles.box}>
@@ -209,14 +199,15 @@ export default function Page() {
             <section id="credits" className={styles.card}>
               <h2 className={styles.h2}>How credits work</h2>
               <p className={styles.sub}>
-                Credits depend on what you run and how big it is. We bill on real floor area, not the scan&apos;s
-                bounding box. The price shows up before the job starts.
+                Credits pay for the modelling work a job takes: more area and more detail mean more work. The estimate
+                shows before the job starts, it is held while the job runs, and you are charged what the job actually
+                used, never more than the estimate. A floor here means one storey of a house, a unit or an office floor.
               </p>
               <table className={styles.table}>
                 <thead>
                   <tr>
                     <th>What you run</th>
-                    <th>Credits</th>
+                    <th>Typical credits</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -235,7 +226,7 @@ export default function Page() {
 
             <section id="examples" className={styles.card}>
               <h2 className={styles.h2}>Example jobs</h2>
-              <p className={styles.sub}>What typical jobs cost in credits.</p>
+              <p className={styles.sub}>What typical jobs have cost in credits.</p>
               <table className={styles.table}>
                 <thead>
                   <tr>
