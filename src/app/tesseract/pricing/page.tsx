@@ -4,15 +4,15 @@ import Footer from '@/components/Footer/Footer'
 import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './pricing.module.css'
 
-const TITLE = 'Pricing'
+const TITLE = 'Tesseract pricing'
 const DESCRIPTION =
-  'Landex plans come with monthly credits. See the credit estimate for a job before it runs; you are charged what it uses, never more. Your first month is refundable.'
+  'Tesseract plans come with monthly credits. See the credit estimate for a job before it runs; you are charged what it uses, never more. Your first month is refundable.'
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: '/pricing' },
-  openGraph: { title: `${TITLE} | Landex Systems`, description: DESCRIPTION, url: '/pricing' },
+  alternates: { canonical: '/tesseract/pricing' },
+  openGraph: { title: `${TITLE} | Landex Systems`, description: DESCRIPTION, url: '/tesseract/pricing' },
 }
 
 type Plan = {
@@ -32,11 +32,10 @@ const PLANS: Plan[] = [
     credits: '1,000 credits · 1 seat',
     perCredit: '$0.50 per credit',
     checkout: 'https://buy.stripe.com/cNi00cbShdlE34f8irbjW02',
-    covers: [['Floors at LOD 200', 'about 16'], ['Floors at LOD 300', 'about 8'], ['Floors at LOD 300 + MEP', 'about 4']],
+    covers: [['Shell', '28,000 sq ft'], ['Shell + MEP', '10,000 sq ft']],
     month: [
-      { label: 'Office floors with MEP', hint: 'LOD 300 + MEP', value: 'about 4' },
-      { label: 'Houses', hint: 'two storeys, LOD 300', value: 'about 4' },
-      { label: 'Whole buildings', hint: 'five storeys, LOD 300', value: 'about 1' },
+      { label: 'Houses', hint: '2,400 sq ft, Shell', value: 'about 11' },
+      { label: 'Office floors', hint: '10,000 sq ft, Shell + MEP', value: 'about 1' },
     ],
   },
   {
@@ -45,20 +44,19 @@ const PLANS: Plan[] = [
     credits: '3,300 credits · 3 seats',
     perCredit: '$0.45 per credit',
     checkout: 'https://buy.stripe.com/fZueV609z95oeMX2Y7bjW03',
-    covers: [['Floors at LOD 200', 'about 50'], ['Floors at LOD 300', 'about 27'], ['Floors at LOD 300 + MEP', 'about 13']],
+    covers: [['Shell', '94,000 sq ft'], ['Shell + MEP', '33,000 sq ft']],
     month: [
-      { label: 'Office floors with MEP', hint: 'LOD 300 + MEP', value: 'about 13' },
-      { label: 'Houses', hint: 'two storeys, LOD 300', value: 'about 13' },
-      { label: 'Whole buildings', hint: 'five storeys, LOD 300', value: 'about 5' },
+      { label: 'Houses', hint: '2,400 sq ft, Shell', value: 'about 39' },
+      { label: 'Office floors', hint: '10,000 sq ft, Shell + MEP', value: 'about 3' },
     ],
   },
 ]
 
 const INCLUDED = [
-  'BIM models at LOD 200, LOD 300 and LOD 300 + MEP',
-  'IFC, floor plan (DXF + SVG) and quantities with every model',
-  'Sections and elevations at no extra credits',
-  "Questions about models we've built for you",
+  'BIM models at Shell, Shell + MEP and Civil + outdoor',
+  'An IFC model with every run, native walls in Revit',
+  'The model over your scan, in the browser',
+  'A price before every job',
   'Upload E57, LAS or LAZ',
   'Processed instantly, usually delivered in under 1 hour',
   'Email support',
@@ -66,18 +64,17 @@ const INCLUDED = [
 ]
 
 const RATES = [
-  { name: 'LOD 200', hint: 'Walls, floors, doors, windows at approximate size', credits: '50–70 per floor' },
-  { name: 'LOD 300', hint: 'Accurate sizes and positions, plus columns, beams, stairs, with a review pass', credits: '100–140 per floor' },
-  { name: 'LOD 300 + MEP', hint: 'Adds ducts, pipes, cable trays, equipment', credits: '200–300 per floor' },
-  { name: 'Questions', hint: "Ask anything about models we've built for you", credits: '1 per question' },
+  { name: 'Shell', hint: 'Walls, floors, ceilings, openings, stairs, columns, beams', credits: 'about 35 per 1,000 sq ft' },
+  { name: 'Shell + MEP', hint: 'Plus ducts, pipes, trays, conduit, lights, equipment', credits: 'about 100 per 1,000 sq ft' },
+  { name: 'Civil + outdoor', hint: 'Bridges, piers, decks, barriers, gantries, site structures', credits: 'quoted per job' },
 ]
 
 const EXAMPLES: [string, string][] = [
-  ['Condo unit, LOD 300', '100–140'],
-  ['Two-storey house, LOD 300', '200–280'],
-  ['Office floor, LOD 300 + MEP', '200–300'],
-  ['Five-storey building, LOD 300', '500–700'],
-  ['Same building, LOD 200', '250–350'],
+  ['Condo unit, 1,200 sq ft, Shell', 'about 40'],
+  ['Two-storey house, 2,400 sq ft, Shell', 'about 85'],
+  ['Office floor, 10,000 sq ft, Shell', 'about 350'],
+  ['Same floor, Shell + MEP', 'about 1,000'],
+  ['Five-storey building, 50,000 sq ft, Shell', 'about 1,750'],
 ]
 
 const TERMS = [
@@ -104,8 +101,10 @@ export default function Page() {
       <main className={styles.main}>
         <div className={styles.container}>
           <header className={styles.head}>
-            <span className={styles.eyebrow}>Pricing</span>
-            <h1 className={styles.title}>Plans with monthly credits.</h1>
+            <span className={styles.eyebrow}>
+              <a href="/tesseract" className={styles.eyebrowLink}>Tesseract</a> &middot; Pricing
+            </span>
+            <h1 className={styles.title}>Tesseract plans, with monthly credits.</h1>
             <p className={styles.lede}>
               Every plan comes with monthly credits. You see the credit estimate for a job before it runs, and you are
               charged what it actually uses, never more. Your first month is refundable, no questions asked.
@@ -201,7 +200,7 @@ export default function Page() {
               <p className={styles.sub}>
                 Credits pay for the modelling work a job takes: more area and more detail mean more work. The estimate
                 shows before the job starts, it is held while the job runs, and you are charged what the job actually
-                used, never more than the estimate. A floor here means one storey of a house, a unit or an office floor.
+                used, never more than the estimate. The rates below are typical; your quote is the number that counts.
               </p>
               <table className={styles.table}>
                 <thead>

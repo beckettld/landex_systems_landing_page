@@ -45,6 +45,7 @@
 }
 
 .card {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -141,6 +142,24 @@
   height: 14px;
   transition: transform 0.2s;
 }
+
+.cover { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+
+.product {
+  position: relative;
+  z-index: 2;
+  align-self: flex-start;
+  margin-top: 12px;
+  font-family: var(--font);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(93, 153, 128, 0.4);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.product:hover { color: var(--green-bright); border-bottom-color: var(--green-bright); }
 
 .card:hover .host { color: #7fb8a0; }
 .card:hover .host svg { transform: translate(2px, -2px); }

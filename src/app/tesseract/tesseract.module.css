@@ -1,0 +1,280 @@
+.main {
+  padding: 150px 0 120px;
+  background: var(--dark);
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* hero */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 96px;
+}
+
+.heroText { min-width: 0; }
+
+.eyebrow,
+.label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+}
+
+.eyebrow { margin-bottom: 18px; }
+
+.name {
+  font-family: var(--font);
+  font-size: clamp(3.2rem, 6.6vw, 5.6rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  margin-bottom: 18px;
+}
+
+/* The gradient sits on the span itself: background-clip on an ancestor breaks
+   once a descendant is transformed. */
+.wordmark {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  font-family: var(--font);
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.lede {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 620px;
+}
+
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 32px; }
+
+.primary {
+  display: inline-block;
+  padding: 13px 22px;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--green);
+  border: 1px solid var(--green);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.primary:hover { background: var(--green-bright); border-color: var(--green-bright); }
+
+.secondary {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.secondary:hover { color: var(--text); border-bottom-color: var(--green-bright); }
+
+/* sections */
+
+.section { margin-bottom: 88px; }
+
+.sectionHead { margin-bottom: 28px; }
+
+.h2 {
+  font-family: var(--font);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text);
+  margin-top: 12px;
+}
+
+.note {
+  margin-top: 16px;
+  font-size: 0.84rem;
+  font-weight: 300;
+  color: var(--text-dim);
+}
+
+.note a,
+.parentLinks a {
+  color: var(--green-bright);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(93, 153, 128, 0.4);
+}
+
+.note a:hover,
+.parentLinks a:hover { border-bottom-color: var(--green-bright); }
+
+/* levels of detail */
+
+.lods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.lod {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px 24px;
+  background: #0f0f11;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.lod:hover { background: var(--surface-raised); border-color: rgba(93, 153, 128, 0.55); }
+
+.lodName {
+  font-family: var(--font);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.lodBody {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.lodCredits {
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+/* what comes back */
+
+.returns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.ret { padding: 26px 24px 28px; background: #0f0f11; }
+
+.retTitle {
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.retBody { font-size: 0.88rem; font-weight: 300; line-height: 1.6; color: var(--text-secondary); }
+
+/* how it works */
+
+.steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.step { border-top: 1px solid var(--rule); padding-top: 18px; }
+
+.stepNum {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--green-bright);
+  margin-bottom: 12px;
+}
+
+.stepTitle { font-family: var(--font); font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+
+.stepBody { font-size: 0.88rem; font-weight: 300; line-height: 1.6; color: var(--text-secondary); }
+
+/* live example */
+
+.live {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 26px;
+  margin-bottom: 88px;
+  background: #0f0f11;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.live:hover { border-color: rgba(93, 153, 128, 0.55); background: var(--surface-raised); }
+
+.liveLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 6px;
+}
+
+.liveTitle { font-family: var(--font); font-size: 1.05rem; font-weight: 600; color: var(--text); }
+
+.liveHost { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap; }
+
+/* parent brand */
+
+.parent { border-top: 1px solid var(--rule); padding-top: 32px; max-width: 720px; }
+
+.parentBody {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.parentLinks { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 18px; font-size: 0.9rem; }
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; }
+  .lods { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .main { padding: 120px 0 80px; }
+  .container { padding: 0 16px; }
+  .hero { margin-bottom: 64px; }
+  .section, .live { margin-bottom: 64px; }
+  .returns, .steps { grid-template-columns: 1fr; }
+  .live { flex-direction: column; align-items: flex-start; }
+}

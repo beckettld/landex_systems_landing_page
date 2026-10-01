@@ -1,15 +1,19 @@
 "use client";
 
-import { CONTACT_EMAIL, type ContactTopic } from '@/lib/contact'
+import { TEAM_ADDRESS_LABEL, type ContactTo, type ContactTopic } from '@/lib/contact'
 import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Footer.module.css'
 
 const nav = [
   { href: '/#examples', label: 'Live examples' },
-  { href: '/#outcomes', label: 'What you get' },
-  { href: '/#system', label: 'How it works' },
-  { href: '/#api', label: 'API' },
+  { href: '/#products', label: 'Products' },
   { href: '/#team', label: 'Team' },
+]
+
+// Named products. Tesseract is the first; the company story stays on the home page.
+const products = [
+  { href: '/tesseract', label: 'Tesseract', hint: 'Scan to BIM' },
+  { href: '/tesseract/pricing', label: 'Tesseract pricing', hint: 'Plans and credits' },
 ]
 
 // Public showcases, each a real scan with its outputs. The section after the
@@ -20,15 +24,16 @@ const demos = [
   { href: 'https://geospatial.landexsystems.com', label: 'geospatial.landexsystems.com', hint: 'Drone survey inventory' },
 ]
 
-// One door: Allen's inbox.
-const contact: { topic: ContactTopic; label: string }[] = [
+// One door: Allen's inbox for the asks. The team line mails all three,
+// since that is what it says; the address is assembled on click, not printed.
+const contact: { topic: ContactTopic; to?: ContactTo; label: string }[] = [
   { topic: 'scan', label: 'Send us a scan' },
-  { topic: 'call', label: CONTACT_EMAIL },
+  { topic: 'hello', to: 'team', label: TEAM_ADDRESS_LABEL },
 ]
 
 function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer id="contact" className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.brand}>
@@ -47,6 +52,15 @@ function Footer() {
               ))}
             </div>
             <div className={styles.col}>
+              <span className={styles.colLabel}>Products</span>
+              {products.map((l) => (
+                <a key={l.label} href={l.href} className={styles.link}>
+                  {l.label}
+                  <span className={styles.hint}>{l.hint}</span>
+                </a>
+              ))}
+            </div>
+            <div className={styles.col}>
               <span className={styles.colLabel}>Live examples</span>
               {demos.map((l) => (
                 <a key={l.label} href={l.href} className={styles.link} target="_blank" rel="noopener">
@@ -58,7 +72,7 @@ function Footer() {
             <div className={styles.col}>
               <span className={styles.colLabel}>Contact</span>
               {contact.map((l) => (
-                <EmailLink key={l.label} topic={l.topic} className={styles.link}>{l.label}</EmailLink>
+                <EmailLink key={l.label} topic={l.topic} to={l.to} className={styles.link}>{l.label}</EmailLink>
               ))}
             </div>
           </div>

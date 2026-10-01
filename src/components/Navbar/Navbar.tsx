@@ -7,9 +7,7 @@ import styles from './Navbar.module.css'
 
 const links = [
   { id: 'examples', label: 'Live examples' },
-  { id: 'outcomes', label: 'What you get' },
-  { id: 'system', label: 'How it works' },
-  { id: 'api', label: 'API' },
+  { id: 'products', label: 'Products' },
   { id: 'team', label: 'Team' },
 ]
 
@@ -97,7 +95,8 @@ function Navbar() {
               {l.label}
             </button>
           ))}
-          <a href="/pricing" className={styles.link}>Pricing</a>
+          <a href="/tesseract" className={styles.link}>Tesseract</a>
+          <a href="/tesseract/pricing" className={styles.link}>Pricing</a>
         </div>
       </div>
       <EmailLink className={styles.cta} topic="scan">

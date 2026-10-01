@@ -6,7 +6,8 @@ const ORIGIN = 'https://www.landexsystems.com'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${ORIGIN}/`, lastModified: new Date('2026-09-21'), changeFrequency: 'weekly', priority: 1 },
-    { url: `${ORIGIN}/pricing`, lastModified: new Date('2026-09-25'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${ORIGIN}/tesseract`, lastModified: new Date('2026-10-01'), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${ORIGIN}/tesseract/pricing`, lastModified: new Date('2026-10-01'), changeFrequency: 'monthly', priority: 0.8 },
     ...PAGES.map((p) => ({
       url: `${ORIGIN}${p.href}`,
       lastModified: new Date(p.updated),

@@ -1,0 +1,117 @@
+.stage {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  background:
+    radial-gradient(ellipse at 50% 55%, rgba(93, 153, 128, 0.1), transparent 65%),
+    #0d0d0f;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.canvas:active { cursor: grabbing; }
+.ready { opacity: 1; }
+
+.switch {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  padding: 3px;
+  background: rgba(10, 10, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 7px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.switchBtn {
+  padding: 6px 13px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  background: none;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.switchBtn:hover { color: var(--text); }
+.on { color: #fff; background: var(--green); }
+.on:hover { color: #fff; }
+
+.foot {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+.caption a { color: var(--text-secondary); text-decoration: none; pointer-events: auto; }
+.caption a:hover { color: var(--text); }
+
+.scenes { display: flex; gap: 6px; pointer-events: auto; }
+
+.sceneBtn {
+  position: relative;
+  overflow: hidden;
+  padding: 6px 11px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  background: rgba(10, 10, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.sceneBtn:hover { color: var(--text); }
+.sceneOn { color: var(--text); border-color: rgba(93, 153, 128, 0.6); }
+
+/* how long until the next scene, while it cycles on its own */
+.progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--green-bright);
+  transform-origin: left;
+  animation: fill linear forwards;
+}
+
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (max-width: 520px) {
+  .scenes { width: 100%; justify-content: space-between; }
+}
+
+@media (max-width: 768px) {
+  .stage { aspect-ratio: 1 / 1; }
+}

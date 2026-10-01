@@ -6,8 +6,18 @@ import StaggerContainer, { staggerItem } from '@/components/StaggerContainer'
 import styles from './Examples.module.css'
 
 // Three public showcases, each a real scan with what came back. They open in
-// a new tab; this is the one place on the page that is not the inbox.
-const examples = [
+// a new tab; this is the one place on the page that is not the inbox. A card
+// whose work is sold as a named product also links to that product's page.
+const examples: {
+  href: string
+  host: string
+  kind: string
+  title: string
+  src: string
+  alt: string
+  body: string
+  product?: { href: string; label: string }
+}[] = [
   {
     href: 'https://demo.landexsystems.com',
     host: 'demo.landexsystems.com',
@@ -21,6 +31,7 @@ const examples = [
     href: 'https://bim.landexsystems.com',
     host: 'bim.landexsystems.com',
     kind: 'Scan to BIM',
+    product: { href: '/tesseract', label: 'Tesseract' },
     title: 'A building shell as a model.',
     src: '/examples/bim.jpg',
     alt: 'The BIM showcase: a concrete building shell point cloud with generated slabs, walls, beams and trays drawn over it',
@@ -49,14 +60,9 @@ function Examples() {
         </AnimateIn>
         <StaggerContainer className={styles.grid} stagger={0.08}>
           {examples.map((ex) => (
-            <motion.a
-              key={ex.host}
-              href={ex.href}
-              target="_blank"
-              rel="noopener"
-              className={styles.card}
-              variants={staggerItem}
-            >
+            <motion.div key={ex.host} className={styles.card} variants={staggerItem}>
+              {/* the whole card opens the example; the product link sits above it */}
+              <a className={styles.cover} href={ex.href} target="_blank" rel="noopener" aria-label={`${ex.title} ${ex.host}`} />
               <span className={styles.thumb}>
                 <img src={ex.src} alt={ex.alt} loading="lazy" />
               </span>
@@ -70,8 +76,13 @@ function Examples() {
                   <path d="M7 17L17 7M9 7h8v8" />
                 </svg>
               </span>
+              {ex.product && (
+                <a className={styles.product} href={ex.product.href}>
+                  Built with {ex.product.label} &rarr;
+                </a>
+              )}
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </StaggerContainer>
       </div>

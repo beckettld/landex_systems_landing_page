@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Article
-      eyebrow="Scan to BIM"
+      eyebrow="Scan to BIM · Tesseract"
       title="A laser scan, returned as a BIM model."
       lede="Send a raw point cloud of a building. Get back an IFC model where every slab, wall, column and beam was measured from the scan, with the drawings and schedules that go with it. Nobody traces a wall."
       href="/scan-to-bim"
@@ -32,6 +32,11 @@ export default function Page() {
       <h2>The example</h2>
       <p>
         The live example is a scan of a concrete shell under construction: about a million points, no drawings, no labels, lifts and stacked material still sitting inside. From that scan alone the system produced 109 elements. The lifts and stock were left out on purpose, as temporary. Every element records the share of its surface the scanner actually captured, so an occluded column reads differently from a fully seen one.
+      </p>
+
+      <h2>Tesseract</h2>
+      <p>
+        Scan to BIM at Landex is a product called <a href="/tesseract">Tesseract</a>: upload a scan, pick Shell or Shell + MEP, see the price, get the model. <a href="/tesseract/pricing">Plans and credits</a>.
       </p>
 
       <h2>Where it fits</h2>
