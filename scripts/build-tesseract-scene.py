@@ -9,6 +9,9 @@ Scenes (all ours, all already public elsewhere):
           brienenoord_span and the 233-element model from astra_eval/runs/bridge_v1, same local frame
   shell   the Rohbau3D 07000 shell under construction, bim.landexsystems.com/shell
           (bim_site/data/rohbau_07000; scan CC BY 4.0, credited on the page)
+  tower   a lattice steel transmission tower, bim.landexsystems.com/tower (bim_site/data/tower, built by
+          bim_site/build_tower.py: angle members as L sections, wires, fittings; scan GridNet-HD (HEIG-VD),
+          CC BY 4.0, credited on the page)
 
 Everything is drawn in its real look, the bim site's palette (plaster, concrete, glass, steel, lit
 fittings), each element blended with the colour of the scan points it sits on, so the model reads as the
@@ -20,12 +23,13 @@ Output, one folder per scene (public/tesseract-scene/<id>/):
   manifest.json  count, lo/hi (already centred), point size, camera distance
   model.json     {groups: [{kind: solid|glass|light, p: [xyz...], i: [tri...], c: [rgb per vertex...]}]}
 
-Regenerate: python3 scripts/build-tesseract-scene.py
+Regenerate: python3 scripts/build-tesseract-scene.py [scene ...]   (no names = all scenes)
 """
 
 import json
 import math
 import os
+import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -236,7 +240,7 @@ class Model:
             I.extend(x + base for x in t)
 
 
-def write_scene(sid, xyz, rgb, centre, model, point_size, dist):
+def write_scene(sid, xyz, rgb, centre, model, point_size, dist, decimals=2):
     rng = np.random.default_rng(SEED)
     if len(xyz) > MAX_POINTS:
         keep = np.sort(rng.choice(len(xyz), MAX_POINTS, replace=False))
@@ -252,7 +256,7 @@ def write_scene(sid, xyz, rgb, centre, model, point_size, dist):
     groups = []
     for kind, (P, I, C) in model.groups.items():
         if I:
-            p = (np.asarray(P).reshape(-1, 3) - centre).round(2).ravel().tolist()
+            p = (np.asarray(P).reshape(-1, 3) - centre).round(decimals).ravel().tolist()
             groups.append({"kind": kind, "p": p, "i": I, "c": C})
     json.dump({"groups": groups}, open(os.path.join(out, "model.json"), "w"), separators=(",", ":"))
     json.dump(
@@ -382,10 +386,31 @@ def bridge_scene():
     write_scene("bridge", xyz, rgb, centre, model, 0.55, 430)
 
 
+TOWER_STYLE = {
+    "Leg": STYLE["Metal"], "Bracing": STYLE["Metal"], "Crossarm": STYLE["Metal"],
+    "Conductor": STYLE["Conduit"], "Jumper": STYLE["Conduit"], "Earth wire": STYLE["Conduit"],
+    "Insulator string": (0xD8D2C4, 1, False), "Clamp / fitting": (0x8E9298, 1, False),
+    "Aviation marker": (0xE0533A, 1, False), "Foundation": STYLE["Concrete"],
+}
+
+
+def tower_scene():
+    """The bim site's tower: every element is already triangulated in bim_site/data/tower/model.json."""
+    xyz, rgb = bim_site_cloud("tower", set())
+    model = Model(ColourField(xyz, rgb, 0.25))
+    for e in json.load(open(os.path.join(BIM_SITE, "tower", "model.json")))["els"]:
+        part = Part().add(np.asarray(e["p"]).reshape(-1, 3), np.asarray(e["i"]).reshape(-1, 3).tolist())
+        model.put(part, TOWER_STYLE.get(e["cls"], STYLE["Equipment"]))
+    # centre a little below mid-height so the ground sits clear of the caption
+    write_scene("tower", xyz, rgb, plan_centre(xyz) - [0, 0, 6.0], model, 0.045, 105, decimals=3)  # steel angles are thinner than 1 cm
+
+
+SCENES = {"office": office_scene, "bridge": bridge_scene, "shell": shell_scene, "tower": tower_scene}
+
+
 def main():
-    office_scene()
-    bridge_scene()
-    shell_scene()
+    for name in sys.argv[1:] or SCENES:
+        SCENES[name]()
 
 
 if __name__ == "__main__":

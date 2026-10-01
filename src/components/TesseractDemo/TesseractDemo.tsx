@@ -21,6 +21,12 @@ const SCENES: { id: string; label: string; caption: string; credit?: { text: str
     caption: 'Concrete shell under construction · 109 elements',
     credit: { text: 'Scan: Rohbau3D', href: 'https://github.com/RauchLukas/rohbau3d' },
   },
+  {
+    id: 'tower',
+    label: 'Tower',
+    caption: 'Lattice steel tower with wires and fittings · 557 elements',
+    credit: { text: 'Point cloud: GridNet-HD (HEIG-VD), CC BY 4.0', href: 'https://huggingface.co/datasets/heig-vd-geo/GridNet-HD' },
+  },
 ]
 
 const VIEWS: { key: TesseractView; label: string }[] = [

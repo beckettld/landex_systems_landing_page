@@ -36,7 +36,7 @@ const LEVELS = [
   },
   {
     name: 'Civil + outdoor',
-    body: 'Bridges, piers, decks, parapets and barriers, gantries, lighting and site structures, from terrestrial, mobile or aerial scans.',
+    body: 'Bridges, piers, decks, parapets and barriers, gantries, lighting, transmission towers with their wires and fittings, and site structures, from terrestrial, mobile or aerial scans.',
     credits: 'quoted per job',
   },
 ]
