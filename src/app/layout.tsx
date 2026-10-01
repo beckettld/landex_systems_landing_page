@@ -24,7 +24,6 @@ const ORG_JSON_LD = {
       logo: { "@type": "ImageObject", url: `${ORIGIN}/assets/logo.png` },
       image: `${ORIGIN}/og.jpg`,
       description: DESCRIPTION,
-      email: "allen@landexsystems.com",
       sameAs: [
         "https://www.linkedin.com/company/landex-systems",
         "https://github.com/Landex-Systems",

@@ -2,7 +2,6 @@
 
 import AnimateIn from '@/components/AnimateIn'
 import PointField from '@/components/PointField/PointField'
-import { CONTACT_EMAIL } from '@/lib/contact'
 import EmailLink from '@/components/EmailLink/EmailLink'
 import styles from './Pricing.module.css'
 
@@ -29,7 +28,7 @@ function Pricing() {
               </svg>
             </EmailLink>
             <p className={styles.orEmail}>
-              That goes to <EmailLink topic="scan">{CONTACT_EMAIL}</EmailLink>. Attach the file or a link to it.
+              That opens an email to Allen. Attach the file or a link to it.
             </p>
             <p className={styles.paths}>
               Once you have seen it, you get the platform: upload your own scans and have answers in about 20 minutes, no one in the loop.

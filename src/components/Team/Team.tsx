@@ -3,26 +3,28 @@
 import { motion } from 'framer-motion'
 import AnimateIn from '@/components/AnimateIn'
 import StaggerContainer, { staggerItem } from '@/components/StaggerContainer'
+import EmailLink from '@/components/EmailLink/EmailLink'
+import { TEAM_ADDRESS_LABEL, type ContactUser } from '@/lib/contact'
 import styles from './Team.module.css'
 
-const team = [
+const team: { name: string; role: string; photo: string; user: ContactUser }[] = [
   {
     name: 'Allen Chen',
     role: 'Co-founder',
     photo: '/assets/team/allen.png',
-    email: 'allen@landexsystems.com',
+    user: 'allen',
   },
   {
     name: 'Auddithio Nag',
     role: 'Co-founder',
     photo: '/assets/team/auddi.png',
-    email: 'auddi@landexsystems.com',
+    user: 'auddi',
   },
   {
     name: 'Beckett Devoe',
     role: 'Co-founder',
     photo: '/assets/team/beckett.png',
-    email: 'beckett@landexsystems.com',
+    user: 'beckett',
   },
 ]
 
@@ -53,12 +55,17 @@ function Team() {
               </div>
               <h3 className={styles.cardName}>{person.name}</h3>
               <span className={styles.cardRole}>{person.role}</span>
-              <a className={styles.cardEmail} href={`mailto:${person.email}`}>
-                {person.email}
-              </a>
+              <EmailLink className={styles.cardEmail} topic="hello" to={person.user}>
+                Email {person.name.split(' ')[0]}
+              </EmailLink>
             </motion.div>
           ))}
         </StaggerContainer>
+        <AnimateIn delay={0.1}>
+          <p className={styles.reach}>
+            Reach any of us at <span className={styles.reachAddress}>{TEAM_ADDRESS_LABEL}</span>
+          </p>
+        </AnimateIn>
       </div>
     </section>
   )

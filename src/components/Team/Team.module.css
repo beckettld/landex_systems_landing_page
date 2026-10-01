@@ -172,6 +172,21 @@
   color: var(--green-bright);
 }
 
+.reach {
+  margin: 40px 0 0;
+  text-align: center;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.reachAddress {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.85rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
 }

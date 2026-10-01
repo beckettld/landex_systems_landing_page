@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
 import EmailLink from '@/components/EmailLink/EmailLink'
-import { CONTACT_EMAIL } from '@/lib/contact'
 import { PAGES } from '@/lib/pages'
 import styles from './Article.module.css'
 
@@ -51,7 +50,7 @@ export default function Article({ eyebrow, title, lede, href, live, children }: 
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </EmailLink>
-            <p className={styles.ctaNote}>That goes to {CONTACT_EMAIL}. Attach the file or a link to it.</p>
+            <p className={styles.ctaNote}>That opens an email to Allen. Attach the file or a link to it.</p>
           </div>
 
           <nav className={styles.more} aria-label="More from Landex">
