@@ -2,21 +2,18 @@
 """
 Build the model-over-scan scenes the /tesseract page cycles through.
 
-Scenes (all ours, all already public elsewhere):
-  office  the keel office full floor, bim.landexsystems.com/office (bim_site/data/office): the detailed
-          "real look" parts in elements.json (walls cut at doors and glazing, frames, glass, leaves, lights)
-  bridge  the Van Brienenoord main span: open AHN5 aerial LiDAR (CC0) cropped in astra_eval/inputs/
-          brienenoord_span and the 233-element model from astra_eval/runs/bridge_v1, same local frame
-  shell   the Rohbau3D 07000 shell under construction, bim.landexsystems.com/shell
-          (bim_site/data/rohbau_07000; scan CC BY 4.0, credited on the page)
-  tower   a lattice steel transmission tower, bim.landexsystems.com/tower (bim_site/data/tower, built by
-          bim_site/build_tower.py: angle members as L sections, wires, fittings; scan GridNet-HD (HEIG-VD),
-          CC BY 4.0, credited on the page)
+Scenes = the five examples on bim.landexsystems.com (scans open data, credited on the page):
+  house         brick cottage, native Revit model; elements keep their Revit material colours
+  plant-room    plant room pipework, equipment, support steel (walls, soffit, floor and the scanned ceiling left out)
+  timber-frame  timber-frame hall, as-built structure
+  tower         lattice steel transmission tower with wires and fittings
+  bridge        the Van Brienenoord main span: open AHN5 aerial LiDAR (CC0) cropped in astra_eval/inputs/
+                brienenoord_span and the 233-element model from astra_eval/runs/bridge_v1, same local frame
+The first four read bim_site/data/<slug>/ (already triangulated per element by its build_<x>.py).
 
 Everything is drawn in its real look, the bim site's palette (plaster, concrete, glass, steel, lit
 fittings), each element blended with the colour of the scan points it sits on, so the model reads as the
-building rather than as a class map. Points ship in true colour. Floors and ceilings of the office and
-ceilings of the shell are left out so the orbiting camera looks into the building.
+building rather than as a class map. Points ship in true colour.
 
 Output, one folder per scene (public/tesseract-scene/<id>/):
   cloud.bin      headerless little-endian uint16 q[3N] (quantised to lo/hi), then uint8 rgb[3N]
@@ -289,46 +286,6 @@ def plan_centre(xyz):
 
 # --- the scenes ---------------------------------------------------------------------------------
 
-def office_scene():
-    """The detailed parts the bim site's office page draws in its real look; no floor, no ceilings."""
-    xyz, rgb = bim_site_cloud("office", {"ceiling"})
-    els = json.load(open(os.path.join(BIM_SITE, "office", "elements.json")))
-    model = Model(None)  # every part already carries its measured scan colour (rgb)
-    for e in els:
-        if e["grp"] in ("Floor", "Ceiling"):
-            continue
-        part = Part()
-        if e.get("sweep") and len(e["sweep"].get("p") or []) >= 2:
-            s = e["sweep"]
-            part.sweep(s["p"], s["w"], s["h"], 12 if s.get("shape") == "circle" else 4)
-        elif e.get("polygon") and len(e["polygon"]) >= 3:
-            z0 = e["z0"]
-            z1 = e.get("z1") if e.get("z1") is not None else z0 + 0.05
-            part.prism([(x, y, z0) for x, y in e["polygon"]], [(x, y, z1) for x, y in e["polygon"]])
-        elif e.get("center") and e.get("size"):
-            part.box(e["center"], e["size"], e.get("yaw_deg") or 0, e.get("pitch_deg") or 0)
-        model.put(part, style_of(e["cls"], e.get("sub")), e.get("rgb"))
-    write_scene("office", xyz, rgb, plan_centre(xyz), model, 0.05, 46)
-
-
-SHELL_STYLE = {
-    "Slab": "Slab", "Wall": "Wall", "Column": "Column", "Beam": "Beam", "Cable tray": "Metal",
-    "Conduit": "Conduit", "Facade": "Metal", "Channel": "Metal", "Window opening": "Window",
-}
-
-
-def shell_scene():
-    """Element boxes; door openings are left as the holes they are."""
-    xyz, rgb = bim_site_cloud("rohbau_07000", {"ceiling"})
-    model = Model(ColourField(xyz, rgb, 0.25))
-    for b in json.load(open(os.path.join(BIM_SITE, "rohbau_07000", "model.json")))["boxes"]:
-        name = SHELL_STYLE.get(b["cls"])
-        if name is None or (b["cls"] == "Slab" and (b.get("ceiling") or b["c"][2] > 2)):  # the soffit is the ceiling
-            continue
-        model.put(Part().box(b["c"], b["s"], b["yaw"]), STYLE[name])
-    write_scene("shell", xyz, rgb, plan_centre(xyz), model, 0.07, 62)
-
-
 def bridge_style(e):
     t, s = (e.get("type") or "").lower(), (e.get("subtype") or "").lower()
     if t in ("pier", "pier_cap", "abutment", "wing_wall", "footing", "fender", "superstructure_surface", "kerb", "reserve"):
@@ -392,20 +349,45 @@ TOWER_STYLE = {
     "Insulator string": (0xD8D2C4, 1, False), "Clamp / fitting": (0x8E9298, 1, False),
     "Aviation marker": (0xE0533A, 1, False), "Foundation": STYLE["Concrete"],
 }
+TIMBER = (0xC9A27A, 1, True)
+TIMBER_STYLE = {
+    "Column": TIMBER, "Girder": TIMBER, "Beam": TIMBER, "Purlin": TIMBER, "Post": TIMBER, "Brace": TIMBER,
+    "Sill / header": TIMBER, "Deck": TIMBER, "Slab": STYLE["Concrete"], "Foundation": STYLE["Concrete"], "Wall": STYLE["Wall"],
+}
+PLANT_STYLE = {
+    "Pipe": STYLE["Pipe"], "Fitting": STYLE["Pipe"], "Valve": (0xC0392B, 1, False), "Equipment": STYLE["Equipment"],
+    "Support steel": (0x8D9298, 1, False), "Electrical": STYLE["Panel"], "Wall": STYLE["Wall"], "Plinth": STYLE["Concrete"],
+}
 
 
-def tower_scene():
-    """The bim site's tower: every element is already triangulated in bim_site/data/tower/model.json."""
-    xyz, rgb = bim_site_cloud("tower", set())
-    model = Model(ColourField(xyz, rgb, 0.25))
-    for e in json.load(open(os.path.join(BIM_SITE, "tower", "model.json")))["els"]:
+def bim_site_scene(slug, styles, skip, centre_dz, point_size, dist, revit_colours=False, clip_z=None, decimals=3):
+    """A bim.landexsystems.com example: every element is already triangulated in bim_site/data/<slug>/model.json.
+    `skip` classes are left out so the orbiting camera looks in, `clip_z` lifts the ceiling off the points;
+    `revit_colours` keeps each element's own material colour."""
+    xyz, rgb = bim_site_cloud(slug, set())
+    if clip_z is not None:
+        xyz, rgb = xyz[xyz[:, 2] < clip_z], rgb[xyz[:, 2] < clip_z]
+    model = Model(ColourField(xyz, rgb, 0.1 if dist < 60 else 0.25))
+    for e in json.load(open(os.path.join(BIM_SITE, slug, "model.json")))["els"]:
+        if e["cls"] in skip:
+            continue
         part = Part().add(np.asarray(e["p"]).reshape(-1, 3), np.asarray(e["i"]).reshape(-1, 3).tolist())
-        model.put(part, TOWER_STYLE.get(e["cls"], STYLE["Equipment"]))
+        if revit_colours and e.get("c"):
+            style = (int(e["c"][1:], 16), 0.35 if e["cls"] == "Window" else 1, False)
+        else:
+            style = styles.get(e["cls"], STYLE["Equipment"])
+        model.put(part, style)
+    write_scene(slug, xyz, rgb, plan_centre(xyz) + [0, 0, centre_dz], model, point_size, dist, decimals)
+
+
+SCENES = {
+    "house": lambda: bim_site_scene("house", {}, {"Ceiling"}, -0.6, 0.02, 19, revit_colours=True),
+    "plant-room": lambda: bim_site_scene("plant-room", PLANT_STYLE, {"Soffit", "Floor", "Wall"}, -0.4, 0.012, 12.5, clip_z=2.75),
+    "timber-frame": lambda: bim_site_scene("timber-frame", TIMBER_STYLE, set(), 0, 0.05, 48),
     # centre a little below mid-height so the ground sits clear of the caption
-    write_scene("tower", xyz, rgb, plan_centre(xyz) - [0, 0, 6.0], model, 0.045, 105, decimals=3)  # steel angles are thinner than 1 cm
-
-
-SCENES = {"office": office_scene, "bridge": bridge_scene, "shell": shell_scene, "tower": tower_scene}
+    "tower": lambda: bim_site_scene("tower", TOWER_STYLE, set(), -6.0, 0.045, 105),  # steel angles are thinner than 1 cm
+    "bridge": bridge_scene,
+}
 
 
 def main():

@@ -13,20 +13,31 @@ import styles from './TesseractDemo.module.css'
 const TesseractViewer = dynamic(() => import('@/components/TesseractViewer/TesseractViewer'), { ssr: false })
 
 const SCENES: { id: string; label: string; caption: string; credit?: { text: string; href: string } }[] = [
-  { id: 'office', label: 'Office floor', caption: 'Fitted-out office floor · 283 elements' },
-  { id: 'bridge', label: 'Bridge', caption: 'Tied-arch motorway bridge · 233 elements' },
   {
-    id: 'shell',
-    label: 'Building shell',
-    caption: 'Concrete shell under construction · 109 elements',
-    credit: { text: 'Scan: Rohbau3D', href: 'https://github.com/RauchLukas/rohbau3d' },
+    id: 'house',
+    label: 'House',
+    caption: 'Brick cottage in Revit · 129 elements',
+    credit: { text: 'Scan: UVA Library, CC0', href: 'https://doi.org/10.18130/V3/Q1GH69' },
+  },
+  {
+    id: 'plant-room',
+    label: 'Plant room',
+    caption: 'Plant room pipework · 130 elements',
+    credit: { text: 'Scan: Mendeley Data, CC BY 4.0', href: 'https://data.mendeley.com/datasets/vfz5pz4n8k' },
+  },
+  {
+    id: 'timber-frame',
+    label: 'Timber frame',
+    caption: 'Timber-frame hall · 184 elements',
+    credit: { text: 'Scan: DaRUS Stuttgart, CC BY 4.0', href: 'https://doi.org/10.18419/darus-3304' },
   },
   {
     id: 'tower',
     label: 'Tower',
-    caption: 'Lattice steel tower with wires and fittings · 557 elements',
-    credit: { text: 'Point cloud: GridNet-HD (HEIG-VD), CC BY 4.0', href: 'https://huggingface.co/datasets/heig-vd-geo/GridNet-HD' },
+    caption: 'Lattice steel tower · 557 elements',
+    credit: { text: 'Scan: GridNet-HD, CC BY 4.0', href: 'https://huggingface.co/datasets/heig-vd-geo/GridNet-HD' },
   },
+  { id: 'bridge', label: 'Bridge', caption: 'Tied-arch motorway bridge · 233 elements' },
 ]
 
 const VIEWS: { key: TesseractView; label: string }[] = [
