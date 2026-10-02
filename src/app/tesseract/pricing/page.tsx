@@ -32,10 +32,10 @@ const PLANS: Plan[] = [
     credits: '1,000 credits · 1 seat',
     perCredit: '$0.50 per credit',
     checkout: 'https://buy.stripe.com/cNi00cbShdlE34f8irbjW02',
-    covers: [['Shell', '28,000 sq ft'], ['Shell + MEP', '10,000 sq ft']],
+    covers: [['Shell', '40,000 sq ft'], ['Shell + MEP', '18,000 sq ft']],
     month: [
-      { label: 'Houses', hint: '2,400 sq ft, Shell', value: 'about 11' },
-      { label: 'Office floors', hint: '10,000 sq ft, Shell + MEP', value: 'about 1' },
+      { label: 'Houses', hint: '2,400 sq ft, Shell', value: 'about 10' },
+      { label: 'Office floors', hint: '10,000 sq ft, Shell + MEP', value: 'about 2' },
     ],
   },
   {
@@ -44,10 +44,10 @@ const PLANS: Plan[] = [
     credits: '3,300 credits · 3 seats',
     perCredit: '$0.45 per credit',
     checkout: 'https://buy.stripe.com/fZueV609z95oeMX2Y7bjW03',
-    covers: [['Shell', '94,000 sq ft'], ['Shell + MEP', '33,000 sq ft']],
+    covers: [['Shell', '130,000 sq ft'], ['Shell + MEP', '60,000 sq ft']],
     month: [
-      { label: 'Houses', hint: '2,400 sq ft, Shell', value: 'about 39' },
-      { label: 'Office floors', hint: '10,000 sq ft, Shell + MEP', value: 'about 3' },
+      { label: 'Houses', hint: '2,400 sq ft, Shell', value: 'about 33' },
+      { label: 'Office floors', hint: '10,000 sq ft, Shell + MEP', value: 'about 6' },
     ],
   },
 ]
@@ -64,17 +64,26 @@ const INCLUDED = [
 ]
 
 const RATES = [
-  { name: 'Shell', hint: 'Walls, floors, ceilings, openings, stairs, columns, beams', credits: 'about 35 per 1,000 sq ft' },
-  { name: 'Shell + MEP', hint: 'Plus ducts, pipes, trays, conduit, lights, equipment', credits: 'about 100 per 1,000 sq ft' },
+  { name: 'Shell', hint: 'Walls, floors, ceilings, openings, stairs, columns, beams', credits: 'about 25 per 1,000 sq ft' },
+  { name: 'Shell + MEP', hint: 'Plus ducts, pipes, trays, conduit, lights, equipment', credits: 'about 55 per 1,000 sq ft' },
   { name: 'Civil + outdoor', hint: 'Bridges, piers, decks, barriers, gantries, site structures', credits: 'quoted per job' },
 ]
 
 const EXAMPLES: [string, string][] = [
-  ['Condo unit, 1,200 sq ft, Shell', 'about 40'],
-  ['Two-storey house, 2,400 sq ft, Shell', 'about 85'],
-  ['Office floor, 10,000 sq ft, Shell', 'about 350'],
-  ['Same floor, Shell + MEP', 'about 1,000'],
-  ['Five-storey building, 50,000 sq ft, Shell', 'about 1,750'],
+  ['Condo unit, 1,200 sq ft, Shell', 'about 65'],
+  ['Two-storey house, 2,400 sq ft, Shell', 'about 100'],
+  ['Office floor, 10,000 sq ft, Shell', 'about 250'],
+  ['Same floor, Shell + MEP', 'about 550'],
+  ['Five-storey building, 50,000 sq ft, Shell', 'about 1,250'],
+]
+
+// The five models on bim.landexsystems.com, at the credits their model work used.
+const SHOWCASE: { name: string; hint: string; href: string; credits: string }[] = [
+  { name: 'Brick cottage', hint: 'Shell', href: 'https://bim.landexsystems.com', credits: '70' },
+  { name: 'Lattice tower', hint: 'Civil + outdoor', href: 'https://bim.landexsystems.com/tower', credits: '77' },
+  { name: 'Motorway bridge', hint: 'Civil + outdoor', href: 'https://bim.landexsystems.com/bridge', credits: '107' },
+  { name: 'Timber-frame hall', hint: 'Structure', href: 'https://bim.landexsystems.com/timber-frame', credits: '164' },
+  { name: 'Plant room', hint: 'Shell + MEP, pipework and equipment', href: 'https://bim.landexsystems.com/plant-room', credits: '282' },
 ]
 
 const TERMS = [
@@ -113,6 +122,7 @@ export default function Page() {
               <a href="#plans">Plans</a>
               <a href="#credits">How credits work</a>
               <a href="#examples">Example jobs</a>
+              <a href="#showcase">Our examples</a>
             </nav>
           </header>
 
@@ -200,7 +210,8 @@ export default function Page() {
               <p className={styles.sub}>
                 Credits pay for the modelling work a job takes: more area and more detail mean more work. The estimate
                 shows before the job starts, it is held while the job runs, and you are charged what the job actually
-                used, never more than the estimate. The rates below are typical; your quote is the number that counts.
+                used, never more than the estimate. The estimate is set on the safe side, so most jobs use less than it shows.
+                The rates below are what jobs typically use.
               </p>
               <table className={styles.table}>
                 <thead>
@@ -244,6 +255,30 @@ export default function Page() {
               </table>
             </section>
           </div>
+
+          <section id="showcase" className={styles.card}>
+            <h2 className={styles.h2}>Our examples, in credits</h2>
+            <p className={styles.sub}>The five models on bim.landexsystems.com, and the credits each one used.</p>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Credits</th>
+                </tr>
+              </thead>
+              <tbody>
+                {SHOWCASE.map((x) => (
+                  <tr key={x.name}>
+                    <td>
+                      <a className={styles.rateName} href={x.href} target="_blank" rel="noopener">{x.name}</a>
+                      <span className={styles.rowHint}>{x.hint}</span>
+                    </td>
+                    <td className={styles.num}>{x.credits}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
 
           <section className={styles.terms}>
             {TERMS.map((t) => (
