@@ -10,8 +10,8 @@ const products = [
     href: '/tesseract',
     name: 'Tesseract',
     kind: 'Scan to BIM',
-    body: 'A laser scan of a building, returned as an IFC model you can check against the scan. Shell, Shell + MEP, or Civil + outdoor.',
-    meta: 'E57, LAS, LAZ in · IFC out',
+    body: 'A laser scan of a building or structure, returned as an IFC or Revit model you can check against the scan. Shell, Shell + MEP, or Civil + outdoor.',
+    meta: 'E57, LAS, LAZ in · IFC, Revit out',
   },
 ]
 

@@ -19,7 +19,7 @@ export default function Page() {
       title="Everything we return from one scan."
       lede="Scan to BIM is one thing we do. Most of what comes back from a scan is not a model at all. It is the counts, plans, measurements and answers your team would otherwise pull out of the point cloud by hand."
       href="/deliverables"
-      live={{ href: 'https://scan-service.landexsystems.com', host: 'scan-service.landexsystems.com', title: 'Every file from one construction scan, ready to download' }}
+      live={{ href: 'https://bim.landexsystems.com', host: 'bim.landexsystems.com', title: 'Five real scans, each returned as a model' }}
     >
       <h2>The files</h2>
       <p>
@@ -55,8 +55,8 @@ export default function Page() {
             <td>Surveyors, civil, planners</td>
           </tr>
           <tr>
-            <td>BIM model of the building shell</td>
-            <td><code>IFC</code>, with element schedules as <code>CSV</code></td>
+            <td>BIM model (Shell, Shell + MEP, Civil + outdoor)</td>
+            <td><code>IFC</code> or Revit, with element schedules as <code>CSV</code></td>
             <td>Scanning firms, BIM managers</td>
           </tr>
           <tr>
@@ -74,7 +74,7 @@ export default function Page() {
 
       <h2>What we need from you</h2>
       <p>
-        One scan you already have. A LiDAR point cloud, a drone capture, or a model. We take LAS, LAZ, E57 and PLY. Tell us what was captured and what you want back. The first scan goes through us so you can see the result before you commit to anything. After that you are on the platform, and it is self serve: upload, set the run up, and take what you need in about 20 minutes.
+        One scan you already have, as E57, LAS or LAZ. Tell us what was captured and what you want back. Send it to us and we will show you the result, or <a href="/tesseract/pricing">pick a plan</a> and upload it yourself. A model is usually back within an hour.
       </p>
 
       <h2>Every number is measured</h2>

@@ -11,7 +11,7 @@ import styles from './tesseract.module.css'
 
 const TITLE = 'Tesseract: scan to BIM'
 const DESCRIPTION =
-  'Tesseract by Landex turns a laser scan of a building into an IFC model, as Shell or Shell + MEP, priced before it runs and usually back within the hour.'
+  'Tesseract by Landex turns a laser scan of a building or structure into an IFC or Revit model, as Shell, Shell + MEP or Civil + outdoor, priced before it runs and usually back within an hour.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -51,7 +51,7 @@ const STEPS: [string, string][] = [
   ['Upload the scan', 'E57, LAS or LAZ, straight from the scanner or your registration software.'],
   ['Choose your settings', 'The level of detail, the part of the scan you want modelled, and anything we should know about it.'],
   ['Get a price', 'The credit estimate shows before anything runs. You are charged what it uses, never more.'],
-  ['Get the model', 'Usually delivered in under an hour. Download it right from the app.'],
+  ['Get the model', 'Usually delivered within an hour. Download it from your Landex account.'],
 ]
 export default function Page() {
   return (
@@ -68,7 +68,7 @@ export default function Page() {
             <p className={styles.tagline}>Point cloud in, BIM model out.</p>
             <p className={styles.lede}>
               Tesseract is scan to BIM from Landex. Upload a laser scan of a building or a structure, choose the level of detail, and
-              get back an IFC model, usually within the hour.
+              get back an IFC or Revit model, usually within an hour.
             </p>
             <div className={styles.actions}>
               <EmailLink className={styles.primary} topic="scan">

@@ -4,9 +4,9 @@ import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress/ScrollProgress";
 import { MailFallbackNote } from "@/components/EmailLink/EmailLink";
 
-const TITLE = "Landex Systems. Turn point clouds into answers.";
+const TITLE = "Landex Systems. Turn point clouds into BIM models and answers.";
 const DESCRIPTION =
-  "Send us a scan you already have. Get back equipment counts, floor plans, quantity takeoffs, and asset lists, then ask it anything else in plain language.";
+  "Send Landex a scan you already have. Get back an IFC or Revit model, plus the counts and measurements your team would otherwise pull out by hand.";
 
 const ORIGIN = "https://www.landexsystems.com";
 
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     url: "https://www.landexsystems.com",
     siteName: "Landex Systems",
     type: "website",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "A labeled drone-survey point cloud in the Landex viewer" }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "A motorway bridge scan with its model in the Landex viewer" }],
   },
   twitter: {
     card: "summary_large_image",

@@ -50,7 +50,7 @@ export default function Article({ eyebrow, title, lede, href, live, children }: 
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </EmailLink>
-            <p className={styles.ctaNote}>That opens an email to Allen. Attach the file or a link to it.</p>
+            <p className={styles.ctaNote}>That opens an email to Allen. Attach the file or a link to it. Or <a href="/tesseract/pricing">pick a plan</a> and upload it yourself.</p>
           </div>
 
           <nav className={styles.more} aria-label="More from Landex">

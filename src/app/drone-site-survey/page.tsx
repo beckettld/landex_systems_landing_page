@@ -31,7 +31,7 @@ export default function Page() {
 
       <h2>The example</h2>
       <p>
-        The live tile is 100 by 100 metres of a rural site captured in one drone pass, with no ground control and no labels. On that tile the system found 14 roofed structures, 8 greenhouses with 13 bays and about 1,870 square metres under cover, 7 road runs totalling 235 metres, 4 cars, a flatbed trailer and a farm cart, 13 material piles and stacks, and 11 single trees plus 7 canopy groups. All of it measured from the points, none of it traced.
+        The live tile is 100 by 100 metres of a rural site captured in one drone pass, with no ground control and no labels. On that tile we found 14 roofed structures, 8 greenhouses with 13 bays and about 1,870 square metres under cover, 7 road runs totalling 235 metres, 4 cars, a flatbed trailer and a farm cart, 13 material piles and stacks, and 11 single trees plus 7 canopy groups. All of it measured from the points, none of it traced.
       </p>
 
       <h2>Where it fits</h2>

@@ -55,7 +55,7 @@ function Examples() {
         <AnimateIn>
           <div className={styles.head}>
             <span className={styles.eyebrow}>Live examples</span>
-            <h2 className={styles.title}>Three real scans, and what came back.</h2>
+            <h2 className={styles.title}>Three live showcases, and what came back.</h2>
           </div>
         </AnimateIn>
         <StaggerContainer className={styles.grid} stagger={0.08}>

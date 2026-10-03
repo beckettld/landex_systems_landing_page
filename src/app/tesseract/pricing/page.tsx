@@ -58,7 +58,7 @@ const INCLUDED = [
   'The model over your scan, in the browser',
   'A price before every job',
   'Upload E57, LAS or LAZ',
-  'Processed instantly, usually delivered in under 1 hour',
+  'Usually delivered within an hour',
   'Email support',
   'Onboarding call',
 ]
@@ -82,7 +82,7 @@ const SHOWCASE: { name: string; hint: string; href: string; credits: string }[] 
   { name: 'Brick cottage', hint: 'Shell', href: 'https://bim.landexsystems.com', credits: '70' },
   { name: 'Lattice tower', hint: 'Civil + outdoor', href: 'https://bim.landexsystems.com/tower', credits: '77' },
   { name: 'Motorway bridge', hint: 'Civil + outdoor', href: 'https://bim.landexsystems.com/bridge', credits: '107' },
-  { name: 'Timber-frame hall', hint: 'Structure', href: 'https://bim.landexsystems.com/timber-frame', credits: '164' },
+  { name: 'Timber-frame hall', hint: 'Shell, frame only', href: 'https://bim.landexsystems.com/timber-frame', credits: '164' },
   { name: 'Plant room', hint: 'Shell + MEP, pipework and equipment', href: 'https://bim.landexsystems.com/plant-room', credits: '282' },
 ]
 
@@ -236,7 +236,7 @@ export default function Page() {
 
             <section id="examples" className={styles.card}>
               <h2 className={styles.h2}>Example jobs</h2>
-              <p className={styles.sub}>What typical jobs have cost in credits.</p>
+              <p className={styles.sub}>What typical jobs have cost in credits. Small jobs run above the per-area rate, because stairs, roofs and openings are a bigger share of a small floor.</p>
               <table className={styles.table}>
                 <thead>
                   <tr>

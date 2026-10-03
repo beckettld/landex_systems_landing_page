@@ -41,7 +41,7 @@ function Footer() {
             <p className={styles.statement}>
               We turn scans into BIM models, counts, measurements, and answers for anyone who needs to know what is in a space.
             </p>
-            <p className={styles.mono}>Scan &rarr; Labels &rarr; Answers</p>
+            <p className={styles.mono}>Scan &rarr; Model &rarr; Answers</p>
           </div>
 
           <div className={styles.cols}>

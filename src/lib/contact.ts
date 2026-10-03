@@ -17,8 +17,8 @@ const AT = String.fromCharCode(64)
 export const CONTACT_USER: ContactUser = 'allen'
 export const TEAM_USERS: ContactUser[] = ['allen', 'auddi', 'beckett']
 
-// There is no self-serve door on this site. Access to the platform comes
-// after a first scan through Allen, so every CTA is that inbox.
+// "Send us a scan" CTAs go to Allen's inbox. The self-serve path is the
+// Stripe checkout on /tesseract/pricing; the site never links the app itself.
 
 const SUBJECT: Record<ContactTopic, string> = {
   learn: 'Landex: learn more',
