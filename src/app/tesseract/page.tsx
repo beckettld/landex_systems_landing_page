@@ -21,18 +21,18 @@ export const metadata: Metadata = {
 }
 
 // The two building levels the platform sells (platform web/src/lib/survey.ts LODS) and their
-// per-area rates (api/landex_api/pricing.py RATES lod200 / lod300_mep), plus civil and outdoor
+// typical credits per area (kept equal to RATES on /tesseract/pricing), plus civil and outdoor
 // structures, which have no platform rate yet and are quoted per job.
 const LEVELS = [
   {
     name: 'Shell',
     body: 'Walls with their thickness, floors, ceilings, door and window openings, stairs, columns and beams.',
-    credits: 'about 35 credits per 1,000 sq ft',
+    credits: 'about 25 credits per 1,000 sq ft',
   },
   {
     name: 'Shell + MEP',
     body: 'Everything in Shell, plus ducts, pipes, cable trays, conduit, lights and fixed equipment.',
-    credits: 'about 100 credits per 1,000 sq ft',
+    credits: 'about 55 credits per 1,000 sq ft',
   },
   {
     name: 'Civil + outdoor',
