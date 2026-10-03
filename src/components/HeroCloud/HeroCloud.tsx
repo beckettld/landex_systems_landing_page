@@ -1,12 +1,12 @@
 "use client";
 
-// Live point-cloud viewer for the hero. Renders a decimated drone-survey tile
-// (100 x 100 m of the village site, every point carrying the inventory class
-// it was labelled with: buildings, greenhouses, roads, trees, vehicles, stored
-// material). Positions + class label only; no RGB/provenance/embeddings ship
-// to the browser; see scripts/build-hero-cloud.py. Points show in true color at rest
-// and slowly auto-rotate. When `highlight` names one or more semantic classes,
-// those points light up in their class color and grow while the rest dim.
+// Live point-cloud viewer for the hero. Renders a decimated scan where every
+// point carries the class it was labelled with (on the bridge: arch rib, deck,
+// lighting column, ...). Positions + class label only; see
+// scripts/build-hero-bridge.py. Points show white at rest and slowly
+// auto-rotate. When `highlight` names one or more classes, those points light
+// up in their class color. When `showModel` is on, the BIM model the manifest
+// points at fades in over the scan and the points step back.
 //
 // Loaded via next/dynamic({ ssr: false }) so `three` stays out of the initial
 // bundle and nothing touches WebGL on the server.
@@ -20,7 +20,12 @@ type Manifest = {
   offsets: { position: number; label: number }
   bounds: { min: number[]; max: number[]; diag: number }
   classes: { id: number; name: string; hex: string }[]
+  // camera distance (fraction of diag), slope from vertical (deg), point size, orbit target
+  view?: { dist: number; polar: number; size: number; target?: number[] }
+  model?: string
 }
+
+type Model = { groups: { kind: 'solid' | 'glass' | 'light'; p: number[]; i: number[]; c: number[] }[] }
 
 const MAX_CLASSES = 64
 
@@ -30,8 +35,10 @@ const vertexShader = /* glsl */ `
   attribute float aLabel;
   uniform vec3 uPalette[${MAX_CLASSES}];
   uniform float uActive[${MAX_CLASSES}];
+  uniform float uBoost[${MAX_CLASSES}];
   uniform float uSize;
   uniform float uScale;
+  uniform float uDim;
   varying vec3 vColor;
 
   void main() {
@@ -39,10 +46,10 @@ const vertexShader = /* glsl */ `
     float act = uActive[ci];
 
     vColor = mix(vec3(0.92), uPalette[ci], act);
-    vColor *= (1.0 + act * 0.25);
+    vColor *= (1.0 + act * 0.25) * (1.0 - uDim);
 
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
-    float boost = 1.0 + act * 1.1;
+    float boost = 1.0 + act * uBoost[ci];
     gl_PointSize = clamp(uSize * boost * uScale / -mv.z, 1.0, 9.0 * (uScale / 400.0 + 0.5));
     gl_Position = projectionMatrix * mv;
   }
@@ -73,15 +80,33 @@ const HIGHLIGHT_COLORS: Record<string, string> = {
   hedge: '#37d495',
   fence: '#ffb638',
   wall: '#8a7bff',
+  // bridge
+  arch_rib: '#ffb638',
+  deck_slab: '#37c6e0',
+  lighting_column: '#e660d8',
+  sign_gantry: '#ff6a4d',
+  pier: '#37d495',
+  pier_head: '#37d495',
+}
+
+// How much a lit class grows. Thin, sparse parts (a lamp post is a few dozen
+// aerial points) need far more than a surface to read at hero size.
+const BOOST: Record<string, number> = {
+  lighting_column: 5,
+  sign_gantry: 2.2,
 }
 
 export default function HeroCloud({
+  src = '/hero-bridge',
   highlight,
+  showModel = false,
   onReady,
   onError,
   className,
 }: {
+  src?: string
   highlight: string[]
+  showModel?: boolean
   onReady?: () => void
   onError?: () => void
   className?: string
@@ -91,6 +116,8 @@ export default function HeroCloud({
   const targetActiveRef = useRef<Float32Array>(new Float32Array(MAX_CLASSES))
   const nameToIdRef = useRef<Map<string, number>>(new Map())
   const highlightRef = useRef<string[]>(highlight)
+  const showModelRef = useRef(showModel)
+  showModelRef.current = showModel
   // Keep callbacks in refs so the init effect can run exactly once.
   const onReadyRef = useRef(onReady)
   const onErrorRef = useRef(onError)
@@ -125,8 +152,8 @@ export default function HeroCloud({
       let buf: ArrayBuffer
       try {
         const [mRes, bRes] = await Promise.all([
-          fetch('/hero-cloud/manifest.json'),
-          fetch('/hero-cloud/cloud.bin'),
+          fetch(`${src}/manifest.json`),
+          fetch(`${src}/cloud.bin`),
         ])
         if (!mRes.ok || !bRes.ok) throw new Error('hero-cloud fetch failed')
         manifest = await mRes.json()
@@ -148,6 +175,7 @@ export default function HeroCloud({
       // class name -> id, and a palette lookup by class id.
       const nameToId = new Map<string, number>()
       const palette = new Float32Array(MAX_CLASSES * 3)
+      const boost = new Float32Array(MAX_CLASSES).fill(1.1)
       const tmp = new THREE.Color()
       for (const c of manifest.classes) {
         nameToId.set(c.name, c.id)
@@ -156,6 +184,7 @@ export default function HeroCloud({
           palette[c.id * 3] = tmp.r
           palette[c.id * 3 + 1] = tmp.g
           palette[c.id * 3 + 2] = tmp.b
+          boost[c.id] = BOOST[c.name] ?? 1.1
         }
       }
       nameToIdRef.current = nameToId
@@ -188,17 +217,19 @@ export default function HeroCloud({
       container.appendChild(renderer.domElement)
 
       const scene = new THREE.Scene()
-      const camera = new THREE.PerspectiveCamera(52, w / h, 0.05, manifest.bounds.diag * 12)
       const diag = manifest.bounds.diag
+      const view = manifest.view ?? { dist: 0.68, polar: 52, size: 0.02 }
+      const camera = new THREE.PerspectiveCamera(52, w / h, diag * 0.0005, diag * 12)
       // Build frame is standard +Y up (the source y-down was flipped at export).
       // Place the camera on a halo above the room, angled gently down into it;
       // auto-rotation then sweeps that halo around the vertical axis.
       camera.up.set(0, 1, 0)
-      // The tile is wide and flat (100 m square, ~15 m tall), so come in
-      // closer and steeper than a room shell needs.
-      const dist = diag * 0.68
-      const DEFAULT_POLAR = THREE.MathUtils.degToRad(52) // from vertical
-      camera.position.set(0, dist * Math.cos(DEFAULT_POLAR), dist * Math.sin(DEFAULT_POLAR))
+      // Distance and slope come from the scene: a flat tile wants close and
+      // steep, a long span wants further back and nearer the horizon.
+      const dist = diag * view.dist
+      const DEFAULT_POLAR = THREE.MathUtils.degToRad(view.polar) // from vertical
+      const target = new THREE.Vector3(...((view.target ?? [0, 0, 0]) as [number, number, number]))
+      camera.position.set(0, dist * Math.cos(DEFAULT_POLAR), dist * Math.sin(DEFAULT_POLAR)).add(target)
 
       const geo = new THREE.BufferGeometry()
       geo.setAttribute('position', new THREE.BufferAttribute(pos, 3))
@@ -209,8 +240,10 @@ export default function HeroCloud({
         uniforms: {
           uPalette: { value: palette },
           uActive: { value: curActive },
-          uSize: { value: 0.02 },
+          uBoost: { value: boost },
+          uSize: { value: view.size },
           uScale: { value: (h * dpr) * 0.5 },
+          uDim: { value: 0 },
         },
         vertexShader,
         fragmentShader,
@@ -222,9 +255,56 @@ export default function HeroCloud({
       const points = new THREE.Points(geo, material)
       scene.add(points)
 
+      // The model loads after the scan is on screen; it stays invisible until
+      // showModel asks for it. Its data is z-up, the scene is y-up.
+      const modelMats: (THREE.Material & { opacity: number })[] = []
+      let edgeMat: THREE.LineBasicMaterial | null = null
+      let modelA = 0
+      if (manifest.model) {
+        const world = new THREE.Group()
+        world.rotation.x = -Math.PI / 2
+        scene.add(world)
+        scene.add(new THREE.AmbientLight(0xffffff, 0.55))
+        scene.add(new THREE.HemisphereLight(0xffffff, 0x9aa4b8, 0.6))
+        for (const [x, y, z, i] of [[1, 2, -0.6, 0.9], [-1, 0.4, 0.8, 0.5], [0.3, -1, 0.5, 0.45]]) {
+          const d = new THREE.DirectionalLight(0xffffff, i)
+          d.position.set(x, y, z)
+          scene.add(d)
+        }
+        fetch(manifest.model)
+          .then((r) => (r.ok ? r.json() : Promise.reject()))
+          .then((model: Model) => {
+            if (disposed) return
+            for (const g of model.groups) {
+              const mg = new THREE.BufferGeometry()
+              mg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(g.p), 3))
+              mg.setAttribute('color', new THREE.BufferAttribute(new Uint8Array(g.c), 3, true))
+              mg.setIndex(g.i)
+              const common = { vertexColors: true, side: THREE.DoubleSide, transparent: true, opacity: 0, depthWrite: false, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 }
+              const mat =
+                g.kind === 'light'
+                  ? new THREE.MeshBasicMaterial(common)
+                  : new THREE.MeshPhongMaterial({ ...common, flatShading: true, shininess: 8, specular: 0x111111 })
+              modelMats.push(mat)
+              const mesh = new THREE.Mesh(mg, mat)
+              mesh.renderOrder = 2
+              world.add(mesh)
+              if (g.kind === 'solid') {
+                const eg = new THREE.EdgesGeometry(mg, 30)
+                edgeMat = new THREE.LineBasicMaterial({ color: 0x0c0c0e, transparent: true, opacity: 0 })
+                const lines = new THREE.LineSegments(eg, edgeMat)
+                lines.renderOrder = 3
+                world.add(lines)
+              }
+              cleanups.push(() => mg.dispose())
+            }
+          })
+          .catch(() => {})
+      }
+
       const AUTO_SPEED = 0.55
       const controls = new OrbitControls(camera, renderer.domElement)
-      controls.target.set(0, 0, 0)
+      controls.target.copy(target)
       controls.enablePan = false
       controls.enableZoom = false // keep page scroll working over the canvas
       controls.enableDamping = true
@@ -301,11 +381,21 @@ export default function HeroCloud({
         last = now
 
         // Ease per-class activation toward its target for a smooth cross-fade.
-        const target = targetActiveRef.current
+        const goal = targetActiveRef.current
         const k = 1 - Math.pow(0.0025, dt) // ~time-constant, framerate independent
         for (let i = 0; i < MAX_CLASSES; i++) {
-          curActive[i] += (target[i] - curActive[i]) * k
+          curActive[i] += (goal[i] - curActive[i]) * k
         }
+
+        // Model in or out: it builds up over the scan, the points step back.
+        const wantA = showModelRef.current && modelMats.length ? 1 : 0
+        modelA += (wantA - modelA) * (1 - Math.pow(0.02, dt))
+        for (const m of modelMats) {
+          m.opacity = modelA
+          m.depthWrite = modelA > 0.95
+        }
+        if (edgeMat) edgeMat.opacity = 0.4 * modelA
+        material.uniforms.uDim.value = 0.55 * modelA
 
         // While the user isn't dragging, gently ease the vertical slope back to
         // the default and (after the delay) ramp the idle spin back in.
@@ -365,7 +455,7 @@ export default function HeroCloud({
       if (raf) cancelAnimationFrame(raf)
       for (const fn of cleanups) fn()
     }
-  }, [])
+  }, [src])
 
   return <div ref={containerRef} className={className} aria-hidden="true" />
 }

@@ -1,0 +1,119 @@
+{
+ "count": 340000,
+ "offsets": {
+  "position": 0,
+  "label": 4080000
+ },
+ "bounds": {
+  "min": [
+   -181.31399536132812,
+   -25.30299949645996,
+   -69.7979965209961
+  ],
+  "max": [
+   181.34300231933594,
+   43.779998779296875,
+   69.8499984741211
+  ],
+  "diag": 394.7083435058594
+ },
+ "classes": [
+  {
+   "id": 0,
+   "name": "none",
+   "hex": "#5a5f68"
+  },
+  {
+   "id": 1,
+   "name": "ground",
+   "hex": "#8c7a5a"
+  },
+  {
+   "id": 2,
+   "name": "water",
+   "hex": "#4a7fc4"
+  },
+  {
+   "id": 3,
+   "name": "arch_rib",
+   "hex": "#e8a06b"
+  },
+  {
+   "id": 4,
+   "name": "wind_bracing",
+   "hex": "#ec7fb8"
+  },
+  {
+   "id": 5,
+   "name": "portal_frame",
+   "hex": "#d867d8"
+  },
+  {
+   "id": 6,
+   "name": "deck_slab",
+   "hex": "#9aa3ad"
+  },
+  {
+   "id": 7,
+   "name": "edge_girder",
+   "hex": "#7a8f9e"
+  },
+  {
+   "id": 8,
+   "name": "pier",
+   "hex": "#c7a3e0"
+  },
+  {
+   "id": 9,
+   "name": "pier_head",
+   "hex": "#a98bd6"
+  },
+  {
+   "id": 10,
+   "name": "footing",
+   "hex": "#8a5bc4"
+  },
+  {
+   "id": 11,
+   "name": "barrier",
+   "hex": "#5fb86a"
+  },
+  {
+   "id": 12,
+   "name": "central_reserve",
+   "hex": "#7a8f5a"
+  },
+  {
+   "id": 13,
+   "name": "lighting_column",
+   "hex": "#d9c25a"
+  },
+  {
+   "id": 14,
+   "name": "sign_gantry",
+   "hex": "#5fd3e0"
+  },
+  {
+   "id": 15,
+   "name": "control_house",
+   "hex": "#c4b49a"
+  },
+  {
+   "id": 16,
+   "name": "equipment",
+   "hex": "#8c8a4a"
+  }
+ ],
+ "view": {
+  "dist": 1.0,
+  "polar": 66,
+  "size": 0.05,
+  "target": [
+   0,
+   6,
+   0
+  ]
+ },
+ "model": "/tesseract-scene/bridge/model.json",
+ "credit": "Scan: AHN5 (CC0)"
+}

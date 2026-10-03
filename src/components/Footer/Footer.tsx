@@ -39,7 +39,7 @@ function Footer() {
           <div className={styles.brand}>
             <img src="/assets/logo.svg" alt="Landex Systems" className={styles.logo} />
             <p className={styles.statement}>
-              We turn scans into counts, measurements, and answers for anyone who needs to know what is in a space.
+              We turn scans into BIM models, counts, measurements, and answers for anyone who needs to know what is in a space.
             </p>
             <p className={styles.mono}>Scan &rarr; Labels &rarr; Answers</p>
           </div>

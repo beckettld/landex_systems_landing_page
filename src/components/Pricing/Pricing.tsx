@@ -31,7 +31,7 @@ function Pricing() {
               That opens an email to Allen. Attach the file or a link to it.
             </p>
             <p className={styles.paths}>
-              Once you have seen it, you get the platform: upload your own scans and have answers in about 20 minutes, no one in the loop.
+              Once you have seen it, you get the platform: upload your own scans, pick what you need back, and get an IFC or Revit model checked against the scan.
             </p>
           </div>
         </AnimateIn>

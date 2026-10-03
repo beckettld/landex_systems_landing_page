@@ -11,21 +11,23 @@ const HeroCloud = dynamic(() => import('@/components/HeroCloud/HeroCloud'), {
   ssr: false,
 })
 
-// The headline swaps its object every few seconds: the outputs people
-// actually pull out of a scan by hand today.
-const OUTPUTS = ['equipment counts', 'floor plans', 'quantity takeoffs', 'asset lists', 'answers']
+// The headline swaps its object every few seconds: what people pull out of a
+// scan today, by hand. The model leads; Tesseract is the product it links to.
+const OUTPUTS = ['BIM models', 'measurements', 'asset counts', 'answers']
 
-// Each rotating question maps to the semantic classes it lights up in the live
-// scan, plus a short answer tinted to the highlight. The scan is one 100 m
-// drone-survey tile of a village site; the answers are its real inventory.
-// Class names must match those in public/hero-cloud/manifest.json.
-const QUERIES: { text: string; classes: string[]; answer: string; color: string }[] = [
-  { text: 'Count the buildings.', classes: ['building'], answer: '14 roofed structures: 5 houses, 9 sheds and annexes', color: '#ff6a4d' },
-  { text: 'How much greenhouse is on this tile?', classes: ['greenhouse'], answer: '8 greenhouses, 13 bays, 1,870 m² under cover', color: '#37c6e0' },
-  { text: 'Measure the roads.', classes: ['road'], answer: '7 runs, 235 m in total, 2.3 to 6.8 m wide', color: '#d8d8e0' },
-  { text: 'What is parked here?', classes: ['vehicle'], answer: '4 cars, a flatbed trailer, and a farm cart', color: '#e660d8' },
-  { text: 'Where is material stored?', classes: ['material'], answer: '13 piles and stacks: bagged material, tile, brick, timber', color: '#ffb638' },
-  { text: 'Count the trees.', classes: ['tree', 'tree_group'], answer: '11 single trees, 3.4 to 7.5 m tall, and 7 canopy groups', color: '#37d495' },
+// Each rotating question maps to the classes it lights up in the live scan,
+// plus a short answer tinted to the highlight. The scan is the Van Brienenoord
+// main span (open AHN5 aerial LiDAR); the answers are the saved ones from the
+// bridge scene on demo.landexsystems.com. The `model` ask fades in the
+// 233-element model /tesseract shows. Class names must match those in
+// public/hero-bridge/manifest.json.
+// `hold` keeps a settled ask on screen longer (ms); the model needs time to build up.
+const QUERIES: { text: string; classes: string[]; answer: string; color: string; model?: boolean; hold?: number }[] = [
+  { text: 'How long is the main arch span?', classes: ['arch_rib'], answer: '289.2 m, springing to springing, on each arch rib', color: '#ffb638' },
+  { text: 'Convert this scan into a 3D model.', classes: [], answer: 'Done: 233 elements, arches to lamp posts, as an IFC model', color: '#7fc4a6', model: true, hold: 5600 },
+  { text: 'How high is the road above the river?', classes: ['deck_slab'], answer: '28.6 m at the highest point of the deck', color: '#37c6e0' },
+  { text: 'How many lighting columns are there?', classes: ['lighting_column'], answer: '19 lighting columns along the span', color: '#e660d8' },
+  { text: 'How tall is the arch above the road?', classes: ['arch_rib'], answer: '38.5 m at the crown, measured from the road below it', color: '#ffb638' },
 ]
 
 // Rotating object in the headline. Fades out, swaps, fades in.
@@ -77,7 +79,7 @@ function QueryConsole({ onActiveChange }: { onActiveChange: (idx: number) => voi
     let timeout: ReturnType<typeof setTimeout>
 
     if (!deleting && text === full) {
-      timeout = setTimeout(() => setDeleting(true), 2400)
+      timeout = setTimeout(() => setDeleting(true), QUERIES[idx].hold ?? 2400)
     } else if (deleting && text === '') {
       setDeleting(false)
       setIdx((i) => (i + 1) % QUERIES.length)
@@ -156,6 +158,7 @@ function Hero() {
   const [cloudReady, setCloudReady] = useState(false)
   const [activeQuery, setActiveQuery] = useState(-1)
   const highlight = activeQuery >= 0 ? QUERIES[activeQuery].classes : []
+  const showModel = activeQuery >= 0 && !!QUERIES[activeQuery].model
 
   return (
     <section id="hero" className={styles.hero}>
@@ -169,6 +172,7 @@ function Hero() {
       <HeroCloud
         className={`${styles.heroCloudLayer} ${cloudReady ? styles.ready : ''}`}
         highlight={highlight}
+        showModel={showModel}
         onReady={() => setCloudReady(true)}
         onError={() => setCloudReady(false)}
       />
@@ -185,14 +189,17 @@ function Hero() {
           <QueryConsole onActiveChange={setActiveQuery} />
 
           <p className={styles.subheadline}>
-            Send Landex a scan you already have. Get back the counts, areas, and plans your team would otherwise pull out by hand, as PDF, DXF and CSV. Then ask it anything else in plain language.
+            Send Landex a scan you already have. Get back a BIM model as IFC or Revit, and the counts and measurements your team would otherwise pull out by hand. Then ask it anything else in plain language.
           </p>
           <div className={styles.ctaGroup}>
-            <EmailLink className={styles.primaryCta} topic="learn">
-              Learn more
+            <a className={styles.primaryCta} href="/tesseract">
+              See Tesseract
               <svg className={styles.ctaArrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
+            </a>
+            <EmailLink className={styles.secondaryCta} topic="learn">
+              Learn more
             </EmailLink>
           </div>
         </div>

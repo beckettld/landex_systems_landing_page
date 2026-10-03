@@ -32,10 +32,10 @@ const examples: {
     host: 'bim.landexsystems.com',
     kind: 'Scan to BIM',
     product: { href: '/tesseract', label: 'Tesseract' },
-    title: 'A building shell as a model.',
+    title: 'Five scans, five models.',
     src: '/examples/bim.jpg',
-    alt: 'The BIM showcase: a concrete building shell point cloud with generated slabs, walls, beams and trays drawn over it',
-    body: 'A construction-site scan rebuilt as BIM elements you can toggle against the raw points.',
+    alt: 'The BIM showcase: a brick cottage rebuilt as a Revit model with its roof, chimney, doors, windows and gutters',
+    body: 'A house, a plant room, a timber frame, a lattice tower and a motorway bridge, each rebuilt as a model you can check against its scan.',
   },
   {
     href: 'https://geospatial.landexsystems.com',
